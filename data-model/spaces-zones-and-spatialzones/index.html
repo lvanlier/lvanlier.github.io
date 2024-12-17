@@ -1,0 +1,1930 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../ifc-entities/">
+      
+      
+        <link rel="next" href="../materials/">
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.5.34">
+    
+    
+      
+        <title>Spaces, Zones and SpatialZones - d4SU</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.35f28582.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+   <link href="../../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
+    html.glightbox-open { overflow: initial; height: 100%; }
+    .gslide-title { margin-top: 0px; user-select: text; }
+    .gslide-desc { color: #666; user-select: text; }
+    .gslide-image img { background: white; }
+    .gscrollbar-fixer { padding-right: 15px; }
+    .gdesc-inner { font-size: 0.75rem; }
+    body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color);}
+    body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color);}
+    body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color);}</style> <script src="../../assets/javascripts/glightbox.min.js"></script></head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="black" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#more-on-ifc-spaces-zones-spatial-zone-and-spatial-units" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="d4SU" class="md-header__button md-logo" aria-label="d4SU" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            d4SU
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Spaces, Zones and SpatialZones
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme)" data-md-color-scheme="default" data-md-color-primary="black" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m14.3 16-.7-2h-3.2l-.7 2H7.8L11 7h2l3.2 9zM20 8.69V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12zm-9.15 3.96h2.3L12 9z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="black" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_2" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="black" data-md-color-accent="indigo"  aria-label="Switch to system preference"  type="radio" name="__palette" id="__palette_2">
+    
+      <label class="md-header__button md-icon" title="Switch to system preference" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+          <a href="javascript:void(0)" class="md-search__icon md-icon" title="Share" aria-label="Share" data-clipboard data-clipboard-text="" data-md-component="search-share" tabindex="-1">
+            
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.15c-.05.21-.08.43-.08.66 0 1.61 1.31 2.91 2.92 2.91s2.92-1.3 2.92-2.91A2.92 2.92 0 0 0 18 16.08"/></svg>
+          </a>
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../.." class="md-tabs__link">
+        
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../introduction/needs-and-case-for-action/" class="md-tabs__link">
+          
+  
+  Introduction
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../architecture/d4su-server/" class="md-tabs__link">
+          
+  
+  Architecture
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../spatial-units/" class="md-tabs__link">
+          
+  
+  Data Model
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../features/introduction/" class="md-tabs__link">
+          
+  
+  Features
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../installation/dev/" class="md-tabs__link">
+          
+  
+  Installation
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../about/" class="md-tabs__link">
+        
+  
+    
+  
+  About
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../contact/" class="md-tabs__link">
+        
+  
+    
+  
+  Contact
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="https://github.com/lvanlier/d4su-server" class="md-tabs__link">
+        
+  
+    
+  
+  GitHub
+
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="d4SU" class="md-nav__button md-logo" aria-label="d4SU" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    d4SU
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Home
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Introduction
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            Introduction
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../introduction/needs-and-case-for-action/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Needs and Case for Action
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../introduction/future-and-d4su/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    The future and the d4SU platform
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../introduction/references/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    References
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Architecture
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            Architecture
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../architecture/d4su-server/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    d4SU platform
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../architecture/references/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    References
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+      
+        
+        
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    Data Model
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            Data Model
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../spatial-units/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Spatial Units, Building Logbook and Technical Data
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ifc-entities/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Ifc entities
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Spaces, Zones and SpatialZones
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    Spaces, Zones and SpatialZones
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#introduction" class="md-nav__link">
+    <span class="md-ellipsis">
+      Introduction
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Introduction">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#spaces-in-the-spatial-structure-of-a-construction" class="md-nav__link">
+    <span class="md-ellipsis">
+      Spaces in the Spatial Structure of a construction
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#space-boundaries" class="md-nav__link">
+    <span class="md-ellipsis">
+      Space Boundaries
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#zones" class="md-nav__link">
+    <span class="md-ellipsis">
+      Zones
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#spatial-zones" class="md-nav__link">
+    <span class="md-ellipsis">
+      Spatial Zones
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#link-to-spatial-units" class="md-nav__link">
+    <span class="md-ellipsis">
+      Link to Spatial Units
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#adding-spatial-zones-to-the-ifcs" class="md-nav__link">
+    <span class="md-ellipsis">
+      Adding Spatial Zones to the IFC's
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ifcspatialzone-for-private-parts-and-common-parts" class="md-nav__link">
+    <span class="md-ellipsis">
+      IfcSpatialZone for Private Part(s) and Common Part(s)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#books" class="md-nav__link">
+    <span class="md-ellipsis">
+      Books
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../materials/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Materials
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../classifications/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Classifications
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../representations/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Representations
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../properties/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Properties and Quantities
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../data-bundle/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Data bundle
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../physical-model/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Physical Model
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../references/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    References
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Features
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            Features
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../features/introduction/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Introduction
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../features/import-and-transform/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Import an IFC and transform it to an ifcJSON
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../features/filter-the-ifcjson-model/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Filter the ifcJSON model
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../features/store-in-database/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Store the ifcJSON in the database
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../features/read-model-from-db/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Read the ifcJSON from the Database
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../features/transform-to-ifc/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Transform the ifcJSON to IFC
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../features/extract-ifc-elements-with-ifcpatch/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Extract Elements from the IFC model with IfcPatch
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../features/extract-ifc-storeys-with-ifcpatch/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Extract Storeys from the IFC model with IfcPatch
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../features/extract-spatial-unit-storey/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Extract a Storey from the Database
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../features/create-spatial-unit-spatialZone/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Create SpatialZones - Apartment or Common Parts
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../features/extract-spatial-unit-spatialZone/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Extract a SpatialZone - Apartement or Common Parts
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../features/add-properties-to-spatialZone/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Add properties to a SpatialZone
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../features/extract-the-envelope/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Extract the Envelope
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../features/convert-ifc-to-other-formats/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Convert to IFC to other formats with IfcOpenShell
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../features/conversion-from-cityjson-to-ifc/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Conversion from CityJson to IFC
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../features/create-floor-plans/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Create floor plans
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../features/import-non-ifc-model/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Import non IFC model
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../features/generate-the-ifc-model-with-IfcOpenShell/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Generate the IFC model with IfcOpenShell
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../features/references/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    References
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Installation
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            Installation
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../installation/dev/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Development
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../installation/docker/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Docker
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../about/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    About
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../contact/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Contact
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://github.com/lvanlier/d4su-server" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    GitHub
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#introduction" class="md-nav__link">
+    <span class="md-ellipsis">
+      Introduction
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Introduction">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#spaces-in-the-spatial-structure-of-a-construction" class="md-nav__link">
+    <span class="md-ellipsis">
+      Spaces in the Spatial Structure of a construction
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#space-boundaries" class="md-nav__link">
+    <span class="md-ellipsis">
+      Space Boundaries
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#zones" class="md-nav__link">
+    <span class="md-ellipsis">
+      Zones
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#spatial-zones" class="md-nav__link">
+    <span class="md-ellipsis">
+      Spatial Zones
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#link-to-spatial-units" class="md-nav__link">
+    <span class="md-ellipsis">
+      Link to Spatial Units
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#adding-spatial-zones-to-the-ifcs" class="md-nav__link">
+    <span class="md-ellipsis">
+      Adding Spatial Zones to the IFC's
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ifcspatialzone-for-private-parts-and-common-parts" class="md-nav__link">
+    <span class="md-ellipsis">
+      IfcSpatialZone for Private Part(s) and Common Part(s)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#books" class="md-nav__link">
+    <span class="md-ellipsis">
+      Books
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+<h1 id="more-on-ifc-spaces-zones-spatial-zone-and-spatial-units">More on Ifc Spaces, Zones, Spatial Zone and Spatial Units</h1>
+<h2 id="introduction">Introduction</h2>
+<h3 id="spaces-in-the-spatial-structure-of-a-construction">Spaces in the Spatial Structure of a construction</h3>
+<p>As documented in <a href="../references/#ifcspace">The official 4.3.2.0 documentation for "IFC 4.3".</a>, a space represents an area or volume bounded actually or theoretically. Spaces are areas or volumes that provide for certain <strong>functions</strong> within a building.</p>
+<p>A space is associated to a building storey (or in case of exterior spaces to a site). A space may span over several connected spaces. Therefore a space group provides for a collection of spaces included in a storey. A space can also be decomposed in parts, where each part defines a partial space. This is defined by the CompositionType attribute of the supertype IfcSpatialStructureElement which is interpreted as follow:</p>
+<ul>
+<li><em>COMPLEX</em> = space group</li>
+<li><em>ELEMENT</em> = space</li>
+<li><em>PARTIAL</em> = partial space</li>
+</ul>
+<p><a class="glightbox" href="../../assets/images/ifcspace-spatialstructure.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="IFC Space diagram" src="../../assets/images/ifcspace-spatialstructure.png" /></a></p>
+<p>In a building, a space will typically correspond to one of:</p>
+<ul>
+<li>a room (living room, kitchen, corridor, bathroom, ...)</li>
+<li>an office space</li>
+<li>a commercial surface</li>
+<li>a workshop</li>
+<li>a parking</li>
+</ul>
+<h3 id="space-boundaries">Space Boundaries</h3>
+<p>A space is delimited by physical or virtual boundaries.</p>
+<p><a class="glightbox" href="../../assets/images/ifcrelspaceboundary_physical.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="IFC Space Boundary" src="../../assets/images/ifcrelspaceboundary_physical.png" /></a></p>
+<p>As documented in <a href="../references/#ifcrelspaceboundary">The official 4.3.2.0 documentation for "IFC 4.3".</a>, space boundaries are always defined as seen from the space. In general two basic types of space boundaries are distinguished:</p>
+<ul>
+<li>1st level space boundary: defined as boundaries of the space, not taking into account any change in building element or spaces on the other side.</li>
+<li>2nd level space boundary: defined as boundary taking any change in building element or spaces on the other side into account. It can be further distinguished into<ul>
+<li><strong>2nd level type A</strong>: There is a space on the other side.</li>
+<li><strong>2nd level type B</strong>: There is a building element on the other side.</li>
+</ul>
+</li>
+</ul>
+<p>The exact definition of how space boundaries are broken down depends on the view definition, more detailed conventions on how space boundaries are decomposed can only be given at the domain or application type level.</p>
+<p>In an <strong>architectural or FM</strong> related view, a space boundary is defined totally from inside the space. This is a <strong>1st level</strong> space boundary.</p>
+<p>In a <strong>thermal view</strong>, the decomposition of the space boundary depends on the material of the providing building element and the adjacent spaces behind. This is a <strong>2nd level space</strong> boundary.</p>
+<h2 id="zones">Zones</h2>
+<p>As documented in <a href="../references/#ifczone">The official 4.3.2.0 documentation for "IFC 4.3".</a></p>
+<p>A zone is a <strong>group</strong> of <strong>spaces</strong>, <strong>partial spaces</strong> or other <strong>zones</strong>. These spaces may or may not be adjacent. A zone does not have its own shape representation.</p>
+<p>Zone structures may not be hierarchical, i.e. one individual IfcSpace may be associated with zero, one, or several IfcZone's. IfcSpace's are grouped into an IfcZone by using the objectified relationship <strong>IfcRelAssignsToGroup</strong>. For example, a zone might be used to represent an <strong>apartment</strong> as a <strong>group of spaces</strong>.
+Although the concept of Spatial Zone appears to to have more capabilities to support adminitrative processes, the IfcZone is also often considered in administrative processes as in <a href="#books">BIM/IFC-based 3D spatial model for condominium ownership: A case study of China</a></p>
+<h2 id="spatial-zones">Spatial Zones</h2>
+<p>The Spatial Zone is a relatively recent addition to IFC.</p>
+<p>As documented in <a href="../references/#ifcspatialzone">The official 4.3.2.0 documentation for "IFC 4.3".</a> a <strong>spatial zone</strong> is a non-hierarchical and potentially overlapping decomposition of the project under some <strong>functional</strong> consideration.</p>
+<p>A spatial zone might have its independent placement and shape representation.</p>
+<p>A spatial zone might be used to represent</p>
+<ul>
+<li>a <strong>thermal zone</strong></li>
+<li>a <strong>construction zone</strong></li>
+<li>a <strong>lighting zone</strong></li>
+<li>a <strong>security zone</strong></li>
+<li>a <strong>usable area zone</strong>.</li>
+</ul>
+<p>Hence <strong>functional</strong> perspective(s) also accounted for in the defined PropertySets listed hereunder and documented in <a href="../references/#ifcspatialzone">The official 4.3.2.0 documentation for "IFC 4.3".</a></p>
+<ul>
+<li>Pset_AirSideSystemInformation</li>
+<li>Pset_Risk</li>
+<li>Pset_SpaceAirHandlingDimensioning</li>
+<li>Pset_SpaceCommon</li>
+<li>Pset_SpaceCoveringRequirements</li>
+<li>Pset_SpaceFireSafetyRequirements</li>
+<li>Pset_SpaceHVACDesign</li>
+<li>Pset_SpaceLightingDesign</li>
+<li>Pset_SpaceOccupancyRequirements</li>
+<li>Pset_SpaceThermalLoad</li>
+<li>Pset_SpaceThermalLoadPHistory</li>
+<li>Pset_SpaceThermalPHistory</li>
+<li>Pset_SpatialZoneCommon</li>
+<li>Pset_ThermalLoad</li>
+<li>Pset_Tolerance</li>
+<li>Pset_Uncertainty</li>
+<li>Qto_BodyGeometryValidation</li>
+<li>Qto_SpatialZoneBaseQuantities</li>
+</ul>
+<h2 id="link-to-spatial-units">Link to Spatial Units</h2>
+<p><strong>The Spatial Zone</strong> has AEC Uses Cases as illustrated in <a href="../references/#ifcspatialzone">IFC Spatial Zone Requirements and Implementation</a>.</p>
+<p>But it also appears to be a perfect candidate to <strong>provide the bridge between IFC and the Spatial Unit</strong> of LADM and related administrative domains of registering Rights, Responsibilities and Restrictions related to building or infrastructures.
+A number of examples are provided in <a href="#books">BIM-Enabled 3D Digital Urban Land Administration</a></p>
+<p>Typically, the <strong>IfcSpatialZone</strong> will will be anchored to a root element (projet, site, building, storey, or infrastructure) with an <strong>ifcRelAggregates</strong> relationship, and collect all relevant items present in the IFC via one or more  <strong>IfcRelReferencedInSpatialStruture</strong> relationships.</p>
+<h2 id="adding-spatial-zones-to-the-ifcs">Adding Spatial Zones to the IFC's</h2>
+<p>The Spatial Zones (IfcSpatialZone) are a recent addition to the IFC specification. There are therefore not present in most IFC files.</p>
+<p>We propose to follow the specification of IFC 4 and relate the <strong>IfcSpatialZone</strong> to the other elements via the <strong>IfcRelReferencedInSpatialStructure</strong> relationship.</p>
+<p><strong>As an example</strong>, we start by relating the IfcSpatialZone with the spaces. In this way, the IfcSpatialZone relates to <strong>composing IfcSpaces</strong> which in turn embark standard products such as <strong>IfcWall, IfcSlab, IfcDoor, IfcWindow, ...</strong> via the <strong>IfcRelSpaceBoundary</strong> relationship.</p>
+<pre class="mermaid"><code>erDiagram
+    space
+    spatialZone ["spatialZone (spatialUnit) : common part, parking, private apartment, office, shop, ..."]
+    container ["building or storey"]
+    object["wall, slab, door, window,..."]
+    propertySet ["functional propertySets"]
+    container ||--o{ spatialZone : "aggregates (IfcRelAggregates)"
+    container ||--o{ space : "aggregates (IfcRelAggregates)"
+    spatialZone ||--|{ space : "referenced in spatial structure (IfcRelReferencedInSpatialStructure)"
+    container ||--|{ object : "contained in spatial structure (IfcRelContainedInSpatialStructure)"
+    space }|--|{ object : "bounded by (IfcRelSpaceBoundary)"
+    propertySet }|--|{ object : "applies to"
+    propertySet }|--|{ space : "applies to"
+    propertySet }|--|{ spatialZone : "applies to"
+</code></pre>
+<p>This is one 'recipe' for a Spatial Zone. There may be many others 'recipes' depending on the needs: collect all technical data in a Spatial Zone that shadows the Spatial Unit linked to a BAUnit (Basic Administrative Unit) and provide all the tehnical data that is needed for the administrative process at hand.</p>
+<p>All these technical data can be conveyed by ad hoc propertySets. So that they will be available for display when selecting the corresponding element in an IFC Viewer.</p>
+<h2 id="ifcspatialzone-for-private-parts-and-common-parts">IfcSpatialZone for Private Part(s) and Common Part(s)</h2>
+<p>Within buildings with appartments or mixed occupancy types, there is typically two types of Spatial Zones:</p>
+<ul>
+<li>Private parts: mostly on a storey, but possibly spanning storeys</li>
+<li>Common parts: mostly distributed across storeys</li>
+</ul>
+<p>A SpatialZone for <strong>Private part(s)</strong> will</p>
+<ul>
+<li>relate to one Storey via an <strong>IfcRelAggregates</strong> relationship: by convention, the storey is that of the main entrance</li>
+<li>relate to all other storeys they are spanning  via an <strong>IfcRelReferencedInSpatialStructure</strong></li>
+</ul>
+<p>A SpatialZone for <strong>Common parts</strong> will</p>
+<ul>
+<li>relate to the Building via an <strong>IfcRelAggregates</strong> relationship</li>
+<li>related to all other storeys via an <strong>IfcRelReferencedInSpatialStructure</strong></li>
+</ul>
+<h2 id="books">Books</h2>
+<hr />
+<p><a href="../references/#bim-enabled-urban-land-administration">BIM-Enabled 3D Digital Urban Land Administration -- New Era in Managing Cities in Rajabifard, A., et al. BIM and Urban Land Administration. 1st ed., CRC Press, 2019</a>.</p>
+<p><a href="../references/#bim-ifc-based-3d-spatial-model-for-condominium-ownership">Liu, C., Zhu, H., Li, L., Ma, J., &amp; Li, F. (2023). BIM/IFC-based 3D spatial model for condominium ownership: A case study of China. Geo-Spatial Information Science, 27(5), 1638–1656.</a></p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": ["search.suggest", "search.highlight", "search.share", "navigation.tabs", "navigation.sections", "navigation.expand", "navigation.path"], "search": "../../assets/javascripts/workers/search.07f07601.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.56dfad97.min.js"></script>
+      
+    
+  <script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});
+document$.subscribe(() => { lightbox.reload() });
+</script></body>
+</html>

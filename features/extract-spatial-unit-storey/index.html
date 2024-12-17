@@ -1,0 +1,1903 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../extract-ifc-storeys-with-ifcpatch/">
+      
+      
+        <link rel="next" href="../create-spatial-unit-spatialZone/">
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.5.34">
+    
+    
+      
+        <title>Extract a Storey from the Database - d4SU</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.35f28582.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+   <link href="../../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
+    html.glightbox-open { overflow: initial; height: 100%; }
+    .gslide-title { margin-top: 0px; user-select: text; }
+    .gslide-desc { color: #666; user-select: text; }
+    .gslide-image img { background: white; }
+    .gscrollbar-fixer { padding-right: 15px; }
+    .gdesc-inner { font-size: 0.75rem; }
+    body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color);}
+    body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color);}
+    body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color);}</style> <script src="../../assets/javascripts/glightbox.min.js"></script></head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="black" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#extract-a-storey-from-the-database" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="d4SU" class="md-header__button md-logo" aria-label="d4SU" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            d4SU
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Extract a Storey from the Database
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme)" data-md-color-scheme="default" data-md-color-primary="black" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m14.3 16-.7-2h-3.2l-.7 2H7.8L11 7h2l3.2 9zM20 8.69V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12zm-9.15 3.96h2.3L12 9z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="black" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_2" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="black" data-md-color-accent="indigo"  aria-label="Switch to system preference"  type="radio" name="__palette" id="__palette_2">
+    
+      <label class="md-header__button md-icon" title="Switch to system preference" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+          <a href="javascript:void(0)" class="md-search__icon md-icon" title="Share" aria-label="Share" data-clipboard data-clipboard-text="" data-md-component="search-share" tabindex="-1">
+            
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.15c-.05.21-.08.43-.08.66 0 1.61 1.31 2.91 2.92 2.91s2.92-1.3 2.92-2.91A2.92 2.92 0 0 0 18 16.08"/></svg>
+          </a>
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../.." class="md-tabs__link">
+        
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../introduction/needs-and-case-for-action/" class="md-tabs__link">
+          
+  
+  Introduction
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../architecture/d4su-server/" class="md-tabs__link">
+          
+  
+  Architecture
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../data-model/spatial-units/" class="md-tabs__link">
+          
+  
+  Data Model
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../introduction/" class="md-tabs__link">
+          
+  
+  Features
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../installation/dev/" class="md-tabs__link">
+          
+  
+  Installation
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../about/" class="md-tabs__link">
+        
+  
+    
+  
+  About
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../contact/" class="md-tabs__link">
+        
+  
+    
+  
+  Contact
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="https://github.com/lvanlier/d4su-server" class="md-tabs__link">
+        
+  
+    
+  
+  GitHub
+
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="d4SU" class="md-nav__button md-logo" aria-label="d4SU" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    d4SU
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Home
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Introduction
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            Introduction
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../introduction/needs-and-case-for-action/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Needs and Case for Action
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../introduction/future-and-d4su/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    The future and the d4SU platform
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../introduction/references/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    References
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Architecture
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            Architecture
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../architecture/d4su-server/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    d4SU platform
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../architecture/references/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    References
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Data Model
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            Data Model
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../data-model/spatial-units/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Spatial Units, Building Logbook and Technical Data
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../data-model/ifc-entities/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Ifc entities
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../data-model/spaces-zones-and-spatialzones/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Spaces, Zones and SpatialZones
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../data-model/materials/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Materials
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../data-model/classifications/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Classifications
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../data-model/representations/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Representations
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../data-model/properties/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Properties and Quantities
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../data-model/data-bundle/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Data bundle
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../data-model/physical-model/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Physical Model
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../data-model/references/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    References
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+      
+        
+        
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    Features
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            Features
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../introduction/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Introduction
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../import-and-transform/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Import an IFC and transform it to an ifcJSON
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../filter-the-ifcjson-model/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Filter the ifcJSON model
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../store-in-database/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Store the ifcJSON in the database
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../read-model-from-db/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Read the ifcJSON from the Database
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../transform-to-ifc/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Transform the ifcJSON to IFC
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../extract-ifc-elements-with-ifcpatch/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Extract Elements from the IFC model with IfcPatch
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../extract-ifc-storeys-with-ifcpatch/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Extract Storeys from the IFC model with IfcPatch
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Extract a Storey from the Database
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    Extract a Storey from the Database
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#extraction-of-a-storey-from-the-database" class="md-nav__link">
+    <span class="md-ellipsis">
+      Extraction of a Storey from the Database
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Extraction of a Storey from the Database">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#submit-the-processing-request" class="md-nav__link">
+    <span class="md-ellipsis">
+      Submit the processing request
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#processing" class="md-nav__link">
+    <span class="md-ellipsis">
+      Processing
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#view-with-bimcollab-of-extracted-level-1-of-duplex_a_20110907_optimized" class="md-nav__link">
+    <span class="md-ellipsis">
+      View with BIMcollab of extracted Level 1 of Duplex_A_20110907_optimized
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#view-with-openifcviewer-of-extracted-level-1-of-duplex_a_20110907_optimized" class="md-nav__link">
+    <span class="md-ellipsis">
+      View with OpenIFCViewer of extracted Level 1 of Duplex_A_20110907_optimized
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#view-with-that-open-of-extracted-level-1-of-duplex_a_20110907_optimized" class="md-nav__link">
+    <span class="md-ellipsis">
+      View with That Open of extracted Level 1 of Duplex_A_20110907_optimized
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#remarks-and-to-do" class="md-nav__link">
+    <span class="md-ellipsis">
+      Remarks and to do
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Remarks and to do">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#that-open-display-without-selecting-level-1-the-spaces-are-visible" class="md-nav__link">
+    <span class="md-ellipsis">
+      That Open display without selecting Level 1. The spaces are visible
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#that-open-display-without-selecting-level-1-toggling-the-dipslay-of-the-space-a105" class="md-nav__link">
+    <span class="md-ellipsis">
+      That Open display without selecting Level 1. Toggling the dipslay of the space A105
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#that-open-display-without-selecting-level-1-getting-into-a105-to-see-the-stairs" class="md-nav__link">
+    <span class="md-ellipsis">
+      That Open display without selecting Level 1. Getting into A105 to see the Stairs
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../create-spatial-unit-spatialZone/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Create SpatialZones - Apartment or Common Parts
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../extract-spatial-unit-spatialZone/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Extract a SpatialZone - Apartement or Common Parts
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../add-properties-to-spatialZone/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Add properties to a SpatialZone
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../extract-the-envelope/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Extract the Envelope
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../convert-ifc-to-other-formats/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Convert to IFC to other formats with IfcOpenShell
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../conversion-from-cityjson-to-ifc/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Conversion from CityJson to IFC
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../create-floor-plans/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Create floor plans
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../import-non-ifc-model/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Import non IFC model
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../generate-the-ifc-model-with-IfcOpenShell/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Generate the IFC model with IfcOpenShell
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../references/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    References
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Installation
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            Installation
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../installation/dev/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Development
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../installation/docker/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Docker
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../about/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    About
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../contact/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Contact
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://github.com/lvanlier/d4su-server" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    GitHub
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#extraction-of-a-storey-from-the-database" class="md-nav__link">
+    <span class="md-ellipsis">
+      Extraction of a Storey from the Database
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Extraction of a Storey from the Database">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#submit-the-processing-request" class="md-nav__link">
+    <span class="md-ellipsis">
+      Submit the processing request
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#processing" class="md-nav__link">
+    <span class="md-ellipsis">
+      Processing
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#view-with-bimcollab-of-extracted-level-1-of-duplex_a_20110907_optimized" class="md-nav__link">
+    <span class="md-ellipsis">
+      View with BIMcollab of extracted Level 1 of Duplex_A_20110907_optimized
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#view-with-openifcviewer-of-extracted-level-1-of-duplex_a_20110907_optimized" class="md-nav__link">
+    <span class="md-ellipsis">
+      View with OpenIFCViewer of extracted Level 1 of Duplex_A_20110907_optimized
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#view-with-that-open-of-extracted-level-1-of-duplex_a_20110907_optimized" class="md-nav__link">
+    <span class="md-ellipsis">
+      View with That Open of extracted Level 1 of Duplex_A_20110907_optimized
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#remarks-and-to-do" class="md-nav__link">
+    <span class="md-ellipsis">
+      Remarks and to do
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Remarks and to do">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#that-open-display-without-selecting-level-1-the-spaces-are-visible" class="md-nav__link">
+    <span class="md-ellipsis">
+      That Open display without selecting Level 1. The spaces are visible
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#that-open-display-without-selecting-level-1-toggling-the-dipslay-of-the-space-a105" class="md-nav__link">
+    <span class="md-ellipsis">
+      That Open display without selecting Level 1. Toggling the dipslay of the space A105
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#that-open-display-without-selecting-level-1-getting-into-a105-to-see-the-stairs" class="md-nav__link">
+    <span class="md-ellipsis">
+      That Open display without selecting Level 1. Getting into A105 to see the Stairs
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+<h1 id="extract-a-storey-from-the-database">Extract a Storey from the Database</h1>
+<h2 id="extraction-of-a-storey-from-the-database">Extraction of a Storey from the Database</h2>
+<p>Here, we work with the database and extract all the elements that are somehow part of a Spatial Unit, referred to in the code as a <strong>container</strong>. For the container, we start with a building storey.</p>
+<p>Initially, we work with Duplex_A_20110907_optimized.ifc, which has been filtered (no furnitures) and has several storeys.</p>
+<p>The target is an IFC(STEP file) that we can visualize with a standard IFC Viewer.</p>
+<h3 id="submit-the-processing-request">Submit the processing request</h3>
+<p>The extract Import is started by sending a POST with a Json Body as defined in pydantic</p>
+<div class="highlight"><pre><span></span><code><span class="k">class</span> <span class="nc">ExtractSpatialUnitInstruction</span><span class="p">(</span><span class="n">BaseModel</span><span class="p">):</span>
+    <span class="n">bundleId</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="s2">&quot;1&quot;</span>
+    <span class="n">elementType</span><span class="p">:</span> <span class="n">Literal</span><span class="p">[</span><span class="s1">&#39;IfcBuildingStorey&#39;</span><span class="p">,</span> <span class="s1">&#39;IfcZone&#39;</span><span class="p">,</span> <span class="s1">&#39;IfcSpatialZone&#39;</span><span class="p">,</span> <span class="s1">&#39;IfcSpace&#39;</span><span class="p">,</span> <span class="s1">&#39;IfcGroup&#39;</span><span class="p">]</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="s1">&#39;IfcBuildingStorey&#39;</span>
+    <span class="n">elementId</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="s1">&#39;7b7032cc-b822-417b-9aea-6429f95d6512&#39;</span>
+
+    <span class="nd">@computed_field</span><span class="p">()</span>
+    <span class="k">def</span> <span class="nf">includeRelationshipTypes</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">elementType</span> <span class="o">==</span> <span class="s1">&#39;IfcBuildingStorey&#39;</span><span class="p">:</span>
+            <span class="k">return</span> <span class="p">[</span><span class="s1">&#39;IfcRelAggregates&#39;</span><span class="p">,</span><span class="s1">&#39;IfcRelContainedInSpatialStructure&#39;</span><span class="p">,</span><span class="s1">&#39;IfcRelFillsElement&#39;</span><span class="p">,</span><span class="s1">&#39;IfcRelVoidsElement&#39;</span><span class="p">]</span>
+        <span class="k">elif</span> <span class="bp">self</span><span class="o">.</span><span class="n">elementType</span> <span class="o">==</span> <span class="s1">&#39;IfcSpatialZone&#39;</span> <span class="ow">or</span> <span class="bp">self</span><span class="o">.</span><span class="n">elementType</span> <span class="o">==</span> <span class="s1">&#39;IfcSpace&#39;</span><span class="p">:</span>
+            <span class="k">return</span> <span class="p">[</span><span class="s1">&#39;IfcRelAggregates&#39;</span><span class="p">,</span><span class="s1">&#39;IfcRelContainedInSpatialStructure&#39;</span><span class="p">,</span><span class="s1">&#39;IfcRelFillsElement&#39;</span><span class="p">,</span><span class="s1">&#39;IfcRelVoidsElement&#39;</span><span class="p">,</span><span class="s1">&#39;IfcRelSpaceBoundary&#39;</span><span class="p">,</span><span class="s1">&#39;IfcRelReferencedInSpatialStructure&#39;</span><span class="p">]</span>
+        <span class="k">elif</span> <span class="bp">self</span><span class="o">.</span><span class="n">elementType</span> <span class="o">==</span> <span class="s1">&#39;IfcZone&#39;</span> <span class="ow">or</span> <span class="bp">self</span><span class="o">.</span><span class="n">elementType</span> <span class="o">==</span> <span class="s1">&#39;IfcGroup&#39;</span><span class="p">:</span>
+            <span class="k">return</span> <span class="p">[</span><span class="s1">&#39;IfcRelAggregates&#39;</span><span class="p">,</span><span class="s1">&#39;IfcRelContainedInSpatialStructure&#39;</span><span class="p">,</span><span class="s1">&#39;IfcRelFillsElement&#39;</span><span class="p">,</span><span class="s1">&#39;IfcRelVoidsElement&#39;</span><span class="p">,</span><span class="s1">&#39;IfcRelSpaceBoundary&#39;</span><span class="p">,</span><span class="s1">&#39;IfcRelReferencedInSpatialStructure&#39;</span><span class="p">]</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">return</span> <span class="p">[</span><span class="s1">&#39;IfcRelAggregates&#39;</span><span class="p">,</span><span class="s1">&#39;IfcRelContainedInSpatialStructure&#39;</span><span class="p">,</span><span class="s1">&#39;IfcRelFillsElement&#39;</span><span class="p">,</span><span class="s1">&#39;IfcRelVoidsElement&#39;</span><span class="p">]</span>   
+</code></pre></div>
+<p>What needs to be included into <strong>includeRelationshipTypes</strong>  may be tuned to the source model data and the <strong>elementType</strong>, - here an IfcBuildingStorey</p>
+<h3 id="processing">Processing</h3>
+<p>We will use standard features of a database</p>
+<ul>
+<li>temporary table creation populated by the result of a query</li>
+<li>recursive query to find all 'descendants' of the Storey.</li>
+</ul>
+<p>The processing is outlined hereunder:</p>
+<ol>
+<li>Get the header of the bundle (all ifc's have a header); but we could also create a new one from scratch</li>
+<li>Get the container, i.e. 'Spatial Unit', e.g. the storey</li>
+<li>Get the parents of the container with respect to the <strong>IfcRelAggregates</strong> hierarchy (if the container is e.g., a storey, the parent is usually the building, then the site, then the project). We could possibly attach the selected Storey to the projet, but it's safer to have the hierarchy if relative positioning of elements is the default in the model</li>
+<li>Get all 'children elements' of the container, and their own 'children', etc. where the 'children' are the elements that are in a graph where 'parents' are the <strong>relating</strong> elements and the 'children' are the <strong>related</strong> element in a relationship and 'descent' from the container.
+For those, we will not get the propertySets, as they are not descendent of the container in the graph. This will be addressed later on.</li>
+<li>For each element that is a product, we need to get all representations if any</li>
+<li>Now that we have all elements (except propertySets), we need to look at the elements that are referenced in one of the elements that we have but are NOT already part of the elements that we have. We need to include these elements.</li>
+<li>We need to get all propertysets which are related to the container or to the elements in the container; there, the properties are the relating elements and we only need to look at properties that have a related element in the previous list of elements. The attention point is that the IfcRelDefinesByProperties will list entities that are not related to the container. We will need to prune these extra references.</li>
+<li>Now that we have all that is needed for a model, we build an ifcJSON</li>
+<li>And convert it to an IFC(Step file).</li>
+</ol>
+<h3 id="view-with-bimcollab-of-extracted-level-1-of-duplex_a_20110907_optimized">View with BIMcollab of extracted Level 1 of Duplex_A_20110907_optimized</h3>
+<p><a class="glightbox" href="../../assets/images/Duplex_A_20110907_optimized-extracted-level1.bimcollab.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="OpenIFCViewer display of extracted Level 1 of Duplex_A_20110907_optimized.ifc" src="../../assets/images/Duplex_A_20110907_optimized-extracted-level1.bimcollab.png" /></a></p>
+<p>We have the elements that we had in IfcPatch (above), but now we also have the stairs.</p>
+<p>Additionally, with the misconfigured walls in the source IFC we also gained the doors of those walls under 'Unreferenced items' .</p>
+<h3 id="view-with-openifcviewer-of-extracted-level-1-of-duplex_a_20110907_optimized">View with OpenIFCViewer of extracted Level 1 of Duplex_A_20110907_optimized</h3>
+<p><a class="glightbox" href="../../assets/images/Duplex_A_20110907_optimized-extracted-level1.ifc-openifcviewer.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="OpenIFCViewer display of extracted Level 1 of Duplex_A_20110907_optimized.ifc" src="../../assets/images/Duplex_A_20110907_optimized-extracted-level1.ifc-openifcviewer.png" /></a></p>
+<p>Compared with BIMcollab, we don't see 'Unregistered items', hence, the erroneously registered walls don't get their doors.</p>
+<h3 id="view-with-that-open-of-extracted-level-1-of-duplex_a_20110907_optimized">View with That Open of extracted Level 1 of Duplex_A_20110907_optimized</h3>
+<p>The screen capture hereunder has been obtained by selecting the Level 1 storey. In that case we miss the display of the stairs.</p>
+<p><a class="glightbox" href="../../assets/images/Duplex_A_20110907_optimized-extracted-level1.thatopen.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="That Open display of extracted Level 1 of Duplex_A_20110907_optimized.ifc" src="../../assets/images/Duplex_A_20110907_optimized-extracted-level1.thatopen.png" /></a></p>
+<h3 id="remarks-and-to-do">Remarks and to do</h3>
+<p>We can notice the difference in rendering. That Open does not show the stairs in the view of Level 1 although the stairs are present in the IFC(STEP file). That Open displays the spaces representation as such. With the opacity, it's not possible to see through. But eventually, a stair can be viewed by entering into the space that contain it (with a tricky and uneasy navigation).</p>
+<h4 id="that-open-display-without-selecting-level-1-the-spaces-are-visible">That Open display without selecting Level 1. The spaces are visible</h4>
+<p><a class="glightbox" href="../../assets/images/Duplex_A_20110907_optimized-extracted-level1-spaces.thatopen.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="That Open display of a stair in extracted Level 1 of Duplex_A_20110907_optimized.ifc" src="../../assets/images/Duplex_A_20110907_optimized-extracted-level1-spaces.thatopen.png" /></a></p>
+<h4 id="that-open-display-without-selecting-level-1-toggling-the-dipslay-of-the-space-a105">That Open display without selecting Level 1. Toggling the dipslay of the space <strong>A105</strong></h4>
+<p><a class="glightbox" href="../../assets/images/Duplex_A_20110907_optimized-extracted-level1-spaces-toggle-visibility.thatopen.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="That Open display of a stair in extracted Level 1 of Duplex_A_20110907_optimized.ifc" src="../../assets/images/Duplex_A_20110907_optimized-extracted-level1-spaces-toggle-visibility.thatopen.png" /></a></p>
+<h4 id="that-open-display-without-selecting-level-1-getting-into-a105-to-see-the-stairs">That Open display without selecting Level 1. Getting into A105 to see the <strong>Stairs</strong></h4>
+<p><a class="glightbox" href="../../assets/images/Duplex_A_20110907_optimized-extracted-level1-stair.thatopen.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="That Open display of a stair in extracted Level 1 of Duplex_A_20110907_optimized.ifc" src="../../assets/images/Duplex_A_20110907_optimized-extracted-level1-stair.thatopen.png" /></a></p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": ["search.suggest", "search.highlight", "search.share", "navigation.tabs", "navigation.sections", "navigation.expand", "navigation.path"], "search": "../../assets/javascripts/workers/search.07f07601.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.56dfad97.min.js"></script>
+      
+    
+  <script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});
+document$.subscribe(() => { lightbox.reload() });
+</script></body>
+</html>

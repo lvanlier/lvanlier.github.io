@@ -1,0 +1,2016 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../../data-model/references/">
+      
+      
+        <link rel="next" href="../import-and-transform/">
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.5.34">
+    
+    
+      
+        <title>Introduction - d4SU</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.35f28582.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+   <link href="../../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
+    html.glightbox-open { overflow: initial; height: 100%; }
+    .gslide-title { margin-top: 0px; user-select: text; }
+    .gslide-desc { color: #666; user-select: text; }
+    .gslide-image img { background: white; }
+    .gscrollbar-fixer { padding-right: 15px; }
+    .gdesc-inner { font-size: 0.75rem; }
+    body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color);}
+    body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color);}
+    body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color);}</style> <script src="../../assets/javascripts/glightbox.min.js"></script></head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="black" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#introduction" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="d4SU" class="md-header__button md-logo" aria-label="d4SU" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            d4SU
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Introduction
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme)" data-md-color-scheme="default" data-md-color-primary="black" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m14.3 16-.7-2h-3.2l-.7 2H7.8L11 7h2l3.2 9zM20 8.69V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12zm-9.15 3.96h2.3L12 9z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="black" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_2" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="black" data-md-color-accent="indigo"  aria-label="Switch to system preference"  type="radio" name="__palette" id="__palette_2">
+    
+      <label class="md-header__button md-icon" title="Switch to system preference" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+          <a href="javascript:void(0)" class="md-search__icon md-icon" title="Share" aria-label="Share" data-clipboard data-clipboard-text="" data-md-component="search-share" tabindex="-1">
+            
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.15c-.05.21-.08.43-.08.66 0 1.61 1.31 2.91 2.92 2.91s2.92-1.3 2.92-2.91A2.92 2.92 0 0 0 18 16.08"/></svg>
+          </a>
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../.." class="md-tabs__link">
+        
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../introduction/needs-and-case-for-action/" class="md-tabs__link">
+          
+  
+  Introduction
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../architecture/d4su-server/" class="md-tabs__link">
+          
+  
+  Architecture
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../data-model/spatial-units/" class="md-tabs__link">
+          
+  
+  Data Model
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="./" class="md-tabs__link">
+          
+  
+  Features
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../installation/dev/" class="md-tabs__link">
+          
+  
+  Installation
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../about/" class="md-tabs__link">
+        
+  
+    
+  
+  About
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../contact/" class="md-tabs__link">
+        
+  
+    
+  
+  Contact
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="https://github.com/lvanlier/d4su-server" class="md-tabs__link">
+        
+  
+    
+  
+  GitHub
+
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="d4SU" class="md-nav__button md-logo" aria-label="d4SU" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    d4SU
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Home
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Introduction
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            Introduction
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../introduction/needs-and-case-for-action/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Needs and Case for Action
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../introduction/future-and-d4su/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    The future and the d4SU platform
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../introduction/references/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    References
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Architecture
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            Architecture
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../architecture/d4su-server/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    d4SU platform
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../architecture/references/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    References
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Data Model
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            Data Model
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../data-model/spatial-units/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Spatial Units, Building Logbook and Technical Data
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../data-model/ifc-entities/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Ifc entities
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../data-model/spaces-zones-and-spatialzones/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Spaces, Zones and SpatialZones
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../data-model/materials/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Materials
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../data-model/classifications/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Classifications
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../data-model/representations/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Representations
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../data-model/properties/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Properties and Quantities
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../data-model/data-bundle/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Data bundle
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../data-model/physical-model/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Physical Model
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../data-model/references/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    References
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+      
+        
+        
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    Features
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            Features
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Introduction
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    Introduction
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#foreword" class="md-nav__link">
+    <span class="md-ellipsis">
+      Foreword
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#key-functional-features" class="md-nav__link">
+    <span class="md-ellipsis">
+      Key Functional Features
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#key-technical-features" class="md-nav__link">
+    <span class="md-ellipsis">
+      Key Technical Features
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#code-structure" class="md-nav__link">
+    <span class="md-ellipsis">
+      Code structure
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ifc-files" class="md-nav__link">
+    <span class="md-ellipsis">
+      Ifc Files
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#duplex_a_20110907_optimizedifc" class="md-nav__link">
+    <span class="md-ellipsis">
+      Duplex_A_20110907_optimized.ifc
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Duplex_A_20110907_optimized.ifc">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#view-of-duplex_a_20110907_optimizedifc-with-openifcviewer" class="md-nav__link">
+    <span class="md-ellipsis">
+      View of Duplex_A_20110907_optimized.ifc with OpenIFCViewer
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#view-of-duplex_a_20110907_optimizedifc-with-that-open" class="md-nav__link">
+    <span class="md-ellipsis">
+      View of Duplex_A_20110907_optimized.ifc with That Open
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#view-of-duplex_a_20110907_optimizedifc-with-bimcollab-zoom" class="md-nav__link">
+    <span class="md-ellipsis">
+      View of Duplex_A_20110907_optimized.ifc with BIMCollab zoom
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#view-of-duplex_a_20110907_optimizedifc-with-solibri-anywhere" class="md-nav__link">
+    <span class="md-ellipsis">
+      View of Duplex_A_20110907_optimized.ifc with Solibri Anywhere
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ifc-schependomlaanifc" class="md-nav__link">
+    <span class="md-ellipsis">
+      IFC Schependomlaan.ifc
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#residential-building-from-nordic-sustainable-construction-bim4lca-files" class="md-nav__link">
+    <span class="md-ellipsis">
+      Residential Building from Nordic Sustainable Construction BIM4LCA Files
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../import-and-transform/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Import an IFC and transform it to an ifcJSON
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../filter-the-ifcjson-model/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Filter the ifcJSON model
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../store-in-database/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Store the ifcJSON in the database
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../read-model-from-db/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Read the ifcJSON from the Database
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../transform-to-ifc/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Transform the ifcJSON to IFC
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../extract-ifc-elements-with-ifcpatch/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Extract Elements from the IFC model with IfcPatch
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../extract-ifc-storeys-with-ifcpatch/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Extract Storeys from the IFC model with IfcPatch
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../extract-spatial-unit-storey/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Extract a Storey from the Database
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../create-spatial-unit-spatialZone/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Create SpatialZones - Apartment or Common Parts
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../extract-spatial-unit-spatialZone/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Extract a SpatialZone - Apartement or Common Parts
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../add-properties-to-spatialZone/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Add properties to a SpatialZone
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../extract-the-envelope/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Extract the Envelope
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../convert-ifc-to-other-formats/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Convert to IFC to other formats with IfcOpenShell
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../conversion-from-cityjson-to-ifc/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Conversion from CityJson to IFC
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../create-floor-plans/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Create floor plans
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../import-non-ifc-model/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Import non IFC model
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../generate-the-ifc-model-with-IfcOpenShell/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Generate the IFC model with IfcOpenShell
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../references/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    References
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Installation
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            Installation
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../installation/dev/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Development
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../installation/docker/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Docker
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../about/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    About
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../contact/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Contact
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://github.com/lvanlier/d4su-server" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    GitHub
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#foreword" class="md-nav__link">
+    <span class="md-ellipsis">
+      Foreword
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#key-functional-features" class="md-nav__link">
+    <span class="md-ellipsis">
+      Key Functional Features
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#key-technical-features" class="md-nav__link">
+    <span class="md-ellipsis">
+      Key Technical Features
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#code-structure" class="md-nav__link">
+    <span class="md-ellipsis">
+      Code structure
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ifc-files" class="md-nav__link">
+    <span class="md-ellipsis">
+      Ifc Files
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#duplex_a_20110907_optimizedifc" class="md-nav__link">
+    <span class="md-ellipsis">
+      Duplex_A_20110907_optimized.ifc
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Duplex_A_20110907_optimized.ifc">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#view-of-duplex_a_20110907_optimizedifc-with-openifcviewer" class="md-nav__link">
+    <span class="md-ellipsis">
+      View of Duplex_A_20110907_optimized.ifc with OpenIFCViewer
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#view-of-duplex_a_20110907_optimizedifc-with-that-open" class="md-nav__link">
+    <span class="md-ellipsis">
+      View of Duplex_A_20110907_optimized.ifc with That Open
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#view-of-duplex_a_20110907_optimizedifc-with-bimcollab-zoom" class="md-nav__link">
+    <span class="md-ellipsis">
+      View of Duplex_A_20110907_optimized.ifc with BIMCollab zoom
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#view-of-duplex_a_20110907_optimizedifc-with-solibri-anywhere" class="md-nav__link">
+    <span class="md-ellipsis">
+      View of Duplex_A_20110907_optimized.ifc with Solibri Anywhere
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ifc-schependomlaanifc" class="md-nav__link">
+    <span class="md-ellipsis">
+      IFC Schependomlaan.ifc
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#residential-building-from-nordic-sustainable-construction-bim4lca-files" class="md-nav__link">
+    <span class="md-ellipsis">
+      Residential Building from Nordic Sustainable Construction BIM4LCA Files
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+<h1 id="introduction">Introduction</h1>
+<h2 id="foreword">Foreword</h2>
+<p>Because d4SU is not yet a <em>production environment</em> for <em>specific identified administrative processes</em>, the presented features are actually <em>illustrations</em> of <strong>capabilities</strong> rather that a set of <strong>product features</strong>.</p>
+<p>Features specific to the platform rely on Python tools such as <strong>IfcOpenShell-python</strong>, pandas DataFrames and Series.</p>
+<p>However, other features rely explicitely on <strong>standard SQL</strong> and other constructs that are <strong>programming language agnostic</strong>. The code is in Python but could as well be in Typescript, Rust, Java, C#, ...</p>
+<p>Currently, the support for GIS is not used.</p>
+<h2 id="key-functional-features">Key Functional Features</h2>
+<p>The following schema shows key expected features/capabilities</p>
+<pre class="mermaid"><code>block-beta
+    columns 5
+    blockArrowId1&lt;["&lt;/br&gt;1. Import a model&lt;/br&gt;from a BIM/IFC file&lt;/br&gt;&amp;nbsp;"]&gt;(right)
+    blockArrowId2&lt;["2. Filter the model and&lt;/br&gt; keep only essential&lt;/br&gt; elements for the &lt;/br&gt;use case at hand"]&gt;(right)
+    space:3
+    space:1
+    blockArrowId3&lt;["&amp;nbsp;&lt;/br&gt;3. Store the ifcJSON in&lt;/br&gt;the Database&lt;/br&gt;&amp;nbsp;"]&gt;(right)
+    blockArrowId4&lt;["4. Extract the data&lt;/br&gt;for target&lt;/br&gt; Spatial Unit(s) /&lt;/br&gt;Spatial Zone(s)"]&gt;(right)
+    blockArrowId5&lt;["&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;"]&gt;(down)
+    space:2
+    blockArrowId12&lt;["&lt;/br&gt;9. Store an ifcJSON&lt;br/&gt; for the bespoke model&lt;/br&gt;&amp;nbsp;"]&gt;(right)
+    blockArrowId10&lt;["&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;"]&gt;(right)
+    blockArrowId6&lt;["5. Enrich / Complement&lt;/br&gt;the data for the&lt;/br&gt;use case at hand"]&gt;(y)
+    blockArrowId7&lt;["6. Create a semantically&lt;/br&gt; rich 3D representation&lt;/br&gt;that can be explored&lt;/br&gt; with an IFC Viewer"]&gt;(right)
+    blockArrowId8&lt;["&lt;/br&gt;7. Import a bespoke&lt;/br&gt;non BIM/IFC model&lt;/br&gt;&amp;nbsp;"]&gt;(right)
+    blockArrowId9&lt;["&lt;/br&gt;8. Store the model&lt;/br&gt;into the database&lt;/br&gt;&amp;nbsp;"]&gt;(up)
+    space:2</code></pre>
+<p>This diagram provide a high level story board of what we want to show/validate as capabilities</p>
+<ol>
+<li>Import a BIM/IFC from an external source and transform the IFC into an ifcJSON</li>
+<li>Filter the ifcJSON while retaining only the elements that are relevant for the use case(s) at hand. In some cases, the Administrative Authority  may have detailed what is expected in the BIM/IFC. This is the case for the <a href="../references/#digital-building-permit-of-dubai">Digital Building Permit of Dubai</a> where detailed templates and instructions are provided for Archicad, Bentley OpenBuilding and Revit so that the exported BIM/IFC is fully adequate for the use of the Administrative Authority. However, this might be difficult to generalize and we start with the assumption that a single BIM/IFC will potentially be used across distinct Administrative Authorities and need to be filtered depending on the use case(s) at hand.  </li>
+<li>Store the ifcJSON into the database (PostgreSQL)</li>
+<li>Extract the data from the database for a target 'Spatial Unit' (a Building, a Storey, an Apartment, Common part(s),...), while leveraging the power of SQL, possibly complemented by other capabilities when needed.</li>
+<li>Enrich/Complement the data for the use case at hand. This means, create new groups (such as Zones, Spatial Zones or simply Groups) an create/update PropertySets. This is where <strong>external applications</strong> will highly interact with d4SU platform.</li>
+<li>Read data from the database and rebuild an ifcJSON with the relevant data and convert it to an IFC file so that standard IFC viewer can be used to navigate through the data (not just a 3D shape)</li>
+<li>Import a bespoke non BIM/IFC model (typically from a legacy system). The import will transform the legacy model into 'objects', 'representations', 'relationships' and 'propertySets'. We assume that it cannot be expected that every input will be BIM/IFC from day one or that the past can be ignored. Therefore, other models must be accounted for.</li>
+<li>Store the bespoke model into the database</li>
+<li>Create and Store an ifcJSON for the bespoke model. From there it will behave as a standard BIM model, although not suited for use by the AEC insdustry to 'construct' the represented building or part thereof. We will give an example of how simple it is to build an IFC from a model using IfcOpenShell. But practically, creating a meaningful IFC for a bespoke model will always require a development to accomodate the specifics of the model.</li>
+</ol>
+<h2 id="key-technical-features">Key Technical Features</h2>
+<p>The following schema depicts key technical features.</p>
+<pre class="mermaid"><code>flowchart LR
+    Ifc
+    Custom["Custom Model"]
+    ifcJSON
+    Other["CityJSON, LDB, glTF,..."]
+    DB[("Database")]
+    API &lt;--&gt; IfcOpenShell
+    API &lt;--&gt; SQL
+    API &lt;--&gt; ifcJSON
+    API &lt;--&gt; Graph
+    Graph &lt;--&gt; DB
+    Custom -- convert --&gt; Ifc
+    Custom -- is stored --&gt; DB
+    SQL &lt;--&gt; DB
+    IfcOpenShell --&gt; Ifc
+    Ifc &lt;-- convert --&gt; ifcJSON
+    Ifc --&gt; Other
+    Other --&gt; Ifc
+    ifcJSON &lt;-- store | retrieve --&gt; DB
+    style API fill:#148F77
+    style DB fill:#148F77</code></pre>
+<p>Technically speaking, FastAPI and Celery provide the glue to bring together the capabilities provided by the BIM/IFC ecosystem in order to cover the needs of d4SU.</p>
+<p>On the left we have the <strong>API</strong> and on the right we have the <strong>Database</strong>. Between them, different representations are activated to leverage the capabilities of IfcOpenShell (including IfcPatch, IfcConvert), IfcJSON (two-way conversion between IFC(STEP Model &amp; file) and IfcJSON (a JSON Model &amp; file)), SQL and possibly CYPHER.
+Also, different conversion tools can be enacted to produce other representations: e.g.:</p>
+<ul>
+<li>COLLADA or glTF for Google Earth, Cesium, ... (IfcConvert)</li>
+<li>CityJSON for GIS applications (IfcConvert, IfcCityJson)</li>
+<li>LBD (Linked Building Data) with <a href="../references/#ifctolbd">IFCtoLBD</a></li>
+</ul>
+<p>Complex sequences of transformations can be executed, with the help of <a href="../references/#ifcpatch">IfcPatch</a> to:</p>
+<ul>
+<li>Extract elements of the model, for instance all standards elements [Wall, Slabs, Beams, Columns, Windows, Doors, Spaces, Stairs]</li>
+<li>Split in Storeys / Levels</li>
+<li>Migrate a version, e.g from Ifc 2x3 to Ifc 4</li>
+<li>Purge Data</li>
+<li>Tesselate elements (simplify geometry rendering)</li>
+</ul>
+<p>Link to other Capabilities (examples)</p>
+<p>As more functionalities are made available, they could be leveraged by the platform. E.g., <a href="../references/#ifclca">IfcLCA</a> for Life Cycle Analysis or <a href="../references/#bim2sim">bim2sim</a> for Heating, Ventilation Air-conditioning (HVAC), Building Performance Simulation (BPS) or Computational Fluid Dynamics (CFD)</p>
+<h2 id="code-structure">Code structure</h2>
+<p>The code is availble on GitHub under /src with a specific structure</p>
+<table>
+<thead>
+<tr>
+<th>directory</th>
+<th>use</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>/web</td>
+<td>API layer</td>
+</tr>
+<tr>
+<td>/service</td>
+<td>Service layer</td>
+</tr>
+<tr>
+<td>/model</td>
+<td>Model layer; provides the models and the tables definitions</td>
+</tr>
+<tr>
+<td>/data</td>
+<td>Data layer; takes care of all that pertains to CRUD on postgreSQL or to read/write of files through PyArrow</td>
+</tr>
+<tr>
+<td>/local_module</td>
+<td>Modules from other sources (with small adjustments)</td>
+</tr>
+<tr>
+<td>/long_bg_task</td>
+<td>Base for Celery (with celery.py and task.py)</td>
+</tr>
+<tr>
+<td>/long_bg_task/Task_modules</td>
+<td>Long running background tasks (executed by a Celery Worker). By 'long running', it is meant 'with a runtime measured in hundreds of milliseconds or in seconds'</td>
+</tr>
+</tbody>
+</table>
+<h2 id="ifc-files">Ifc Files</h2>
+<p>Ifc files used for tests and explorations come from reference sources such as:</p>
+<ul>
+<li><a href="../references/#ifc-repositories">The OPENIFC MODEL REPOSITORY</a></li>
+<li><a href="../references/#ifc-repositories">The buildingSMART Sample &amp; Test Files</a></li>
+<li><a href="../references/#ifc-repositories">Karlsruhe Institute of Technology (KIT), IFC Examples</a></li>
+</ul>
+<p>The following files have been extensively used:</p>
+<ul>
+<li><a href="../references/#ifc-files-used">Duplex_A_20110907_optimized.ifc</a>; 'Autodesk Revit Architecture 2011 - 1.0','20100326_1700 (Solibri IFC Optimizer)',''); FILE_SCHEMA(('IFC2X3'));</li>
+<li><a href="../references/#ifc-files-used">IFC Schependomlaan.ifc</a>; with BREP geometry and 2ndLevel IfcRelSpaceBoundary. IFC file generated by Graphisoft ArchiCAD-64 18.0.0 NED FULL Windows version (IFC2x3 add-on version: 6000 NED FULL)</li>
+<li><a href="../references/#ifc-files-used">Duplex_M_20111024_ROOMS_AND_SPACES.ifc</a>; with BREP Geometry; 'Autodesk Revit MEP 2011 - 1.0','20100903_2115(x64)','');FILE_SCHEMA(('IFC2X3'));</li>
+<li><a href="../references/#ifc-files-used">ARK_NordicLCA_Housing_Concrete_BuildingPermit_Revit.ifc</a>; Autodesk Revit 24.0.5.432 (ENU) - IFC 24.0.5.432','');FILE_SCHEMA(('IFC4'))</li>
+</ul>
+<h2 id="duplex_a_20110907_optimizedifc">Duplex_A_20110907_optimized.ifc</h2>
+<p>The file <a href="../references/#ifc-files-used">Duplex_A_20110907_optimized.ifc</a> provides a model with many features.
+The model contains as usual a project with a building and several storeys. Also,  as usual,  there are walls, slabs, beams, doors, windows, stairs, spaces and furnishing elements. Spaces are delimited by  'IfcRelSpaceBoundary' '1stLevel' relationships that provide space delimiters such as  'walls', 'slabs', 'doors', 'windows'. Also, there are many 'IfcRelConnectsElements' that documents the connections between walls and have some side effects that must be handled.</p>
+<h3 id="view-of-duplex_a_20110907_optimizedifc-with-openifcviewer">View of Duplex_A_20110907_optimized.ifc with OpenIFCViewer</h3>
+<p><a class="glightbox" href="../../assets/images/Duplex_A_20110907_optimized.ifc-openifcviewer.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Duplex_A_20110907_optimized.ifc with OpenIFCViewer" src="../../assets/images/Duplex_A_20110907_optimized.ifc-openifcviewer.png" /></a></p>
+<h3 id="view-of-duplex_a_20110907_optimizedifc-with-that-open">View of Duplex_A_20110907_optimized.ifc with That Open</h3>
+<p><a class="glightbox" href="../../assets/images/Duplex_A_20110907_optimized.ifc-thatopen.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Duplex_A_20110907_optimized.ifc with ThatOpen" src="../../assets/images/Duplex_A_20110907_optimized.ifc-thatopen.png" /></a></p>
+<h3 id="view-of-duplex_a_20110907_optimizedifc-with-bimcollab-zoom">View of Duplex_A_20110907_optimized.ifc with BIMCollab zoom</h3>
+<p><a class="glightbox" href="../../assets/images/Duplex_A_20110907_optimized.bimcollab-zoom.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Duplex_A_20110907_optimized.ifc with ThatOpen" src="../../assets/images/Duplex_A_20110907_optimized.bimcollab-zoom.png" /></a></p>
+<h3 id="view-of-duplex_a_20110907_optimizedifc-with-solibri-anywhere">View of Duplex_A_20110907_optimized.ifc with Solibri Anywhere</h3>
+<p><a class="glightbox" href="../../assets/images/Duplex_A_20110907_optimized.solibri.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Duplex_A_20110907_optimized.ifc with Solibri Anywhere" src="../../assets/images/Duplex_A_20110907_optimized.solibri.png" /></a></p>
+<h2 id="ifc-schependomlaanifc">IFC Schependomlaan.ifc</h2>
+<p><a href="../references/#ifc-files-used">IFC Schependomlaan.ifc</a> is a typically rich (hence complex) IFC file. Among its many features it contains a <strong>SpaceBoundary2ndLevelView</strong>. Spaces are delimited by 'IfcRelSpaceBoundary' '2ndLevel' relationships that are suited for energy analysis.
+There are however some anomalies in the file. There are 10 apartments in the building, some have doors (an not windows) in the space boundary and some have windows (and not doors) in the space boundary.</p>
+<p><a class="glightbox" href="../../assets/images/IFC_Schependomlaan.bimcollab.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Duplex_A_20110907_optimized.ifc with ThatOpen" src="../../assets/images/IFC_Schependomlaan.bimcollab.png" /></a></p>
+<h2 id="residential-building-from-nordic-sustainable-construction-bim4lca-files">Residential Building from Nordic Sustainable Construction BIM4LCA Files</h2>
+<p><a href="../references/#ifc-files-used">BIM4LCA - Residential Building</a> is a recent set of IFC files with different variants published 08/2024. According to the publishing site, "In all design phases of the project, the disciplines carried out the design work solely by modelling. As a result, several model versions were produced. All the models are available to download... They are free for anyone to use under the Creative Commons license (CC BY-SA 4.0)". Spaces are delimited by 'IfcRelSpaceBoundary' '2ndLevel' relationships that are - expectedly - suited for energy analysis.</p>
+<p><a class="glightbox" href="../../assets/images/ARK_NordicLCA_Housing_Concrete_BuildingPermit_Revit.bimcollab.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="ARK_NordicLCA_Housing_Concrete_BuildingPermit_Revit.ifc with BIMcollab" src="../../assets/images/ARK_NordicLCA_Housing_Concrete_BuildingPermit_Revit.bimcollab.png" /></a></p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": ["search.suggest", "search.highlight", "search.share", "navigation.tabs", "navigation.sections", "navigation.expand", "navigation.path"], "search": "../../assets/javascripts/workers/search.07f07601.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.56dfad97.min.js"></script>
+      
+    
+  <script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});
+document$.subscribe(() => { lightbox.reload() });
+</script></body>
+</html>
