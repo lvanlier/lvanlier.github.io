@@ -1600,8 +1600,7 @@
 
 <h1 id="more-on-materials">More on Materials</h1>
 <h2 id="introduction">Introduction</h2>
-<p>We don't create entities/tables for Materials. Materials are handled in a specific way in Ifc.</p>
-<p>The link between the IfcBuildingElement (Wall, Slab, Column, Beam, Door, Window, Covering, ...) and the Materials is made via the <strong>IfcRelAssociatesMaterial</strong> relationship where the relatedObjects are the concerned IfcBuildingElement and the relatingMaterial is expanded on the relationship itself and not as a distinct elements with a GlobalId (GUID).</p>
+<p>In Ifc, the link between the IfcBuildingElement (Wall, Slab, Column, Beam, Door, Window, Covering, ...) and the Materials is made via the <strong>IfcRelAssociatesMaterial</strong> relationship where the relatedObjects are the concerned IfcBuildingElement and the relatingMaterial is expanded on the relationship itself and not as a distinct elements with a GlobalId (GUID).</p>
 <pre class="mermaid"><code>flowchart TB
     subgraph relationship
         subgraph relatingMaterial
