@@ -93,7 +93,9 @@
     
       
 
-<header class="md-header" data-md-component="header">
+  
+
+<header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
     <a href="../.." title="d4SU" class="md-header__button md-logo" aria-label="d4SU" data-md-component="logo">
       
@@ -210,14 +212,8 @@
     
   </nav>
   
-</header>
     
-    <div class="md-container" data-md-component="container">
       
-      
-        
-          
-            
 <nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
   <div class="md-grid">
     <ul class="md-tabs__list">
@@ -385,7 +381,13 @@
     </ul>
   </div>
 </nav>
-          
+    
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
         
       
       <main class="md-main" data-md-component="main">
@@ -873,6 +875,27 @@
   
   <span class="md-ellipsis">
     Physical Model
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../notes-on-ifc5/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Notes on IFC5
   </span>
   
 
@@ -1543,6 +1566,7 @@
 
 
 <h1 id="spatial-units-building-logbook-and-technical-data">Spatial Units, Building Logbook and Technical Data</h1>
+<p>Hereunder a simplified model showing the high level relationship between the Land Admnistration (LA) concepts and the AEC technical data.</p>
 <pre class="mermaid"><code>erDiagram
     LA_Party
     LA_BAUnit
@@ -1550,7 +1574,7 @@
     LA_SpatialUnit {
         externalIDType id PK
     }
-    suJunctionWithLA_su {
+    spatialUnit_JunctionWith_LA_spatialUnit {
         uuid id
         uuid spatialUnitId
         string external_id UK
@@ -1562,24 +1586,39 @@
         uuid id PK
     } 
 
-    spatialUnitBundle {
+    spatialUnitBundleUnit {
         uuid id PK
         uuid spatialUnitId FK
-        uuid dataBundle FK
+        uuid bundleId FK
+        uuid bundleUnitId FK
+    }
+
+    bundleUnit {
+        uuid5   bundleunit_id PK  "The Id as a hash of all columns except unitJson"
+        int     bundle_id "The Id of the bundle"
+        uuid    unit_id "The Id if the Object "
+        string  unitType "The type of the Object (e.g. IfcSpatiaZone)"
+        string  unitName "The name of the object (e.g. Apartment 01-09)"
+        string  relationship_type "The type of the relationship (e.g. 'IfcRelAggregates)"
+        uuid    parent_id "The Id of the Parent"
+        string  parent_type "The type of the parent (e.g. 'IfcBuildingStorey')"
+        json    unitJson "Information that is specific to the type"
     }
 
     LA_Party }|--|{ LA_RRR : ""
     LA_RRR }|--|| LA_BAUnit : ""
     LA_BAUnit }|--|{ LA_SpatialUnit : ""
     DBL_Digital_Building_LogBook ||..|{ LA_SpatialUnit : ""
-    suJunctionWithLA_su }|--|| LA_SpatialUnit : ""
-    suJunctionWithLA_su }|--|| spatialUnit : ""
-    spatialUnit ||--|{ spatialUnitBundle : ""
-    dataBundle ||--|{ spatialUnitBundle : ""</code></pre>
+    spatialUnit_JunctionWith_LA_spatialUnit }|--|| LA_SpatialUnit : ""
+    spatialUnit_JunctionWith_LA_spatialUnit }|--|| spatialUnit : ""
+    spatialUnit ||--|{ spatialUnitBundleUnit: ""
+    bundleUnit  ||--|{ spatialUnitBundleUnit: "" 
+    dataBundle ||--|{ bundleUnit: ""
+</code></pre>
 <p>LA_Party, LA_RRR, LA_BAUnit, LA_SpatialUnit and DBL_Digital_Building_LogBook are placeholders for external concepts that are highly relevant for the Use Cases supported / enabled by the D4SU platform but are not included in the scope of the  D4SU platform and supporting database.</p>
 <p>LA_Party, LA_RRR, LA_BAUnit, LA_SpatialUnit are part of the Land Administration Domain Model (LADM) <a href="https://www.iso.org/standard/81263.html">ISO 19152-1:2024</a>.</p>
 <p>The initial focus of LADM is the Cadastral Registration of LAND (with a large and diverse meaning of any 'spatial extent that is defined by RRRs [via baunit] and encompass the surface of the earth, strata, sub-strata or the marine environment'). But as noted in the <a href="../../introduction/needs-and-case-for-action/#current-state">introduction to D4SU</a>, the concept can be applied to BAUnit that are not related to the Cadastral Registration such as e.g., Energy Effiency of Buidlings or Housing Regulation.</p>
-<p>According to the its <a href="https://op.europa.eu/en/publication-detail/-/publication/cacf9ee6-06ba-11eb-a511-01aa75ed71a1/language-en">Definition</a>, the Digital Building Logbook (DBL) <em>is a common repository for all relevant building data. It facilitates transparency, trust, informed decision making and information sharing within the construction sector, among building owners and occupants, financial institutions and public authorities</em>.
+<p>According to its <a href="https://op.europa.eu/en/publication-detail/-/publication/cacf9ee6-06ba-11eb-a511-01aa75ed71a1/language-en">Definition</a>, the Digital Building Logbook (DBL) <em>is a common repository for all relevant building data. It facilitates transparency, trust, informed decision making and information sharing within the construction sector, among building owners and occupants, financial institutions and public authorities</em>.
 The <a href="https://www.ecorys.com/app/uploads/2019/02/DBL-Technical-Guidelines-for-DBLs.pdf">Technical guidelines for digital building logbooks</a> has favored options where:</p>
 <ul>
 <li>The information is “pulled” by the DBL from the data source</li>
@@ -1649,7 +1688,7 @@ The <a href="https://www.ecorys.com/app/uploads/2019/02/DBL-Technical-Guidelines
     </div>
     
     
-    <script id="__config" type="application/json">{"base": "../..", "features": ["search.suggest", "search.highlight", "search.share", "navigation.tabs", "navigation.sections", "navigation.expand", "navigation.path"], "search": "../../assets/javascripts/workers/search.6ce7567c.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    <script id="__config" type="application/json">{"base": "../..", "features": ["search.suggest", "search.highlight", "search.share", "navigation.tabs", "navigation.tabs.sticky", "navigation.path", "navigation.sections", "navigation.expand"], "search": "../../assets/javascripts/workers/search.6ce7567c.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
     
     
       <script src="../../assets/javascripts/bundle.88dd0f4e.min.js"></script>

@@ -93,7 +93,9 @@
     
       
 
-<header class="md-header" data-md-component="header">
+  
+
+<header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
     <a href="../.." title="d4SU" class="md-header__button md-logo" aria-label="d4SU" data-md-component="logo">
       
@@ -210,14 +212,8 @@
     
   </nav>
   
-</header>
     
-    <div class="md-container" data-md-component="container">
       
-      
-        
-          
-            
 <nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
   <div class="md-grid">
     <ul class="md-tabs__list">
@@ -385,7 +381,13 @@
     </ul>
   </div>
 </nav>
-          
+    
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
         
       
       <main class="md-main" data-md-component="main">
@@ -847,6 +849,30 @@
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="Introduction">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#execute-a-tessellation-during-the-ingress-flow" class="md-nav__link">
+    <span class="md-ellipsis">
+      Execute a tessellation during the ingress flow
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#execute-tessellation-or-other-transformation-on-an-as-needed-basis" class="md-nav__link">
+    <span class="md-ellipsis">
+      Execute tessellation or other transformation on an as-needed basis
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
@@ -939,6 +965,27 @@
   
   <span class="md-ellipsis">
     Physical Model
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../notes-on-ifc5/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Notes on IFC5
   </span>
   
 
@@ -1608,6 +1655,30 @@
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="Introduction">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#execute-a-tessellation-during-the-ingress-flow" class="md-nav__link">
+    <span class="md-ellipsis">
+      Execute a tessellation during the ingress flow
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#execute-tessellation-or-other-transformation-on-an-as-needed-basis" class="md-nav__link">
+    <span class="md-ellipsis">
+      Execute tessellation or other transformation on an as-needed basis
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
@@ -1655,8 +1726,10 @@
 <h1 id="representations">Representations</h1>
 <h2 id="introduction">Introduction</h2>
 <p>An <strong>IfcProduct</strong> can have a representation. The <strong>IfcRepresentationItem</strong>  conveys the representation data and can take a variety of forms that each calls for specific technical handling. Indeed we have IfcBoundingBox, IfcExtrudedAreaSolid, IfcGeometricCurveSet, IfcFaceBasedSurfaceModel, IfcMappedItem, ... to name a few.
-It will be convenient - or necessary - to reduce the variety of representations used in the IFC for the submission process.</p>
-<p>An overview of the IFC geometry is provided in <a href="#books">Building Information Modeling</a></p>
+Also <strong>Tessellation</strong> is available as of IFC4. This introduces a simple Mesh geometry where every shape is approximated by a set of non overlaping triangles.
+It will be convenient - or necessary - to reduce the variety of representations used in the IFC for the submission process. Alternatively, applying IfcOpenshell tessellation might help.
+It is worth noting that in IFC5, Mesh geometry will be at the core (base/default geometry)  </p>
+<p>An overview of the IFC geometry is provided in <a href="#books">Building Information Modeling</a>.</p>
 <pre class="mermaid"><code>flowchart TB
     IfcObject --o IfcProduct
     IfcProduct --o IfcElement
@@ -1677,7 +1750,7 @@ It will be convenient - or necessary - to reduce the variety of representations 
         IfcProductDefinitionShape --o IfcShapeRepresentation
         IfcShapeRepresentation --o IfcRepresentationItem
         IfcRepresentationItem --o IfcGeometricRepresentationItem
-        IfcGeometricRepresentationItem --o item["IfcBoundingBox,&lt;br/&gt;IfcExtrudedAreaSolid,&lt;br/&gt;IfcGeometricCurveSet,&lt;br/&gt;IfcFaceBasedSurfaceModel,&lt;br/&gt;IfcMappedItem,&lt;br/&gt;...&lt;br/&gt;"] 
+        IfcGeometricRepresentationItem --o item["IfcBoundingBox,&lt;br/&gt;IfcExtrudedAreaSolid,&lt;br/&gt;IfcGeometricCurveSet,&lt;br/&gt;IfcFaceBasedSurfaceModel,&lt;br/&gt;IfcMappedItem,&lt;br/&gt;...&lt;br/&gt;,&lt;br/&gt;Tessellation&lt;br/&gt;"] 
     end </code></pre>
 <p>In our workflow, the geometry is created in the AEC Tool and preserved along the tranformation so that it can be rendered in a standard Ifc Viewer. Up to a point, this appears as a non issue.  </p>
 <p>Ingress flow:</p>
@@ -1703,16 +1776,30 @@ It will be convenient - or necessary - to reduce the variety of representations 
 <p>There we have several possibilities to explore:</p>
 <ul>
 <li>Use IfcOpenShell Geometry in Python (Python wrapper above CGAL and OpenCascade); possibly also use the Voxelization capabilities</li>
+<li>le the geometry during the import &amp; transform</li>
 <li>Use PostGIS Geometry in the DB; PostGIS uses GEOS which can also be accessed via Shapely</li>
 <li>Use an external Tool when an Agent must perform adjustments</li>
 </ul>
 <p>Transformation flow:</p>
+<h3 id="execute-a-tessellation-during-the-ingress-flow">Execute a tessellation during the ingress flow</h3>
+<pre class="mermaid"><code>flowchart LR
+    AECTool --&gt; IFC
+    AecGeo["Create Geometry"] --&gt; AECTool 
+    IFC --&gt; Python 
+    Python --&gt; Tessellation
+    Tessellation --&gt; Python
+    Python --&gt; IfcJSON
+    IfcJSON --&gt; Python
+    Python --&gt; DB 
+    style AecGeo fill:#148F77
+    style Tessellation fill:#a14b45</code></pre>
+<h3 id="execute-tessellation-or-other-transformation-on-an-as-needed-basis">Execute tessellation or other transformation on an as-needed basis</h3>
 <pre class="mermaid"><code>flowchart TB
     DbGeom["PostGIS Geometry"]
     DbGeom --&gt; DB
     DB  -- Read IfcJSON --&gt; Python
     Python -- Store IfcJSON --&gt; DB
-    IfcGeom["IfcOpenShell Geometry"] 
+    IfcGeom["IfcOpenShell Geometry&lt;br/&gt;incl. tessellate"] 
     IfcGeom --&gt; Python 
     Python -- Export --&gt; IFC
     IFC -- Import in sub-bundle --&gt; Python
@@ -1809,7 +1896,7 @@ object {
     </div>
     
     
-    <script id="__config" type="application/json">{"base": "../..", "features": ["search.suggest", "search.highlight", "search.share", "navigation.tabs", "navigation.sections", "navigation.expand", "navigation.path"], "search": "../../assets/javascripts/workers/search.6ce7567c.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    <script id="__config" type="application/json">{"base": "../..", "features": ["search.suggest", "search.highlight", "search.share", "navigation.tabs", "navigation.tabs.sticky", "navigation.path", "navigation.sections", "navigation.expand"], "search": "../../assets/javascripts/workers/search.6ce7567c.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
     
     
       <script src="../../assets/javascripts/bundle.88dd0f4e.min.js"></script>

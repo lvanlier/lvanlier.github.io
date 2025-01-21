@@ -12,7 +12,7 @@
         <link rel="prev" href="../data-bundle/">
       
       
-        <link rel="next" href="../references/">
+        <link rel="next" href="../notes-on-ifc5/">
       
       
       <link rel="icon" href="../../assets/images/favicon.png">
@@ -93,7 +93,9 @@
     
       
 
-<header class="md-header" data-md-component="header">
+  
+
+<header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
     <a href="../.." title="d4SU" class="md-header__button md-logo" aria-label="d4SU" data-md-component="logo">
       
@@ -210,14 +212,8 @@
     
   </nav>
   
-</header>
     
-    <div class="md-container" data-md-component="container">
       
-      
-        
-          
-            
 <nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
   <div class="md-grid">
     <ul class="md-tabs__list">
@@ -385,7 +381,13 @@
     </ul>
   </div>
 </nav>
-          
+    
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
         
       
       <main class="md-main" data-md-component="main">
@@ -1048,6 +1050,27 @@
   
 </nav>
       
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../notes-on-ifc5/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Notes on IFC5
+  </span>
+  
+
+      </a>
     </li>
   
 
@@ -1931,7 +1954,7 @@
     relatedMembership }|--|| object : related
 
     bundleUnit {
-        uuid5   edge_id PK  "The Id as a hash of all columns except unitJson"
+        uuid5   bundleunit_id PK  "The Id as a hash of all columns except unitJson"
         int     bundle_id "The Id of the bundle"
         uuid    unit_id "The Id if the Object "
         string  unitType "The type of the Object (e.g. IfcSpatiaZone)"
@@ -2022,7 +2045,7 @@ It maintains a list of all files processed in relationship to the bundle.</p>
 </ul>
 <h3 id="bundle-unit">Bundle Unit</h3>
 <p>The table stores the graph structure and the groups of entities that can be referred to by a Spatial Unit, namely the Site(s), Building(s), Storey(s), Space(s), Zone(s) and Spatial Zone(s). The same unit can be present multiple times. For instance, a  'Kitchen' space may be linked to the 'Apartment' SpatialZone to which it belongs via an 'IfcRelReferencedInSpatialStructure' relationship while being also linked to the containing 'Storey' via an 'IfcRelAgreggates' relationship.</p>
-<p>The Id/PK (edge_id) is based on a hash of all columns except the unitJson (and the technical data such as 'created_at' and 'updated_at'). The idea is that an update applies to the combination of these elements, and if one of them changes it must be an 'insert' or a 'delete old' + 'insert new'.</p>
+<p>The Id/PK (bundleunit_id) is based on a hash of all columns except the unitJson (and the technical data such as 'created_at' and 'updated_at'). The idea is that an update applies to the combination of these elements, and if one of them changes it must be an 'insert' or a 'delete old' + 'insert new'.</p>
 <h3 id="spatial-unit-bundle-unit-junction-between-a-spatial-unit-and-a-bundle-unit">Spatial Unit Bundle Unit (junction between a spatial unit and a bundle unit)</h3>
 <p>Makes the junction between a Spatial Unit and a BundleIUnit.</p>
 <h3 id="bundle-membership-included-in-the-primary-key-of-elements">Bundle Membership included in the primary key of elements</h3>
@@ -2115,7 +2138,7 @@ This is more convenient for SQL based queries.</p>
     </div>
     
     
-    <script id="__config" type="application/json">{"base": "../..", "features": ["search.suggest", "search.highlight", "search.share", "navigation.tabs", "navigation.sections", "navigation.expand", "navigation.path"], "search": "../../assets/javascripts/workers/search.6ce7567c.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    <script id="__config" type="application/json">{"base": "../..", "features": ["search.suggest", "search.highlight", "search.share", "navigation.tabs", "navigation.tabs.sticky", "navigation.path", "navigation.sections", "navigation.expand"], "search": "../../assets/javascripts/workers/search.6ce7567c.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
     
     
       <script src="../../assets/javascripts/bundle.88dd0f4e.min.js"></script>

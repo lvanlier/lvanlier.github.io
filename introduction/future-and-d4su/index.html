@@ -93,7 +93,9 @@
     
       
 
-<header class="md-header" data-md-component="header">
+  
+
+<header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
     <a href="../.." title="d4SU" class="md-header__button md-logo" aria-label="d4SU" data-md-component="logo">
       
@@ -210,14 +212,8 @@
     
   </nav>
   
-</header>
     
-    <div class="md-container" data-md-component="container">
       
-      
-        
-          
-            
 <nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
   <div class="md-grid">
     <ul class="md-tabs__list">
@@ -385,7 +381,13 @@
     </ul>
   </div>
 </nav>
-          
+    
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
         
       
       <main class="md-main" data-md-component="main">
@@ -635,6 +637,15 @@
   <a href="#initiatives-that-rely-on-bimifc-or-promote-bimifc-in-administrative-processes" class="md-nav__link">
     <span class="md-ellipsis">
       Initiatives that rely on BIM/IFC or promote BIM/IFC in administrative processes
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-future-of-ifc-with-ifc5" class="md-nav__link">
+    <span class="md-ellipsis">
+      The future of IFC with IFC5
     </span>
   </a>
   
@@ -999,6 +1010,27 @@
   
   <span class="md-ellipsis">
     Physical Model
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../data-model/notes-on-ifc5/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Notes on IFC5
   </span>
   
 
@@ -1749,6 +1781,15 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#the-future-of-ifc-with-ifc5" class="md-nav__link">
+    <span class="md-ellipsis">
+      The future of IFC with IFC5
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#books" class="md-nav__link">
     <span class="md-ellipsis">
       Books
@@ -1912,6 +1953,36 @@ This documentation site provides information on the architecture, the data model
 <h2 id="initiatives-that-rely-on-bimifc-or-promote-bimifc-in-administrative-processes">Initiatives that rely on BIM/IFC or promote BIM/IFC in administrative processes</h2>
 <p>There is much to say on that. The following document provides in a single place a lot of information:</p>
 <p><a href="../references/#accord">ACCORD - Automated Compliance Checks for Construction, Renovation or Demolition Works - Landscape Review Report - 2023</a></p>
+<h2 id="the-future-of-ifc-with-ifc5">The future of IFC with IFC5</h2>
+<p>IFC is a mature standard, managed by <a href="../references/#buildingsmart">buildingSMART</a>.
+The first version appeared in 1996 (IFC1.5.1). IFC2X3 was submitted to ISO and published in 2008.
+IFC 4.0 was released in 2013.
+The current version is IFC 4.3.2 (aka IFC4X3 ADD2) (2024) which is also an <a href="../references/#ifc4x3add2">ISO Standard</a>.</p>
+<p><a href="../references/#ifc4x3add2-documentation">Full documentation of IFC 4.3.2</a> is available on the web.</p>
+<p><a href="../references/#ifc5-development">IFC5</a> aims to be a better version of IFC, without the limitations of the STEP format.  </p>
+<ul>
+<li>IFC5 uses concepts from USD (<a href="../references/#usd">Universal Scene Description</a>): Def, Class, Over, Inherits, and some others.<ul>
+<li>Def (<a href="https://openusd.org/release/glossary.html#def">https://openusd.org/release/glossary.html#def</a>): is a way to place / instantiate something.</li>
+<li>Class (<a href="https://openusd.org/release/glossary.html#class">https://openusd.org/release/glossary.html#class</a>): is something that is abstract but can be instantiated. Similar to the 'Type' objects IFC 2x3 and 4.x have.</li>
+<li>Over (<a href="https://openusd.org/release/glossary.html#usdglossary-over">https://openusd.org/release/glossary.html#usdglossary-over</a>): is a way to 'overlay' data over other data. This is a way to extend/add data to objects of yourself and others.</li>
+<li>Inherits (<a href="https://openusd.org/release/glossary.html#usdglossary-inherits">https://openusd.org/release/glossary.html#usdglossary-inherits</a>): A way to add data to your object.</li>
+</ul>
+</li>
+<li>IFC5 foster <strong>composability</strong>. Different teams can work independently on different parts of the building or infrastruction definition. In  USD, this is embodied in <strong>layers</strong>. In IFC5 layers are materialized as files; this means that a buidling or infrastructure can be represented by an ordered sequence of file that each contain a number of  components and characteristics.</li>
+<li>Core representation is based on the MESH geometry, which is simple and efficient</li>
+<li>The format is JSON</li>
+<li>IFC5 borrows concepts and capabilities from USD, but is not USD and has its proper grammar.</li>
+</ul>
+<p>IFC5 is not yet a standard and is still evolving. More information is available on the <a href="../references/#ifc5-development">IFC5 developmnt site</a>.
+However, <strong>composability</strong> is most probably there to stay. This will enable to decompose an IFC in an orderly sequence of files depending on the need. For instance, a decomposition might possibly be:</p>
+<ul>
+<li>A first file contains the base structure</li>
+<li>A second file contains all the HVAC systems</li>
+<li>A third file contains the common spatial parts</li>
+<li>A series of files provide the details of each of the private spatial parts.</li>
+</ul>
+<p>But there is no guarantee that this will happen: IFC5 is in development, meaning that most things are subjected to change. 
+Clearly, d4SU will follow on IFC5, from now on and as it reaches maturity.</p>
 <h2 id="books">Books</h2>
 <hr />
 <p><a href="../references/#books">Rajabifard, A., et al. BIM and Urban Land Administration. 1st ed., CRC Press, 2019</a></p>
@@ -1962,7 +2033,7 @@ This documentation site provides information on the architecture, the data model
     </div>
     
     
-    <script id="__config" type="application/json">{"base": "../..", "features": ["search.suggest", "search.highlight", "search.share", "navigation.tabs", "navigation.sections", "navigation.expand", "navigation.path"], "search": "../../assets/javascripts/workers/search.6ce7567c.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    <script id="__config" type="application/json">{"base": "../..", "features": ["search.suggest", "search.highlight", "search.share", "navigation.tabs", "navigation.tabs.sticky", "navigation.path", "navigation.sections", "navigation.expand"], "search": "../../assets/javascripts/workers/search.6ce7567c.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
     
     
       <script src="../../assets/javascripts/bundle.88dd0f4e.min.js"></script>

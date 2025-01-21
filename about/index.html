@@ -93,7 +93,9 @@
     
       
 
-<header class="md-header" data-md-component="header">
+  
+
+<header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
     <a href=".." title="d4SU" class="md-header__button md-logo" aria-label="d4SU" data-md-component="logo">
       
@@ -210,14 +212,8 @@
     
   </nav>
   
-</header>
     
-    <div class="md-container" data-md-component="container">
       
-      
-        
-          
-            
 <nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
   <div class="md-grid">
     <ul class="md-tabs__list">
@@ -385,7 +381,13 @@
     </ul>
   </div>
 </nav>
-          
+    
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
         
       
       <main class="md-main" data-md-component="main">
@@ -860,6 +862,27 @@
   
   <span class="md-ellipsis">
     Physical Model
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../data-model/notes-on-ifc5/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Notes on IFC5
   </span>
   
 
@@ -1540,10 +1563,10 @@
 
 
 <h1 id="about-d4su">About d4SU</h1>
-<p>Climate change and energy challenges require drastic improvements in all aspects relating to the life cycle of Buildings and Infrastructures. To cope with the challenges, and meet the climate objectives for 2050, numerous initiatives have promoted the evaluation of building and insfrastructure along indicators such as the Life Cycle Assessment (LCA), the Energy Performance Certificate of Buildings (EPC), the Reuse Potential Indicator (RPI) and the consitent aggregation of data in the Building LogBook or Passport, ... with a proliferation of distinct techniques and tools that each collect data which is already available in the AEC data and can be provided in the standard exchange format of the industry, namely Industry Foundation Classes (IFC).</p>
-<p>As I worked on some of these subjects (Building LogBook, Urban Permit, EPC, ...), the gap between the AEC industry and administrative processes was striking. Despite the existence of an extensive litterature on the use of IFC for the support of the administrative processes, adoption of IFC as a priviledge source of technical data for Buildings and Infrastructure remained scarce. One of the possible cause could that IFC is available as a file that must be processed by specific programs and is not directly legible. </p>
+<p>Climate change and energy challenges require drastic improvements in all aspects relating to the life cycle of Buildings and Infrastructures. To cope with the challenges, and meet the climate objectives for 2050, numerous initiatives have promoted the evaluation of buildings and infrastructures along indicators such as the Life Cycle Assessment (LCA), the Energy Performance Certificate of Buildings (EPC), the Reuse Potential Indicator (RPI) and the consistent aggregation of data in the Building LogBook or Passport, ... with a proliferation of distinct techniques and tools that each collect data which is already available in the AEC data and can be provided in the standard exchange format of the industry, namely Industry Foundation Classes (IFC).</p>
+<p>As I worked on some of these subjects (Building LogBook, Urban Permit, EPC, ...), the gap between the AEC industry and administrative processes was striking. Despite the existence of an extensive litterature on the use of IFC for the support of the administrative processes, adoption of IFC as a priviledge source of technical data for Buildings and Infrastructure remained scarce. One of the possible cause could that IFC is available as a file that must be processed by specific programs and is not directly legible (this will change with IFC5).</p>
 <p>There has been several attempts to store the IFC in a database while preserving the complex structure of the data. This is all fine but does not bridge the gap between the AEC and the administrative monitoring processes. There could therefore be a place for a platform that can process IFC and make the information available in a standard database (PostgreSQL) using a simple physical data model that can be accessed with SQL. This would potentially create a basis for a <strong>Single Source of Truth</strong> for technical data for Buildings and Infrastructures, with a seamless integration with other aspects as well.</p>
-<p>This is precisely what d4SU is aiming at. IFC files are processed, transformed in the ifcJSON format and stored in a relatively simple physical model. From there an IFC file can always be generated where needed to support rich 3D Visualization. </p>
+<p>This is precisely what d4SU is aiming at. IFC2X3 and IFC4 files are processed, transformed in the ifcJSON format and stored in a relatively simple physical model. From there an IFC4 file can always be generated where needed to support rich 3D Visualization.</p>
 <p>The platform is based on scalable tools that could support a production deployment, but the application remains currently at an exploratory level.</p>
 <p>Although there remains significant work to be done, there are already positive results:</p>
 <ul>
@@ -1551,6 +1574,8 @@
 <li>the ifcJSON format is very close to IFC and easy to use with PostgreSQL JSON handling</li>
 <li>while SQL can be taxed as 'verbose', it is nevertherless very efficient, combining simplicity and performance.</li>
 </ul>
+<p>D4SU started in 2024, when IFC5 was taking shape, but was not yet a standard with appropriate implementations and tooling.</p>
+<p>So, there will remain the challenge of integrating IFC5, from now on and as it reaches maturity.</p>
 
 
 
@@ -1597,7 +1622,7 @@
     </div>
     
     
-    <script id="__config" type="application/json">{"base": "..", "features": ["search.suggest", "search.highlight", "search.share", "navigation.tabs", "navigation.sections", "navigation.expand", "navigation.path"], "search": "../assets/javascripts/workers/search.6ce7567c.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    <script id="__config" type="application/json">{"base": "..", "features": ["search.suggest", "search.highlight", "search.share", "navigation.tabs", "navigation.tabs.sticky", "navigation.path", "navigation.sections", "navigation.expand"], "search": "../assets/javascripts/workers/search.6ce7567c.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
     
     
       <script src="../assets/javascripts/bundle.88dd0f4e.min.js"></script>

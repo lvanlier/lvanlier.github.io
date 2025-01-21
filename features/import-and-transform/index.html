@@ -81,7 +81,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#import-an-ifc-and-transform-it-to-an-ifcjson" class="md-skip">
+        <a href="#import-an-ifc2x3-ifc4-or-ifc4x3-and-transform-it-to-an-ifcjson" class="md-skip">
           Skip to content
         </a>
       
@@ -93,7 +93,9 @@
     
       
 
-<header class="md-header" data-md-component="header">
+  
+
+<header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
     <a href="../.." title="d4SU" class="md-header__button md-logo" aria-label="d4SU" data-md-component="logo">
       
@@ -210,14 +212,8 @@
     
   </nav>
   
-</header>
     
-    <div class="md-container" data-md-component="container">
       
-      
-        
-          
-            
 <nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
   <div class="md-grid">
     <ul class="md-tabs__list">
@@ -385,7 +381,13 @@
     </ul>
   </div>
 </nav>
-          
+    
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
         
       
       <main class="md-main" data-md-component="main">
@@ -860,6 +862,27 @@
   
   <span class="md-ellipsis">
     Physical Model
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../data-model/notes-on-ifc5/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Notes on IFC5
   </span>
   
 
@@ -1706,9 +1729,9 @@
                   
 
 
-<h1 id="import-an-ifc-and-transform-it-to-an-ifcjson">Import an IFC and transform it to an ifcJSON</h1>
+<h1 id="import-an-ifc2x3-ifc4-or-ifc4x3-and-transform-it-to-an-ifcjson">Import an IFC2X3, IFC4 or IFC4X3 and transform it to an ifcJSON</h1>
 <p style="color:#148F77">
-The capability which is demonstrated here is simple: we can import an IFC (Step file) from a remote source and tranform it to a ifcJSON that will be available for the next steps in a straight-through processing manner
+The capability which is demonstrated here is simple: we can import an IFC (Step file) from a remote source and tranform it to an ifcJSON that will be available for the next steps in a straight-through processing manner
 </p>
 
 <h2 id="submit-the-processing-request">Submit the processing request</h2>
@@ -1720,7 +1743,8 @@ The capability which is demonstrated here is simple: we can import an IFC (Step 
 <span class="k">class</span> <span class="nc">ImportInstruction</span><span class="p">(</span><span class="n">BaseModel</span><span class="p">):</span>
     <span class="n">sourceFileURL</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="s2">&quot;http://localhost:8002/IFC_SOURCE_FILES/Duplex_A_20110907_optimized.ifc&quot;</span>
     <span class="n">modelType</span><span class="p">:</span> <span class="n">Literal</span><span class="p">[</span><span class="s1">&#39;ifc&#39;</span><span class="p">]</span>
-    <span class="n">migrateSchema</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">False</span>
+    <span class="n">migrateSchema</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">True</span>
+    <span class="n">tessellate</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">True</span>
     <span class="n">spatialUnitId</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="s2">&quot;5f2d17b0-43fb-445d-9c67-7dafb3292c33&quot;</span>
     <span class="n">parentBundleId</span> <span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>  
     <span class="n">bundleId</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>
@@ -1736,6 +1760,7 @@ The capability which is demonstrated here is simple: we can import an IFC (Step 
 <li>default values that must be adjusted to your specific case</li>
 <li>the filter (more on that in <strong>filter the model</strong>)</li>
 <li>the option to migrate the schema in the IFC file. This applies only to the migration from IFC2X3 to IFC4. There is no migration for IFC schema IFC4 and IFC4X3 and the value of migrateSchema will be ignored</li>
+<li>the option to tessellate the representation of the products (IfcWall, IfcSlab, ...). To be tessellated, an IFC2X3 must also be migrated to IFC4 (migrateSchema = True)</li>
 </ul>
 <p>For a new primary import, the parentBundleId and the bundleId must be None, i.e. removed from the request.</p>
 <p><a class="glightbox" href="../../assets/images/swagger-ifc-import.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Swagger for import on /docs" src="../../assets/images/swagger-ifc-import.png" /></a></p>
@@ -1753,9 +1778,9 @@ The capability which is demonstrated here is simple: we can import an IFC (Step 
     bundleJournal
     spatialUnit
     bundleUnit
-    spatialUnitBundle
-    spatialUnitBundle --o bundleUnit
-    spatialUnitBundle --o spatialUnit
+    spatialUnitBundleUnit
+    spatialUnitBundleUnit --o bundleUnit
+    spatialUnitBundleUnit --o spatialUnit
     bundle --o bundleUnit
     bundle --o bundleJournal</code></pre>
 <p>The database is updated with:</p>
@@ -1763,14 +1788,21 @@ The capability which is demonstrated here is simple: we can import an IFC (Step 
 <li>an entry in the bundle table</li>
 <li>an entry in the bundleJournal table</li>
 <li>an entry in the bundleUnit as a root entity (the project)</li>
-<li>an entry in the spatialUnitBundle table</li>
+<li>an entry in the spatialUnitBundleUnit table</li>
 </ul>
 <h2 id="issues-will-need-a-follow-up">Issues (will need a follow-up)</h2>
-<ul>
-<li>Error with <strong>IfcExternalReference</strong> not supported. When present, I get the following error:
- 'AttributeError("entity instance of type 'IFC4.IfcExternalReference' has no attribute 'wrappedValue'")</li>
-<li>with NO_INVERSE = False for LARGE_MODEL_20210219Architecture.ifc, the program got stuck somewhere. I stopped after 23m 53.2s</li>
-</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Tessellate create orphan representations: tessellated representations are created but without a ref to their globalId.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Error with <strong>IfcExternalReference</strong> not supported. When present, I get the following error: 'AttributeError("entity instance of type 'IFC4.IfcExternalReference' has no attribute 'wrappedValue'")</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>with NO_INVERSE = False for LARGE_MODEL_20210219Architecture.ifc, the program got stuck somewhere. I stopped after 23m 53.2s</p>
+</div>
 
 
 
@@ -1817,7 +1849,7 @@ The capability which is demonstrated here is simple: we can import an IFC (Step 
     </div>
     
     
-    <script id="__config" type="application/json">{"base": "../..", "features": ["search.suggest", "search.highlight", "search.share", "navigation.tabs", "navigation.sections", "navigation.expand", "navigation.path"], "search": "../../assets/javascripts/workers/search.6ce7567c.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    <script id="__config" type="application/json">{"base": "../..", "features": ["search.suggest", "search.highlight", "search.share", "navigation.tabs", "navigation.tabs.sticky", "navigation.path", "navigation.sections", "navigation.expand"], "search": "../../assets/javascripts/workers/search.6ce7567c.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
     
     
       <script src="../../assets/javascripts/bundle.88dd0f4e.min.js"></script>
