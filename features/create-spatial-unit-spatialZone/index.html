@@ -1217,6 +1217,16 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
+  <a href="#create-spatialzones-for-ifc-schependomlaan" class="md-nav__link">
+    <span class="md-ellipsis">
+      Create SpatialZones for IFC Schependomlaan
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Create SpatialZones for IFC Schependomlaan">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
   <a href="#step-1-selection-of-all-spaces-and-csv-export" class="md-nav__link">
     <span class="md-ellipsis">
       Step 1: Selection of all spaces and csv export
@@ -1238,6 +1248,29 @@
   <a href="#step-3-the-csv-with-the-spatialzones-is-submitted-via-a-request" class="md-nav__link">
     <span class="md-ellipsis">
       Step 3: The csv with the SpatialZones is submitted via a request
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#create-spatialzones-for-duplex_a_20110907_optimized" class="md-nav__link">
+    <span class="md-ellipsis">
+      Create SpatialZones for Duplex_A_20110907_optimized
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#view-of-duplex_a_20110907_optimizedifc-with-solibri-anywhere" class="md-nav__link">
+    <span class="md-ellipsis">
+      View of Duplex_A_20110907_optimized.ifc with Solibri Anywhere
     </span>
   </a>
   
@@ -1701,6 +1734,16 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
+  <a href="#create-spatialzones-for-ifc-schependomlaan" class="md-nav__link">
+    <span class="md-ellipsis">
+      Create SpatialZones for IFC Schependomlaan
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Create SpatialZones for IFC Schependomlaan">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
   <a href="#step-1-selection-of-all-spaces-and-csv-export" class="md-nav__link">
     <span class="md-ellipsis">
       Step 1: Selection of all spaces and csv export
@@ -1722,6 +1765,29 @@
   <a href="#step-3-the-csv-with-the-spatialzones-is-submitted-via-a-request" class="md-nav__link">
     <span class="md-ellipsis">
       Step 3: The csv with the SpatialZones is submitted via a request
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#create-spatialzones-for-duplex_a_20110907_optimized" class="md-nav__link">
+    <span class="md-ellipsis">
+      Create SpatialZones for Duplex_A_20110907_optimized
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#view-of-duplex_a_20110907_optimizedifc-with-solibri-anywhere" class="md-nav__link">
+    <span class="md-ellipsis">
+      View of Duplex_A_20110907_optimized.ifc with Solibri Anywhere
     </span>
   </a>
   
@@ -1811,8 +1877,10 @@
 <h2 id="create-the-spatialzone">Create the SpatialZone</h2>
 <p>Before we can extract the SpatialZone, we need to have one. We could expect that this is readily available. It would be fine indeed. But even if that would be the case, say for the Building Permit or for the Cadaster Registration, there would be cases where the SpatialZone should be created on an ad hoc basis to respond to specific needs.</p>
 <p>As suggested in <a href="../../data-model/spaces-zones-and-spatialzones/#spatial-zones">Data Model Spaces, Zones and SpatialZones</a> a SpatialZone can be viewed as a non hierarchichal collection of Spaces related by the <strong>IfcRelReferencedInSpatialStructure</strong> relationship.</p>
-<p>Apparently, some Ifc Viewers have difficulties in showing Spaces consitently. This is the case with <strong>OpenIFCViewer</strong>, <strong>That Open</strong> and <strong>BIMcollab Zoom</strong> for IFC_Schependomlaan.ifc, but not only for those files.</p>
-<p>Apparently, <strong>Solibri Anywhere</strong> and <strong>Blender with Bonsai</strong> do a better job at showing Spaces.</p>
+<h3 id="create-spatialzones-for-ifc-schependomlaan">Create SpatialZones for IFC Schependomlaan</h3>
+<p>Schependomlaan has 10 appartments and some common parts. Each apartment is located on a single floor (IfcBuildingStorey).
+We can create an Apartment as a SpatialZone (or alternatively as a Zone or Group) by identifying all spaces that are part of this apartment.</p>
+<p>For some reason, some Ifc Viewers have difficulties in showing Spaces consitently for IFC_Schependomlaan.ifc. This is the case with <strong>OpenIFCViewer</strong>, <strong>That Open</strong> and <strong>BIMcollab Zoom</strong>. Apparently, <strong>Solibri Anywhere</strong> and <strong>Blender with Bonsai</strong> do a better job at showing Spaces for IFC_Schependomlaan.ifc.</p>
 <p>As we can see hereunder, with the display in BIMcollab, the only spaces that are apparent in the structure of the building on the ground floor are the entrance (entree), the storage space (berging) and the installation space (instal. ruimte).</p>
 <p>The spaces for the apartments are not shown.</p>
 <p><a class="glightbox" href="../../assets/images/IFC_Schependomlaan_groundfloor.bimcollab.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="BIMCollab display of IFC Schependomlaan ground floor" src="../../assets/images/IFC_Schependomlaan_groundfloor.bimcollab.png" /></a></p>
@@ -1825,20 +1893,53 @@
 <li>Apartment 00.03 for the spaces in the series 3.00 to 3.09</li>
 </ul>
 <p>We process in steps:</p>
-<h3 id="step-1-selection-of-all-spaces-and-csv-export">Step 1: Selection of all spaces and csv export</h3>
+<h4 id="step-1-selection-of-all-spaces-and-csv-export">Step 1: Selection of all spaces and csv export</h4>
 <div class="highlight"><pre><span></span><code><span class="k">class</span> <span class="nc">ExportSpacesFromBundleInstruction</span><span class="p">(</span><span class="n">BaseModel</span><span class="p">):</span>
     <span class="n">bundleId</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="s2">&quot;1&quot;</span>
 </code></pre></div>
 <p>The request provides the id (integer) of the bundle and a selection of space-related data is made and provided in a csv and a json. We assume hereunder that the csv is the prefered way to work we the data.</p>
 <p>The spaces are made available in a csv <a href="#list-of-spaces-in-ifc-schependomlaan">List of Spaces in IFC Schependomlaan</a></p>
-<h3 id="step-2-a-user-fills-the-csv-with-the-data-for-the-spatial-zones">Step 2: A user fills the csv with the data for the Spatial Zones</h3>
+<h4 id="step-2-a-user-fills-the-csv-with-the-data-for-the-spatial-zones">Step 2: A user fills the csv with the data for the Spatial Zones</h4>
 <p>The correspondance with the SpatialZones is <strong>filled by a user</strong> in the csv <a href="#list-of-spaces-with-the-corresponding-spatialzones-of-ifc-schependomlaan">List of Spaces in IFC Schependomlaan with their corresponding SpatialZones</a></p>
-<p>We have in this (dummy) use cases two types of SpatialZones</p>
+<p>SpatialZones have a type that determines if their are linked to the site, the building or the storey.
+This is configurable.</p>
+<p>Hereunder an example:</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">SpatialZone Type</th>
+<th style="text-align: center;">Linked to</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">Private Parts - Apartment</td>
+<td style="text-align: center;">Storey</td>
+</tr>
+<tr>
+<td style="text-align: left;">Private Parts - Multistorey Apartment</td>
+<td style="text-align: center;">Building</td>
+</tr>
+<tr>
+<td style="text-align: left;">Common Parts</td>
+<td style="text-align: center;">Building</td>
+</tr>
+<tr>
+<td style="text-align: left;">Internal Parking</td>
+<td style="text-align: center;">Building</td>
+</tr>
+<tr>
+<td style="text-align: left;">External Parking</td>
+<td style="text-align: center;">Site</td>
+</tr>
+</tbody>
+</table>
+<p>In our use case we have two types of SpatialZones:</p>
 <ul>
 <li><strong>Private Parts - Apartment</strong>; are linked to their <strong>storey</strong> with an <strong>IfcRelAggregates</strong> relationship and with their spaces with an <strong>IfcRelReferencedInSpatialStructure</strong> relationship</li>
 <li><strong>Common Parts</strong>; are linked to the <strong>building</strong> with an <strong>IfcRelAggregates</strong> and with their spaces with an <strong>IfcRelReferencedInSpatialStructure</strong> relationship</li>
 </ul>
-<h3 id="step-3-the-csv-with-the-spatialzones-is-submitted-via-a-request">Step 3: The csv with the SpatialZones is submitted via a request</h3>
+<h4 id="step-3-the-csv-with-the-spatialzones-is-submitted-via-a-request">Step 3: The csv with the SpatialZones is submitted via a request</h4>
 <div class="highlight"><pre><span></span><code><span class="k">class</span> <span class="nc">CreateSpatialZonesInBundleInstruction</span><span class="p">(</span><span class="n">BaseModel</span><span class="p">):</span>
     <span class="n">bundleId</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="s2">&quot;1&quot;</span>
     <span class="n">spatialZoneGivenType</span><span class="p">:</span> <span class="n">Literal</span><span class="p">[</span><span class="s1">&#39;IfcSpatialZone&#39;</span><span class="p">,</span><span class="s1">&#39;IfcZone&#39;</span><span class="p">,</span><span class="s1">&#39;IfcGroup&#39;</span><span class="p">]</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="s1">&#39;IfcSpatialZone&#39;</span>
@@ -1867,8 +1968,8 @@
 <p>We then have created the IfcSpatialZone with the scheme</p>
 <pre class="mermaid"><code>erDiagram
     space
-    spatialZone ["spatialZone (spatialUnit) : private apartment"]
-    container ["storey: Ground Floor"]
+    spatialZone ["spatialZone (spatialUnit) : Private Parts - Apartment or Common Parts"]
+    container ["Building or Storey"]
     object["wall, slab, door, window,..."]
     container ||--o{ spatialZone : "IfcRelAggregates"
     container ||--o{ space : "IfcRelAggregates"
@@ -1876,6 +1977,18 @@
     container ||..|{ object : "no IfcRelContainedInSpatialStructure"
     space }|--|{ object : "IfcRelSpaceBoundary"
 </code></pre>
+<h3 id="create-spatialzones-for-duplex_a_20110907_optimized">Create SpatialZones for Duplex_A_20110907_optimized</h3>
+<p>This example has two duplex apartments.</p>
+<h3 id="view-of-duplex_a_20110907_optimizedifc-with-solibri-anywhere">View of Duplex_A_20110907_optimized.ifc with Solibri Anywhere</h3>
+<p><a class="glightbox" href="../../assets/images/Duplex_A_20110907_optimized.solibri.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Duplex_A_20110907_optimized.ifc with Solibri Anywhere" src="../../assets/images/Duplex_A_20110907_optimized.solibri.png" /></a></p>
+<p>The first duplex has spaces A1xx on the first floor and A2xx on the second floor.
+The second duplex has spaces B1xx on the first floor and B2xx on the second floor.</p>
+<p>The process to create the SpatialZones is the same as for IFC Schependomlaan here above.</p>
+<p>We have two types of SpatialZones:</p>
+<ul>
+<li><strong>Private Parts - Multistoreys Apartment</strong>; are linked to the <strong>building</strong> with an <strong>IfcRelAggregates</strong> relationship and with their spaces with an <strong>IfcRelReferencedInSpatialStructure</strong> relationship</li>
+<li><strong>Common Parts</strong>; are linked to the <strong>building</strong> with an <strong>IfcRelAggregates</strong> and with their spaces with an <strong>IfcRelReferencedInSpatialStructure</strong> relationship</li>
+</ul>
 <h2 id="display-of-spatialzones">Display of SpatialZones</h2>
 <p>SpatialZones are relatively new and are not supported seamlessly by all Ifc Viewers.
 Rendition is problematic with OpenIFCViewer, That Open (Web) and BIMCollab Zoom.
