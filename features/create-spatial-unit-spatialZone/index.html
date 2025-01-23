@@ -1336,6 +1336,15 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#issue-for-the-display-of-spaces-for-ifc-schependomlaan" class="md-nav__link">
+    <span class="md-ellipsis">
+      Issue for the display of spaces for IFC Schependomlaan
+    </span>
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -1361,7 +1370,7 @@
         
   
   <span class="md-ellipsis">
-    Extract a SpatialZone - Apartement or Common Parts
+    Extract a SpatialZone - Apartment or Common Parts
   </span>
   
 
@@ -1853,6 +1862,15 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#issue-for-the-display-of-spaces-for-ifc-schependomlaan" class="md-nav__link">
+    <span class="md-ellipsis">
+      Issue for the display of spaces for IFC Schependomlaan
+    </span>
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -1875,16 +1893,13 @@
 
 <h1 id="create-spatialzones-apartments-or-common-parts">Create SpatialZones - Apartments or Common Parts</h1>
 <h2 id="create-the-spatialzone">Create the SpatialZone</h2>
-<p>Before we can extract the SpatialZone, we need to have one. We could expect that this is readily available. It would be fine indeed. But even if that would be the case, say for the Building Permit or for the Cadaster Registration, there would be cases where the SpatialZone should be created on an ad hoc basis to respond to specific needs.</p>
+<p>Before we can extract a SpatialZone, we need to have one. We could expect that this is readily available. It would be fine indeed. But even if that would be the case, say for the Building Permit or for the Cadaster Registration, there would be cases where the SpatialZone should be created on an ad hoc basis to respond to specific needs.</p>
 <p>As suggested in <a href="../../data-model/spaces-zones-and-spatialzones/#spatial-zones">Data Model Spaces, Zones and SpatialZones</a> a SpatialZone can be viewed as a non hierarchichal collection of Spaces related by the <strong>IfcRelReferencedInSpatialStructure</strong> relationship.</p>
 <h3 id="create-spatialzones-for-ifc-schependomlaan">Create SpatialZones for IFC Schependomlaan</h3>
-<p>Schependomlaan has 10 appartments and some common parts. Each apartment is located on a single floor (IfcBuildingStorey).
+<p>Schependomlaan has 10 apartments and some common parts. Each apartment is located on a single floor (IfcBuildingStorey).
 We can create an Apartment as a SpatialZone (or alternatively as a Zone or Group) by identifying all spaces that are part of this apartment.</p>
-<p>For some reason, some Ifc Viewers have difficulties in showing Spaces consitently for IFC_Schependomlaan.ifc. This is the case with <strong>OpenIFCViewer</strong>, <strong>That Open</strong> and <strong>BIMcollab Zoom</strong>. Apparently, <strong>Solibri Anywhere</strong> and <strong>Blender with Bonsai</strong> do a better job at showing Spaces for IFC_Schependomlaan.ifc.</p>
-<p>As we can see hereunder, with the display in BIMcollab, the only spaces that are apparent in the structure of the building on the ground floor are the entrance (entree), the storage space (berging) and the installation space (instal. ruimte).</p>
-<p>The spaces for the apartments are not shown.</p>
-<p><a class="glightbox" href="../../assets/images/IFC_Schependomlaan_groundfloor.bimcollab.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="BIMCollab display of IFC Schependomlaan ground floor" src="../../assets/images/IFC_Schependomlaan_groundfloor.bimcollab.png" /></a></p>
-<p>There are indeed more spaces shown hereunder on an annotated screen capture.</p>
+<p>The spaces for the ground floor are shown hereunder on an annotated screen capture.
+There is apparently an <a href="#issue-for-the-display-of-spaces-for-ifc-schependomlaan">issue to get a standard display of IFC Schependomlaan spaces</a>.</p>
 <p><a class="glightbox" href="../../assets/images/IFC_Schependomlaan_groundfloor_annotated_with_spaces.bimcollab.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="BIMCollab display of IFC Schependomlaan ground floor annotated with spaces" src="../../assets/images/IFC_Schependomlaan_groundfloor_annotated_with_spaces.bimcollab.png" /></a></p>
 <p>The naming of the space makes it simple to associate the apartment to the space on the basis of the first digit of the space name. E.g, for the Ground Floor (Begane Grond)</p>
 <ul>
@@ -4464,6 +4479,11 @@ Only Solibri Anywhere can handle IfcSpatialZones at a basic level. For convenien
 </tr>
 </tbody>
 </table>
+<h3 id="issue-for-the-display-of-spaces-for-ifc-schependomlaan">Issue for the display of spaces for IFC Schependomlaan</h3>
+<p>For some reason, some Ifc Viewers have difficulties in showing Spaces consitently for IFC_Schependomlaan.ifc. This is the case with <strong>OpenIFCViewer</strong>, <strong>That Open</strong> and <strong>BIMcollab Zoom</strong>. Apparently, <strong>Solibri Anywhere</strong> and <strong>Blender with Bonsai</strong> do a better job at showing Spaces for IFC_Schependomlaan.ifc.</p>
+<p>As we can see hereunder, with the display in BIMcollab, the only spaces that are apparent in the structure of the building on the ground floor are the entrance (entree), the storage space (berging) and the installation space (instal. ruimte).</p>
+<p>The spaces for the apartments are not shown.</p>
+<p><a class="glightbox" href="../../assets/images/IFC_Schependomlaan_groundfloor.bimcollab.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="BIMCollab display of IFC Schependomlaan ground floor" src="../../assets/images/IFC_Schependomlaan_groundfloor.bimcollab.png" /></a></p>
 
 
 
