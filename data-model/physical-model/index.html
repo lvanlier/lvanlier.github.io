@@ -2010,6 +2010,10 @@
 <p class="admonition-title">spatial_ref_sys table</p>
 <p>In PostgreSQL, the table model also contains a table 'spatial_ref_sys' that is created by the PostGIS extension.</p>
 </div>
+<div class="admonition note">
+<p class="admonition-title">the physical model is based on ifcJSON</p>
+<p>The model hereunder does not allocate IFC entities to DB tables but allocates ifcJSON entities to DB tables. The ifcJSON entities already aggregate a number of IFC entities. For instance, some ifcJSON relationships contain the data pertaining to one side of the relationship.</p>
+</div>
 <p>The physical model is articulated around simple principles:</p>
 <ul>
 <li>The entities are those provided by the ifc2json transformation</li>
@@ -2021,7 +2025,7 @@
 <li>relationship</li>
 </ul>
 </li>
-<li>All information from the ifc2json source is preserved. Each items keeps the totality of its original data into an 'elementJson' field</li>
+<li>All information from the <strong>ifc2json</strong> source is preserved. Each items keeps the totality of its original data into an <strong>elementJson</strong> field</li>
 </ul>
 <p>One of the reasons for this choice is that data in the json can easily be accessed (as a python dictionary, a python pandas DataFrame or as a result of a postgres 'sql', or all combined).</p>
 <p>So access is easy, provided that the structure is expected and understood.</p>
