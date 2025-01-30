@@ -1623,7 +1623,7 @@
 
 <h1 id="more-on-materials">More on Materials</h1>
 <h2 id="introduction">Introduction</h2>
-<p>In Ifc&lt;5, the link between the IfcBuildingElement (Wall, Slab, Column, Beam, Door, Window, Covering, ...) and the Materials is made via the <strong>IfcRelAssociatesMaterial</strong> relationship where the relatedObjects are the concerned IfcBuildingElement and the relatingMaterial is expanded on the relationship itself and not as a distinct elements with a GlobalId (GUID).</p>
+<p>In ifcJSON (for Ifc&lt;5), the link between the IfcBuildingElement (Wall, Slab, Column, Beam, Door, Window, Covering, ...) and the Materials is made via the <strong>IfcRelAssociatesMaterial</strong> relationship where the relatedObjects are the concerned IfcBuildingElement and the relatingMaterial is expanded on the relationship itself and not as a distinct elements with a GlobalId (GUID).</p>
 <p>In IFC5, this will apparently change, with Material becoming an 'object' on it own.</p>
 <pre class="mermaid"><code>flowchart TB
     subgraph relationship

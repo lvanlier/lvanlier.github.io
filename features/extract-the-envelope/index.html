@@ -1233,6 +1233,17 @@
         
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Extract the Envelope
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="./" class="md-nav__link md-nav__link--active">
         
   
@@ -1242,6 +1253,85 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#extraction-based-on-object-properties" class="md-nav__link">
+    <span class="md-ellipsis">
+      Extraction based on object properties
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Extraction based on object properties">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#extraction-of-the-envelope-of-duplex_a_20110907_optimized" class="md-nav__link">
+    <span class="md-ellipsis">
+      Extraction of the envelope of Duplex_A_20110907_optimized
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#extraction-of-the-envelope-of-ifc-schependomlaan" class="md-nav__link">
+    <span class="md-ellipsis">
+      Extraction of the envelope of IFC Schependomlaan
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#extraction-of-the-envelope-of-nordiclca_housing_concrete_buildingpermit" class="md-nav__link">
+    <span class="md-ellipsis">
+      Extraction of the envelope of NordicLCA_Housing_Concrete_BuildingPermit
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#extraction-of-the-envelope-of-nordiclca_office_concrete_buildingpermit" class="md-nav__link">
+    <span class="md-ellipsis">
+      Extraction of the envelope of NordicLCA_Office_Concrete_BuildingPermit
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-ifcenvelopeextractor" class="md-nav__link">
+    <span class="md-ellipsis">
+      The IfcEnvelopeExtractor
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -1552,6 +1642,74 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#extraction-based-on-object-properties" class="md-nav__link">
+    <span class="md-ellipsis">
+      Extraction based on object properties
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Extraction based on object properties">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#extraction-of-the-envelope-of-duplex_a_20110907_optimized" class="md-nav__link">
+    <span class="md-ellipsis">
+      Extraction of the envelope of Duplex_A_20110907_optimized
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#extraction-of-the-envelope-of-ifc-schependomlaan" class="md-nav__link">
+    <span class="md-ellipsis">
+      Extraction of the envelope of IFC Schependomlaan
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#extraction-of-the-envelope-of-nordiclca_housing_concrete_buildingpermit" class="md-nav__link">
+    <span class="md-ellipsis">
+      Extraction of the envelope of NordicLCA_Housing_Concrete_BuildingPermit
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#extraction-of-the-envelope-of-nordiclca_office_concrete_buildingpermit" class="md-nav__link">
+    <span class="md-ellipsis">
+      Extraction of the envelope of NordicLCA_Office_Concrete_BuildingPermit
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-ifcenvelopeextractor" class="md-nav__link">
+    <span class="md-ellipsis">
+      The IfcEnvelopeExtractor
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -1566,18 +1724,31 @@
 
 
 <h1 id="extract-the-envelope">Extract the Envelope</h1>
-<p>TO DO</p>
-<!--
-
-## IfcEnvelopeExtractor
-
-Have a look at [IfcEnvelopeExtractor](../features/references.md#ifcenvelopeextractor). The IfcEnvelopeExtractor enables users to automatically extract the building shell of an IFC-model and convert it to a CityJSON model. Automating this process allows designs to be quickly and easily analyzed on a city scale without the need for lengthy manual conversions. This is one of the steps required to close the gap between architecture/BIM and city scale models.
-
-## Extraction based on object properties
-
-Construction Objects (Walls, Slabs, Columns, Beams, Doors, Windows, ...) have Pset_...nameOfTheObject...Common propertySets. Typically one of the property related to the fact that is object is (or is not) **external**. 
-
--->
+<div class="admonition note">
+<p class="admonition-title">Data and Spatial visualization</p>
+<p>Extractions are twofold: the <strong>invisible part</strong> is the set of data that pertain to the spatial unit at hand. On these data, processes can be run to provide metrics / indicators (surfaces and volumes, space types and usage, energy transfer, life cycle, reuse, ...).</p>
+<p>The <strong>visible part</strong> is there to help understand the structure of the spatial unit, but also to identify issues, such as components that exibit misclassification and other anomalies.</p>
+</div>
+<h2 id="extraction-based-on-object-properties">Extraction based on object properties</h2>
+<p>Construction Objects (Walls, Slabs, Columns, Beams, Doors, Windows, ...) have standardized property sets Pset_WallCommon, Pset_SlabCommon, Pset_ColumnCommon, PsetBeamCommon, Pset_DoorCommon, Pset_WindowCommon,  ... that typically have one of their properties related to the fact that is object is (or is not) <strong>external</strong>.</p>
+<p>Therefore it is possible to select external objects based on that information.</p>
+<h3 id="extraction-of-the-envelope-of-duplex_a_20110907_optimized">Extraction of the envelope of Duplex_A_20110907_optimized</h3>
+<p>Hereunder, we have the result of the extraction. Top and bottom slabs are not included (data issue).
+Party walls are also marked as external (data issue). We have highlighted the upper party wall.</p>
+<p><a class="glightbox" href="../../assets/images/Duplex_A_20110907_optimized_envelope.bimcollab.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="BIMCollab display of Duplex_A_20110907_optimized envelope" src="../../assets/images/Duplex_A_20110907_optimized_envelope.bimcollab.png" /></a></p>
+<h3 id="extraction-of-the-envelope-of-ifc-schependomlaan">Extraction of the envelope of IFC Schependomlaan</h3>
+<p>Hereunder, we have the result of the extraction. We have hidden the top slabs (roof) to see inside the building. We have highlighted a floor slab to be sure that we can see through the construction to the floor.</p>
+<p><a class="glightbox" href="../../assets/images/IFC_Schependomlaan_envelope.bimcollab.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="BIMCollab display of IFC Schependomlaan envelope" src="../../assets/images/IFC_Schependomlaan_envelope.bimcollab.png" /></a></p>
+<h3 id="extraction-of-the-envelope-of-nordiclca_housing_concrete_buildingpermit">Extraction of the envelope of NordicLCA_Housing_Concrete_BuildingPermit</h3>
+<p>Hereunder, we have the result of the extraction. We have hidden the top slabs (roof) to see inside the building. We have highlighted a floor slab to be sure that we can see through the construction to the floor.</p>
+<p>We have also the slabs of the terraces which are rightly marked as external but should be removed from the envelope with a more sophisticated filtering (= some more python code).</p>
+<p><a class="glightbox" href="../../assets/images/NordicLCA_Housing_Concrete_BuildingPermit_envelope.bimcollab.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="BIMCollab display of NordicLCA_Housing_Concrete_BuildingPermit envelope" src="../../assets/images/NordicLCA_Housing_Concrete_BuildingPermit_envelope.bimcollab.png" /></a></p>
+<h3 id="extraction-of-the-envelope-of-nordiclca_office_concrete_buildingpermit">Extraction of the envelope of NordicLCA_Office_Concrete_BuildingPermit</h3>
+<p>Hereunder, we have the result of the extraction. We have hidden the top slabs (roof) to see inside the building. We have highlighted a floor slab to be sure that we can see through the construction to the floor.</p>
+<p><a class="glightbox" href="../../assets/images/NordicLCA_Office_Concrete_BuildingPermit_envelope.bimcollab.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="BIMCollab display of NordicLCA_Office_Concrete_BuildingPermit envelope" src="../../assets/images/NordicLCA_Office_Concrete_BuildingPermit_envelope.bimcollab.png" /></a></p>
+<h2 id="the-ifcenvelopeextractor">The IfcEnvelopeExtractor</h2>
+<p>There are other ways to extract the envelope of a building, but often limited to the geometry which is not our main focus. </p>
+<p>It is however worth mentioning the <a href="https://github.com/jaspervdv/IFC_BuildingEnvExtractor">IfcEnvelopeExtractor</a>. It  enables users to automatically extract the building shell of an IFC-model and convert it to a CityJSON model. Automating this process allows designs to be quickly and easily analyzed on a city scale without the need for lengthy manual conversions. This is one of the steps required to close the gap between architecture/BIM and city scale models.</p>
 
 
 
