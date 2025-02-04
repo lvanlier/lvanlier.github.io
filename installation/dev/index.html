@@ -1953,10 +1953,24 @@ Maybe it doesn't work for 16.4
 <p>thereafter CREATE EXTENSION  age; works</p>
 <h2 id="install-bpy-blender-python-to-be-progressed">Install bpy (Blender Python) --to be progressed</h2>
 <p>Released: Jul 25, 2024</p>
-<p>https://pypi.org/project/bpy/
+<p>https://pypi.org/procdject/bpy/
 https://pypi.org/project/bpy/#files</p>
-<p>wheel unpack bpy-4.2.0-cp311-cp311-macosx_11_0_arm64.whl</p>
+<p>wheel unpack bpy-4.2.0-cp311-cp311-macosx_11_0_arm64.whl --&gt; NOK</p>
 <p>https://medium.com/@xiajiun/how-to-use-blenders-bpy-module-on-python-and-jupyter-notebook-on-macos-9155323d362b</p>
+<p>This worked:</p>
+<ul>
+<li>create a virtual environment with python 3.11.0</li>
+<li>/usr/local/bin/python3.11 -m venv .venv311</li>
+<li>activate the virtual environment</li>
+<li>source .venv311/bin/activate</li>
+<li>install bpy</li>
+<li>pip install bpy=4.2.0</li>
+<li>this collected and installed bpy-4.2.0-cp311-cp311-macosx_11_0_x86_64.whl</li>
+<li>test with</li>
+<li>python</li>
+<li>import bpy</li>
+<li>exit()</li>
+</ul>
 
 
 
