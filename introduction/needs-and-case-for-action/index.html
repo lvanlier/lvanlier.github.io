@@ -280,10 +280,10 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../data-model/spatial-units/" class="md-tabs__link">
+        <a href="../../data-model/introduction/" class="md-tabs__link">
           
   
-  Data Model
+  Concepts & Data Model
 
         </a>
       </li>
@@ -544,9 +544,18 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#opportunity" class="md-nav__link">
+  <a href="#data-for-spatial-units-and-the-land-administration" class="md-nav__link">
     <span class="md-ellipsis">
-      Opportunity
+      Data for Spatial Units and the Land Administration
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#opportunity-with-new-releases-of-the-industry-foundations-classes-ifc-standard-and-the-recent-addition-of-the-information-delivery-specification-ids" class="md-nav__link">
+    <span class="md-ellipsis">
+      Opportunity with new releases of the Industry Foundations Classes (IFC) standard and the recent addition of the Information Delivery Specification (IDS)
     </span>
   </a>
   
@@ -738,7 +747,7 @@
             
   
   <span class="md-ellipsis">
-    Data Model
+    Concepts & Data Model
   </span>
   
 
@@ -748,9 +757,30 @@
         <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_4">
             <span class="md-nav__icon md-icon"></span>
-            Data Model
+            Concepts & Data Model
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../data-model/introduction/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Introduction
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
             
               
                 
@@ -906,6 +936,48 @@
   
   
     <li class="md-nav__item">
+      <a href="../../data-model/ifc-types/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    IFC Types
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../data-model/ids/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Information Delivery Specification
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../data-model/data-bundle/" class="md-nav__link">
         
   
@@ -1044,6 +1116,27 @@
   
   <span class="md-ellipsis">
     Introduction
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../features/validate-an-ifc-model-with-ids/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Validate an IFC model with IDS
   </span>
   
 
@@ -1625,9 +1718,18 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#opportunity" class="md-nav__link">
+  <a href="#data-for-spatial-units-and-the-land-administration" class="md-nav__link">
     <span class="md-ellipsis">
-      Opportunity
+      Data for Spatial Units and the Land Administration
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#opportunity-with-new-releases-of-the-industry-foundations-classes-ifc-standard-and-the-recent-addition-of-the-information-delivery-specification-ids" class="md-nav__link">
+    <span class="md-ellipsis">
+      Opportunity with new releases of the Industry Foundations Classes (IFC) standard and the recent addition of the Information Delivery Specification (IDS)
     </span>
   </a>
   
@@ -1659,7 +1761,65 @@
 
 <h1 id="needs-and-case-for-action">Needs and Case for Action</h1>
 <h2 id="current-state">Current State</h2>
-<p>Buildings and infrastructures management and control becomes increasingly important. Public Authorities regulate a larger number of aspects. This includes City Urbanism and Environmental Impact (Energy Performance of Buildings (EPB), Life Cycle Analysis (LCA), Waste, Reuse and Repurpose, City Mining / Building as a Material Bank (BAMB)). Occupation and availability or suitability of Building or Infratucture for their use are also important and require increasingly detailed descriptive technical data. This includes the determination of taxes based on surface or the valuation of property.</p>
+<p>Management and control of buildings and infrastructures becomes increasingly important. Public Authorities regulate a larger number of aspects such as:</p>
+<ul>
+<li>City Urbanism and Environmental Impact: Energy Performance of Buildings (EPB), Life Cycle Analysis (LCA), Recycle, Reuse and Repurpose (aka City Mining or Buildings as  Material Banks (BAMB)).</li>
+<li>Occupation and availability or suitability of Building or Infratucture for their use.</li>
+<li>The determination of taxes based on surface or the valuation of property.  </li>
+<li>...</li>
+</ul>
+<p><a class="glightbox" href="../../assets/schemas/no-d4su.svg" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="No d4SU Overview Simple Diagram" src="../../assets/schemas/no-d4su.svg" /></a></p>
+<p>In order to be compliant, constituents and/or project managers in the AECO industry need to submit an increasing number of paper forms or pdfs either physically or via a Constituents Portal or via a Domain Specific Application. Often, lots of technical data need to be provided that are already available elsewhere and need to be encoded repeatedly in different systems with unaligned semantics.</p>
+<p>Typically, as outlined in the above diagram, there is no integration with the <a href="../references/#aeco-software-tools">AECO software tools</a> that are the source of the data.</p>
+<p>As said, this is the typical case and not the rule as examplified by the <strong>Digital Buidling Permit in Finland</strong> (RAVA3Pro, see hereunder in DBP).</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Domain</th>
+<th style="text-align: left;">Impact</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><figure markdown="span" style="width:100px"><a class="glightbox" href="../../assets/schemas/lca.svg" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="LCA" src="../../assets/schemas/lca.svg" /></a></figure></td>
+<td style="text-align: left;">As defined by the <a href="../references/#life-cycle-assessment">European Environment Agency</a> <em>Life-cycle assessment (LCA) is a process of evaluating the effects that a product has on the environment over the entire period of its life thereby increasing resource-use efficiency and decreasing liabilities. It can be used to study the environmental impact of either a product or the function the product is designed to perform</em>. <br/><br/> When applied to a building or infrastructure, all parts (walls, slabs, columns, beams, ... ) with their structure (layers, dimensions) and material consituents may be accounted for and need to be reported / encoded and this a particularly demanding. Ideally, materials are linked to defined standard classifications that spare the reencoding of all detailed charateristics.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><figure markdown="span" style="width:100px"><a class="glightbox" href="../../assets/schemas/bamb.svg" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="BAMB" src="../../assets/schemas/bamb.svg" /></a></figure></td>
+<td style="text-align: left;">Buildins as Material Banks (BAMB) also referred to as CityMining or as Recycle, Reuse and Repurpose is a new way to address the value of building materials promoting a circular building industry. Material Passports document the characteristics of the materials that give them value for recovery and reuse. Additionally, reversibility of design is promoted to minimize waste caused by demolition and reconstruction. More on this in the <a href="../references/#buildings-as-material-banks">BAMB site</a> <br/><br/> When applied to the assessment of a building, there is a need to document the structure of the construction and its constituents (walls, slabs, columns, beams, ...) in relation to Material Passports. There is also a need to relate material assemblies to their eventual disassembly capability.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><figure markdown="span" style="width:100px"><a class="glightbox" href="../../assets/schemas/epc.svg" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="EPC" src="../../assets/schemas/epc.svg" /></a></figure></td>
+<td style="text-align: left;">As defined in the <a href="../references/#energy-performance-certificate">European Energy Performance of Buildings Directive</a>,<em>The energy performance certificate include the energy performance of a building expressed by a numeric indicator of primary energy use in kWh/(m2.y), and reference values such as minimum energy performance requirements, minimum energy performance standards, nearly zero-energy building requirements and zero-emission building requirements, in order to make it possible for owners or tenants of the building or building unit to compare and assess its energy performance.</em> <br/><br/> Depending on the usage of the building, different schemes are applied to assess the energy performance. But as noted in the ANNEX V - Template for energy performance certificates (referred to in Article 19), there are numerous requirements that refer to data that have AECO Tools as source, such as technical characteristics of the envelope (the average U-value for the opaque elements of the building envelope and the average U-value for the transparent elements of the building envelope) or to HVAC data. National evaluation models that support the computation of the numeric indicator of primary energy use in kWh/(m2.y) often use detailed information that goes beyond the envelope. Again lots or required data are originally sourced by the AECO Tools.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><figure markdown="span" style="width:100px"><a class="glightbox" href="../../assets/schemas/dbp.svg" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="DBP" src="../../assets/schemas/dbp.svg" /></a></figure></td>
+<td style="text-align: left;">According to the <a href="../references/#digital-building-permit">Digital Building Permit conference 2024</a> the <em>Digitalisation of building permits was detected as the critical knot to be solved, in order to pave the way towards massive digitalisation in the construction industry, and to enable the potential of automation and optimisation in the management of building and city data.</em> <br/><br/>The topics addressed in the conference made quite obvious the relevance of BIM. Indeed, lots of data required for a Permit are sourced from the AECO tools. There are better ways to provide the data than paper and pdf forms.<br/><br/>Building Permits increasingly rely on BIM data, although often reduced to 2D plans. But very often, information that is readily available in the BIM source is retyped in various forms.<br/>It must also be noted that in numerous cases, architects do not produce and use a BIM model. For simple projects, they can dispense with BIM and the effort to produce the model would not bring tangible benefits for the Building Permit and for other administrative processes (Energy Performance of Building, Life Cycle Analysis, ...) given that these processes too often do not leverage BIM. It's a little bit the egg-and-chicken problem.<br/><br/>However, while there are always good ways to explain the status-quo, there are also more and more places that rely on on BIM-based inputs to their Building Permits. Indeed, <strong>Digital Buidling permits are already a reality in a number of places</strong> such as Estonia, Finland with the <a href="../references/#digital-building-permit">RAVA3Pro project</a>, Dubai,...</td>
+</tr>
+<tr>
+<td style="text-align: left;"><figure markdown="span" style="width:100px"><a class="glightbox" href="../../assets/schemas/3dc.svg" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="3DC" src="../../assets/schemas/3dc.svg" /></a></figure></td>
+<td style="text-align: left;">According to the <a href="../references/#3d-cadastre">Land Portal</a> <em>The need for 3D cadastre is growing in importance due to the increasing overlap of property rights in densifying urban environments and due to the increase in property values globally. As property values rise, property owners increasingly want to ensure the legal status of their property is accurately recorded; as more of these property owners inhabit portions of multi-level dwelling structures, the appeal of a 3D cadastre becomes apparent.</em> There are already 3D Cadastres in several places (e.g. Shenzhen, China). <br/><br/> Again, lots of data can potentially be sourced from the AECO tools.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><figure markdown="span" style="width:100px"><a class="glightbox" href="../../assets/schemas/rem.svg" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="REM" src="../../assets/schemas/rem.svg" /></a></figure></td>
+<td style="text-align: left;">Real Estate Management of public buildings relies on numerous data that record the structure of 'spaces' and that link construction components and equipement to maintenance contracts.<br/><br/> Again lots of data are sourced from the AECO tools.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><figure markdown="span" style="width:100px"><a class="glightbox" href="../../assets/schemas/pra.svg" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="PRA" src="../../assets/schemas/pra.svg" /></a></figure></td>
+<td style="text-align: left;">Public Revenue Administration encompases the determination of taxation basis that can apply to commercial surfaces, offices, parking, ... <br/><br/> Surface data is typically available in the AECO Tools for new and renovated buildings.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><figure markdown="span" style="width:100px"><a class="glightbox" href="../../assets/schemas/dbl.svg" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="DBL" src="../../assets/schemas/dbl.svg" /></a></figure></td>
+<td style="text-align: left;">Last, but not least, the Digital Building Logbook is an essential component of a modern administration. <br/>The European Commission, in the article on <a href="../references/#digital-building-logbook">the State of the art of the digitalisation of the building sector</a>, provides the following description <em>A digital building logbook is a common repository for all relevant building data, such as administrative documents and/or data for maintenance and bureaucratic purposes, as well as to assess the buildings’ energy performance. Currently, building-related data, such as data of technical and construction information, building characteristics, energy-efficiency performance information and market transactions data, are limited and often inaccurate.<br/>The lack of such data and a common repository to store and display them altogether generates additional costs and inefficiencies, stifles innovation, increases risk and undermines the confidence of investors. Digital Building Logbooks aim to increase transparency and trust among owners, tenants, financial institutions, construction sector stakeholders and public administrations and reduce information disparities. The organised and shared data would not only reduce uncertainty, but also time and costs needed to track down missing information.</em></td>
+</tr>
+</tbody>
+</table>
+<div class="admonition note">
+<p class="admonition-title">Call for action</p>
+<p>As is apparent from the above highlights of LCA, BAMB, EPC, DBP, 3DC, REM, PRA, DBL, each of these domain requires data from the AECO domain. The disparate collection of all needed data through independent processes and tools can only generate additional cost, inefficiencies and pains for all concerned participants.<br/>Additionally, the proliferation of distinct semantics and rules for the same data can only increase the level of errors and raise the level of ambiguity and distrust.</p>
+</div>
+<h2 id="data-for-spatial-units-and-the-land-administration">Data for Spatial Units and the Land Administration</h2>
+<p>Spatial Units are a key element of Land Administration.</p>
 <p>The Land Administration Domain Model (LADM) <a href="../references/#ladm">ISO 19152-1:2024</a> brings an interesting perpective on the relationship between Parties, Rights, Restrictions and Responsibilities (RRR), Administrative Units (BAUnit) and Spatial Units (such as buidlings or infrastructure and parts thereof).</p>
 <pre class="mermaid"><code>flowchart LR
     Party
@@ -1707,8 +1867,8 @@ Standards such as BIM/IFC are mostly regarded as too complex and beyond reach.</
 </ul>
 <p>This is not always the case and some countries and localities have already adopted a more streamlined approach which often relies on BIM.</p>
 <p>However, generally speaking, adoption of standards is infrequent or incomplete and the number of distinct data formats, streams and disparate semantics becomes increasingly problematic. This raises issues for all stakeholders: Public Services agents, involved Parties (Constituents, AECO profesionals, Advisors / SMEs for the RRR/BAUnit domain).</p>
-<h2 id="opportunity">Opportunity</h2>
-<p>Interestingly, the AECO standardization has evolved towards a broader scope and a better coverage of all elements related to Buildings and Infrastructures.</p>
+<h2 id="opportunity-with-new-releases-of-the-industry-foundations-classes-ifc-standard-and-the-recent-addition-of-the-information-delivery-specification-ids">Opportunity with new releases of the Industry Foundations Classes (IFC) standard  and the recent addition of the Information Delivery Specification (IDS)</h2>
+<p>Interestingly, the AECO standardization has evolved towards a broader scope and a better coverage of all elements related to Buildings and Infrastructures. </p>
 <p>One of these new features is the introduction in BIM / IFC of <strong>Spatial Zones</strong> as a way to organize data with regards to a particuliar aspect (security, thermal load, ...).  </p>
 <p>As reflected in the schema hereafter, there is then a unique opportunity to leverage BIM standards to create a foundation for managing all data for Spatial Unit that underpin their relationship to the corresponding BAUnit.</p>
 <pre class="mermaid"><code>flowchart LR
@@ -1726,10 +1886,13 @@ Standards such as BIM/IFC are mostly regarded as too complex and beyond reach.</
     end
     SpatialZone --&gt; SpatialUnit
     Data --&gt; BAUnit</code></pre>
-<p>The progress of the BIM / IFC standards are impressive and important to make this all possible. But that would remain difficult to achieve without the progress made in  the availability of <strong>Open Source</strong> software that makes the access to BIM / IFC <strong>simple</strong> and <strong>efficient</strong>.
-Notably, <a href="../references/#ifcopenshell">IfcOpenShell libraries and tools</a> supports all <strong>Create, Read, Udpate, Delete (CRUD)</strong> on IFC and <a href="../references/#that-open">ThatOpen libraries and Tools</a> provide effective visualization capabilities.</p>
+<p>The progress of the BIM / IFC standards are impressive and critical to make this all possible. First, there are not many concepts that cannot be accounted for in IFC. This makes the format ideal for the exchange of detailed and complex information betweeen AECO Tools and for conveying the technical data that are required by administrative processes.</p>
+<p>In IFC everyting can be expressed by elements / objects with relationships, geometries (when needed) and properties. The level of detail might have appeared overwhelming in comparison with the requirements of administrative processes and there was no easy way to specify the container (e.g. property set and property) for the required data so that a human intervention was often necessary to find the information with a GUI tool.</p>
+<p>With the <strong>Information Delivery Specification (IDS)</strong> available since 2022 and taken into account by all major tools, there is now a capability to define the information delivery requirements for an IFC.</p>
+<p>But all these promises would remain difficult to achieve without the progress made in  the availability of <strong>Open Source</strong> software that makes the access to BIM / IFC / IDS <strong>simple</strong> and <strong>efficient</strong>.
+Notably, <a href="../references/#open-tools">IfcOpenShell libraries and tools</a> supports all <strong>Create, Read, Udpate, Delete (CRUD)</strong> on IFC and <a href="../references/#open-tools">ThatOpen libraries and Tools</a> provide effective visualization capabilities as well as IDS editing and validation capabilties.</p>
 <p>Other tools, that often leverage these Open Source toolboxes and platforms, cater for extra capabilites.</p>
-<p>Therefore, BIM / IFC can be leveraged to access <strong>existing data</strong> provided by AECO software but also to <strong>enrich / augment</strong> data for specific needs.</p>
+<p>Therefore, BIM / IFC / IDS can be leveraged to access <strong>existing data</strong> provided by AECO software but also to <strong>enrich / augment</strong> data for specific needs.</p>
 <p>This is indeed critically important given that IFC files coming out of the AECO industry are focused on the need of that industry and not on the needs of registering RRR on BAUnits related to Spatial Units. There is therefore a real need to be able to <strong>enrich / augment</strong> data to support administrative processes.</p>
 <h2 id="going-one-step-further">Going one step further</h2>
 <p>Beyond enabling better data management in support of administrative processes, a structured approached can also lower the cost of creating 'intelligence models' to assist / copilot the administrative processes.</p>

@@ -278,10 +278,10 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../data-model/spatial-units/" class="md-tabs__link">
+        <a href="../../data-model/introduction/" class="md-tabs__link">
           
   
-  Data Model
+  Concepts & Data Model
 
         </a>
       </li>
@@ -668,7 +668,7 @@
             
   
   <span class="md-ellipsis">
-    Data Model
+    Concepts & Data Model
   </span>
   
 
@@ -678,9 +678,30 @@
         <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_4">
             <span class="md-nav__icon md-icon"></span>
-            Data Model
+            Concepts & Data Model
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../data-model/introduction/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Introduction
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
             
               
                 
@@ -836,6 +857,48 @@
   
   
     <li class="md-nav__item">
+      <a href="../../data-model/ifc-types/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    IFC Types
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../data-model/ids/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Information Delivery Specification
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../data-model/data-bundle/" class="md-nav__link">
         
   
@@ -974,6 +1037,27 @@
   
   <span class="md-ellipsis">
     Introduction
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../features/validate-an-ifc-model-with-ids/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Validate an IFC model with IDS
   </span>
   
 
@@ -1882,7 +1966,7 @@ In a terminal:</p>
 </ul>
 </li>
 <li>terminal 4 - MkDocs:<ul>
-<li>mkdocs serve</li>
+<li>Documentation moved to another location ; available on GitHub @ <a href="https://github.com/lvanlier/lvanlier.github.io">https://github.com/lvanlier/lvanlier.github.io</a></li>
 </ul>
 </li>
 </ul>
@@ -1890,7 +1974,6 @@ In a terminal:</p>
 <li>prod mode:<ul>
 <li>fastapi run</li>
 <li>to be defined = demonize the celeri worker</li>
-<li>for MkDocs: mkdocs gh-deploy --force</li>
 </ul>
 </li>
 </ol>
@@ -1952,25 +2035,37 @@ Maybe it doesn't work for 16.4
 </ul>
 <p>thereafter CREATE EXTENSION  age; works</p>
 <h2 id="install-bpy-blender-python-to-be-progressed">Install bpy (Blender Python) --to be progressed</h2>
-<p>Released: Jul 25, 2024</p>
 <p>https://pypi.org/procdject/bpy/
 https://pypi.org/project/bpy/#files</p>
-<p>wheel unpack bpy-4.2.0-cp311-cp311-macosx_11_0_arm64.whl --&gt; NOK</p>
 <p>https://medium.com/@xiajiun/how-to-use-blenders-bpy-module-on-python-and-jupyter-notebook-on-macos-9155323d362b</p>
 <p>This worked:</p>
 <ul>
-<li>create a virtual environment with python 3.11.0</li>
-<li>/usr/local/bin/python3.11 -m venv .venv311</li>
-<li>activate the virtual environment</li>
+<li>Install Python 3.11.0 from the Python site</li>
+<li>Download <a href="https://www.python.org/downloads/release/python-3110/">https://www.python.org/downloads/release/python-3110/</a></li>
+<li>Install the downloaded pkg</li>
+<li>Python is in /Library/Frameworks/Python.framework/Versions/3.11/Python</li>
+<li>remove the previous .venv311 with: sudo rm -rf .venv311</li>
+<li>Create a venv311</li>
+<li>/Library/Frameworks/Python.framework/Versions/3.11/bin/python3.11 -m venv .venv311</li>
+<li>Activate the vene</li>
 <li>source .venv311/bin/activate</li>
-<li>install bpy</li>
-<li>pip install bpy=4.2.0</li>
-<li>this collected and installed bpy-4.2.0-cp311-cp311-macosx_11_0_x86_64.whl</li>
-<li>test with</li>
-<li>python</li>
-<li>import bpy</li>
-<li>exit()</li>
+<li>Install bpy</li>
+<li>pip install bpy==4.3.0</li>
+<li>got bpy-4.3.0-cp311-cp311-macosx_11_0_arm64.whl</li>
+<li>pip install ifcopenshell</li>
+<li>got ifcopenshell-0.8.0-py311-none-macosx_11_0_arm64.whl </li>
+<li>pip install mathutils</li>
 </ul>
+<p>Need also to have OpenCASCADE
+brew install opencascade</p>
+<p>======</p>
+<p>conda create --name envconda
+conda activate envconda
+conda install python=3.11.0
+conda install -c conda-forge ifcopenshell
+conda install shapely --channel conda-forge</p>
+<p>python -m venv .venv311
+source .venv311/bin/activate</p>
 
 
 

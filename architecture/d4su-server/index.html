@@ -280,10 +280,10 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../data-model/spatial-units/" class="md-tabs__link">
+        <a href="../../data-model/introduction/" class="md-tabs__link">
           
   
-  Data Model
+  Concepts & Data Model
 
         </a>
       </li>
@@ -656,6 +656,15 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#c4-diagram" class="md-nav__link">
+    <span class="md-ellipsis">
+      C4 diagram
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#rationale-for-tools" class="md-nav__link">
     <span class="md-ellipsis">
       Rationale for tools
@@ -816,7 +825,7 @@
             
   
   <span class="md-ellipsis">
-    Data Model
+    Concepts & Data Model
   </span>
   
 
@@ -826,9 +835,30 @@
         <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_4">
             <span class="md-nav__icon md-icon"></span>
-            Data Model
+            Concepts & Data Model
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../data-model/introduction/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Introduction
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
             
               
                 
@@ -984,6 +1014,48 @@
   
   
     <li class="md-nav__item">
+      <a href="../../data-model/ifc-types/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    IFC Types
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../data-model/ids/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Information Delivery Specification
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../data-model/data-bundle/" class="md-nav__link">
         
   
@@ -1122,6 +1194,27 @@
   
   <span class="md-ellipsis">
     Introduction
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../features/validate-an-ifc-model-with-ids/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Validate an IFC model with IDS
   </span>
   
 
@@ -1703,6 +1796,15 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#c4-diagram" class="md-nav__link">
+    <span class="md-ellipsis">
+      C4 diagram
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#rationale-for-tools" class="md-nav__link">
     <span class="md-ellipsis">
       Rationale for tools
@@ -1815,8 +1917,25 @@
 
 <h1 id="d4su-server">d4SU Server</h1>
 <h2 id="overview">Overview</h2>
-<p>The <strong>d4SU Server platform</strong> is focused on the management of the Building and Infrastructure Data in the context of Spatial Units subjected to Public Sector regulations. Currently the focus is on the Building Data and services relevant to Infrastructure data are not available at this moment.</p>
-<p>By 'focused on data', it is also meant 'not providing' other functionalities such as the integration in a broader landscape. This is the responsibility of an <strong>Integration Platform</strong> that is not is scope of the d4SU.</p>
+<p>The <strong>d4SU Server platform</strong> is focused on the management of the Building and Infrastructure Data in the context of Spatial Units subjected to Public Sector regulations. Currently the focus is on the Building data and services relevant to Infrastructure data are not available at this moment.</p>
+<p>By 'focused on data', it is also meant 'not providing' other functionalities such as the integration in a broader landscape. This is the responsibility of an <strong>Integration Platform</strong> that is not is scope of the d4SU Server Platform.</p>
+<p><a class="glightbox" href="../../assets/schemas/d4su-5.svg" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="d4SU Achitecture Overview Diagram" src="../../assets/schemas/d4su-5.svg" /></a></p>
+<p>The d4SU Platform has 4 main technology components</p>
+<ul>
+<li><strong>FastAPI</strong> <a href="../references/#fastapi">A modern, fast (high-performance), web framework for building APIs with Python</a>.</li>
+<li><strong>Celery</strong> <a href="../references/#celery">A Distributed Task Queue in Python</a></li>
+<li><strong>Redis</strong> <a href="../references/#redis">An In-Memory Database used for Celery as Message Queue and Result Store</a></li>
+<li><strong>PostgreSQL</strong> <a href="../references/#postgresql">A powerful, open source object-relational database</a> with support for a <strong>large variety of column types (including json, jsonb, geometry)</strong> and <strong>Partitioning options</strong> for very large DB size. It has support for <strong>Geomtry</strong> with <a href="../references/#postgis">PostGIS</a> and support for <strong>Graph</strong> with <a href="../references/#apache-age">Apache AGE</a>.</li>
+</ul>
+<p>The d4SU Platform also leverage:</p>
+<ul>
+<li><strong>SQLModel</strong> <a href="../references/#sqlmodel">SQLModel is based on Python type annotations, and powered by Pydantic and SQLAlchemy</a></li>
+<li><strong>PyArrow</strong> <a href="../references/#apache-arrow-pyarrow">Apache Arrow - Filesystem Interface</a>  provides input and output streams as well as directory operations for the Local File System, Amazon S3, Google Cloud Storage (GCS), HDFS and others.</li>
+<li><strong>Other Apache Arrow</strong> tools (e.g., <strong>ADBC Driver for PostgreSQL</strong>, or support for Machine Learning Workflows) might be super relevant but that's not yet investigated.</li>
+<li><strong>IfcOpenShell</strong> <a href="../references/#ifcopenshell">A suite of IFC tools in C++ and Python</a> <strong>the base layer of the d4SU Server and the rational for it to be in Python</strong></li>
+<li><strong>IfcSON</strong> <a href="../references/#ifcjson">Python Tool (on top of ifcOpenShell) to convert an IFC to a JSON (IFC2JSON) and a JSON to an IFC (JSON2IFC)</a>. IfcJSON has been built in the context of a larger project presented in <a href="../references/#ifcjson">IFC.JSON</a></li>
+</ul>
+<h2 id="c4-diagram">C4 diagram</h2>
 <p><em>The diagram hereunder is built with Mermaid.js integrated with Material for MkDocs. At the present time, it is not quite legible in dark mode and a swicth to standard mode (top menu bar) is recommended</em></p>
 <pre class="mermaid"><code>
 C4Container
@@ -1855,23 +1974,10 @@ C4Container
     UpdateElementStyle(Integration, $fontColor="white", $bgColor="black", $borderColor="white")
 
     UpdateRelStyle(FastAPI, Integration, $offsetX="20", $offsetY="20")
+    UpdateRelStyle(FastAPI, Celery, $textColor="blue", $lineColor="blue", $offsetX="5")
+
     UpdateLayoutConfig($c4ShapeInRow="3", $c4BoundaryInRow="2")
 </code></pre>
-<p>The d4SU Platform has 4 main technology components</p>
-<ul>
-<li><strong>FastAPI</strong> <a href="../references/#fastapi">A modern, fast (high-performance), web framework for building APIs with Python</a>.</li>
-<li><strong>Celery</strong> <a href="../references/#celery">A Distributed Task Queue in Python</a></li>
-<li><strong>Redis</strong> <a href="../references/#redis">An In-Memory Database used for Celery as Message Queue and Result Store</a></li>
-<li><strong>PostgreSQL</strong> <a href="../references/#postgresql">A powerful, open source object-relational database</a> with support for a <strong>large variety of column types (including json, jsonb, geometry)</strong> and <strong>Partitioning options</strong> for very large DB size. It has support for <strong>Geomtry</strong> with <a href="../references/#postgis">PostGIS</a> and support for <strong>Graph</strong> with <a href="../references/#apache-age">Apache AGE</a>.</li>
-</ul>
-<p>The d4SU Platform also leverage:</p>
-<ul>
-<li><strong>SQLModel</strong> <a href="../references/#sqlmodel">SQLModel is based on Python type annotations, and powered by Pydantic and SQLAlchemy</a></li>
-<li><strong>PyArrow</strong> <a href="../references/#apache-arrow-pyarrow">Apache Arrow - Filesystem Interface</a>  provides input and output streams as well as directory operations for the Local File System, Amazon S3, Google Cloud Storage (GCS), HDFS and others.</li>
-<li><strong>Other Apache Arrow</strong> tools (e.g., <strong>ADBC Driver for PostgreSQL</strong>, or support for Machine Learning Workflows) might be super relevant but that's not yet investigated.</li>
-<li><strong>ifcOpenShell</strong> <a href="../references/#ifcopenshell">A suite of IFC tools in C++ and Python</a> <strong>the base layer of the d4SU Server and the rational for it to be in Python</strong></li>
-<li><strong>IfcSON</strong> <a href="../references/#ifcjson">Python Tool (on top of ifcOpenShell) to convert an IFC to a JSON (IFC2JSON) and a JSON to an IFC (JSON2IFC)</a>. IfcJSON has been built in the context of a larger project presented in <a href="../references/#ifcjson">IFC.JSON</a></li>
-</ul>
 <h2 id="rationale-for-tools">Rationale for tools</h2>
 <p>The d4SU platform is at the early stage of exploration, concept validation and specification. Speed and ease of implementation is key.</p>
 <ul>
