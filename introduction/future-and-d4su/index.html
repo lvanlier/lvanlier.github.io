@@ -1954,11 +1954,15 @@
 <p>Mapping can be configured in the AECO Tool to cater for a corresponding export template.</p>
 </li>
 </ol>
+<div class="admonition note">
+<p class="admonition-title">The industry is making tremendous progress on this process</p>
+<p>For instance, <a href="../references/#bimids">bimids</a>, which is a join effort of <a href="../references/#bimids">Buildwise</a> (Belgium) and <a href="../references/#bimids">CRTI.B</a> (Lu) provides a suite of IDS across construction disciplines and stages and also corresponding configurations for Archicad and Revit.</p>
+</div>
 <h3 id="execution-ids-ifc-bcf">Execution: IDS, IFC, BCF</h3>
 <ol>
-<li>For each project, the appropriate IDS is used and corresponding data are generated/exported by the AECO tool.</li>
+<li>For each project, the appropriate IDS is used and corresponding data are generated/exported by the AECO tool. The exported file is validated against the IDS.</li>
 <li>The IFC is submitted via a portal &amp; integration plaform.</li>
-<li>A validation process is started in the d4SU platform.</li>
+<li>A validation process is started in the d4SU platform. This is a double check as the validation would normally be run at the AECO side prior to submission.</li>
 <li>If errors are found, a BCF report of issues is provided to the sender otherwise, processing continue. While BIM Collaboration Format (BCF) is by default available, other formats such as json and html are supported.</li>
 </ol>
 <h3 id="execution-other-processes">Execution: Other processes</h3>
@@ -1982,7 +1986,7 @@
 <tbody>
 <tr>
 <td style="text-align: left;"><figure markdown="span" style="width:100px"><a class="glightbox" href="../../assets/schemas/lca.svg" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="LCA" src="../../assets/schemas/lca.svg" /></a></figure></td>
-<td style="text-align: left;">Pset needs to be defined and verified for materials linked to Environment Product Declarations (EPDs) with defined Global Warming Potential (GWP) and with corresponding volume, weight and area measures. As a minimum for construction components, but can be extended to MEP components. IDS comes as primary support to express and verify the information requirements.</td>
+<td style="text-align: left;">Pset needs to be defined and verified for materials linked to Environment Product Declarations (EPDs) with defined Global Warming Potential (GWP) and with corresponding volume, weight and area measures. As a minimum for construction components, but can be extended to MEP components. IDS comes as primary support to express and verify the information requirements.<br/><br/><a href="../references/#bimids">BIMids</a> provides IDS files for LCA which are partial but already relevant.</td>
 </tr>
 <tr>
 <td style="text-align: left;"><figure markdown="span" style="width:100px"><a class="glightbox" href="../../assets/schemas/bamb.svg" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="BAMB" src="../../assets/schemas/bamb.svg" /></a></figure></td>
@@ -1990,15 +1994,15 @@
 </tr>
 <tr>
 <td style="text-align: left;"><figure markdown="span" style="width:100px"><a class="glightbox" href="../../assets/schemas/epc.svg" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="EPC" src="../../assets/schemas/epc.svg" /></a></figure></td>
-<td style="text-align: left;">Again, most or all can be expressed as Psets on elements (construction &amp; HVAC). When EPC are needed for Building Units and depend on the occupancy type, it is needed to assign spaces to distinct Spatial Units. Hence, Spaces or Spatial Zone information requirement must embodied in the IDS or handled in another way.</td>
+<td style="text-align: left;">Again, most or all can be expressed as Psets on elements (construction &amp; HVAC). When EPC are needed for Building Units and depend on the occupancy type, it is needed to assign spaces to distinct Spatial Units. Hence, Spaces or Spatial Zone information requirement must embodied in the IDS or handled in another way. <br/><br/><a href="../references/#bimids">BIMids</a> provides IDS files for EPC (denoted PEB) which are partial but already relevant.</td>
 </tr>
 <tr>
 <td style="text-align: left;"><figure markdown="span" style="width:100px"><a class="glightbox" href="../../assets/schemas/dbp.svg" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="DBP" src="../../assets/schemas/dbp.svg" /></a></figure></td>
-<td style="text-align: left;">A whole lot of requirements can be met on the basis of Psets as done for the Digital Building Permit in Finland. However, there are other requirements that refers to neighboring constructions and may require geometry processing, including sight from windows on neighboring private inner spaces.</td>
+<td style="text-align: left;">A whole lot of requirements can be met on the basis of Psets as done for the Digital Building Permit in Finland. However, there are other requirements that refers to neighboring constructions and may require geometry processing, including sight from windows on neighboring private inner spaces.<br/><br/><a href="../references/#bimids">BIMids</a> provides IDS files for DBP which are partial but already informative.</td>
 </tr>
 <tr>
 <td style="text-align: left;"><figure markdown="span" style="width:100px"><a class="glightbox" href="../../assets/schemas/3dc.svg" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="3DC" src="../../assets/schemas/3dc.svg" /></a></figure></td>
-<td style="text-align: left;">Cadastre has requirements that can be captures by Pset but aso quite a number of requirements that require geometry processing. One specific aspect is the conversion from local coordinates to geodetic ones (WGS 84 or other).</td>
+<td style="text-align: left;">Cadastre has requirements that can be captures by Pset but aso quite a number of requirements that require geometry processing. One specific aspect is the conversion from local coordinates to geodetic ones (WGS 84 or other).<br/><br/><a href="../references/#bimids">BIMids</a> provides IDS files for 3DC (Vertical Cadastre of Luxemburg) which are partial but already relevant.</td>
 </tr>
 <tr>
 <td style="text-align: left;"><figure markdown="span" style="width:100px"><a class="glightbox" href="../../assets/schemas/rem.svg" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="REM" src="../../assets/schemas/rem.svg" /></a></figure></td>
