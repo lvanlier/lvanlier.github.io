@@ -1706,11 +1706,15 @@
 
 
 <h1 id="extract-storeys-from-the-ifc-model-with-ifcpatch">Extract Storeys from the IFC model with IfcPatch</h1>
+<details class="note">
+<summary>Feature Group: Extract</summary>
+<p>This is provided by IfcOpenShell IfcPatch with the recipe ExtractElement</p>
 <div class="admonition note">
 <p class="admonition-title">Data and Spatial visualization</p>
+</div>
 <p>Extractions are twofold: the <strong>invisible part</strong> is the set of data that pertain to the spatial unit at hand. On these data, processes can be run to provide metrics / indicators (surfaces and volumes, space types and usage, energy transfer, life cycle, reuse, ...).</p>
 <p>The <strong>visible part</strong> is there to help understand the structure of the spatial unit, but also to identify issues, such as components that exibit misclassification and other anomalies.</p>
-</div>
+</details>
 <h2 id="extraction-of-storeys-with-ifcpatch">Extraction of Storeys with IFCPatch</h2>
 <p>IfcPatch from IfcOpenShell lets split a Building into Storeys, creating one IFC file for each storey.</p>
 <p>As an illustration, we have hereunder the extraction  of the first level of Duplex_A_20110907_optimized.ifc with IfcPatch. The IFC file used is the one that result from <strong>import -&gt; transform to ifcjson -&gt; filter -&gt; transform from ifcjson to ifc</strong>. As a result of the filtering, there is no IfcCovering and no IfcFurnishingElement.</p>

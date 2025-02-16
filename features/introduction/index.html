@@ -1099,18 +1099,27 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#key-technical-features" class="md-nav__link">
+  <a href="#code-structure" class="md-nav__link">
     <span class="md-ellipsis">
-      Key Technical Features
+      Code structure
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#code-structure" class="md-nav__link">
+  <a href="#worflows" class="md-nav__link">
     <span class="md-ellipsis">
-      Code structure
+      Worflows
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#from-api-to-database" class="md-nav__link">
+    <span class="md-ellipsis">
+      From API to Database
     </span>
   </a>
   
@@ -1889,18 +1898,27 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#key-technical-features" class="md-nav__link">
+  <a href="#code-structure" class="md-nav__link">
     <span class="md-ellipsis">
-      Key Technical Features
+      Code structure
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#code-structure" class="md-nav__link">
+  <a href="#worflows" class="md-nav__link">
     <span class="md-ellipsis">
-      Code structure
+      Worflows
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#from-api-to-database" class="md-nav__link">
+    <span class="md-ellipsis">
+      From API to Database
     </span>
   </a>
   
@@ -2090,77 +2108,19 @@
 <p>However, other features rely explicitely on <strong>standard SQL</strong> and other constructs that are <strong>programming language agnostic</strong>. The code is in Python but could as well be in Typescript, Rust, Java, C#, ...</p>
 <p>Unless explicitly specified only IFC2X3, IFC4X* are supported. IFC5 is still under development.</p>
 <h2 id="key-functional-features">Key Functional Features</h2>
-<p>The following schema shows key expected features/capabilities</p>
-<pre class="mermaid"><code>block-beta
-    columns 5
-    blockArrowId1&lt;["&lt;/br&gt;1. Import a model&lt;/br&gt;from a BIM/IFC file&lt;/br&gt;&amp;nbsp;"]&gt;(right)
-    blockArrowId2&lt;["2. Filter the model and&lt;/br&gt; keep only essential&lt;/br&gt; elements for the &lt;/br&gt;use case at hand"]&gt;(right)
-    space:3
-    space:1
-    blockArrowId3&lt;["&amp;nbsp;&lt;/br&gt;3. Store the ifcJSON in&lt;/br&gt;the Database&lt;/br&gt;&amp;nbsp;"]&gt;(right)
-    blockArrowId4&lt;["4. Extract the data&lt;/br&gt;for target&lt;/br&gt; Spatial Unit(s) /&lt;/br&gt;Spatial Zone(s)"]&gt;(right)
-    blockArrowId5&lt;["&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;"]&gt;(down)
-    space:2
-    blockArrowId12&lt;["&lt;/br&gt;9. Store an ifcJSON&lt;br/&gt; for the bespoke model&lt;/br&gt;&amp;nbsp;"]&gt;(right)
-    blockArrowId10&lt;["&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;"]&gt;(right)
-    blockArrowId6&lt;["5. Enrich / Complement&lt;/br&gt;the data for the&lt;/br&gt;use case at hand"]&gt;(y)
-    blockArrowId7&lt;["6. Create a semantically&lt;/br&gt; rich 3D representation&lt;/br&gt;that can be explored&lt;/br&gt; with an IFC Viewer"]&gt;(right)
-    blockArrowId8&lt;["&lt;/br&gt;7. Import a bespoke&lt;/br&gt;non BIM/IFC model&lt;/br&gt;&amp;nbsp;"]&gt;(right)
-    blockArrowId9&lt;["&lt;/br&gt;8. Store the model&lt;/br&gt;into the database&lt;/br&gt;&amp;nbsp;"]&gt;(up)
-    space:2</code></pre>
-<p>This diagram provide a high level story board of what we want to show/validate as capabilities</p>
-<ol>
-<li>Import a BIM/IFC from an external source and transform the IFC into an ifcJSON</li>
-<li>Filter the ifcJSON while retaining only the elements that are relevant for the use case(s) at hand. In some cases, the Administrative Authority  may have detailed what is expected in the BIM/IFC. This is the case for the <a href="../references/#digital-building-permit-of-dubai">Digital Building Permit of Dubai</a> where detailed templates and instructions are provided for Archicad, Bentley OpenBuilding and Revit so that the exported BIM/IFC is fully adequate for the use of the Administrative Authority. However, this might be difficult to generalize and we start with the assumption that a single BIM/IFC will potentially be used across distinct Administrative Authorities and need to be filtered depending on the use case(s) at hand.  </li>
-<li>Store the ifcJSON into the database (PostgreSQL)</li>
-<li>Extract the data from the database for a target 'Spatial Unit' (a Building, a Storey, an Apartment, Common part(s),...), while leveraging the power of SQL, possibly complemented by other capabilities when needed.</li>
-<li>Enrich/Complement the data for the use case at hand. This means, create new groups (such as Zones, Spatial Zones or simply Groups) an create/update PropertySets. This is where <strong>external applications</strong> will highly interact with d4SU platform.</li>
-<li>Read data from the database and rebuild an ifcJSON with the relevant data and convert it to an IFC file so that standard IFC viewer can be used to navigate through the data (not just a 3D shape)</li>
-<li>Import a bespoke non BIM/IFC model (typically from a legacy system). The import will transform the legacy model into 'objects', 'representations', 'relationships' and 'propertySets'. We assume that it cannot be expected that every input will be BIM/IFC from day one or that the past can be ignored. Therefore, other models must be accounted for.</li>
-<li>Store the bespoke model into the database</li>
-<li>Create and Store an ifcJSON for the bespoke model. From there it will behave as a standard BIM model, although not suited for use by the AEC insdustry to 'construct' the represented building or part thereof. We will give an example of how simple it is to build an IFC from a model using IfcOpenShell. But practically, creating a meaningful IFC for a bespoke model will always require a development to accomodate the specifics of the model.</li>
-</ol>
-<h2 id="key-technical-features">Key Technical Features</h2>
-<p>The following schema depicts key technical features.</p>
-<pre class="mermaid"><code>flowchart LR
-    Ifc
-    Custom["Custom Model"]
-    ifcJSON
-    Other["CityJSON, LDB, glTF,..."]
-    DB[("Database")]
-    API &lt;--&gt; IfcOpenShell
-    API &lt;--&gt; SQL
-    API &lt;--&gt; ifcJSON
-    API &lt;--&gt; Graph
-    Graph &lt;--&gt; DB
-    Custom -- convert --&gt; Ifc
-    Custom -- is stored --&gt; DB
-    SQL &lt;--&gt; DB
-    IfcOpenShell --&gt; Ifc
-    Ifc &lt;-- convert --&gt; ifcJSON
-    Ifc --&gt; Other
-    Other --&gt; Ifc
-    ifcJSON &lt;-- store | retrieve --&gt; DB
-    style API fill:#148F77
-    style DB fill:#148F77</code></pre>
-<p>Technically speaking, FastAPI and Celery provide the glue to bring together the capabilities provided by the BIM/IFC ecosystem in order to cover the needs of d4SU.</p>
-<p>On the left we have the <strong>API</strong> and on the right we have the <strong>Database</strong>. Between them, different representations are activated to leverage the capabilities of IfcOpenShell (including IfcPatch, IfcConvert), IfcJSON (two-way conversion between IFC(STEP Model &amp; file) and IfcJSON (a JSON Model &amp; file)), SQL and possibly CYPHER.
-Also, different conversion tools can be enacted to produce other representations: e.g.:</p>
+<p>As stated in the <a href="../../architecture/d4su-server/#overview">Architecture</a> there are 8 groups of features targeted by d4SU</p>
 <ul>
-<li>COLLADA or glTF for Google Earth, Cesium, ... (IfcConvert)</li>
-<li>CityJSON for GIS applications (IfcConvert, IfcCityJson)</li>
-<li>LBD (Linked Building Data) with <a href="../references/#ifctolbd">IFCtoLBD</a></li>
+<li><strong>CRUD</strong>: create, read, update, delete objects, relationships, properties and representations in a Model</li>
+<li><strong>Check</strong>: validate a Model against one or more requirements</li>
+<li><strong>Filter</strong>: select coherent a subset of objects, relationhips, properties and representation in a Model</li>
+<li><strong>Convert</strong>: convert a Model from one format/schema to another</li>
+<li><strong>Geometry</strong>: provide capabilities that change the type of a represention or complement the exisiting representation with a new one</li>
+<li><strong>Extract</strong>: extract a subset of objects, relationships, properties and representations and provide a corresponding Model.</li>
+<li><strong>Host</strong>: host 'third-party' domain functions (related to LCA, BAMB, EPC, ...)</li>
+<li><strong>workflow</strong>: chain of operations leveraging the other features.</li>
 </ul>
-<p>Complex sequences of transformations can be executed, with the help of <a href="../references/#ifcpatch">IfcPatch</a> to:</p>
-<ul>
-<li>Extract elements of the model, for instance all standards elements [Wall, Slabs, Beams, Columns, Windows, Doors, Spaces, Stairs]</li>
-<li>Split in Storeys / Levels</li>
-<li>Migrate a version, e.g from Ifc 2x3 to Ifc 4</li>
-<li>Purge Data</li>
-<li>Tesselate elements (simplify geometry rendering)</li>
-</ul>
-<p>Link to other Capabilities (examples)</p>
-<p>As more functionalities are made available, they could be leveraged by the platform. E.g., <a href="../references/#ifclca">IfcLCA</a> for Life Cycle Analysis or <a href="../references/#bim2sim">bim2sim</a> for Heating, Ventilation Air-conditioning (HVAC), Building Performance Simulation (BPS) or Computational Fluid Dynamics (CFD)</p>
+<p>Tools involved in the implementation of a feature are listed in a top note
+of the feature documentation page.</p>
 <h2 id="code-structure">Code structure</h2>
 <p>The code is availble on GitHub under /src with a specific structure</p>
 <table>
@@ -2201,6 +2161,77 @@ Also, different conversion tools can be enacted to produce other representations
 </tr>
 </tbody>
 </table>
+<h2 id="worflows">Worflows</h2>
+<p>The following schema shows key expected workflows </p>
+<pre class="mermaid"><code>block-beta
+    columns 5
+    blockArrowId1&lt;["&lt;/br&gt;1. Import a model&lt;/br&gt;from a BIM/IFC file&lt;/br&gt;&amp;nbsp;"]&gt;(right)
+    blockArrowId2&lt;["2. Filter the model and&lt;/br&gt; keep only essential&lt;/br&gt; elements for the &lt;/br&gt;use case at hand"]&gt;(right)
+    space:3
+    space:1
+    blockArrowId3&lt;["&amp;nbsp;&lt;/br&gt;3. Store the ifcJSON in&lt;/br&gt;the Database&lt;/br&gt;&amp;nbsp;"]&gt;(right)
+    blockArrowId4&lt;["4. Extract the data&lt;/br&gt;for target&lt;/br&gt; Spatial Unit(s) /&lt;/br&gt;Spatial Zone(s)"]&gt;(right)
+    blockArrowId5&lt;["&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;"]&gt;(down)
+    space:2
+    blockArrowId12&lt;["&lt;/br&gt;9. Store an ifcJSON&lt;br/&gt; for the bespoke model&lt;/br&gt;&amp;nbsp;"]&gt;(right)
+    blockArrowId10&lt;["&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;"]&gt;(right)
+    blockArrowId6&lt;["5. Enrich / Complement&lt;/br&gt;the data for the&lt;/br&gt;use case at hand"]&gt;(y)
+    blockArrowId7&lt;["6. Create a semantically&lt;/br&gt; rich 3D representation&lt;/br&gt;that can be explored&lt;/br&gt; with an IFC Viewer"]&gt;(right)
+    blockArrowId8&lt;["&lt;/br&gt;7. Import a bespoke&lt;/br&gt;non BIM/IFC model&lt;/br&gt;&amp;nbsp;"]&gt;(right)
+    blockArrowId9&lt;["&lt;/br&gt;8. Store the model&lt;/br&gt;into the database&lt;/br&gt;&amp;nbsp;"]&gt;(up)
+    space:2</code></pre>
+<p>This diagram provide a high level story board of what we want to show/validate</p>
+<ol>
+<li>Import a BIM/IFC from an external source, convert the schema if appropriate, validate the IFC against an IDS and transform the valid IFC into an ifcJSON</li>
+<li>Filter the ifcJSON while retaining only the elements that are relevant for the use case(s) at hand. In some cases, the Administrative Authority  may have detailed what is expected in the BIM/IFC. This is the case for the <a href="../references/#digital-building-permit-of-dubai">Digital Building Permit of Dubai</a> where detailed templates and instructions are provided for Archicad, Bentley OpenBuilding and Revit so that the exported BIM/IFC is fully adequate for the use of the Administrative Authority. However, this might be difficult to generalize and we start with the assumption that a single BIM/IFC will potentially be used across distinct Administrative Authorities and need to be filtered depending on the use case(s) at hand.  </li>
+<li>Store the ifcJSON into the database (PostgreSQL)</li>
+<li>Extract the data from the database for a target 'Spatial Unit' (a Building, a Storey, an Apartment, Common part(s),...), while leveraging the power of SQL, possibly complemented by other capabilities when needed.</li>
+<li>Enrich/Complement the data for the use case at hand. This means, create new groups (such as Zones, Spatial Zones or simply Groups) an create/update PropertySets. This is where <strong>external applications</strong> will highly interact with d4SU platform.</li>
+<li>Read data from the database and rebuild an ifcJSON with the relevant data and convert it to an IFC file so that standard IFC viewer can be used to navigate through the data (not just a 3D shape)</li>
+<li>Import a bespoke non BIM/IFC model (typically from a legacy system). The import will transform the legacy model into 'objects', 'representations', 'relationships' and 'propertySets'. We assume that it cannot be expected that every input will be BIM/IFC from day one or that the past can be ignored. Therefore, other models must be accounted for.</li>
+<li>Store the bespoke model into the database</li>
+<li>Create and Store an ifcJSON for the bespoke model. From there it will behave as a standard BIM model, although not suited for use by the AEC insdustry to 'construct' the represented building or part thereof. We will give an example of how simple it is to build an IFC from a model using IfcOpenShell. But practically, creating a meaningful IFC for a bespoke model will always require a development to accomodate the specifics of the model.</li>
+</ol>
+<h2 id="from-api-to-database">From API to Database</h2>
+<pre class="mermaid"><code>flowchart LR
+    Ifc
+    Custom["Custom Model"]
+    ifcJSON
+    Other["CityJSON, LDB, glTF,..."]
+    DB[("Database")]
+    API &lt;--&gt; IfcOpenShell
+    API &lt;--&gt; SQL
+    API &lt;--&gt; ifcJSON
+    API &lt;--&gt; Graph
+    Graph &lt;--&gt; DB
+    Custom -- convert --&gt; Ifc
+    Custom -- is stored --&gt; DB
+    SQL &lt;--&gt; DB
+    IfcOpenShell --&gt; Ifc
+    Ifc &lt;-- convert --&gt; ifcJSON
+    Ifc --&gt; Other
+    Other --&gt; Ifc
+    ifcJSON &lt;-- store | retrieve --&gt; DB
+    style API fill:#148F77
+    style DB fill:#148F77</code></pre>
+<p>Technically speaking, FastAPI and Celery provide the glue to bring together the capabilities provided by the BIM/IFC ecosystem in order to cover the needs of d4SU.</p>
+<p>On the left we have the <strong>API</strong> and on the right we have the <strong>Database</strong>. Between them, different representations are activated to leverage the capabilities of IfcOpenShell (including IfcPatch, IfcConvert), IfcJSON (two-way conversion between IFC(STEP Model &amp; file) and IfcJSON (a JSON Model &amp; file)), SQL and possibly CYPHER.
+Also, different conversion tools can be enacted to produce other representations: e.g.:</p>
+<ul>
+<li>COLLADA or glTF for Google Earth, Cesium, ... (IfcConvert)</li>
+<li>CityJSON for GIS applications (IfcConvert, IfcCityJson)</li>
+<li>LBD (Linked Building Data) with <a href="../references/#ifctolbd">IFCtoLBD</a></li>
+</ul>
+<p>Complex sequences of transformations can be executed, with the help of <a href="../references/#ifcpatch">IfcPatch</a> to:</p>
+<ul>
+<li>Extract elements of the model, for instance all standards elements [Wall, Slabs, Beams, Columns, Windows, Doors, Spaces, Stairs]</li>
+<li>Split in Storeys / Levels</li>
+<li>Migrate a version, e.g from Ifc 2x3 to Ifc 4</li>
+<li>Purge Data</li>
+<li>Tesselate elements (simplify geometry rendering)</li>
+</ul>
+<p>Link to other Capabilities (examples)</p>
+<p>As more functionalities are made available, they could be leveraged by the platform. E.g., <a href="../references/#ifclca">IfcLCA</a> for Life Cycle Analysis or <a href="../references/#bim2sim">bim2sim</a> for Heating, Ventilation Air-conditioning (HVAC), Building Performance Simulation (BPS) or Computational Fluid Dynamics (CFD)</p>
 <h2 id="ifc-files">Ifc Files</h2>
 <p>Ifc files used for tests and explorations come from reference sources such as:</p>
 <ul>

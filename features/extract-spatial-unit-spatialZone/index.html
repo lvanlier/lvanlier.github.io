@@ -1808,15 +1808,19 @@
 
 
 <h1 id="extract-a-spatialzone-apartment-or-common-parts">Extract a SpatialZone - Apartment or Common Parts</h1>
+<details class="note">
+<summary>Feature Group: Extract</summary>
+<p>This is provided by IfcOpenShell IfcPatch with the recipe ExtractElement</p>
 <div class="admonition note">
 <p class="admonition-title">Data and Spatial visualization</p>
+</div>
 <p>Extractions are twofold: the <strong>invisible part</strong> is the set of data that pertain to the spatial unit at hand. On these data, processes can be run to provide metrics / indicators (surfaces and volumes, space types and usage, energy transfer, life cycle, reuse, ...).</p>
 <p>The <strong>visible part</strong> is there to help understand the structure of the spatial unit, but also to identify issues, such as components that exibit misclassification and other anomalies.</p>
-</div>
 <div class="admonition note">
 <p class="admonition-title">Remark: the IfcConnectionGeometry is not made visually apparent in the viewers</p>
-<p>The extraction of a SpatialZone will collect all walls, slabs, ... doors and windows that are part of the Space Boundary of a Space contained in the SpatialZone. The relationships are also collected. An IfcJson element with type='IfcRelSpaceBoundary' conveys the data for the connection geometry and the details of the <strong>IfcConnectionSurfaceGeometry</strong>. However, whole walls or slabs are  shown and the connection surface is not made visually apparent in the viewers. </p>
 </div>
+</details>
+<p>The extraction of a SpatialZone will collect all walls, slabs, ... doors and windows that are part of the Space Boundary of a Space contained in the SpatialZone. The relationships are also collected. An IfcJson element with type='IfcRelSpaceBoundary' conveys the data for the connection geometry and the details of the <strong>IfcConnectionSurfaceGeometry</strong>. However, whole walls or slabs are  shown and the connection surface is not made visually apparent in the viewers. </p>
 <h2 id="extraction-of-an-apartment-from-the-database">Extraction of an Apartment from the Database</h2>
 <p>We can extract an IfcSpatialZone in the same way that we extracted an IfcStorey in <a href="../extract-spatial-unit-storey/#extraction-of-a-storey-from-the-database">Extraction of a Storey from the Database</a>.</p>
 <p>This works seamlessly. However IFC Schependomlaan has a insconsistent IfcSpaceBoundary values:</p>
