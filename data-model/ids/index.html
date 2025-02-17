@@ -20,7 +20,7 @@
     
     
       
-        <title>Information Delivery Specification - d4SU</title>
+        <title>Information Delivery Specification (IDS) - d4SU</title>
       
     
     
@@ -80,6 +80,11 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
+        
+        <a href="#information-delivery-specification-ids" class="md-skip">
+          Skip to content
+        </a>
+      
     </div>
     <div data-md-component="announce">
       
@@ -112,7 +117,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Information Delivery Specification
+              Information Delivery Specification (IDS)
             
           </span>
         </div>
@@ -882,12 +887,14 @@
       <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
       
       
+        
+      
       
       <a href="./" class="md-nav__link md-nav__link--active">
         
   
   <span class="md-ellipsis">
-    Information Delivery Specification
+    Information Delivery Specification (IDS)
   </span>
   
 
@@ -1626,6 +1633,8 @@
   
   
   
+    
+  
   
 </nav>
                   </div>
@@ -1640,9 +1649,57 @@
                   
 
 
-  <h1>Information Delivery Specification</h1>
-
-
+<h1 id="information-delivery-specification-ids">Information Delivery Specification (IDS)</h1>
+<p>The buildingSmart Information Delivery Specification (IDS) is a standard that defines the requirements for the exchange of information in Building Information Modeling (BIM) projects. It ensures that the right information is delivered at the right time throughout the lifecycle of a building or infrastructure project.</p>
+<p>Key usage of IDS:</p>
+<ul>
+<li>Requirements Definition: Specifies what information is needed, including data types, formats, and levels of detail.</li>
+<li>Validation: Ensures that the delivered information meets the specified requirements.</li>
+<li>Interoperability: Facilitates seamless data exchange between different software tools and platforms.</li>
+<li>Compliance: Ensures that the information delivery complies with industry standards and regulations.</li>
+<li>Documentation: Provides clear guidelines and documentation for stakeholders to understand and implement the IDS requirements.</li>
+</ul>
+<p>IDS helps in improving the quality and consistency of information exchanged in BIM projects, leading to better decision-making and project outcomes.</p>
+<p>Tecnically an IDS file uses an XML format that is both machine-readable and human-readable.</p>
+<p>Hereunder an extract of the 'info' section and of one 'specification' of the example file <a href="../references/#ids">IDS_wooden-windows.ids</a>.
+The specification is formulated for an IFC schema version IFC2X3, applies to an entity IFCMEMBER and states there must be at least 1 member of an IFCELEMENTASSEMBLY' of predefinedtype 'GIRDER'.  </p>
+<div class="highlight"><pre><span></span><code><span class="cp">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; standalone=&quot;yes&quot;?&gt;</span>
+<span class="nt">&lt;ids:ids</span><span class="w"> </span><span class="na">xmlns:ids=</span><span class="s">&quot;http://standards.buildingsmart.org/IDS&quot;</span><span class="w"> </span><span class="na">xmlns:xs=</span><span class="s">&quot;http://www.w3.org/2001/XMLSchema&quot;</span><span class="w"> </span><span class="na">xmlns:xsi=</span><span class="s">&quot;http://www.w3.org/2001/XMLSchema-instance&quot;</span><span class="w"> </span><span class="na">xsi:schemaLocation=</span><span class="s">&quot;http://standards.buildingsmart.org/IDS http://standards.buildingsmart.org/IDS/1.0/ids.xsd&quot;</span><span class="nt">&gt;</span>
+<span class="w">    </span><span class="nt">&lt;ids:info&gt;</span>
+<span class="w">        </span><span class="nt">&lt;ids:title&gt;</span>Wooden<span class="w"> </span>Windows<span class="nt">&lt;/ids:title&gt;</span>
+<span class="w">        </span><span class="nt">&lt;ids:copyright&gt;</span>NBvT<span class="nt">&lt;/ids:copyright&gt;</span>
+<span class="w">        </span><span class="nt">&lt;ids:description&gt;</span>An<span class="w"> </span>IDS<span class="w"> </span>of<span class="w"> </span>the<span class="w"> </span>Wooden<span class="w"> </span>Windows<span class="w"> </span>example.<span class="nt">&lt;/ids:description&gt;</span>
+<span class="w">        </span><span class="nt">&lt;ids:date&gt;</span>2022-02-08<span class="nt">&lt;/ids:date&gt;</span>
+<span class="w">        </span><span class="nt">&lt;ids:milestone&gt;</span>Design<span class="w"> </span>handover<span class="w"> </span>to<span class="w"> </span>manufactuer<span class="nt">&lt;/ids:milestone&gt;</span>
+<span class="w">    </span><span class="nt">&lt;/ids:info&gt;</span>
+<span class="w">    </span><span class="nt">&lt;ids:specifications&gt;</span>
+<span class="w">        </span><span class="cm">&lt;!-- specification added to have at least one case of subType in the documenetation --&gt;</span>
+<span class="w">        </span><span class="nt">&lt;ids:specification</span><span class="w"> </span><span class="na">ifcVersion=</span><span class="s">&quot;IFC2X3&quot;</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;subTypeExample&quot;</span><span class="nt">&gt;</span>
+<span class="w">            </span><span class="nt">&lt;ids:applicability</span><span class="w"> </span><span class="na">minOccurs=</span><span class="s">&quot;1&quot;</span><span class="w"> </span><span class="na">maxOccurs=</span><span class="s">&quot;unbounded&quot;</span><span class="nt">&gt;</span>
+<span class="w">                </span><span class="nt">&lt;ids:entity&gt;</span>
+<span class="w">                    </span><span class="nt">&lt;ids:name&gt;</span>
+<span class="w">                        </span><span class="nt">&lt;ids:simpleValue&gt;</span>IFCMEMBER<span class="nt">&lt;/ids:simpleValue&gt;</span>
+<span class="w">                    </span><span class="nt">&lt;/ids:name&gt;</span>
+<span class="w">                </span><span class="nt">&lt;/ids:entity&gt;</span>
+<span class="w">            </span><span class="nt">&lt;/ids:applicability&gt;</span>
+<span class="w">            </span><span class="nt">&lt;ids:requirements&gt;</span>
+<span class="w">                </span><span class="nt">&lt;ids:partOf</span><span class="w"> </span><span class="na">relation=</span><span class="s">&quot;IFCRELAGGREGATES&quot;</span><span class="nt">&gt;</span>
+<span class="w">                    </span><span class="nt">&lt;ids:entity&gt;</span>
+<span class="w">                        </span><span class="nt">&lt;ids:name&gt;</span>
+<span class="w">                            </span><span class="nt">&lt;ids:simpleValue&gt;</span>IFCELEMENTASSEMBLY<span class="nt">&lt;/ids:simpleValue&gt;</span>
+<span class="w">                        </span><span class="nt">&lt;/ids:name&gt;</span>
+<span class="w">                        </span><span class="nt">&lt;ids:predefinedType&gt;</span>
+<span class="w">                            </span><span class="nt">&lt;ids:simpleValue&gt;</span>GIRDER<span class="nt">&lt;/ids:simpleValue&gt;</span>
+<span class="w">                        </span><span class="nt">&lt;/ids:predefinedType&gt;</span>
+<span class="w">                    </span><span class="nt">&lt;/ids:entity&gt;</span>
+<span class="w">                </span><span class="nt">&lt;/ids:partOf&gt;</span>
+<span class="w">            </span><span class="nt">&lt;/ids:requirements&gt;</span>
+<span class="w">        </span><span class="nt">&lt;/ids:specification&gt;</span>
+<span class="w">    </span><span class="nt">&lt;/ids:specifications&gt;</span>
+<span class="nt">&lt;/ids:ids&gt;</span>
+</code></pre></div>
+<p>A lot of examples are available at <a href="../../introduction/references/#bimids">BIMids</a></p>
+<p>There are also a lot of user friendly editors of IDS files. See the list of <a href="../references/#ids">Tools Supporting IDS</a></p>
 
 
 
