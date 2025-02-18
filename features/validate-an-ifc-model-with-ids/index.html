@@ -81,7 +81,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#validate-an-ifc-model-wth-ids" class="md-skip">
+        <a href="#validate-an-ifc-model-with-ids" class="md-skip">
           Skip to content
         </a>
       
@@ -1065,6 +1065,17 @@
         
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Validate an IFC model with IDS
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="./" class="md-nav__link md-nav__link--active">
         
   
@@ -1074,6 +1085,58 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#submit-the-processing-request" class="md-nav__link">
+    <span class="md-ellipsis">
+      Submit the processing request
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Submit the processing request">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#the-ids_wooden-windowsifc-with-bim-collab" class="md-nav__link">
+    <span class="md-ellipsis">
+      The IDS_wooden-windows.ifc with BIM Collab
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#the-validation-result-in-html" class="md-nav__link">
+    <span class="md-ellipsis">
+      The Validation Result in HTML
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -1636,6 +1699,47 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#submit-the-processing-request" class="md-nav__link">
+    <span class="md-ellipsis">
+      Submit the processing request
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Submit the processing request">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#the-ids_wooden-windowsifc-with-bim-collab" class="md-nav__link">
+    <span class="md-ellipsis">
+      The IDS_wooden-windows.ifc with BIM Collab
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#the-validation-result-in-html" class="md-nav__link">
+    <span class="md-ellipsis">
+      The Validation Result in HTML
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -1649,9 +1753,30 @@
                   
 
 
-<h1 id="validate-an-ifc-model-wth-ids">Validate an IFC model wth IDS</h1>
+<h1 id="validate-an-ifc-model-with-ids">Validate an IFC model with IDS</h1>
 <div class="admonition note">
 <p class="admonition-title">Feature Group(s): Check</p>
+</div>
+<h2 id="submit-the-processing-request">Submit the processing request</h2>
+<p>The validation is started by sending a POST with a Json Body as defined in pydantic</p>
+<div class="highlight"><pre><span></span><code><span class="k">class</span> <span class="nc">ValidateIfcAgainstIdsInstruction</span><span class="p">(</span><span class="n">BaseModel</span><span class="p">):</span>
+    <span class="n">sourceFileURL</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="s2">&quot;http://localhost:8002/IDS/IDS_wooden-windows_IFC.ifc&quot;</span>
+    <span class="n">idsFilesURLs</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;http://localhost:8002/IDS/IDS_wooden-windows.ids&quot;</span><span class="p">]</span>
+    <span class="n">resultType</span><span class="p">:</span> <span class="n">Literal</span><span class="p">[</span><span class="s1">&#39;json&#39;</span><span class="p">,</span><span class="s1">&#39;html&#39;</span><span class="p">,</span><span class="s1">&#39;bcfzip&#39;</span><span class="p">]</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="s1">&#39;html&#39;</span>
+</code></pre></div>
+<ul>
+<li>The  <strong>sourceFileURL</strong> is that of the  IFC file</li>
+<li>The <strong>idsFilesURLs</strong> gives the list of the IDS's files; there may be more that one</li>
+<li>The <strong>resultType</strong> is either json, html or bcfzip; bcfzip is the format of the BIM Collaboration Format (BFC).</li>
+</ul>
+<p>The validation is entirely based on the <strong>IfcTester</strong> module of IfcOpenSell</p>
+<p>The default files are those from the GitHub of the IfcTester.</p>
+<p>The are illustative and the validation gives both <strong>pass</strong> and <strong>fail</strong> results.</p>
+<h3 id="the-ids_wooden-windowsifc-with-bim-collab">The IDS_wooden-windows.ifc with BIM Collab</h3>
+<p><a class="glightbox" href="../../assets/images/IDS_wooden-windows.bimcollab.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Wooden Window IDS Test File" src="../../assets/images/IDS_wooden-windows.bimcollab.png" /></a></p>
+<h3 id="the-validation-result-in-html">The Validation Result in HTML</h3>
+<div align="center" style="font-size:24px">
+<a href="../../assets/html/9461dd0f-1b64-443b-b185-b9bd5562953b.html" target="_blanck">Validation Result in HTML</a>
 </div>
 
 
