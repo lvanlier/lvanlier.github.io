@@ -1121,6 +1121,15 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#the-information-delivery-specification-ids-file" class="md-nav__link">
+    <span class="md-ellipsis">
+      The Information Delivery Specification (IDS) file
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#the-validation-result-in-html" class="md-nav__link">
     <span class="md-ellipsis">
       The Validation Result in HTML
@@ -1725,6 +1734,15 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#the-information-delivery-specification-ids-file" class="md-nav__link">
+    <span class="md-ellipsis">
+      The Information Delivery Specification (IDS) file
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#the-validation-result-in-html" class="md-nav__link">
     <span class="md-ellipsis">
       The Validation Result in HTML
@@ -1759,10 +1777,23 @@
 </div>
 <h2 id="submit-the-processing-request">Submit the processing request</h2>
 <p>The validation is started by sending a POST with a Json Body as defined in pydantic</p>
-<div class="highlight"><pre><span></span><code><span class="k">class</span> <span class="nc">ValidateIfcAgainstIdsInstruction</span><span class="p">(</span><span class="n">BaseModel</span><span class="p">):</span>
+<div class="highlight"><pre><span></span><code><span class="c1">#</span>
+<span class="c1"># Validate the IFC model against the Information Delivery Specification (IDS)</span>
+<span class="c1">#</span>
+
+<span class="k">class</span> <span class="nc">ValidateIfcAgainstIds_Instruction</span><span class="p">(</span><span class="n">BaseModel</span><span class="p">):</span>
     <span class="n">sourceFileURL</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="s2">&quot;http://localhost:8002/IDS/IDS_wooden-windows_IFC.ifc&quot;</span>
     <span class="n">idsFilesURLs</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;http://localhost:8002/IDS/IDS_wooden-windows.ids&quot;</span><span class="p">]</span>
     <span class="n">resultType</span><span class="p">:</span> <span class="n">Literal</span><span class="p">[</span><span class="s1">&#39;json&#39;</span><span class="p">,</span><span class="s1">&#39;html&#39;</span><span class="p">,</span><span class="s1">&#39;bcfzip&#39;</span><span class="p">]</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="s1">&#39;html&#39;</span>
+
+<span class="k">class</span> <span class="nc">ValidateIfcAgainstIds_ResultItem</span><span class="p">(</span><span class="n">BaseModel</span><span class="p">):</span>
+    <span class="n">isSuccess</span><span class="p">:</span> <span class="nb">bool</span>
+    <span class="n">percentChecksPass</span><span class="p">:</span> <span class="nb">float</span>
+    <span class="n">percentRequirementsPass</span><span class="p">:</span> <span class="nb">float</span>
+    <span class="n">percentSpecificationsPass</span><span class="p">:</span> <span class="nb">float</span>
+    <span class="n">resultPath</span><span class="p">:</span> <span class="nb">str</span> <span class="c1"># relative path of the result file (json, html or bfczip)</span>
+<span class="k">class</span> <span class="nc">ValidateIfcAgainstIds_Result</span><span class="p">(</span><span class="n">BaseModel</span><span class="p">):</span>
+    <span class="n">result</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="n">ValidateIfcAgainstIds_ResultItem</span><span class="p">]</span>
 </code></pre></div>
 <ul>
 <li>The  <strong>sourceFileURL</strong> is that of the  IFC file</li>
@@ -1774,9 +1805,16 @@
 <p>They are illustative and the validation gives both <strong>pass</strong> and <strong>fail</strong> results.</p>
 <h3 id="the-ids_wooden-windowsifc-with-bim-collab">The IDS_wooden-windows.ifc with BIM Collab</h3>
 <p><a class="glightbox" href="../../assets/images/IDS_wooden-windows.bimcollab.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Wooden Window IDS Test File" src="../../assets/images/IDS_wooden-windows.bimcollab.png" /></a></p>
+<p>The 3D geometry and all its details is informative, but need not be processed for the domains LCA, BAMB, EPC, DBP, ...</p>
+<p>What matters is that the necessary Psets properties are present. Such as the <strong>ThermalTransmittance</strong> (part of the <strong>Pset_PlateCommon</strong>) (which is in the IDS hereunder) or the surface area (which is not included in the example IDS) but would be required in a real case.</p>
+<h3 id="the-information-delivery-specification-ids-file">The Information Delivery Specification (IDS) file</h3>
+<div align="center" style="font-size:24px">
+<a href="../../assets/xml/IDS_wooden-windows.ids.xml" target="_blank">IDS file (XML format)</a>
+</div>
+
 <h3 id="the-validation-result-in-html">The Validation Result in HTML</h3>
 <div align="center" style="font-size:24px">
-<a href="../../assets/html/9461dd0f-1b64-443b-b185-b9bd5562953b.html" target="_blanck">Validation Result in HTML</a>
+<a href="../../assets/html/9461dd0f-1b64-443b-b185-b9bd5562953b.html" target="_blank">Validation Result in HTML</a>
 </div>
 
 

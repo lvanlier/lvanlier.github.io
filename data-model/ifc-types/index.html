@@ -1650,6 +1650,88 @@
 
 
 <h1 id="ifc-types">IFC Types</h1>
+<p>In IFC, objects can have a type that defines commonly shared information for occurrences of that object type. The set of shared information may include:</p>
+<ul>
+<li>common properties within shared property sets</li>
+<li>common material information</li>
+<li>common shape representations</li>
+</ul>
+<p>And for each object type some characteristics that are peculiar to that object type such as e.g. for Windows:</p>
+<ul>
+<li>common partitioning of panels</li>
+<li>common operation types of panels</li>
+</ul>
+<p>Hereunder a list of some objects and corresponding types</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Object</th>
+<th style="text-align: left;">Type</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">IfcWall</td>
+<td style="text-align: left;">IfcWallType</td>
+</tr>
+<tr>
+<td style="text-align: left;">IFCCurtainWall</td>
+<td style="text-align: left;">IFCCurtainWallType</td>
+</tr>
+<tr>
+<td style="text-align: left;">IfcSlab</td>
+<td style="text-align: left;">IfcSlabType</td>
+</tr>
+<tr>
+<td style="text-align: left;">IfcBeam</td>
+<td style="text-align: left;">IfcBeamType</td>
+</tr>
+<tr>
+<td style="text-align: left;">IfcColumn</td>
+<td style="text-align: left;">IfcColumnType</td>
+</tr>
+<tr>
+<td style="text-align: left;">IfcCovering</td>
+<td style="text-align: left;">IfcCoveringType</td>
+</tr>
+<tr>
+<td style="text-align: left;">IfcWindow</td>
+<td style="text-align: left;">IfcWindowType</td>
+</tr>
+<tr>
+<td style="text-align: left;">IfcDoor</td>
+<td style="text-align: left;">IfcDoorType</td>
+</tr>
+<tr>
+<td style="text-align: left;">IfcPlate</td>
+<td style="text-align: left;">IfcPlateType</td>
+</tr>
+<tr>
+<td style="text-align: left;">IfcStair</td>
+<td style="text-align: left;">IfcStairType</td>
+</tr>
+<tr>
+<td style="text-align: left;">IfcSpace</td>
+<td style="text-align: left;">IfcSpaceType</td>
+</tr>
+<tr>
+<td style="text-align: left;">IFCRailing</td>
+<td style="text-align: left;">IFCRailingType</td>
+</tr>
+<tr>
+<td style="text-align: left;">IFCMember</td>
+<td style="text-align: left;">IFCMemberType</td>
+</tr>
+</tbody>
+</table>
+<p>The following figure illustrates the relationship for property sets</p>
+<p><a class="glightbox" href="../../assets/images/ifcreldefinesbytype_fig-1.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../../assets/images/ifcreldefinesbytype_fig-1.png" /></a></p>
+<p>The following figure illustrates the relationship for material</p>
+<p><a class="glightbox" href="../../assets/images/IfcWallStandardCase_MaterialUsage-01.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../../assets/images/IfcWallStandardCase_MaterialUsage-01.png" /></a></p>
+<p>The following two figures illustrates the relationship for representations.</p>
+<p>The product representations are defined as representation maps (at the level of the supertype IfcTypeProduct (Wall, Slab, ...)), which gets assigned by an element occurrence instance through the IfcShapeRepresentation.Item being an IfcMappedItem.</p>
+<p><a class="glightbox" href="../../assets/images/IfcTypeProduct_RepresentationMap-1.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../../assets/images/IfcTypeProduct_RepresentationMap-1.png" /></a></p>
+<p><a class="glightbox" href="../../assets/images/IfcTypeProduct_RepresentationMap-2.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../../assets/images/IfcTypeProduct_RepresentationMap-2.png" /></a></p>
 
 
 
