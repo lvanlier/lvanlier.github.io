@@ -9,10 +9,6 @@
       
       
       
-        <link rel="prev" href="../extract-ifc-elements-with-ifcpatch/">
-      
-      
-        <link rel="next" href="../extract-spatial-unit-storey/">
       
       
       <link rel="icon" href="../../assets/images/favicon.png">
@@ -20,7 +16,7 @@
     
     
       
-        <title>Extract Storeys from the IFC model with IfcPatch - d4SU</title>
+        <title>Filter the ifcJSON Model - d4SU</title>
       
     
     
@@ -81,7 +77,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#extract-storeys-from-the-ifc-model-with-ifcpatch" class="md-skip">
+        <a href="#filter-the-ifcjson-model" class="md-skip">
           Skip to content
         </a>
       
@@ -117,7 +113,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Extract Storeys from the IFC model with IfcPatch
+              Filter the ifcJSON Model
             
           </span>
         </div>
@@ -292,12 +288,10 @@
         
   
   
-    
-  
   
     
     
-      <li class="md-tabs__item md-tabs__item--active">
+      <li class="md-tabs__item">
         <a href="../introduction/" class="md-tabs__link">
           
   
@@ -987,30 +981,27 @@
       
   
   
-    
   
   
-  
     
     
     
-      
-        
-        
       
       
         
       
     
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
-        
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" checked>
         
           
-          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="">
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
             
   
   <span class="md-ellipsis">
@@ -1021,7 +1012,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_5">
             <span class="md-nav__icon md-icon"></span>
             Features
@@ -1263,30 +1254,10 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  <span class="md-ellipsis">
-    Extract Storeys from the IFC model with IfcPatch
-  </span>
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../extract-ifc-storeys-with-ifcpatch/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1295,35 +1266,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#extraction-of-storeys-with-ifcpatch" class="md-nav__link">
-    <span class="md-ellipsis">
-      Extraction of Storeys with IFCPatch
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -1745,9 +1687,18 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#extraction-of-storeys-with-ifcpatch" class="md-nav__link">
+  <a href="#filter-the-ifcjson" class="md-nav__link">
     <span class="md-ellipsis">
-      Extraction of Storeys with IFCPatch
+      Filter the IfcJSON
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#update-the-bundle-and-the-bundlejournal" class="md-nav__link">
+    <span class="md-ellipsis">
+      Update the bundle and the bundleJournal
     </span>
   </a>
   
@@ -1768,30 +1719,59 @@
                   
 
 
-<h1 id="extract-storeys-from-the-ifc-model-with-ifcpatch">Extract Storeys from the IFC model with IfcPatch</h1>
-<details class="note">
-<summary>Feature Group: Extract</summary>
-<p>This is provided by IfcOpenShell IfcPatch with the recipe ExtractElement</p>
+<h1 id="filter-the-ifcjson-model">Filter the ifcJSON Model</h1>
 <div class="admonition note">
-<p class="admonition-title">Data and Spatial visualization</p>
+<p class="admonition-title">Feature Group(s): Filter</p>
 </div>
-<p>Extractions are twofold: the <strong>invisible part</strong> is the set of data that pertain to the spatial unit at hand. On these data, processes can be run to provide metrics / indicators (surfaces and volumes, space types and usage, energy transfer, life cycle, reuse, ...).</p>
-<p>The <strong>visible part</strong> is there to help understand the structure of the spatial unit, but also to identify issues, such as components that exibit misclassification and other anomalies.</p>
-</details>
-<h2 id="extraction-of-storeys-with-ifcpatch">Extraction of Storeys with IFCPatch</h2>
-<p>IfcPatch from IfcOpenShell lets split a Building into Storeys, creating one IFC file for each storey.</p>
-<p>As an illustration, we have hereunder the extraction  of the first level of Duplex_A_20110907_optimized.ifc with IfcPatch. The IFC file used is the one that result from <strong>import -&gt; transform to ifcjson -&gt; filter -&gt; transform from ifcjson to ifc</strong>. As a result of the filtering, there is no IfcCovering and no IfcFurnishingElement.</p>
-<p>BIMCollab display of IfcPatch extraction of Level 1 of Duplex_A_20110907_optimized.
-As seen hereunder, IfcPatch keeps the spaces of the other levels. Here we highlight IfcSpace <strong>A203 Bedroom 2</strong></p>
-<p><a class="glightbox" href="../../assets/images/Duplex_A_20110907_optimized-extracted-ifcpatch-level1.bimcollab.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="BIMCollab display of IfcPatch extraction of Level 1 of Duplex_A_20110907_optimized.ifc" src="../../assets/images/Duplex_A_20110907_optimized-extracted-ifcpatch-level1.bimcollab.png" /></a></p>
-<p>Hereunder, the display of the selection of Level 1 while highlighting the space <strong>A105 Stair</strong>  that is part of storey Level 1 but is not limited to storey Level 1</p>
-<p><a class="glightbox" href="../../assets/images/Duplex_A_20110907_optimized-extracted-ifcpatch-level1-selected.bimcollab.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="BIMCollab display of IfcPatch extraction of Level 1 of Duplex_A_20110907_optimized.ifc" src="../../assets/images/Duplex_A_20110907_optimized-extracted-ifcpatch-level1-selected.bimcollab.png" /></a></p>
-<p>The file expectedly lost the furnitures. However <strong>the Stairs are missing</strong> on both sides.</p>
-<p>There is also a display of walls above the top of the first level, but that's an error in the original file where those walls are defined as part of the Level 1 Storey. This is clearly apparent hereunder with the highlight on wall <strong>Basic Wall:Interior - Partition (92mm Stud):144518</strong> that is defined as belonging to Storey <strong>Level 1</strong> instead of <strong>Level 2</strong>.</p>
-<p><a class="glightbox" href="../../assets/images/Duplex_A_20110907_optimized-extracted-ifcpatch-level1-wall-on-error.bimcollab.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="BIMCollab display of IfcPatch extraction of Level 1 of Duplex_A_20110907_optimized.ifc" src="../../assets/images/Duplex_A_20110907_optimized-extracted-ifcpatch-level1-wall-on-error.bimcollab.png" /></a></p>
-<p>Further to the error on the wall, we can observe that one error creates some extra inconsistencies: the door <strong>M_Single-Flush:0864 x 2032mm:0864 x 2032mm:150478</strong> which should be in the above wall appears on Level 2 as disconnected from the wall where it is located. Additionnaly, the wall <strong>Basic Wall:Interior - Partition (92mm Stud):144586</strong> in yellow on Level 2 is connected to the wall in Level 1 via <strong>IfcRelConnectsPathElements</strong>.</p>
-<p>This makes clear that a <strong>quality control on the source file</strong> is always important. <strong>It also makes clear that the visualization of the data with an IFC viewer makes it possible to identify inconsistencies that would otherwise be hardly noticeable .</strong></p>
-<p><a class="glightbox" href="../../assets/images/Duplex_A_20110907_optimized-extracted-ifcpatch-level2-door-on-error.bimcollab.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="BIMCollab display of IfcPatch extraction of Level 1 of Duplex_A_20110907_optimized.ifc" src="../../assets/images/Duplex_A_20110907_optimized-extracted-ifcpatch-level2-door-on-error.bimcollab.png" /></a></p>
+<h2 id="filter-the-ifcjson">Filter the IfcJSON</h2>
+<p style="color:#148F77">
+The capability which is demonstrated here is key: we can filter an IFC model and keep only the information that is relevant to a use case, while ensuring the filtered model remain consistent. The filtering approach will obviously need to be fitted to the specific use case at hand.
+</p>
+
+<p>Filtering the content of an IFC is a key element of providing a focused information set that is relevant for a specific administrative use case.</p>
+<p>A Digital Building Permit will e.g., not need the information for all illustrative furnitures placed in the IfcSpaces. Details on ventilation systems may be relevant or not. Connectedness of walls may be superfluous or not.</p>
+<p>There are 876 IfcEntities in the spec <a href="../references/#ifc-entities">IFC 4.3.2 Annex B Alphabetical listings - Entities</a>. Which is a lot!</p>
+<p>There a two ways to filter:</p>
+<ul>
+<li>Extraction: select the Elements that we want to keep. This can be done directly on the IFC model with IfcPatch by applying an 'ExtractElements' recipe. This is both efficient and convenient if the list of elements that we want to keep is  limited. Extraction with IfcPatch is illutrated in a separate section (Extract Elements from the IFC model).</li>
+<li>Filtering out elements that are not needed: this is relatively complex and is the object of this section.</li>
+</ul>
+<p>We propose a two-fold approach:</p>
+<ol>
+<li>Association of categories (such as 'construction', 'system', ...) to individual entities.  This is defined in the csv under <strong>/db/csv/ifc-types-ref.csv</strong>. The filter will give the categories that are retained</li>
+<li>With a given category, some IfcEntities might be superfluous for the use case, so they can be excluded.</li>
+</ol>
+<p>The filtering is done by loading the ifcJSON in pandas Dataframes and/or Series, as they provide convenient capabilities.</p>
+<p>Filtering the elements is not enough. It is critial to ensure that there are no references left to elements that have been filtered out.</p>
+<p>There are also the relationships that link a <strong>relating element</strong> (the ''parent'') to a <strong>list of related elements</strong> (the ''children''). If a ''child'' is removed, it needs to be pruned from the list of related elements. If a ''parent'' loses all its ''children'', it needs to be removed.</p>
+<p>The <strong>relating</strong> and <strong>related</strong> elements are named differently for the many types of relationships. Therefore, there is a csv (in <strong>/db/csv/ifc-relationships-ref.csv</strong>) that documents, for each relationship type, the names that must be used for the ''relating'' and the ''related'' elements.</p>
+<p>The processing is then straightforward:</p>
+<ol>
+<li>Filter the model</li>
+<li>Split de list of entities is 4 groups (following the proposed Physical Table Model):<ul>
+<li>Representations</li>
+<li>PropertySets</li>
+<li>Relationships</li>
+<li>Objects: all entities that are not in one of the 3 others</li>
+</ul>
+</li>
+<li>Drop representations that are not related to objects retained in the model</li>
+<li>Prune the related members in the relationships; if there is no related left, then:<ul>
+<li>if the relating is a property_set:  drop the property_set</li>
+<li>in all cases: drop the relationship</li>
+</ul>
+</li>
+</ol>
+<p>At the end, the filtered model is saved as an ifcJSON.</p>
+<h2 id="update-the-bundle-and-the-bundlejournal">Update the bundle and the bundleJournal</h2>
+<pre class="mermaid"><code>flowchart TB
+    bundle
+    bundleJournal
+    bundle --o bundleJournal</code></pre>
+<ul>
+<li>update the bundle row</li>
+<li>add an entry in the bundleJournal</li>
+</ul>
 
 
 

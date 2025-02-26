@@ -12,7 +12,7 @@
         <link rel="prev" href="../introduction/">
       
       
-        <link rel="next" href="../import-and-transform/">
+        <link rel="next" href="../migrate-ifc-schema-to-ifc4/">
       
       
       <link rel="icon" href="../../assets/images/favicon.png">
@@ -81,7 +81,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#validate-an-ifc-model-with-ids" class="md-skip">
+        <a href="#validate-an-ifc-model-against-one-or-more-ids-using-ifctester" class="md-skip">
           Skip to content
         </a>
       
@@ -1108,8 +1108,35 @@
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Submit the processing request">
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#service-the-request" class="md-nav__link">
+    <span class="md-ellipsis">
+      Service the request
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Service the request">
       <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#get-ifc-from-a-remote-location" class="md-nav__link">
+    <span class="md-ellipsis">
+      Get IFC from a remote location
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#validate-against-a-list-of-one-or-more-ids-files" class="md-nav__link">
+    <span class="md-ellipsis">
+      Validate against a list of one or more IDS file(s)
+    </span>
+  </a>
+  
+</li>
         
           <li class="md-nav__item">
   <a href="#the-ids_wooden-windowsifc-with-bim-collab" class="md-nav__link">
@@ -1159,11 +1186,53 @@
   
   
     <li class="md-nav__item">
-      <a href="../import-and-transform/" class="md-nav__link">
+      <a href="../migrate-ifc-schema-to-ifc4/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    Import an IFC and transform it to an ifcJSON
+    Migrate an IFC model from IFC2X3 to IFC4
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../tessellate-ifc-elements/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Tessellate IFC elements
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../convert-ifc-to-ifcjson/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Convert an IFC to IfcJSON
   </span>
   
 
@@ -1206,6 +1275,27 @@
   
   <span class="md-ellipsis">
     Store the ifcJSON in the database
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../import-and-process-ifc/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Import and process an IFC
   </span>
   
 
@@ -1721,8 +1811,35 @@
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Submit the processing request">
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#service-the-request" class="md-nav__link">
+    <span class="md-ellipsis">
+      Service the request
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Service the request">
       <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#get-ifc-from-a-remote-location" class="md-nav__link">
+    <span class="md-ellipsis">
+      Get IFC from a remote location
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#validate-against-a-list-of-one-or-more-ids-files" class="md-nav__link">
+    <span class="md-ellipsis">
+      Validate against a list of one or more IDS file(s)
+    </span>
+  </a>
+  
+</li>
         
           <li class="md-nav__item">
   <a href="#the-ids_wooden-windowsifc-with-bim-collab" class="md-nav__link">
@@ -1771,10 +1888,23 @@
                   
 
 
-<h1 id="validate-an-ifc-model-with-ids">Validate an IFC model with IDS</h1>
+<h1 id="validate-an-ifc-model-against-one-or-more-ids-using-ifctester">Validate an IFC model against one or more IDS using IfcTester</h1>
 <div class="admonition note">
-<p class="admonition-title">Feature Group(s): Check</p>
+<p class="admonition-title">Feature Group: Check</p>
 </div>
+<p>The <em>Information Delivery Specification (IDS) is a buildingSMART standard for defining information requirements in a computer interpretable form. It allows for automatic compliance checking of IFC models, that increases quality control and fidelity of data. IDS also aids the efficient delivery of the data, by setting the expectations and providing clear guidelines of what needs to be exchanged. A user of IDS can specify how objects, classifications, materials, properties, and even values should be delivered in an IFC model.</em> Source <a href="https://www.buildingsmart.org/standards/bsi-standards/information-delivery-specification-ids/">buildingSmart</a>.</p>
+<p>IDS can be used for defining requirements for</p>
+<ul>
+<li>Life Cycle Assessement (LCA)</li>
+<li>Buildings as Material Banks (BAMB), also knwon as Recycle, Reuse, Repurpose</li>
+<li>Energy Performance Certficate (EPC), and generally speaking for Energy Performance of Building (EBP)</li>
+<li>Digital Building Cadastre (DBL)</li>
+<li>3D Cadastre (3DC)</li>
+<li>Real-Estate Management (REM)</li>
+<li>Public Revenue Management (PRA)</li>
+<li>Digital Building LogBook (DBL)</li>
+</ul>
+<p>Seee also <a href="../../introduction/future-and-d4su/#from-requirements-to-validated-data-for-spatial-units">From Requirements to Validated Data for Spatial Units</a></p>
 <h2 id="submit-the-processing-request">Submit the processing request</h2>
 <p>The validation is started by sending a POST with a Json Body as defined in pydantic</p>
 <div class="highlight"><pre><span></span><code><span class="c1">#</span>
@@ -1786,23 +1916,32 @@
     <span class="n">idsFilesURLs</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;http://localhost:8002/IDS/IDS_wooden-windows.ids&quot;</span><span class="p">]</span>
     <span class="n">resultType</span><span class="p">:</span> <span class="n">Literal</span><span class="p">[</span><span class="s1">&#39;json&#39;</span><span class="p">,</span><span class="s1">&#39;html&#39;</span><span class="p">,</span><span class="s1">&#39;bcfzip&#39;</span><span class="p">]</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="s1">&#39;html&#39;</span>
 
+<span class="k">class</span> <span class="nc">ValidateIfcAgainstIds_Result</span><span class="p">(</span><span class="n">BaseModel</span><span class="p">):</span>
+    <span class="n">result</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="n">ValidateIfcAgainstIds_ResultItem</span><span class="p">]</span>
+
 <span class="k">class</span> <span class="nc">ValidateIfcAgainstIds_ResultItem</span><span class="p">(</span><span class="n">BaseModel</span><span class="p">):</span>
     <span class="n">isSuccess</span><span class="p">:</span> <span class="nb">bool</span>
     <span class="n">percentChecksPass</span><span class="p">:</span> <span class="nb">float</span>
     <span class="n">percentRequirementsPass</span><span class="p">:</span> <span class="nb">float</span>
     <span class="n">percentSpecificationsPass</span><span class="p">:</span> <span class="nb">float</span>
     <span class="n">resultPath</span><span class="p">:</span> <span class="nb">str</span> <span class="c1"># relative path of the result file (json, html or bfczip)</span>
-<span class="k">class</span> <span class="nc">ValidateIfcAgainstIds_Result</span><span class="p">(</span><span class="n">BaseModel</span><span class="p">):</span>
-    <span class="n">result</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="n">ValidateIfcAgainstIds_ResultItem</span><span class="p">]</span>
 </code></pre></div>
 <ul>
-<li>The  <strong>sourceFileURL</strong> is that of the  IFC file</li>
+<li>The <strong>sourceFileURL</strong> is that of the  IFC file</li>
 <li>The <strong>idsFilesURLs</strong> gives the list of the IDS's files; there may be more that one</li>
 <li>The <strong>resultType</strong> is either json, html or bcfzip; bcfzip is the format of the BIM Collaboration Format (BFC).</li>
 </ul>
-<p>The validation is entirely based on the <strong>IfcTester</strong> module of IfcOpenSell</p>
 <p>The default files are from the GitHub of the <a href="https://github.com/buildingSMART/IDS/tree/development/Documentation/Examples">buildingSmart IDS repository</a>.</p>
 <p>They are illustative and the validation gives both <strong>pass</strong> and <strong>fail</strong> results.</p>
+<p>FastAPI provides by default at <strong>/docs</strong> a swagger utility that simplifies the execution of tests.</p>
+<p>The request provides: default values that must be adjusted to your specific case</p>
+<p><a class="glightbox" href="../../assets/images/swagger-validate-ifc-against-ids.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Swagger for import on /docs" src="../../assets/images/swagger-validate-ifc-against-ids.png" /></a></p>
+<h2 id="service-the-request">Service the request</h2>
+<p>This is done in the <strong>Service Layer</strong> where a chain of task is composed and sent for execution by a Celery Worker via a message in the <strong>Message Broker(Redis)</strong></p>
+<h3 id="get-ifc-from-a-remote-location">Get IFC from a remote location</h3>
+<p>Currently all IFC files are store locally and served with Nodejs <strong>http-server</strong>.</p>
+<h3 id="validate-against-a-list-of-one-or-more-ids-files">Validate against a list of one or more IDS file(s)</h3>
+<p>The validation is entirely based on the <strong>IfcTester</strong> module of IfcOpenShell.</p>
 <h3 id="the-ids_wooden-windowsifc-with-bim-collab">The IDS_wooden-windows.ifc with BIM Collab</h3>
 <p><a class="glightbox" href="../../assets/images/IDS_wooden-windows.bimcollab.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Wooden Window IDS Test File" src="../../assets/images/IDS_wooden-windows.bimcollab.png" /></a></p>
 <p>The 3D geometry and all its details is informative, but need not be processed for the domains LCA, BAMB, EPC, DBP, ...</p>

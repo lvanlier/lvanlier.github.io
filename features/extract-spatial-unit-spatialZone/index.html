@@ -1077,11 +1077,53 @@
   
   
     <li class="md-nav__item">
-      <a href="../import-and-transform/" class="md-nav__link">
+      <a href="../migrate-ifc-schema-to-ifc4/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    Import an IFC and transform it to an ifcJSON
+    Migrate an IFC model from IFC2X3 to IFC4
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../tessellate-ifc-elements/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Tessellate IFC elements
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../convert-ifc-to-ifcjson/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Convert an IFC to IfcJSON
   </span>
   
 
@@ -1124,6 +1166,27 @@
   
   <span class="md-ellipsis">
     Store the ifcJSON in the database
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../import-and-process-ifc/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Import and process an IFC
   </span>
   
 
@@ -1810,7 +1873,6 @@
 <h1 id="extract-a-spatialzone-apartment-or-common-parts">Extract a SpatialZone - Apartment or Common Parts</h1>
 <details class="note">
 <summary>Feature Group: Extract</summary>
-<p>This is provided by IfcOpenShell IfcPatch with the recipe ExtractElement</p>
 <div class="admonition note">
 <p class="admonition-title">Data and Spatial visualization</p>
 </div>
@@ -1819,8 +1881,8 @@
 <div class="admonition note">
 <p class="admonition-title">Remark: the IfcConnectionGeometry is not made visually apparent in the viewers</p>
 </div>
+<p>The extraction of a SpatialZone will collect all walls, slabs, ... doors and windows that are part of the Space Boundary of a Space contained in the SpatialZone. The relationships are also collected. An IfcJson element with type='IfcRelSpaceBoundary' conveys the data for the connection geometry and the details of the <strong>IfcConnectionSurfaceGeometry</strong>. However, whole walls or slabs are  shown and the connection surface is not made visually apparent in the viewers.</p>
 </details>
-<p>The extraction of a SpatialZone will collect all walls, slabs, ... doors and windows that are part of the Space Boundary of a Space contained in the SpatialZone. The relationships are also collected. An IfcJson element with type='IfcRelSpaceBoundary' conveys the data for the connection geometry and the details of the <strong>IfcConnectionSurfaceGeometry</strong>. However, whole walls or slabs are  shown and the connection surface is not made visually apparent in the viewers. </p>
 <h2 id="extraction-of-an-apartment-from-the-database">Extraction of an Apartment from the Database</h2>
 <p>We can extract an IfcSpatialZone in the same way that we extracted an IfcStorey in <a href="../extract-spatial-unit-storey/#extraction-of-a-storey-from-the-database">Extraction of a Storey from the Database</a>.</p>
 <p>This works seamlessly. However IFC Schependomlaan has a insconsistent IfcSpaceBoundary values:</p>

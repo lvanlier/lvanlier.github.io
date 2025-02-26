@@ -9,10 +9,10 @@
       
       
       
-        <link rel="prev" href="../extract-ifc-elements-with-ifcpatch/">
+        <link rel="prev" href="../tessellate-ifc-elements/">
       
       
-        <link rel="next" href="../extract-spatial-unit-storey/">
+        <link rel="next" href="../filter-the-ifcjson-model/">
       
       
       <link rel="icon" href="../../assets/images/favicon.png">
@@ -20,7 +20,7 @@
     
     
       
-        <title>Extract Storeys from the IFC model with IfcPatch - d4SU</title>
+        <title>Convert an IFC to IfcJSON - d4SU</title>
       
     
     
@@ -81,7 +81,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#extract-storeys-from-the-ifc-model-with-ifcpatch" class="md-skip">
+        <a href="#convert-ifc-to-ifcjson" class="md-skip">
           Skip to content
         </a>
       
@@ -117,7 +117,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Extract Storeys from the IFC model with IfcPatch
+              Convert an IFC to IfcJSON
             
           </span>
         </div>
@@ -1116,10 +1116,30 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../convert-ifc-to-ifcjson/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Convert an IFC to IfcJSON
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   <span class="md-ellipsis">
@@ -1128,6 +1148,59 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#submit-the-processing-request" class="md-nav__link">
+    <span class="md-ellipsis">
+      Submit the processing request
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#create-the-ifcjson-with-ifc2json" class="md-nav__link">
+    <span class="md-ellipsis">
+      Create the ifcJSON with IFC2JSON
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Create the ifcJSON with IFC2JSON">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#issues-non-blocking-but-will-need-a-follow-up" class="md-nav__link">
+    <span class="md-ellipsis">
+      Issues (non blocking; but will need a follow-up)
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -1263,30 +1336,10 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  <span class="md-ellipsis">
-    Extract Storeys from the IFC model with IfcPatch
-  </span>
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../extract-ifc-storeys-with-ifcpatch/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1295,35 +1348,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#extraction-of-storeys-with-ifcpatch" class="md-nav__link">
-    <span class="md-ellipsis">
-      Extraction of Storeys with IFCPatch
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -1745,11 +1769,35 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#extraction-of-storeys-with-ifcpatch" class="md-nav__link">
+  <a href="#submit-the-processing-request" class="md-nav__link">
     <span class="md-ellipsis">
-      Extraction of Storeys with IFCPatch
+      Submit the processing request
     </span>
   </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#create-the-ifcjson-with-ifc2json" class="md-nav__link">
+    <span class="md-ellipsis">
+      Create the ifcJSON with IFC2JSON
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Create the ifcJSON with IFC2JSON">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#issues-non-blocking-but-will-need-a-follow-up" class="md-nav__link">
+    <span class="md-ellipsis">
+      Issues (non blocking; but will need a follow-up)
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -1768,30 +1816,35 @@
                   
 
 
-<h1 id="extract-storeys-from-the-ifc-model-with-ifcpatch">Extract Storeys from the IFC model with IfcPatch</h1>
-<details class="note">
-<summary>Feature Group: Extract</summary>
-<p>This is provided by IfcOpenShell IfcPatch with the recipe ExtractElement</p>
+<h1 id="convert-ifc-to-ifcjson">Convert IFC to IfcJSON</h1>
 <div class="admonition note">
-<p class="admonition-title">Data and Spatial visualization</p>
+<p class="admonition-title">Feature Group(s): Convert</p>
 </div>
-<p>Extractions are twofold: the <strong>invisible part</strong> is the set of data that pertain to the spatial unit at hand. On these data, processes can be run to provide metrics / indicators (surfaces and volumes, space types and usage, energy transfer, life cycle, reuse, ...).</p>
-<p>The <strong>visible part</strong> is there to help understand the structure of the spatial unit, but also to identify issues, such as components that exibit misclassification and other anomalies.</p>
-</details>
-<h2 id="extraction-of-storeys-with-ifcpatch">Extraction of Storeys with IFCPatch</h2>
-<p>IfcPatch from IfcOpenShell lets split a Building into Storeys, creating one IFC file for each storey.</p>
-<p>As an illustration, we have hereunder the extraction  of the first level of Duplex_A_20110907_optimized.ifc with IfcPatch. The IFC file used is the one that result from <strong>import -&gt; transform to ifcjson -&gt; filter -&gt; transform from ifcjson to ifc</strong>. As a result of the filtering, there is no IfcCovering and no IfcFurnishingElement.</p>
-<p>BIMCollab display of IfcPatch extraction of Level 1 of Duplex_A_20110907_optimized.
-As seen hereunder, IfcPatch keeps the spaces of the other levels. Here we highlight IfcSpace <strong>A203 Bedroom 2</strong></p>
-<p><a class="glightbox" href="../../assets/images/Duplex_A_20110907_optimized-extracted-ifcpatch-level1.bimcollab.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="BIMCollab display of IfcPatch extraction of Level 1 of Duplex_A_20110907_optimized.ifc" src="../../assets/images/Duplex_A_20110907_optimized-extracted-ifcpatch-level1.bimcollab.png" /></a></p>
-<p>Hereunder, the display of the selection of Level 1 while highlighting the space <strong>A105 Stair</strong>  that is part of storey Level 1 but is not limited to storey Level 1</p>
-<p><a class="glightbox" href="../../assets/images/Duplex_A_20110907_optimized-extracted-ifcpatch-level1-selected.bimcollab.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="BIMCollab display of IfcPatch extraction of Level 1 of Duplex_A_20110907_optimized.ifc" src="../../assets/images/Duplex_A_20110907_optimized-extracted-ifcpatch-level1-selected.bimcollab.png" /></a></p>
-<p>The file expectedly lost the furnitures. However <strong>the Stairs are missing</strong> on both sides.</p>
-<p>There is also a display of walls above the top of the first level, but that's an error in the original file where those walls are defined as part of the Level 1 Storey. This is clearly apparent hereunder with the highlight on wall <strong>Basic Wall:Interior - Partition (92mm Stud):144518</strong> that is defined as belonging to Storey <strong>Level 1</strong> instead of <strong>Level 2</strong>.</p>
-<p><a class="glightbox" href="../../assets/images/Duplex_A_20110907_optimized-extracted-ifcpatch-level1-wall-on-error.bimcollab.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="BIMCollab display of IfcPatch extraction of Level 1 of Duplex_A_20110907_optimized.ifc" src="../../assets/images/Duplex_A_20110907_optimized-extracted-ifcpatch-level1-wall-on-error.bimcollab.png" /></a></p>
-<p>Further to the error on the wall, we can observe that one error creates some extra inconsistencies: the door <strong>M_Single-Flush:0864 x 2032mm:0864 x 2032mm:150478</strong> which should be in the above wall appears on Level 2 as disconnected from the wall where it is located. Additionnaly, the wall <strong>Basic Wall:Interior - Partition (92mm Stud):144586</strong> in yellow on Level 2 is connected to the wall in Level 1 via <strong>IfcRelConnectsPathElements</strong>.</p>
-<p>This makes clear that a <strong>quality control on the source file</strong> is always important. <strong>It also makes clear that the visualization of the data with an IFC viewer makes it possible to identify inconsistencies that would otherwise be hardly noticeable .</strong></p>
-<p><a class="glightbox" href="../../assets/images/Duplex_A_20110907_optimized-extracted-ifcpatch-level2-door-on-error.bimcollab.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="BIMCollab display of IfcPatch extraction of Level 1 of Duplex_A_20110907_optimized.ifc" src="../../assets/images/Duplex_A_20110907_optimized-extracted-ifcpatch-level2-door-on-error.bimcollab.png" /></a></p>
+<h2 id="submit-the-processing-request">Submit the processing request</h2>
+<div class="highlight"><pre><span></span><code><span class="c1">#</span>
+<span class="c1"># Convert an IFC to IFCJSON with IFC2JSON</span>
+<span class="c1">#</span>
+<span class="k">class</span> <span class="nc">ConvertIfcToIfcJson_Instruction</span><span class="p">(</span><span class="n">BaseModel</span><span class="p">):</span>
+    <span class="n">sourceFileURL</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="s2">&quot;http://localhost:8002/IFC_SOURCE_FILES/Duplex_A_20110907_optimized.ifc&quot;</span>
+
+<span class="k">class</span> <span class="nc">ConvertIfcToIfcJson_Result</span><span class="p">(</span><span class="n">BaseModel</span><span class="p">):</span>
+    <span class="n">rootObjectId</span><span class="p">:</span> <span class="nb">str</span>
+    <span class="n">rootObjectType</span><span class="p">:</span> <span class="nb">str</span>
+    <span class="n">rootObjectName</span><span class="p">:</span> <span class="nb">str</span> 
+    <span class="n">resultPath</span><span class="p">:</span> <span class="nb">str</span> <span class="c1"># relative path of the result file (json)</span>
+</code></pre></div>
+<h2 id="create-the-ifcjson-with-ifc2json">Create the ifcJSON with <a href="../references/#ifcjson">IFC2JSON</a></h2>
+<p>Read file and create ifcjson model with NO_INVERSE=True.</p>
+<p>The result provides information on the rootObject which expectedly is an IfcProject.</p>
+<h3 id="issues-non-blocking-but-will-need-a-follow-up">Issues (non blocking; but will need a follow-up)</h3>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Error with <strong>IfcExternalReference</strong> not supported. When present, I get the following error: 'AttributeError("entity instance of type 'IFC4.IfcExternalReference' has no attribute 'wrappedValue'")</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>with NO_INVERSE = False for LARGE_MODEL_20210219Architecture.ifc, the program got stuck somewhere. I stopped after 23m 53.2s</p>
+</div>
 
 
 

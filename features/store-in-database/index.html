@@ -12,7 +12,7 @@
         <link rel="prev" href="../filter-the-ifcjson-model/">
       
       
-        <link rel="next" href="../read-model-from-db/">
+        <link rel="next" href="../import-and-process-ifc/">
       
       
       <link rel="icon" href="../../assets/images/favicon.png">
@@ -1077,11 +1077,53 @@
   
   
     <li class="md-nav__item">
-      <a href="../import-and-transform/" class="md-nav__link">
+      <a href="../migrate-ifc-schema-to-ifc4/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    Import an IFC and transform it to an ifcJSON
+    Migrate an IFC model from IFC2X3 to IFC4
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../tessellate-ifc-elements/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Tessellate IFC elements
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../convert-ifc-to-ifcjson/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Convert an IFC to IfcJSON
   </span>
   
 
@@ -1165,9 +1207,18 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#store-the-ifcjson" class="md-nav__link">
+  <a href="#submit-the-processing-request" class="md-nav__link">
     <span class="md-ellipsis">
-      Store the ifcJSON
+      Submit the processing request
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#object-table-in-the-database" class="md-nav__link">
+    <span class="md-ellipsis">
+      Object Table in the database
     </span>
   </a>
   
@@ -1186,6 +1237,27 @@
   
 </nav>
       
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../import-and-process-ifc/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Import and process an IFC
+  </span>
+  
+
+      </a>
     </li>
   
 
@@ -1691,9 +1763,18 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#store-the-ifcjson" class="md-nav__link">
+  <a href="#submit-the-processing-request" class="md-nav__link">
     <span class="md-ellipsis">
-      Store the ifcJSON
+      Submit the processing request
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#object-table-in-the-database" class="md-nav__link">
+    <span class="md-ellipsis">
+      Object Table in the database
     </span>
   </a>
   
@@ -1727,7 +1808,6 @@
 <details class="note">
 <summary>Feature Group: CRUD</summary>
 </details>
-<h2 id="store-the-ifcjson">Store the ifcJSON</h2>
 <p>This is done by reading the ifcJSON, loading it in pandas DataFrame and or Series and splitting it in categories.</p>
 <ul>
 <li>Representations</li>
@@ -1735,8 +1815,34 @@
 <li>Relationships</li>
 <li>Objects: all entities that are not in one of the 3 others</li>
 </ul>
-<p>Thereafter, there is a basic processing to adjust to the Physical model which is under <strong>/src/model/common.py</strong> with SQLModel / Pydantic definitions.
-Hereunder the example of the object table.</p>
+<p>Thereafter, there is a basic processing to adjust to the Physical model which is under <strong>/src/model/common.py</strong> with SQLModel / Pydantic definitions.</p>
+<h2 id="submit-the-processing-request">Submit the processing request</h2>
+<div class="highlight"><pre><span></span><code><span class="c1">#</span>
+<span class="c1"># Store an IFCJSON in the database</span>
+<span class="c1">#</span>
+<span class="k">class</span> <span class="nc">StoreIfcJsonInDb_Instruction</span><span class="p">(</span><span class="n">BaseModel</span><span class="p">):</span>
+    <span class="n">spatialUnitId</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="s2">&quot;5f2d17b0-43fb-445d-9c67-7dafb3292c33&quot;</span>
+    <span class="n">bundleName</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="s2">&quot;Duplex_A_20110907_optimized&quot;</span> <span class="c1"># name of the bundle</span>
+    <span class="n">sourceFileURL</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="s2">&quot;http://localhost:8002/IFCJSON/7be56a97-3db3-4c85-94e8-86ac45b63ff6_FIL.json&quot;</span> 
+    <span class="n">parentBundleId</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span> <span class="c1"># remove this if there is no parent</span>
+
+<span class="k">class</span> <span class="nc">StoreIfcJsonInDb_Result</span><span class="p">(</span><span class="n">BaseModel</span><span class="p">):</span>
+    <span class="n">bundleId</span><span class="p">:</span> <span class="nb">str</span>    
+</code></pre></div>
+<p>In the Instruction:</p>
+<ul>
+<li>the <strong>spatialUnitId</strong> is the id of the spatialUnit associated to the IfcJSON file and to the corresponding IFC; - to be stored in the database, an association of the IfcJSON to a SpatialUnit is mandatory. This one can be created with the corresponding service.</li>
+<li>the <strong>bundleName</strong> is the name for the bundle that will logically contain the data of the IfcJSON; the choice of the name is free</li>
+<li>the <strong>sourceFileURL</strong>  is that of the IfcJSON file</li>
+<li>the <strong>parentBundleId</strong> is that if the parent bundle when there is one</li>
+</ul>
+<p>In the Result:</p>
+<ul>
+<li>the <strong>bundleId</strong> is the string value of the bundle integer id</li>
+</ul>
+<h2 id="object-table-in-the-database">Object Table in the database</h2>
+<p>The <strong>physical model</strong> is available under <strong>/src/model/common.py</strong> with SQLModel / Pydantic definitions.</p>
+<p>Hereunder the example of the object table.</p>
 <div class="highlight"><pre><span></span><code><span class="k">class</span> <span class="nc">object</span><span class="p">(</span><span class="n">SQLModel</span><span class="p">,</span> <span class="n">table</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
     <span class="n">bundle_id</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="n">Field</span><span class="p">(</span><span class="n">nullable</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">alias</span><span class="o">=</span><span class="s1">&#39;bundleId&#39;</span><span class="p">,</span> <span class="n">primary_key</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
     <span class="n">object_id</span><span class="p">:</span> <span class="n">UUID4</span> <span class="o">=</span> <span class="n">Field</span><span class="p">(</span><span class="n">primary_key</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
@@ -1757,6 +1863,13 @@ Hereunder the example of the object table.</p>
 <p>The other tables follow the same pattern. It is worth noting that FastAPI/ SQLModel/SQLAlchemy can <strong>create all tables that where not already there</strong> on startup of the server (or when needed).</p>
 <p>The database is PostgreSQL. For this upload, bulk inserts are used, following the guidelines of <a href="https://github.com/askintamanli/Fastest-Methods-to-Bulk-Insert-Pandas-Dataframe-into-PostgreSQL/blob/main/method_3.py">Fastest-Methods-to-Bulk-Insert-Pandas-Dataframe-into-PostgreSQL</a> using <strong>psycopg2 copy_expert()</strong></p>
 <h2 id="complement-the-bundle-data">Complement the bundle data</h2>
+<p>The database is updated with:</p>
+<ul>
+<li>an entry in the bundle table</li>
+<li>an entry in the bundleJournal table</li>
+<li>an entry in the bundleUnit as a root entity (the project)</li>
+<li>an entry in the spatialUnitBundleUnit table</li>
+</ul>
 <pre class="mermaid"><code>flowchart TB
     bundle
     bundleJournal

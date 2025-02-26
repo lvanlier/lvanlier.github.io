@@ -9,7 +9,7 @@
       
       
       
-        <link rel="prev" href="../store-in-database/">
+        <link rel="prev" href="../import-and-process-ifc/">
       
       
         <link rel="next" href="../transform-to-ifc/">
@@ -1077,11 +1077,53 @@
   
   
     <li class="md-nav__item">
-      <a href="../import-and-transform/" class="md-nav__link">
+      <a href="../migrate-ifc-schema-to-ifc4/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    Import an IFC and transform it to an ifcJSON
+    Migrate an IFC model from IFC2X3 to IFC4
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../tessellate-ifc-elements/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Tessellate IFC elements
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../convert-ifc-to-ifcjson/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Convert an IFC to IfcJSON
   </span>
   
 
@@ -1137,6 +1179,27 @@
                 
   
   
+  
+  
+    <li class="md-nav__item">
+      <a href="../import-and-process-ifc/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Import and process an IFC
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
     
   
   
@@ -1149,6 +1212,17 @@
         
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Read the ifcJSON from the Database
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="./" class="md-nav__link md-nav__link--active">
         
   
@@ -1158,6 +1232,34 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#submit-the-processing-request" class="md-nav__link">
+    <span class="md-ellipsis">
+      Submit the processing request
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -1636,6 +1738,23 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#submit-the-processing-request" class="md-nav__link">
+    <span class="md-ellipsis">
+      Submit the processing request
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -1662,6 +1781,16 @@
 </ul>
 <p>Get the header from the bundle table or create a new one.</p>
 <p>Load all in an ifcJSON and store it. Done!</p>
+<h2 id="submit-the-processing-request">Submit the processing request</h2>
+<div class="highlight"><pre><span></span><code><span class="c1">#</span>
+<span class="c1">#   Get the IFCJSON from the database </span>
+<span class="c1">#  </span>
+<span class="k">class</span> <span class="nc">GetIfcJsonFromDb_Instruction</span><span class="p">(</span><span class="n">BaseModel</span><span class="p">):</span>
+    <span class="n">bundleId</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span> <span class="c1"># must be an integer</span>
+
+<span class="k">class</span> <span class="nc">GetIfcJsonFromDb_Result</span><span class="p">(</span><span class="n">BaseModel</span><span class="p">):</span>
+    <span class="n">resultPath</span><span class="p">:</span> <span class="nb">str</span> <span class="c1"># relative path of the result file (json)</span>
+</code></pre></div>
 
 
 

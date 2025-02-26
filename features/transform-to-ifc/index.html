@@ -81,7 +81,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#transform-to-ifc" class="md-skip">
+        <a href="#convert-an-ifcjson-to-an-ifc" class="md-skip">
           Skip to content
         </a>
       
@@ -1077,11 +1077,53 @@
   
   
     <li class="md-nav__item">
-      <a href="../import-and-transform/" class="md-nav__link">
+      <a href="../migrate-ifc-schema-to-ifc4/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    Import an IFC and transform it to an ifcJSON
+    Migrate an IFC model from IFC2X3 to IFC4
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../tessellate-ifc-elements/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Tessellate IFC elements
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../convert-ifc-to-ifcjson/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Convert an IFC to IfcJSON
   </span>
   
 
@@ -1124,6 +1166,27 @@
   
   <span class="md-ellipsis">
     Store the ifcJSON in the database
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../import-and-process-ifc/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Import and process an IFC
   </span>
   
 
@@ -1207,9 +1270,18 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#first-results" class="md-nav__link">
+  <a href="#submit-the-processing-request" class="md-nav__link">
     <span class="md-ellipsis">
-      First Results
+      Submit the processing request
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#create-the-ifc-with-json2ifc" class="md-nav__link">
+    <span class="md-ellipsis">
+      Create the IFC with JSON2IFC
     </span>
   </a>
   
@@ -1751,9 +1823,18 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#first-results" class="md-nav__link">
+  <a href="#submit-the-processing-request" class="md-nav__link">
     <span class="md-ellipsis">
-      First Results
+      Submit the processing request
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#create-the-ifc-with-json2ifc" class="md-nav__link">
+    <span class="md-ellipsis">
+      Create the IFC with JSON2IFC
     </span>
   </a>
   
@@ -1843,39 +1924,22 @@
                   
 
 
-<h1 id="transform-to-ifc">Transform to IFC</h1>
+<h1 id="convert-an-ifcjson-to-an-ifc">Convert an IfcJSON to an IFC</h1>
 <details class="note">
 <summary>Feature Group(s): Convert</summary>
 </details>
-<h2 id="first-results">First Results</h2>
-<p>This reads an ifcJSON file and convert it to IFC(STEP file). This is a critically important to evaluate the success of filtering or enhancing the model as it provides a way to vizualize the results with an IFC viewer.</p>
-<p>It has been use in different scenarios</p>
-<ol>
-<li>Roundtrip<ul>
-<li>convert an IFC(STEP file) to a jsonIFC</li>
-<li>convert back the jsonIFC to an IFC(STEP file) using JSON2IFC</li>
-<li>it should be the same as the original one</li>
-<li>there are, for the moment, some issues that are documented hereafter  </li>
-</ul>
-</li>
-<li>Filter and visualize the changes<ul>
-<li>convert an IFC(STEP file) to a jsonIFC</li>
-<li>filter the ifcJSON</li>
-<li>store the filtered model in the DB</li>
-<li>read it from the DB and write an ifcJSON based on the data from the DB</li>
-<li>convert the jsonIFC to an IFC(STEP file) using JSON2IFC</li>
-<li>it should show the changes:  in our scenario, we dropped the furnitures in the spaces and they are indeed not present anymore</li>
-</ul>
-</li>
-<li>Extract a 'Spatial Unit' (starting with an IfcBuildingStorey)<ul>
-<li>select data from the database to keep only the data that are relevant for the IfcBuildingStorey</li>
-<li>create an ifcJSON with the data</li>
-<li>convert the jsonIFC to an IFC(STEP file) using JSON2IFC</li>
-<li>it should show the result:  data from the 'Spatial Unit' (starting with an IfcBuilding)</li>
-</ul>
-</li>
-<li>As we create other scenarios, we will provide variations on those cases.</li>
-</ol>
+<h2 id="submit-the-processing-request">Submit the processing request</h2>
+<div class="highlight"><pre><span></span><code><span class="c1">#</span>
+<span class="c1">#   Convert an IFCJSON to IFC</span>
+<span class="c1">#</span>
+<span class="k">class</span> <span class="nc">ConvertIfcJsonToIfc_Instruction</span><span class="p">(</span><span class="n">BaseModel</span><span class="p">):</span>
+    <span class="n">sourceFileURL</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="s2">&quot;http://localhost:8002/IFCJSON/cd5af173-e5a0-4ded-b005-d76660e80dc7_OUT.json&quot;</span>
+
+<span class="k">class</span> <span class="nc">ConvertIfcJsonToIfc_Result</span><span class="p">(</span><span class="n">BaseModel</span><span class="p">):</span>
+    <span class="n">resultPath</span><span class="p">:</span> <span class="nb">str</span> <span class="c1"># relative path of the result file (ifc)</span>
+</code></pre></div>
+<h2 id="create-the-ifc-with-json2ifc">Create the IFC with <a href="../references/#ifcjson">JSON2IFC</a></h2>
+<p>The conversion is carried on in Celery with JSON2IFC module</p>
 <h2 id="issues-will-need-a-follow-up">Issues (will need a follow-up)</h2>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
