@@ -1254,6 +1254,17 @@
         
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Extract Elements from the IFC model with IfcPatch
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="./" class="md-nav__link md-nav__link--active">
         
   
@@ -1263,6 +1274,43 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#submit-the-processing-request" class="md-nav__link">
+    <span class="md-ellipsis">
+      Submit the processing request
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#extract-the-storeys-with-ifcpatch" class="md-nav__link">
+    <span class="md-ellipsis">
+      Extract the Storeys with IfcPatch
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -1699,6 +1747,32 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#submit-the-processing-request" class="md-nav__link">
+    <span class="md-ellipsis">
+      Submit the processing request
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#extract-the-storeys-with-ifcpatch" class="md-nav__link">
+    <span class="md-ellipsis">
+      Extract the Storeys with IfcPatch
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -1717,6 +1791,18 @@
 <summary>Feature Group: Extract</summary>
 <p>This is provided by IfcOpenShell IfcPatch with the recipe ExtractElement</p>
 </details>
+<h2 id="submit-the-processing-request">Submit the processing request</h2>
+<div class="highlight"><pre><span></span><code><span class="c1">#</span>
+<span class="c1">#   Extract elements from an IFC</span>
+<span class="c1">#</span>
+<span class="k">class</span> <span class="nc">IfcExtractElements_Instruction</span><span class="p">(</span><span class="n">BaseModel</span><span class="p">):</span>
+    <span class="n">sourceFileURL</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="s2">&quot;http://localhost:8002/IFC_SOURCE_FILES/Duplex_A_20110907_optimized.ifc&quot;</span>
+    <span class="n">elementTypes</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;IfcWall,IfcSlab,IfcBeam,IfcColumn,IfcWindow,IfcDoor,IfcSpace,IfcStair&quot;</span><span class="p">]</span>
+
+<span class="k">class</span> <span class="nc">IfcExtractElements_Result</span><span class="p">(</span><span class="n">BaseModel</span><span class="p">):</span>
+    <span class="n">resultPath</span><span class="p">:</span> <span class="nb">str</span> <span class="c1"># relative path of the result file (ifc)</span>
+</code></pre></div>
+<h2 id="extract-the-storeys-with-ifcpatch">Extract the Storeys with <a href="../references/#ifcpatch">IfcPatch</a></h2>
 <p>Extracting elements from the IFC model is both efficient and convenient when the number of elements that we we want to keep is resonably limited. It is also a an effective way to reduce the size of an IFC model that must be displayed on the screen.</p>
 <p><a href="../references/#ifcpatch">IfcPatch</a> is part of IfcOpenShell and let Extract elements</p>
 <p><strong>IfcPatch</strong> has many capabilities embodied in <strong>recipes</strong>. There is one called <strong>ExtractElements</strong> that let select the elements that we want to keep. 

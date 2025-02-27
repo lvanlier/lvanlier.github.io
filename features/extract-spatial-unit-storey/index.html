@@ -1968,11 +1968,22 @@
 <p>Initially, we work with Duplex_A_20110907_optimized.ifc, which has been filtered (no furnitures) and has several storeys.</p>
 <p>The target is an IFC(STEP file) that we can visualize with a standard IFC Viewer.</p>
 <h3 id="submit-the-processing-request">Submit the processing request</h3>
-<p>The extract Import is started by sending a POST with a Json Body as defined in pydantic</p>
-<div class="highlight"><pre><span></span><code><span class="k">class</span> <span class="nc">ExtractSpatialUnitInstruction</span><span class="p">(</span><span class="n">BaseModel</span><span class="p">):</span>
+<p>The extract is started by sending a POST with a Json Body as defined in pydantic with:</p>
+<ul>
+<li>the <strong>bundleId</strong> (bundle_id in PostgreSQL) of the bundle that contains the data of the IfcJSON from the conversion of the IFC file</li>
+<li>the GlobalId of the Storey in the <strong>elementId</strong></li>
+<li>IfcBuildingStorey as <strong>elementType</strong></li>
+<li><strong>withIFC</strong> as True or False; if True, an IFC will also be produced</li>
+</ul>
+<div class="highlight"><pre><span></span><code><span class="c1">#</span>
+<span class="c1"># Extract a spatial unit from the database</span>
+<span class="c1">#</span>
+<span class="k">class</span> <span class="nc">ExtractSpatialUnit_Instruction</span><span class="p">(</span><span class="n">BaseModel</span><span class="p">):</span>
     <span class="n">bundleId</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="s2">&quot;1&quot;</span>
-    <span class="n">elementType</span><span class="p">:</span> <span class="n">Literal</span><span class="p">[</span><span class="s1">&#39;IfcBuildingStorey&#39;</span><span class="p">,</span> <span class="s1">&#39;IfcZone&#39;</span><span class="p">,</span> <span class="s1">&#39;IfcSpatialZone&#39;</span><span class="p">,</span> <span class="s1">&#39;IfcSpace&#39;</span><span class="p">,</span> <span class="s1">&#39;IfcGroup&#39;</span><span class="p">]</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="s1">&#39;IfcBuildingStorey&#39;</span>
-    <span class="n">elementId</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="s1">&#39;7b7032cc-b822-417b-9aea-6429f95d6512&#39;</span>
+    <span class="n">useRepresentationsCache</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">False</span>
+    <span class="n">elementType</span><span class="p">:</span> <span class="n">Literal</span><span class="p">[</span><span class="s1">&#39;IfcBuildingStorey&#39;</span><span class="p">,</span> <span class="s1">&#39;IfcZone&#39;</span><span class="p">,</span> <span class="s1">&#39;IfcSpatialZone&#39;</span><span class="p">,</span> <span class="s1">&#39;IfcSpace&#39;</span><span class="p">,</span> <span class="s1">&#39;IfcGroup&#39;</span><span class="p">]</span>
+    <span class="n">elementId</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="s1">&#39;e58c68d0-1297-4210-9416-2412e1e6acc1&#39;</span>
+    <span class="n">withIFC</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">False</span>
 
     <span class="nd">@computed_field</span><span class="p">()</span>
     <span class="k">def</span> <span class="nf">includeRelationshipTypes</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
@@ -1984,6 +1995,13 @@
             <span class="k">return</span> <span class="p">[</span><span class="s1">&#39;IfcRelAggregates&#39;</span><span class="p">,</span><span class="s1">&#39;IfcRelContainedInSpatialStructure&#39;</span><span class="p">,</span><span class="s1">&#39;IfcRelFillsElement&#39;</span><span class="p">,</span><span class="s1">&#39;IfcRelVoidsElement&#39;</span><span class="p">,</span><span class="s1">&#39;IfcRelSpaceBoundary&#39;</span><span class="p">,</span><span class="s1">&#39;IfcRelReferencedInSpatialStructure&#39;</span><span class="p">]</span>
         <span class="k">else</span><span class="p">:</span>
             <span class="k">return</span> <span class="p">[</span><span class="s1">&#39;IfcRelAggregates&#39;</span><span class="p">,</span><span class="s1">&#39;IfcRelContainedInSpatialStructure&#39;</span><span class="p">,</span><span class="s1">&#39;IfcRelFillsElement&#39;</span><span class="p">,</span><span class="s1">&#39;IfcRelVoidsElement&#39;</span><span class="p">]</span>   
+
+<span class="k">class</span> <span class="nc">ExtractSpatialUnit_Result</span><span class="p">(</span><span class="n">BaseModel</span><span class="p">):</span>
+    <span class="n">resultPath</span><span class="p">:</span> <span class="nb">str</span> <span class="c1"># relative path of the result file (json)</span>
+
+<span class="c1"># When withIFC = True, the conversion to IFC is also included and its result also     </span>
+<span class="k">class</span> <span class="nc">ConvertIfcJsonToIfc_Result</span><span class="p">(</span><span class="n">BaseModel</span><span class="p">):</span>
+    <span class="n">resultPath</span><span class="p">:</span> <span class="nb">str</span> <span class="c1"># relative path of the result file (ifc)</span>
 </code></pre></div>
 <p>What needs to be included into <strong>includeRelationshipTypes</strong>  may be tuned to the source model data and the <strong>elementType</strong>, - here an IfcBuildingStorey</p>
 <h3 id="processing">Processing</h3>

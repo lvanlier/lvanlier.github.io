@@ -1312,9 +1312,18 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#submit-the-processing-request" class="md-nav__link">
+    <span class="md-ellipsis">
+      Submit the processing request
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#extraction-of-storeys-with-ifcpatch" class="md-nav__link">
     <span class="md-ellipsis">
-      Extraction of Storeys with IFCPatch
+      Extraction of Storeys with IfcPatch
     </span>
   </a>
   
@@ -1745,9 +1754,18 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#submit-the-processing-request" class="md-nav__link">
+    <span class="md-ellipsis">
+      Submit the processing request
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#extraction-of-storeys-with-ifcpatch" class="md-nav__link">
     <span class="md-ellipsis">
-      Extraction of Storeys with IFCPatch
+      Extraction of Storeys with IfcPatch
     </span>
   </a>
   
@@ -1778,7 +1796,17 @@
 <p>Extractions are twofold: the <strong>invisible part</strong> is the set of data that pertain to the spatial unit at hand. On these data, processes can be run to provide metrics / indicators (surfaces and volumes, space types and usage, energy transfer, life cycle, reuse, ...).</p>
 <p>The <strong>visible part</strong> is there to help understand the structure of the spatial unit, but also to identify issues, such as components that exibit misclassification and other anomalies.</p>
 </details>
-<h2 id="extraction-of-storeys-with-ifcpatch">Extraction of Storeys with IFCPatch</h2>
+<h2 id="submit-the-processing-request">Submit the processing request</h2>
+<div class="highlight"><pre><span></span><code><span class="c1">#</span>
+<span class="c1">#   Extract storeys from an IFC using IfcPatch Split Storeys</span>
+<span class="c1">#</span>
+<span class="k">class</span> <span class="nc">IfcSplitStoreys_Instruction</span><span class="p">(</span><span class="n">BaseModel</span><span class="p">):</span>
+    <span class="n">sourceFileURL</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="s2">&quot;http://localhost:8002/IFC_SOURCE_FILES/Duplex_A_20110907_optimized.ifc&quot;</span>
+
+<span class="k">class</span> <span class="nc">IfcSplitStoreys_Result</span><span class="p">(</span><span class="n">BaseModel</span><span class="p">):</span>
+    <span class="n">resultPath</span><span class="p">:</span> <span class="nb">str</span> <span class="c1"># relative path of the zip file containing all storey files (ifc)</span>
+</code></pre></div>
+<h2 id="extraction-of-storeys-with-ifcpatch">Extraction of Storeys with <a href="../references/#ifcpatch">IfcPatch</a></h2>
 <p>IfcPatch from IfcOpenShell lets split a Building into Storeys, creating one IFC file for each storey.</p>
 <p>As an illustration, we have hereunder the extraction  of the first level of Duplex_A_20110907_optimized.ifc with IfcPatch. The IFC file used is the one that result from <strong>import -&gt; transform to ifcjson -&gt; filter -&gt; transform from ifcjson to ifc</strong>. As a result of the filtering, there is no IfcCovering and no IfcFurnishingElement.</p>
 <p>BIMCollab display of IfcPatch extraction of Level 1 of Duplex_A_20110907_optimized.
