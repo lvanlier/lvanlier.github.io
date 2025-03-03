@@ -2192,19 +2192,18 @@
 <p>However, other features rely explicitely on <strong>standard SQL</strong> and other constructs that are <strong>programming language agnostic</strong>. The code is in Python but could as well be in Typescript, Rust, Java, C#, ...</p>
 <p>Unless explicitly specified only IFC2X3, IFC4X* are supported. IFC5 is still under development.</p>
 <h2 id="key-functional-features">Key Functional Features</h2>
-<p>As stated in the <a href="../../architecture/d4su-server/#overview">Architecture</a> there are 8 groups of features targeted by d4SU</p>
+<p>As stated in the <a href="../../architecture/d4su-server/#overview">Architecture</a> there are 9 groups of features targeted by d4SU</p>
 <ul>
-<li><strong>CRUD</strong>: create, read, update, delete objects, relationships, properties and representations in a Model</li>
 <li><strong>Check</strong>: validate a Model against one or more requirements</li>
-<li><strong>Filter</strong>: select coherent a subset of objects, relationhips, properties and representation in a Model</li>
 <li><strong>Convert</strong>: convert a Model from one format/schema to another</li>
 <li><strong>Geometry</strong>: provide capabilities that change the type of a represention or complement the exisiting representation with a new one</li>
-<li><strong>Extract</strong>: extract a subset of objects, relationships, properties and representations and provide a corresponding Model.</li>
+<li><strong>Filter</strong>: select coherent a subset of objects, relationhips, properties and representation in a Model</li>
+<li><strong>Store</strong> : store the data of an IfcJSON into the database or add IfcSpatial Zones and their relationships</li>
+<li><strong>Export</strong>: export a subset of object, properties or combination in a csv or json format</li>
+<li><strong>Extract</strong>: extract a subset of objects, relationships, properties and representations and provide a corresponding IfcJson Model and optionally its corresponding IFC (Step file)  </li>
 <li><strong>Host</strong>: host 'third-party' domain functions (related to LCA, BAMB, EPC, ...)</li>
-<li><strong>workflow</strong>: chain of operations leveraging the other features.</li>
+<li><strong>Workflow</strong>: chain of operations leveraging the other features.</li>
 </ul>
-<p>Tools involved in the implementation of a feature are listed in a top note
-of the feature documentation page.</p>
 <h2 id="code-structure">Code structure</h2>
 <p>The code is availble on GitHub under /src with a specific structure</p>
 <table>
@@ -2250,7 +2249,7 @@ of the feature documentation page.</p>
 </tbody>
 </table>
 <h2 id="worflows">Worflows</h2>
-<p>The following schema shows key expected workflows </p>
+<p>The following schema shows key expected workflows</p>
 <pre class="mermaid"><code>block-beta
     columns 5
     blockArrowId1&lt;["&lt;/br&gt;1. Import a model&lt;/br&gt;from a BIM/IFC file&lt;/br&gt;&amp;nbsp;"]&gt;(right)
