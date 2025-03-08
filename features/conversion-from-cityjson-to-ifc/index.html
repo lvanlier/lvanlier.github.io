@@ -1498,6 +1498,15 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#submit-the-procesing-request" class="md-nav__link">
+    <span class="md-ellipsis">
+      Submit the procesing request
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#examples" class="md-nav__link">
     <span class="md-ellipsis">
       Examples
@@ -1817,6 +1826,15 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#submit-the-procesing-request" class="md-nav__link">
+    <span class="md-ellipsis">
+      Submit the procesing request
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#examples" class="md-nav__link">
     <span class="md-ellipsis">
       Examples
@@ -1857,7 +1875,7 @@
 
 <h1 id="conversion-from-cityjson-to-ifc">Conversion from CityJson to IFC</h1>
 <details>
-<summary>Feature Group: Convert</summary>
+<summary>Feature Group: Convert, Host</summary>
 </details>
 <p style="color:#148F77">
 
@@ -1875,6 +1893,16 @@ Not for production in the current state
 <li>cd /path/to/IfcOpenShell/src/ifccityjson</li>
 <li>pip install</li>
 </ol>
+<h2 id="submit-the-procesing-request">Submit the procesing request</h2>
+<div class="highlight"><pre><span></span><code><span class="c1">#</span>
+<span class="c1">#  Convert a CityJSON to IFC</span>
+<span class="c1">#</span>
+<span class="k">class</span> <span class="nc">CityJsonToIfc_Instruction</span><span class="p">(</span><span class="n">BaseModel</span><span class="p">):</span>
+    <span class="n">sourceFileURL</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="s2">&quot;http://localhost:8002/CONVERSION_OUTFILES/CityJSON/twobuildings.city.json&quot;</span>
+
+<span class="k">class</span> <span class="nc">CityJsonToIfc_Result</span><span class="p">(</span><span class="n">BaseModel</span><span class="p">):</span>
+    <span class="n">resultPath</span><span class="p">:</span> <span class="nb">str</span> <span class="c1"># relative path of the result file (ifc)</span>
+</code></pre></div>
 <h2 id="examples">Examples</h2>
 <h3 id="conversion-of-twobuildingscityjson">Conversion of twobuildings.city.json</h3>
 <p>The conversion of that file works seamlessly</p>

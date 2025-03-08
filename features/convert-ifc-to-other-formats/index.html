@@ -81,7 +81,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#convert-ifc-to-other-formats-with-ifcconvert" class="md-skip">
+        <a href="#convert-ifc-to-gltf-collada-or-cityjson-with-ifcconvert" class="md-skip">
           Skip to content
         </a>
       
@@ -1951,9 +1951,9 @@
                   
 
 
-<h1 id="convert-ifc-to-other-formats-with-ifcconvert">Convert IFC to other formats with IfcConvert</h1>
+<h1 id="convert-ifc-to-gltf-collada-or-cityjson-with-ifcconvert">Convert IFC to glTF, COLLADA or CityJSON with IfcConvert</h1>
 <details>
-<summary>Feature Group: Convert</summary>
+<summary>Feature Group: Convert, Host</summary>
 </details>
 <h2 id="introduction">Introduction</h2>
 <p>Different conversions are available with <strong>IfcConvert</strong> (part of IfcOpenShell) and detailed in <a href="../references/#ifcconvert">IfcConvert - Usage</a></p>
@@ -1967,10 +1967,16 @@
 <p><strong>IfcConvert</strong> is not a library but an executable that needs to be run from a Celery task in a subprocess.</p>
 <p>Because multiple types of issues can occur, a timeout is configured on the subprocess to avoid that the Celery worker gets stuck.</p>
 <p>The timeout if defined in the request with a default of 60 sec and has configured lower and uper bounds.</p>
-<div class="highlight"><pre><span></span><code><span class="k">class</span> <span class="nc">IfcConvertInstruction</span><span class="p">(</span><span class="n">BaseModel</span><span class="p">):</span>
+<div class="highlight"><pre><span></span><code><span class="c1">#</span>
+<span class="c1">#  Convert an IFC to glTF, COLLADA or CityJSON</span>
+<span class="c1">#</span>
+<span class="k">class</span> <span class="nc">IfcConvert_Instruction</span><span class="p">(</span><span class="n">BaseModel</span><span class="p">):</span>
     <span class="n">sourceFileURL</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="s2">&quot;http://localhost:8002/IFC_SOURCE_FILES/Duplex_A_20110907_optimized.ifc&quot;</span>
     <span class="n">targetFormat</span><span class="p">:</span> <span class="n">Literal</span><span class="p">[</span><span class="s1">&#39;glTF&#39;</span><span class="p">,</span><span class="s1">&#39;COLLADA&#39;</span><span class="p">,</span><span class="s1">&#39;CityJSON&#39;</span><span class="p">]</span>
     <span class="n">timeout</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="n">Field</span><span class="p">(</span><span class="mi">60</span><span class="p">,</span> <span class="n">ge</span><span class="o">=</span><span class="mi">30</span><span class="p">,</span> <span class="n">le</span><span class="o">=</span><span class="mi">180</span><span class="p">)</span>
+
+<span class="k">class</span> <span class="nc">IfcConvert_Result</span><span class="p">(</span><span class="n">BaseModel</span><span class="p">):</span>
+    <span class="n">resultPath</span><span class="p">:</span> <span class="nb">str</span> <span class="c1"># relative path of the result file (gltf, dae, or json)</span>
 </code></pre></div>
 <h2 id="examples">Examples</h2>
 <h3 id="conversion-of-duplex_a_20110907_optimizedifc-to-collada">Conversion of Duplex_A_20110907_optimized.ifc to Collada</h3>
