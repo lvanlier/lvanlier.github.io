@@ -869,6 +869,17 @@
         
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    IFC Types
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="./" class="md-nav__link md-nav__link--active">
         
   
@@ -878,6 +889,52 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#the-following-figure-illustrates-the-relationship-for-property-sets" class="md-nav__link">
+    <span class="md-ellipsis">
+      The following figure illustrates the relationship for property sets
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-following-figure-illustrates-the-relationship-for-material" class="md-nav__link">
+    <span class="md-ellipsis">
+      The following figure illustrates the relationship for material
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-following-two-figures-illustrates-the-relationship-for-representations" class="md-nav__link">
+    <span class="md-ellipsis">
+      The following two figures illustrates the relationship for representations
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -1720,6 +1777,41 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#the-following-figure-illustrates-the-relationship-for-property-sets" class="md-nav__link">
+    <span class="md-ellipsis">
+      The following figure illustrates the relationship for property sets
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-following-figure-illustrates-the-relationship-for-material" class="md-nav__link">
+    <span class="md-ellipsis">
+      The following figure illustrates the relationship for material
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-following-two-figures-illustrates-the-relationship-for-representations" class="md-nav__link">
+    <span class="md-ellipsis">
+      The following two figures illustrates the relationship for representations
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -1734,7 +1826,7 @@
 
 
 <h1 id="ifc-types">IFC Types</h1>
-<p>In IFC, objects can have a type that defines commonly shared information for occurrences of that object type. The set of shared information may include:</p>
+<p>In IFC, <strong>objects</strong> can have a <strong>type</strong> that defines commonly shared information for occurrences of that object type. The set of shared information may include:</p>
 <ul>
 <li>common properties within shared property sets</li>
 <li>common material information</li>
@@ -1759,8 +1851,8 @@
 <td style="text-align: left;">IfcWallType</td>
 </tr>
 <tr>
-<td style="text-align: left;">IFCCurtainWall</td>
-<td style="text-align: left;">IFCCurtainWallType</td>
+<td style="text-align: left;">IfcCurtainWall</td>
+<td style="text-align: left;">IfcCurtainWallType</td>
 </tr>
 <tr>
 <td style="text-align: left;">IfcSlab</td>
@@ -1808,11 +1900,37 @@
 </tr>
 </tbody>
 </table>
-<p>The following figure illustrates the relationship for property sets</p>
+<p>The relationship between these object and their correponding object type is embodied in the <strong>IfcRelDefinesByType</strong> relationship where the <strong>RelatingType</strong> is the Object Type and the <strong>RelatedObjects</strong> are the objects with that type.</p>
+<p>To make things a little bit more complex, the RelatingType can also be an <strong>Object Style</strong> for some objects</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Object</th>
+<th style="text-align: left;">Style</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">IfcDoor</td>
+<td style="text-align: left;">IfcDoorStyle</td>
+</tr>
+<tr>
+<td style="text-align: left;">IfcWindow</td>
+<td style="text-align: left;">IfcWindowStyle</td>
+</tr>
+</tbody>
+</table>
+<h2 id="the-following-figure-illustrates-the-relationship-for-property-sets">The following figure illustrates the relationship for property sets</h2>
 <p><a class="glightbox" href="../../assets/images/ifcreldefinesbytype_fig-1.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../../assets/images/ifcreldefinesbytype_fig-1.png" /></a></p>
-<p>The following figure illustrates the relationship for material</p>
+<p>This means that an object (e.g. an IfcWindow) will have properties from all the propertySets:</p>
+<ul>
+<li>associated with the object via an <strong>IfcRefDefinesByProperties</strong> relationship where the propertySet reference is the <strong>RelatingPropertyDefinition</strong>  and the object reference is part of the <strong>RelatedObjects</strong> list.</li>
+<li>associated with the <strong>objectType</strong> (i.e. IfcWindowType) associated to the object via the relationship <strong>IfcRelDefinesByType</strong> where the objectType reference is the <strong>RelatingType</strong>  and the object is part of the <strong>Related Objects</strong> list and the propertySet reference is part of the <strong>hasPropertySets</strong> list of the objectType</li>
+<li>associated with the <strong>objectStyle</strong> (i.e. IfcWindowStyle) in the same as with an objectType</li>
+</ul>
+<h2 id="the-following-figure-illustrates-the-relationship-for-material">The following figure illustrates the relationship for material</h2>
 <p><a class="glightbox" href="../../assets/images/IfcWallStandardCase_MaterialUsage-01.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../../assets/images/IfcWallStandardCase_MaterialUsage-01.png" /></a></p>
-<p>The following two figures illustrates the relationship for representations.</p>
+<h2 id="the-following-two-figures-illustrates-the-relationship-for-representations">The following two figures illustrates the relationship for representations</h2>
 <p>The product representations are defined as representation maps (at the level of the supertype IfcTypeProduct (Wall, Slab, ...)), which gets assigned by an element occurrence instance through the IfcShapeRepresentation.Item being an IfcMappedItem.</p>
 <p><a class="glightbox" href="../../assets/images/IfcTypeProduct_RepresentationMap-1.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../../assets/images/IfcTypeProduct_RepresentationMap-1.png" /></a></p>
 <p><a class="glightbox" href="../../assets/images/IfcTypeProduct_RepresentationMap-2.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../../assets/images/IfcTypeProduct_RepresentationMap-2.png" /></a></p>

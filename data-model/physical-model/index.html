@@ -1109,6 +1109,15 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#bundle-unit-propertyset" class="md-nav__link">
+    <span class="md-ellipsis">
+      Bundle Unit Propertyset
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -2038,6 +2047,15 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#bundle-unit-propertyset" class="md-nav__link">
+    <span class="md-ellipsis">
+      Bundle Unit Propertyset
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -2124,7 +2142,7 @@
     bundleUnit {
         uuid5   bundleunit_id PK  "The Id as a hash of all columns except unitJson"
         int     bundle_id "The Id of the bundle"
-        uuid    unit_id "The Id if the Object "
+        uuid    unit_id "The Id of the Object "
         string  unitType "The type of the Object (e.g. IfcSpatiaZone)"
         string  unitName "The name of the object (e.g. Apartment 01-09)"
         string  relationship_type "The type of the relationship (e.g. 'IfcRelAggregates)"
@@ -2151,9 +2169,30 @@
         json    operationJson  
     }
     bundleJournal }|--|| bundle : entry</code></pre>
-<div style="width:25%">
+<div style="width:85%">
 
 <pre class="mermaid"><code>erDiagram
+
+    bundleUnitPropertyset {
+        uuid    id PK
+        int     bundle_id "The id of the bundle"
+        uuid    sz_id "The id of the SpatialZone"
+        string  sz_type "Type of the spatial zone (e.g. Private parts - Apartment)"
+        string  sz_name "Name of the spatial zone"
+        uuid    space_id "The id of a Space in the Spatial Zone"
+        string  space_name "The name of the Space (e.g. Kitchen)"
+        uuid    object_id "The id of an object in the space boundary or contained in the spatial structure of a space"
+        string  object_type "The type of the object in the space boundary or contained in the spatial structure"
+        string  object_name "The name of the object"
+        uuid    type_object_id "The id of the type of the Object"
+        string  type_object_type "The ifc type of the type of the object (e.g. IfcWallType)" 
+        string  type_object_name "The name of the type of the object"
+        uuid    propertyset_id "The id of the property set"
+        string  propertyset_name "The name of the propertyset (e.g. Pset_WallCommon)"
+        json    propertyset_elementjson "The json with the properties"      
+    }
+
+
     bundleHistory {
         uuid    id PK
         int     bundleId
@@ -2264,6 +2303,9 @@ This is more convenient for SQL based queries.</p>
 <h2 id="elements-history">Elements History</h2>
 <p>The idea is that each time an element is modified, the before update version is saved in this history.</p>
 <p>This is not activated and tested at this stage. It is more a placeholder to remember to address this topic more in depth</p>
+<h2 id="bundle-unit-propertyset">Bundle Unit Propertyset</h2>
+<p>Contains a list of all the propertysets associated with all the construction or distribution objects in the spaces of the spatial zones in the bundle.
+This could be a in a file instead of a table and helps provide a fast response to a query on all properties that are relevant for the elements of a spatial zone associated to a spatial unit.</p>
 
 
 
