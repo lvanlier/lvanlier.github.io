@@ -2036,11 +2036,17 @@
 <li>Get the header of the bundle (all ifc's have a header); but we could also create a new one from scratch</li>
 <li>Get the container, i.e. 'Spatial Unit', e.g. the storey</li>
 <li>Get the parents of the container with respect to the <strong>IfcRelAggregates</strong> hierarchy (if the container is e.g., a storey, the parent is usually the building, then the site, then the project). We could possibly attach the selected Storey to the projet, but it's safer to have the hierarchy if relative positioning of elements is the default in the model</li>
-<li>Get all 'children elements' of the container, and their own 'children', etc. where the 'children' are the elements that are in a graph where 'parents' are the <strong>relating</strong> elements and the 'children' are the <strong>related</strong> element in a relationship and 'descent' from the container.
-For those, we will not get the propertySets, as they are not descendent of the container in the graph. This will be addressed later on.</li>
-<li>For each element that is a product, we need to get all representations if any</li>
-<li>Now that we have all elements (except propertySets), we need to look at the elements that are referenced in one of the elements that we have but are NOT already part of the elements that we have. We need to include these elements.</li>
-<li>We need to get all propertysets which are related to the container or to the elements in the container; there, the properties are the relating elements and we only need to look at properties that have a related element in the previous list of elements. The attention point is that the IfcRelDefinesByProperties will list entities that are not related to the container. We will need to prune these extra references.</li>
+<li>Get all 'children elements' of the container, and their own 'children', etc. where the 'children' are the elements that are in a graph where 'parents' are the <strong>relating</strong> elements and the 'children' are the <strong>related</strong> elements in a relationship and 'descent' from the container.<ul>
+<li>we need to get the objects</li>
+<li>we need to get the object types</li>
+<li>we need to get the representations</li>
+<li>we need to get the 'down' relationships for the objects, i.e. the relationships where the object is the 'relating' element</li>
+<li>we need to get the 'up' relationships for the objects, i.e. the relationships where the object is the 'related' element</li>
+<li>we need to get the propertySets for the objects</li>
+</ul>
+</li>
+<li>Now that we have 'all' elements, we need to look at the elements that are referenced in one the element that we have but are NOT in the elements that we have. These referenced elements can be objects, representations or propertysets (referenced by an object type). We need to get all these elements and add them to the list of elements. This is a recursive process as a referenced element can also reference other elements that are not in the list of elements</li>
+<li>We need to prune the related list of relationships to ensure we do not include related elements that are not in the spatial unit. This applies to IfcRelDefinesByProperties, IfcRelDefinesByType, IfcRelAssociatesMaterial</li>
 <li>Now that we have all that is needed for a model, we build an ifcJSON</li>
 <li>And convert it to an IFC(Step file).</li>
 </ol>
