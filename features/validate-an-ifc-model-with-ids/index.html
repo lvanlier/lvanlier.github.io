@@ -1138,6 +1138,72 @@
   
 </li>
         
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#client-interaction-with-the-d4su-platform" class="md-nav__link">
+    <span class="md-ellipsis">
+      Client Interaction with the d4SU platform
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Client Interaction with the d4SU platform">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-open-a-websocket" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Open a WebSocket
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-post-a-request" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Post a request
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-processing" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. Processing
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-the-result-is-sent-via-the-websocket" class="md-nav__link">
+    <span class="md-ellipsis">
+      4. The result is sent via the WebSocket
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-ids-file-and-the-validation-result" class="md-nav__link">
+    <span class="md-ellipsis">
+      The IDS file and the Validation result
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="The IDS file and the Validation result">
+      <ul class="md-nav__list">
+        
           <li class="md-nav__item">
   <a href="#the-ids_wooden-windowsifc-with-bim-collab" class="md-nav__link">
     <span class="md-ellipsis">
@@ -1862,6 +1928,72 @@
   
 </li>
         
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#client-interaction-with-the-d4su-platform" class="md-nav__link">
+    <span class="md-ellipsis">
+      Client Interaction with the d4SU platform
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Client Interaction with the d4SU platform">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-open-a-websocket" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Open a WebSocket
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-post-a-request" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Post a request
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-processing" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. Processing
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-the-result-is-sent-via-the-websocket" class="md-nav__link">
+    <span class="md-ellipsis">
+      4. The result is sent via the WebSocket
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-ids-file-and-the-validation-result" class="md-nav__link">
+    <span class="md-ellipsis">
+      The IDS file and the Validation result
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="The IDS file and the Validation result">
+      <ul class="md-nav__list">
+        
           <li class="md-nav__item">
   <a href="#the-ids_wooden-windowsifc-with-bim-collab" class="md-nav__link">
     <span class="md-ellipsis">
@@ -1963,6 +2095,25 @@
 <p>Currently all IFC files are store locally and served with Nodejs <strong>http-server</strong>.</p>
 <h3 id="validate-against-a-list-of-one-or-more-ids-files">Validate against a list of one or more IDS file(s)</h3>
 <p>The validation is entirely based on the <strong>IfcTester</strong> module of IfcOpenShell.</p>
+<h2 id="client-interaction-with-the-d4su-platform">Client Interaction with the d4SU platform</h2>
+<p>The screen captures hereunder illustrate the interaction between a client (such as the Integration Platform) and the d4su-server.</p>
+<p>The browser acts as a mockup of the client.</p>
+<h3 id="1-open-a-websocket">1. Open a WebSocket</h3>
+<p>The client opens a ws-socket connection with the server at <strong>/wsinit</strong></p>
+<p><a class="glightbox" href="../../assets/images/client-interaction-1.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Open a WebSocket" src="../../assets/images/client-interaction-1.png" /></a></p>
+<h3 id="2-post-a-request">2. Post a request</h3>
+<p>The client sends a post request with the request data (the browser uses the <strong>swagger</strong> available at <strong>/docs</strong>).</p>
+<p><a class="glightbox" href="../../assets/images/client-interaction-2.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Post a Request" src="../../assets/images/client-interaction-2.png" /></a></p>
+<p>The server provides a response with a <strong>token</strong> to allow the client to pair the asynchronous result that will be provided when the processing completes.</p>
+<p><a class="glightbox" href="../../assets/images/client-interaction-3.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Server Response" src="../../assets/images/client-interaction-3.png" /></a></p>
+<h3 id="3-processing">3. Processing</h3>
+<p>The processing is done by a Celery worker and the result is available in Redis.</p>
+<p><a class="glightbox" href="../../assets/images/client-interaction-4.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Server Response" src="../../assets/images/client-interaction-4.png" /></a></p>
+<p>The last task notifies the server of the result. The server use a <strong>queue</strong> to forward the result to the WebSocket Server</p>
+<h3 id="4-the-result-is-sent-via-the-websocket">4. The result is sent via the WebSocket</h3>
+<p>The WebSocket Server sends the response to the client (with the <strong>token</strong> and the <strong>result</strong>).  </p>
+<p><a class="glightbox" href="../../assets/images/client-interaction-5.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Server Response" src="../../assets/images/client-interaction-5.png" /></a></p>
+<h2 id="the-ids-file-and-the-validation-result">The IDS file and the Validation result</h2>
 <h3 id="the-ids_wooden-windowsifc-with-bim-collab">The IDS_wooden-windows.ifc with BIM Collab</h3>
 <p><a class="glightbox" href="../../assets/images/IDS_wooden-windows.bimcollab.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Wooden Window IDS Test File" src="../../assets/images/IDS_wooden-windows.bimcollab.png" /></a></p>
 <p>The 3D geometry and all its details is informative, but need not be processed for the domains LCA, BAMB, EPC, DBP, ...</p>
