@@ -2271,13 +2271,31 @@ It maintains a list of all files processed in relationship to the bundle.</p>
 <p>Therefore, the GUID will bear a unicity property only within a given bundle and a convenient unique key will be provided by (bundleId, elementId) dispensing from using a junction table. </p>
 <p>Also, comparison across bundles could help identify variations in a specific element or help in federating different views, but with no guarantee as made clear in the discussion <a href="../references/#guids-in-a-bim-project">GUIDs in an BIM Project</a> where an example is given of a project with multiple disciplines using different tools and producing distincts GUIDs for the same element.</p>
 <h3 id="object">Object</h3>
-<p>Contains all of the items not in Represention, PropertySet or Relationship.</p>
+<p>Contains all the items not in Represention, PropertySet or Relationship.</p>
+<p>An object can be an element with a representation (geometry), i.e. an <strong>IfcProduct</strong> such as:</p>
+<ul>
+<li>IfcWall, IfcSlab, IfcColumn, IfcBeam, ...</li>
+<li>IfcDoor, IfcWindow, ...</li>
+<li>IfcCovering, ...</li>
+<li>IfcStair, ...</li>
+<li>IfcSpace, ...</li>
+<li>IfcDistributionFlowElement, ...</li>
+<li>IfcAnnotation</li>
+<li>...</li>
+</ul>
+<p>An <strong>IfcProduct</strong> may have a representation, and if it has a representation, it must have an <strong>IfcObjectPlacement</strong></p>
+<p>An object It can also be an element <strong>without a representaion</strong></p>
+<ul>
+<li>IfcActor, IfcTaslk, IfcProcess, IfcResource</li>
+<li>IfcWorkPlan, IfcWorkPlanSchedule</li>
+<li>...</li>
+</ul>
 <h3 id="representation">Representation</h3>
 <p>Contains the items for the products that have one or more shape representation(s) (support for the 3D rendering and for measurement).
 Representations are separated from the product themselves which are in the object table.
 The separation is mainly for data management purpose: not all processes need the representation and several applications / model sources do not have shape representations.
 The representation table has a 'Geometry' column that is intended to support geometry related functions.</p>
-<p>To be challenged: the local placement is in the Object table and the geometry in the Representation table.</p>
+<p>A <strong>representation</strong> has a <strong>IfcGeometricRepresentationContext</strong> which defines the context that applies to several shape representations of products within a project.</p>
 <h3 id="propertyset">PropertySet</h3>
 <p>Contains the propertySets and elementQuantities that apply to one or more other items.</p>
 <h3 id="relationship">Relationship</h3>

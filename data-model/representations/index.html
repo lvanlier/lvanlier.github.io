@@ -870,7 +870,25 @@
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Introduction">
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#representation-geometric-context" class="md-nav__link">
+    <span class="md-ellipsis">
+      Representation Geometric Context
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#processing" class="md-nav__link">
+    <span class="md-ellipsis">
+      Processing
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Processing">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -1823,7 +1841,25 @@
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Introduction">
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#representation-geometric-context" class="md-nav__link">
+    <span class="md-ellipsis">
+      Representation Geometric Context
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#processing" class="md-nav__link">
+    <span class="md-ellipsis">
+      Processing
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Processing">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -1893,7 +1929,7 @@
 
 <h1 id="representations">Representations</h1>
 <h2 id="introduction">Introduction</h2>
-<p>An <strong>IfcProduct</strong> can have a representation. The <strong>IfcRepresentationItem</strong>  conveys the representation data and can take a variety of forms that each calls for specific technical handling. Indeed we have IfcBoundingBox, IfcExtrudedAreaSolid, IfcGeometricCurveSet, IfcFaceBasedSurfaceModel, IfcMappedItem, ... to name a few.
+<p>An <strong>IfcProduct</strong> can have a representation. The <strong>IfcRepresentationItem</strong>  conveys the representation data and can take a variety of forms that each calls for specific technical handling. Indeed we have <strong>IfcBoundingBox</strong>, <strong>IfcExtrudedAreaSolid</strong>, <strong>IfcGeometricCurveSet</strong>, <strong>IfcFaceBasedSurfaceModel</strong>, <strong>IfcMappedItem</strong>, ... to name a few.
 Also <strong>Tessellation</strong> is available as of IFC4. This introduces a simple Mesh geometry where every shape is approximated by a set of non overlaping triangles.
 It will be convenient - or necessary - to reduce the variety of representations used in the IFC for the submission process. Alternatively, applying IfcOpenshell tessellation might help.
 It is worth noting that in IFC5, Mesh geometry will be at the core (base/default geometry)  </p>
@@ -1920,6 +1956,24 @@ It is worth noting that in IFC5, Mesh geometry will be at the core (base/default
         IfcRepresentationItem --o IfcGeometricRepresentationItem
         IfcGeometricRepresentationItem --o item["IfcBoundingBox,&lt;br/&gt;IfcExtrudedAreaSolid,&lt;br/&gt;IfcGeometricCurveSet,&lt;br/&gt;IfcFaceBasedSurfaceModel,&lt;br/&gt;IfcMappedItem,&lt;br/&gt;...&lt;br/&gt;,&lt;br/&gt;Tessellation&lt;br/&gt;"] 
     end </code></pre>
+<h2 id="representation-geometric-context">Representation Geometric Context</h2>
+<p>The <strong>IfcGeometricRepresentationContext</strong> defines the context that applies to several shape representations of products within a project. It defines the type of the context in which the shape representation is defined, and the numeric precision applicable to the geometric representation items defined in this context. In addition it can be used to offset the project coordinate system from a global point of origin, using the WorldCoordinateSystem attribute. The main representation context may also provide the true north direction.</p>
+<p>There is also an <strong>IfcGeometricRepresentationSubContext</strong> which is used to define semantically distinguished representation types for different information content, dependent on the representation view and the target scale. It can be used to control the level of detail of the shape representation that is most applicable to this geometric representation context. In addition the sub context is used to control the later appearance of the IfcShapeRepresentation within a plot view.</p>
+<p>The <strong>IfcGeometricRepresentationSubContext</strong> has a <strong>TargetView</strong> attribute of type <strong>IfcGeometricProjectionEnum</strong> with the values:</p>
+<ul>
+<li>ELEVATION_VIEW</li>
+<li>GRAPH_VIEW</li>
+<li>MODEL_VIEW (should be provided)</li>
+<li>PLAN_VIEW</li>
+<li>REFLECTED_PLAN_VIEW</li>
+<li>SECTION_VIEW</li>
+<li>SKETCH_VIEW</li>
+<li>USERDEFINED</li>
+<li>NOTDEFINED</li>
+</ul>
+<p>More details are available at <a href="https://ifc43-docs.standards.buildingsmart.org/IFC/RELEASE/IFC4x3/HTML/lexical/IfcGeometricProjectionEnum.htm">https://ifc43-docs.standards.buildingsmart.org/IFC/RELEASE/IFC4x3/HTML/lexical/IfcGeometricProjectionEnum.htm</a></p>
+<p><a class="glightbox" href="../../assets/images/ifcgeometricrepresentationcontext_layout.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Example of using geometric representation contexts" src="../../assets/images/ifcgeometricrepresentationcontext_layout.png" /></a></p>
+<h2 id="processing">Processing</h2>
 <p>In our workflow, the geometry is created in the AEC Tool and preserved along the tranformation so that it can be rendered in a standard Ifc Viewer. Up to a point, this appears as a non issue.  </p>
 <p>Ingress flow:</p>
 <pre class="mermaid"><code>flowchart LR
