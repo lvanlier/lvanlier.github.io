@@ -1401,6 +1401,17 @@
         
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Export properties of a SpatialZone
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="./" class="md-nav__link md-nav__link--active">
         
   
@@ -1410,6 +1421,58 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#populate-bundleunitproperties" class="md-nav__link">
+    <span class="md-ellipsis">
+      Populate bundleUnitProperties
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Populate bundleUnitProperties">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#submit-the-processing-request" class="md-nav__link">
+    <span class="md-ellipsis">
+      Submit the processing request
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#result" class="md-nav__link">
+    <span class="md-ellipsis">
+      Result
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -1720,6 +1783,47 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#populate-bundleunitproperties" class="md-nav__link">
+    <span class="md-ellipsis">
+      Populate bundleUnitProperties
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Populate bundleUnitProperties">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#submit-the-processing-request" class="md-nav__link">
+    <span class="md-ellipsis">
+      Submit the processing request
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#result" class="md-nav__link">
+    <span class="md-ellipsis">
+      Result
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -1735,12 +1839,28 @@
 
 <h1 id="export-properties-of-a-spatialzone">Export Properties of a SpatialZone</h1>
 <details>
-<summary>Feature Group: Export</summary>
+<summary>Feature Group: Export, Store</summary>
 </details>
-<p>TO DO</p>
-<!--
-
--->
+<p>Collecting all the properties that apply to all elements of a spatial zone requires significant processing.</p>
+<p>Therefore we have here a full export for all relevant elements and their properties in a bundle. It is both made available as a <strong>.csv</strong> file and loaded in the <strong>bundleUnitProperties</strong> table.</p>
+<p>Base on this, it is then possible to export subsets on demand at a lower processing cost.</p>
+<h2 id="populate-bundleunitproperties">Populate bundleUnitProperties</h2>
+<h3 id="submit-the-processing-request">Submit the processing request</h3>
+<div class="highlight"><pre><span></span><code><span class="c1">#</span>
+<span class="c1">#  Populate bundeUnitProperties with the properties of the spatial units</span>
+<span class="c1">#</span>
+<span class="k">class</span> <span class="nc">PopulateBundleUnitProperties_Instruction</span><span class="p">(</span><span class="n">BaseModel</span><span class="p">):</span>
+    <span class="n">bundleId</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="s2">&quot;1&quot;</span>  
+    <span class="n">ifNotPopulated</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">True</span> <span class="c1"># When True, the processing  will be skipped if the bundleUnitProperties is already populated</span>
+    <span class="n">withCSVExport</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">True</span>
+<span class="k">class</span> <span class="nc">PopulateBundleUnitProperties_Result</span><span class="p">(</span><span class="n">BaseModel</span><span class="p">):</span>
+    <span class="n">skipped</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">False</span> <span class="c1"># True if the bundleUnitProperties was already populated and ifNotPopulated was set to True</span>
+    <span class="n">nbrEntries</span><span class="p">:</span> <span class="nb">int</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="mi">0</span> <span class="c1"># Number of entries created in the bundleUnitProperties</span>
+    <span class="n">resultPath</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span> <span class="c1"># relative path of the result file (csv)</span>
+</code></pre></div>
+<h3 id="result">Result</h3>
+<p>The following screen capture shows two subsequent executions of the request: at first there are no data for the bundleId = 60, thereafter the processing is skipped</p>
+<p><a class="glightbox" href="../../assets/images/populatebundleunitproperties.websocket.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="websocket screen for populateBundleUnitProperties" src="../../assets/images/populatebundleunitproperties.websocket.png" /></a></p>
 
 
 

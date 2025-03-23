@@ -2104,7 +2104,7 @@
 <h3 id="2-post-a-request">2. Post a request</h3>
 <p>The client sends a post request with the request data (the browser uses the <strong>swagger</strong> available at <strong>/docs</strong>).</p>
 <p><a class="glightbox" href="../../assets/images/client-interaction-2.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Post a Request" src="../../assets/images/client-interaction-2.png" /></a></p>
-<p>The server provides a response with a <strong>token</strong> to allow the client to pair the asynchronous result that will be provided when the processing completes.</p>
+<p>The server provides a response with a <strong>token</strong> to allow the client to pair the request and the asynchronous result that will be provided when the processing completes.</p>
 <p><a class="glightbox" href="../../assets/images/client-interaction-3.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Server Response" src="../../assets/images/client-interaction-3.png" /></a></p>
 <h3 id="3-processing">3. Processing</h3>
 <p>The processing is done by a Celery worker and the result is available in Redis.</p>
@@ -2113,6 +2113,7 @@
 <h3 id="4-the-result-is-sent-via-the-websocket">4. The result is sent via the WebSocket</h3>
 <p>The WebSocket Server sends the response to the client (with the <strong>token</strong> and the <strong>result</strong>).  </p>
 <p><a class="glightbox" href="../../assets/images/client-interaction-5.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Server Response" src="../../assets/images/client-interaction-5.png" /></a></p>
+<p>In the current dev setup there is a single interactive client using the browser, so there is no need add a client id in the request and to route the response to the corresponding websocket client. This would however be needed for a production deployment.</p>
 <h2 id="the-ids-file-and-the-validation-result">The IDS file and the Validation result</h2>
 <h3 id="the-ids_wooden-windowsifc-with-bim-collab">The IDS_wooden-windows.ifc with BIM Collab</h3>
 <p><a class="glightbox" href="../../assets/images/IDS_wooden-windows.bimcollab.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Wooden Window IDS Test File" src="../../assets/images/IDS_wooden-windows.bimcollab.png" /></a></p>
