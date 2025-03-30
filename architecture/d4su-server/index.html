@@ -316,6 +316,24 @@
     
     
       <li class="md-tabs__item">
+        <a href="../../ifc5/introduction/" class="md-tabs__link">
+          
+  
+  IFC5
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
         <a href="../../installation/dev/" class="md-tabs__link">
           
   
@@ -1721,7 +1739,7 @@
             
   
   <span class="md-ellipsis">
-    Installation
+    IFC5
   </span>
   
 
@@ -1730,6 +1748,139 @@
         
         <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            IFC5
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ifc5/introduction/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Introduction
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ifc5/hello-wall/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    The Hello Wall example
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ifc5/spatial-units/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Spatial Units
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ifc5/references/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    References
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Installation
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7">
             <span class="md-nav__icon md-icon"></span>
             Installation
           </label>
@@ -2018,6 +2169,7 @@
 <li><strong>Other Apache Arrow</strong> tools (e.g., <strong>ADBC Driver for PostgreSQL</strong>, or support for Machine Learning Workflows) might be super relevant but that's not yet investigated.</li>
 <li><strong>IfcOpenShell</strong> <a href="../references/#ifcopenshell">A suite of IFC tools in C++ and Python</a> <strong>the base layer of the d4SU Server and the rational for it to be in Python</strong></li>
 <li><strong>IfcSON</strong> <a href="../references/#ifcjson">Python Tool (on top of ifcOpenShell) to convert an IFC to a JSON (IFC2JSON) and a JSON to an IFC (JSON2IFC)</a>. IfcJSON has been built in the context of a larger project presented in <a href="../references/#ifcjson">IFC.JSON</a></li>
+<li><strong>IFC5-development tools</strong> <a href="../references/#buildingsmart-ifc5">buildingSmart developement tools</a></li>
 </ul>
 <h2 id="c4-diagram">C4 diagram</h2>
 <p><em>The diagram hereunder is built with Mermaid.js integrated with Material for MkDocs. At the present time, it is not quite legible in dark mode and a swicth to standard mode (top menu bar) is recommended</em></p>
@@ -2072,13 +2224,19 @@ C4Container
 <li><strong>Why PostgreSQL</strong>? It's mainly why another db? It has all that is needed. It has also Support for Geometry and Graph, via extensions. For extremely large DB, an offloading to HBase with <a href="../references/#phoenix">Phoenix</a> could be considered, but that is not needed at this stage.</li>
 <li><strong>Why SQLModel</strong> (on top of <strong>SQLAlchemy</strong>) to access PostgreSQL? Again ease of use.</li>
 </ul>
-<p>When working with IFC, there is always a need for a Viewer. I am using:</p>
+<p>When working with IFC, there is always a need for a Viewer. </p>
+<p>For IFC &lt; 5, I am using:</p>
 <ul>
 <li><a href="../references/#openifcviewer">OpenIFCViewer</a></li>
 <li><a href="../references/#that-open">ThatOpen (Web)</a></li>
 <li><a href="../references/#bimcollab-zoom">BIMCollab ZOOM</a></li>
 <li><a href="../references/#solibri-anywhere">Solibri Anywhere</a></li>
 <li><a href="../references/#blender-with-bonsai">Blender with Bonsai</a>; see also the <a href="../references/#blender-with-bonsai">video on Youtube</a></li>
+</ul>
+<p>For IFC 5, I am using:</p>
+<ul>
+<li><a href="../references/#acca-usbim.ifc5">ACCA usBIM.ifc5</a>; enables to convert IFC&lt;5 files to IFC5 (.ifcx) and to vizualize the model.</li>
+<li><a href="../references/#buildingsmart-ifc5">buildingSmart IFC5-development</a>; provides ifc5 schemas, ifc5 visualization tool and more</li>
 </ul>
 <p><strong>Why several viewers?</strong>: with the difference in versions of the IFC files (2x3, 4.0, ...) and and possible tools rendering issues, I found it a necessity to control results with several viewers. They each have distinctive capabilities.</p>
 <p>For coding, I use <strong>Visual Studio Code</strong> and <strong>GitHub Copilot</strong>. GenAI for coding is a marvel. It does not always provide the solution to the problem but it wonderfully seeds the process that leads to the solution.</p>
