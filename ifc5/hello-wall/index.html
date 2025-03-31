@@ -1796,6 +1796,15 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#composition-add-a-second-building-with-a-rotation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Composition - Add a second building with a rotation
+    </span>
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -2160,6 +2169,15 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#composition-add-a-second-building-with-a-rotation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Composition - Add a second building with a rotation
+    </span>
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -2183,6 +2201,8 @@
 <h1 id="the-hello-wall-example">The Hello Wall example</h1>
 <h2 id="introduction">Introduction</h2>
 <h3 id="hello-wall-in-the-viewer">Hello Wall in the Viewer</h3>
+<p>The <strong>hello-wall.ifcx</strong> from <a href="https://github.com/buildingSMART/IFC5-development/">IFC5 development repository on GitHub</a>
+ is a model with a Space (My_Space) and a Wall (Wall) with two Windows (Window and Window_001).</p>
 <p><a class="glightbox" href="../../assets/images/hello-wall.ifc5viewer.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Hello Wall" src="../../assets/images/hello-wall.ifc5viewer.png" /></a></p>
 <h3 id="the-tree-of-hello-wall">The tree of Hello Wall</h3>
 <p><a class="glightbox" href="../../assets/images/hello-wall_tree.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Hello Wall tree" src="../../assets/images/hello-wall_tree.png" /></a></p>
@@ -2220,7 +2240,7 @@
 <span class="w"> </span><span class="p">},</span>
 </code></pre></div>
 <h3 id="making-extracts-more-legible">Making extracts more legible</h3>
-<p>The hello-wall uses in the <strong>name</strong> identifiers strings that are partly like UUID without hyphens. To make things simpler to read, we have replaced these identifiers by the corresponding def name with '_class' added at the end.</p>
+<p>The hello-wall uses in the <strong>name</strong> identifiers strings that are partly GUIDs. To make things simpler to read, we have replaced these identifiers by the corresponding def name with '_class' added at the end.</p>
 <div class="highlight"><pre><span></span><code><span class="p">{</span>
 <span class="w">    </span><span class="nt">&quot;def&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;def&quot;</span><span class="p">,</span>
 <span class="w">    </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;UsdGeom:Xform&quot;</span><span class="p">,</span>
@@ -2281,7 +2301,7 @@
 </code></pre></div>
 <h3 id="a-class-can-inherit-from-another-class-that-acts-as-a-type">A class can inherit from another class that acts as a type</h3>
 <p>A class can inherit from another class: both instances of Windows, namely <strong>Window</strong> and <strong>Window_001</strong> inherit from classes <strong>Window_class</strong> and <strong>Window_001_class</strong> that inherit from a class that acts as a <strong>type</strong>.</p>
-<p>The class that acts a type is the one named  <strong>Window_Type_class</strong> in the example below. It has a <strong>void</strong> and a <strong>body</strong> as <strong>children</strong>. It has also standard properties such as <strong>IsExternal</strong>, which is set to 1 (i.e. True), meaning that all windows of this type are external. </p>
+<p>The class that acts a type is the one named  <strong>Window_Type_class</strong> in the example below. It has a <strong>void</strong> and a <strong>body</strong> as <strong>children</strong>. It has also standard properties such as <strong>IsExternal</strong>, which is set to 1 (i.e. True), meaning that all windows of this type are external.</p>
 <p>It is worth noting that the class named <strong>Window_Type_class</strong> for convenience has the ifc5:class code <strong>IfcWindow</strong> and not <strong>IfcWindowType</strong>. The class for the Window can inherit from another class, which could possiblty inherit from yet another class without changing the ifc5:class code. This is way simpler than in IFC&lt;5 where 'standard objects' (e.g. an IfcWindow) and 'type' objects' (e.g. an IfcWindowType) have distinct properties and behaviours.</p>
 <div class="highlight"><pre><span></span><code><span class="p">{</span>
 <span class="w">    </span><span class="nt">&quot;def&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;class&quot;</span><span class="p">,</span>
@@ -2418,7 +2438,7 @@
 </code></pre></div>
 <h3 id="placement-and-alignment-use-simple-transform-matrix">Placement and alignment use simple transform matrix</h3>
 <p>In IFC, each product (object which may have a representation) has a defined IfcLocalPlacement in 2-D or 3-D.</p>
-<p>In IFC5 a <strong>4-dimensional</strong> matrix in a <strong>projective space</strong> is used.
+<p>In IFC5 a <strong>4-dimensional</strong> matrix in a <a href="../references/#transformation-in-a-projective-space">projective space</a> is used.
 The matrix can then consolidate the translation, rotation and scaling operations.</p>
 <p>Hereunder, as an example, we have the transform of Window_class and Window_001_class which are the two instances of windows, sharing the same type and asociated body geometry, but not the same placement. The transformation hereunder are solely geometric translations (no rotation, no scaling).</p>
 <div class="highlight"><pre><span></span><code><span class="p">{</span>
@@ -2496,7 +2516,7 @@ we can add a third window by:</p>
 <p>This is not complete as we need to add the a corresponding space boundary with:</p>
 <ul>
 <li>adding an <strong>over</strong> on the <strong>My_Space_class</strong> with an extra window child <strong>Boundary_Window_002</strong> which inherits from a <strong>Boundary_Window_002_class</strong>.</li>
-<li>a <strong>Boundary_Window_002_class</strong> with a child body representation that inherits from a class <strong>Boundary_Window_002_class_Body</strong>.</li>
+<li>a <strong>Boundary_Window_002_class</strong> with a child <strong>Body</strong> that inherits from a class <strong>Boundary_Window_002_class_Body</strong>.</li>
 <li>a over on the <strong>Boundary_Window_002_class</strong> to make the link with the corresponding <strong>Window_002_class</strong></li>
 <li>a <strong>Boundary_Window_002_class_Body</strong></li>
 <li>an <strong>over</strong> on the <strong>Boundary_Window_002_class_Body</strong> with the mesh geometry of the Boundary.</li>
@@ -2562,7 +2582,48 @@ we can add a third window by:</p>
 <span class="p">}</span>
 </code></pre></div>
 <p>We then have a displayed model built from two <strong>.ifcx</strong> files with the viewer(version 'v1' / early january 2025):</p>
-<p><a class="glightbox" href="../../assets/images/hello-wall_with_third_window.ifc5viewer.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Hello Wall tree" src="../../assets/images/hello-wall_with_third_window.ifc5viewer.png" /></a></p>
+<p><a class="glightbox" href="../../assets/images/hello-wall_with_third_window.ifc5viewer.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Hello Wall wiht a third window" src="../../assets/images/hello-wall_with_third_window.ifc5viewer.png" /></a></p>
+<h3 id="composition-add-a-second-building-with-a-rotation">Composition - Add a second building with a rotation</h3>
+<p>We can add a second building on the site with a simple <strong>over</strong>.</p>
+<p>As an complementary illustration we add a translation of (x=10,y=0,z=0,w=1) and a rotation of 90° using the values from the example of <a href="../references/#transformation-in-a-projective-space">Transformation in a projective space</a>.</p>
+<div class="highlight"><pre><span></span><code><span class="p">[</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;def&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;over&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;My_Site_class&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;children&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">            </span><span class="nt">&quot;def&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;def&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Brand_New_Building&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;inherits&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">                </span><span class="s2">&quot;&lt;/Brand_New_Building_class&gt;&quot;</span><span class="p">]</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">]</span>
+<span class="p">},</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;def&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;class&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;UsdGeom:Xform&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;comment&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;this is the instance of the Building&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Brand_New_Building_class&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;inherits&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">        </span><span class="s2">&quot;&lt;/My_Building_class&gt;&quot;</span><span class="p">]</span>
+<span class="p">},</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;def&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;over&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Brand_New_Building_class&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;attributes&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nt">&quot;xformOp&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="nt">&quot;transform&quot;</span><span class="p">:[</span><span class="w"> </span>
+<span class="w">                </span><span class="p">[</span><span class="mf">6.123233995736766e-17</span><span class="p">,</span><span class="w"> </span><span class="mf">-1.0</span><span class="p">,</span><span class="w"> </span><span class="mf">0.0</span><span class="p">,</span><span class="w"> </span><span class="mf">0.0</span><span class="p">],</span>
+<span class="w">                </span><span class="p">[</span><span class="mf">1.0</span><span class="p">,</span><span class="w"> </span><span class="mf">6.123233995736766e-17</span><span class="p">,</span><span class="w"> </span><span class="mf">0.0</span><span class="p">,</span><span class="w"> </span><span class="mf">0.0</span><span class="p">],</span>
+<span class="w">                </span><span class="p">[</span><span class="mf">0.0</span><span class="p">,</span><span class="w"> </span><span class="mf">0.0</span><span class="p">,</span><span class="w"> </span><span class="mf">1.0</span><span class="p">,</span><span class="w"> </span><span class="mf">0.0</span><span class="p">],</span>
+<span class="w">                </span><span class="p">[</span><span class="mf">10.0</span><span class="p">,</span><span class="w"> </span><span class="mf">0.0</span><span class="p">,</span><span class="w"> </span><span class="mf">0.0</span><span class="p">,</span><span class="w"> </span><span class="mf">1.0</span><span class="p">]</span>
+<span class="w">            </span><span class="p">]</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span><span class="w"> </span>
+<span class="p">]</span>
+</code></pre></div>
+<p><a class="glightbox" href="../../assets/images/hello-wall_with_another_building_and_a_rotation.ifc5viewer.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Hello Wall with another building and a rotation" src="../../assets/images/hello-wall_with_another_building_and_a_rotation.ifc5viewer.png" /></a></p>
 
 
 

@@ -1747,6 +1747,15 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#transformation-in-a-projective-space" class="md-nav__link">
+    <span class="md-ellipsis">
+      Transformation in a projective space
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -1973,6 +1982,15 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#transformation-in-a-projective-space" class="md-nav__link">
+    <span class="md-ellipsis">
+      Transformation in a projective space
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -1998,6 +2016,55 @@
 <p><a href="https://github.com/buildingSMART/">buildingSMART GitHub</a></p>
 <p><a href="https://github.com/buildingSMART/IFC5-development">buildingSMART IFC5 development</a></p>
 <p><a href="https://github.com/buildingSMART/IFC5-development/tree/main/docs/viewer">IFC5 Viewer</a></p>
+<h2 id="transformation-in-a-projective-space">Transformation in a projective space</h2>
+<p>The projective space for the standard 3-d space is a 4-d space where (x, y, z) of the 3-d becomes (x/w, y/w, z/w, w).</p>
+<p>Transformations such as translation, rotation and scaling can be represented by matrices and chained by matrix products.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+<span class="c1"># translation</span>
+<span class="n">t_x</span> <span class="o">=</span> <span class="mi">10</span>
+<span class="n">t_y</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">t_z</span> <span class="o">=</span> <span class="mi">0</span>
+
+<span class="c1"># rotation </span>
+<span class="n">angle_degrees</span> <span class="o">=</span> <span class="mi">90</span>
+<span class="n">angle_radians</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">radians</span><span class="p">(</span><span class="n">angle_degrees</span><span class="p">)</span>
+<span class="n">r_cos</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">angle_radians</span><span class="p">)</span>
+<span class="n">r_sin</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">angle_radians</span><span class="p">)</span>
+
+<span class="c1"># scaling  </span>
+<span class="n">s_x</span> <span class="o">=</span> <span class="mf">1.0</span>
+<span class="n">s_y</span> <span class="o">=</span> <span class="mf">1.0</span>
+<span class="n">s_z</span> <span class="o">=</span> <span class="mf">1.0</span>
+
+<span class="c1"># matrices</span>
+<span class="n">matrix_translation</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span>
+    <span class="p">[[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span>
+     <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span>
+     <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span>
+     <span class="p">[</span><span class="n">t_x</span><span class="p">,</span> <span class="n">t_y</span><span class="p">,</span> <span class="n">t_z</span><span class="p">,</span> <span class="mi">1</span><span class="p">]])</span>
+
+<span class="n">matrix_rotation</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span>
+    <span class="p">[</span><span class="n">r_cos</span><span class="p">,</span> <span class="o">-</span><span class="n">r_sin</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span>
+    <span class="p">[</span><span class="n">r_sin</span><span class="p">,</span> <span class="n">r_cos</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span>
+    <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span>
+    <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">]])</span>
+
+<span class="n">matrix_scaling</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span>
+    <span class="p">[</span><span class="n">s_x</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span>
+    <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="n">s_y</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span>
+    <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">s_z</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span>
+    <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">]])</span>
+
+<span class="c1"># transformation</span>
+<span class="n">matrix_transform</span> <span class="o">=</span> <span class="n">matrix_scaling</span> <span class="o">@</span> <span class="n">matrix_rotation</span> <span class="o">@</span> <span class="n">matrix_translation</span>
+
+<span class="n">matrix_transform_list</span> <span class="o">=</span> <span class="n">matrix_transform</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;matrix_transform_list:</span><span class="se">\n</span><span class="si">{</span><span class="n">matrix_transform_list</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+
+<span class="p">[[</span><span class="mf">6.123233995736766e-17</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">],[</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">6.123233995736766e-17</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">],[</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">],[</span><span class="mf">10.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">]]</span>
+</code></pre></div>
 
 
 
