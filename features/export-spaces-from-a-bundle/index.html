@@ -2017,7 +2017,7 @@ There is apparently an <a href="#issue-for-the-display-of-spaces-for-ifc-schepen
     <span class="n">resultPath</span><span class="p">:</span> <span class="nb">str</span> <span class="c1"># relative path of the result file (cvs, or json)</span>
 </code></pre></div>
 <p>The request provides the id (integer) of the bundle and a selection of space-related data is made and provided in a csv or a json. We assume hereunder that the csv is the prefered way to work we the data.</p>
-<p>The spaces are made available in a csv <a href="#list-of-spaces-in-ifc-schependomlaan">List of Spaces in IFC Schependomlaan</a>. The csv contains placeholders to enter the information for the spatial zone (see <a href="../create-spatial-unit-spatialZone/">Create SpatialZones - Apartments or Common Parts</a> )</p>
+<p>The spaces come from the <strong>bundleunit</strong> table and are made available in a csv <a href="#list-of-spaces-in-ifc-schependomlaan">List of Spaces in IFC Schependomlaan</a>. The csv contains placeholders to enter the information for the spatial zone (see <a href="../create-spatial-unit-spatialZone/">Create SpatialZones - Apartments or Common Parts</a> )</p>
 <p>The data exported are:</p>
 <ul>
 <li>space_id: the GlobalId of the space</li>
@@ -2026,12 +2026,16 @@ There is apparently an <a href="#issue-for-the-display-of-spaces-for-ifc-schepen
 <li><strong>spatialzone_name:</strong> a placeholder to provide the desired name for the spatial zone </li>
 <li><strong>spatialzone_longname:</strong> a placeholder to provide the desired long name for the spatial zone</li>
 <li><strong>spatialzone_type:</strong> a place holder for the type of the spatial zone</li>
-<li>storey_id: the GlobalId of the storey containing the space</li>
-<li>storey_name: the name of the storey containing the space</li>
-<li>building_id: the GlobalId of the building</li>
-<li>building_name: the name of the building</li>
+<li>storey_id: the GlobalId of the storey containing the space (if any)</li>
+<li>storey_name: the name of the storey containing the space (if any)</li>
+<li>building_id: the GlobalId of the building (if any)</li>
+<li>building_name: the name of the building (if any)</li>
+<li>parent_id: the id of the parent of the space as recorded in bundleunit for the space; this Id is not necessarly the id of a storey or a building and can be another <strong>space</strong> or a <strong>group</strong>; this is the case for ARC_NordicLCA_Housing_Concrete_BuildingPermit_Revit</li>
+<li>parent_name: the name of the parent of the space as recorded in bundleunit for the space</li>
+<li>parent_type: the type of the parent of the space as recorded in bundleunit for the space</li>
+<li>parent_longname: the longname of the parent of the space as recorded in bundleunit for the space</li>
 </ul>
-<p>More information on </p>
+<p>More information on</p>
 <h3 id="list-of-spaces-in-ifc-schependomlaan">List of Spaces in IFC Schependomlaan</h3>
 <table>
 <thead>
@@ -2046,212 +2050,28 @@ There is apparently an <a href="#issue-for-the-display-of-spaces-for-ifc-schepen
 <th style="text-align: left;">storey_name</th>
 <th style="text-align: left;">building_id</th>
 <th style="text-align: left;">building_name</th>
+<th style="text-align: left;">parent_id</th>
+<th style="text-align: left;">parent_name</th>
+<th style="text-align: left;">parent_type</th>
+<th style="text-align: right;">parent_longname</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td style="text-align: left;">d4141660-7677-49d8-9cc1-d96d80b0618a</td>
-<td style="text-align: left;">1.00</td>
+<td style="text-align: left;">0085ff3d-8503-4d69-9d91-6685fa317c23</td>
+<td style="text-align: left;">9.00</td>
 <td style="text-align: left;">entree</td>
 <td style="text-align: right;">nan</td>
 <td style="text-align: right;">nan</td>
 <td style="text-align: right;">nan</td>
-<td style="text-align: left;">9c82359a-67c3-49ce-9749-d081f3aa1901</td>
-<td style="text-align: left;">00 begane grond</td>
+<td style="text-align: left;">91f24dc1-a766-4e42-9f22-67cb30042281</td>
+<td style="text-align: left;">03 derde verdieping</td>
 <td style="text-align: left;">00dd6c87-6a6e-f482-7490-e6613659708a</td>
 <td style="text-align: left;">Building</td>
-</tr>
-<tr>
-<td style="text-align: left;">0e44feae-35d6-452c-ae59-fd5d4479e2ae</td>
-<td style="text-align: left;">1.01</td>
-<td style="text-align: left;">mk</td>
+<td style="text-align: left;">91f24dc1-a766-4e42-9f22-67cb30042281</td>
+<td style="text-align: left;">03 derde verdieping</td>
+<td style="text-align: left;">IfcBuildingStorey</td>
 <td style="text-align: right;">nan</td>
-<td style="text-align: right;">nan</td>
-<td style="text-align: right;">nan</td>
-<td style="text-align: left;">9c82359a-67c3-49ce-9749-d081f3aa1901</td>
-<td style="text-align: left;">00 begane grond</td>
-<td style="text-align: left;">00dd6c87-6a6e-f482-7490-e6613659708a</td>
-<td style="text-align: left;">Building</td>
-</tr>
-<tr>
-<td style="text-align: left;">4e60658c-4a93-4fe1-b642-7aaabfeb8fe9</td>
-<td style="text-align: left;">1.02</td>
-<td style="text-align: left;">toilet</td>
-<td style="text-align: right;">nan</td>
-<td style="text-align: right;">nan</td>
-<td style="text-align: right;">nan</td>
-<td style="text-align: left;">9c82359a-67c3-49ce-9749-d081f3aa1901</td>
-<td style="text-align: left;">00 begane grond</td>
-<td style="text-align: left;">00dd6c87-6a6e-f482-7490-e6613659708a</td>
-<td style="text-align: left;">Building</td>
-</tr>
-<tr>
-<td style="text-align: left;">255e8da7-f833-4cd6-b9fc-51b4df1ee11e</td>
-<td style="text-align: left;">1.02</td>
-<td style="text-align: left;">toilet</td>
-<td style="text-align: right;">nan</td>
-<td style="text-align: right;">nan</td>
-<td style="text-align: right;">nan</td>
-<td style="text-align: left;">9c82359a-67c3-49ce-9749-d081f3aa1901</td>
-<td style="text-align: left;">00 begane grond</td>
-<td style="text-align: left;">00dd6c87-6a6e-f482-7490-e6613659708a</td>
-<td style="text-align: left;">Building</td>
-</tr>
-<tr>
-<td style="text-align: left;">db806df3-e245-4a16-9858-358843d58be5</td>
-<td style="text-align: left;">1.03</td>
-<td style="text-align: left;">woonkamer</td>
-<td style="text-align: right;">nan</td>
-<td style="text-align: right;">nan</td>
-<td style="text-align: right;">nan</td>
-<td style="text-align: left;">9c82359a-67c3-49ce-9749-d081f3aa1901</td>
-<td style="text-align: left;">00 begane grond</td>
-<td style="text-align: left;">00dd6c87-6a6e-f482-7490-e6613659708a</td>
-<td style="text-align: left;">Building</td>
-</tr>
-<tr>
-<td style="text-align: left;">5c1788cb-3b4f-491f-942f-512f732223eb</td>
-<td style="text-align: left;">1.04</td>
-<td style="text-align: left;">keuken</td>
-<td style="text-align: right;">nan</td>
-<td style="text-align: right;">nan</td>
-<td style="text-align: right;">nan</td>
-<td style="text-align: left;">9c82359a-67c3-49ce-9749-d081f3aa1901</td>
-<td style="text-align: left;">00 begane grond</td>
-<td style="text-align: left;">00dd6c87-6a6e-f482-7490-e6613659708a</td>
-<td style="text-align: left;">Building</td>
-</tr>
-<tr>
-<td style="text-align: left;">f0028917-8d2b-4483-8d15-286079cfe653</td>
-<td style="text-align: left;">1.05</td>
-<td style="text-align: left;">slaapkamer</td>
-<td style="text-align: right;">nan</td>
-<td style="text-align: right;">nan</td>
-<td style="text-align: right;">nan</td>
-<td style="text-align: left;">9c82359a-67c3-49ce-9749-d081f3aa1901</td>
-<td style="text-align: left;">00 begane grond</td>
-<td style="text-align: left;">00dd6c87-6a6e-f482-7490-e6613659708a</td>
-<td style="text-align: left;">Building</td>
-</tr>
-<tr>
-<td style="text-align: left;">13badbc8-ddd4-4574-b2e6-634d636ed980</td>
-<td style="text-align: left;">1.06</td>
-<td style="text-align: left;">badkamer</td>
-<td style="text-align: right;">nan</td>
-<td style="text-align: right;">nan</td>
-<td style="text-align: right;">nan</td>
-<td style="text-align: left;">9c82359a-67c3-49ce-9749-d081f3aa1901</td>
-<td style="text-align: left;">00 begane grond</td>
-<td style="text-align: left;">00dd6c87-6a6e-f482-7490-e6613659708a</td>
-<td style="text-align: left;">Building</td>
-</tr>
-<tr>
-<td style="text-align: left;">1912449b-86a3-4985-99fb-4f29e1670d92</td>
-<td style="text-align: left;">1.07</td>
-<td style="text-align: left;">instal. ruimte</td>
-<td style="text-align: right;">nan</td>
-<td style="text-align: right;">nan</td>
-<td style="text-align: right;">nan</td>
-<td style="text-align: left;">9c82359a-67c3-49ce-9749-d081f3aa1901</td>
-<td style="text-align: left;">00 begane grond</td>
-<td style="text-align: left;">00dd6c87-6a6e-f482-7490-e6613659708a</td>
-<td style="text-align: left;">Building</td>
-</tr>
-<tr>
-<td style="text-align: left;">0db465ff-68ab-4c90-8fe7-992e36945730</td>
-<td style="text-align: left;">2.00</td>
-<td style="text-align: left;">entree</td>
-<td style="text-align: right;">nan</td>
-<td style="text-align: right;">nan</td>
-<td style="text-align: right;">nan</td>
-<td style="text-align: left;">9c82359a-67c3-49ce-9749-d081f3aa1901</td>
-<td style="text-align: left;">00 begane grond</td>
-<td style="text-align: left;">00dd6c87-6a6e-f482-7490-e6613659708a</td>
-<td style="text-align: left;">Building</td>
-</tr>
-<tr>
-<td style="text-align: left;">191513ed-452b-4ada-8e63-a0f0404e48dc</td>
-<td style="text-align: left;">2.01</td>
-<td style="text-align: left;">mk</td>
-<td style="text-align: right;">nan</td>
-<td style="text-align: right;">nan</td>
-<td style="text-align: right;">nan</td>
-<td style="text-align: left;">9c82359a-67c3-49ce-9749-d081f3aa1901</td>
-<td style="text-align: left;">00 begane grond</td>
-<td style="text-align: left;">00dd6c87-6a6e-f482-7490-e6613659708a</td>
-<td style="text-align: left;">Building</td>
-</tr>
-<tr>
-<td style="text-align: left;">f99fd6d6-2a05-4618-b1a8-e85ff6b58b7f</td>
-<td style="text-align: left;">2.03</td>
-<td style="text-align: left;">woonkamer</td>
-<td style="text-align: right;">nan</td>
-<td style="text-align: right;">nan</td>
-<td style="text-align: right;">nan</td>
-<td style="text-align: left;">9c82359a-67c3-49ce-9749-d081f3aa1901</td>
-<td style="text-align: left;">00 begane grond</td>
-<td style="text-align: left;">00dd6c87-6a6e-f482-7490-e6613659708a</td>
-<td style="text-align: left;">Building</td>
-</tr>
-<tr>
-<td style="text-align: left;">b5cf30ec-8cf7-4c7f-a40e-387ec9d2c688</td>
-<td style="text-align: left;">2.04</td>
-<td style="text-align: left;">keuken</td>
-<td style="text-align: right;">nan</td>
-<td style="text-align: right;">nan</td>
-<td style="text-align: right;">nan</td>
-<td style="text-align: left;">9c82359a-67c3-49ce-9749-d081f3aa1901</td>
-<td style="text-align: left;">00 begane grond</td>
-<td style="text-align: left;">00dd6c87-6a6e-f482-7490-e6613659708a</td>
-<td style="text-align: left;">Building</td>
-</tr>
-<tr>
-<td style="text-align: left;">502e4848-6b60-4981-9ea6-9d2b741985f1</td>
-<td style="text-align: left;">2.05</td>
-<td style="text-align: left;">gang</td>
-<td style="text-align: right;">nan</td>
-<td style="text-align: right;">nan</td>
-<td style="text-align: right;">nan</td>
-<td style="text-align: left;">9c82359a-67c3-49ce-9749-d081f3aa1901</td>
-<td style="text-align: left;">00 begane grond</td>
-<td style="text-align: left;">00dd6c87-6a6e-f482-7490-e6613659708a</td>
-<td style="text-align: left;">Building</td>
-</tr>
-<tr>
-<td style="text-align: left;">24b55506-3614-4a92-85ae-1c0111b16da1</td>
-<td style="text-align: left;">2.06</td>
-<td style="text-align: left;">slaapkamer 1</td>
-<td style="text-align: right;">nan</td>
-<td style="text-align: right;">nan</td>
-<td style="text-align: right;">nan</td>
-<td style="text-align: left;">9c82359a-67c3-49ce-9749-d081f3aa1901</td>
-<td style="text-align: left;">00 begane grond</td>
-<td style="text-align: left;">00dd6c87-6a6e-f482-7490-e6613659708a</td>
-<td style="text-align: left;">Building</td>
-</tr>
-<tr>
-<td style="text-align: left;">18d30475-d715-4123-acdf-9df8a43863b4</td>
-<td style="text-align: left;">2.07</td>
-<td style="text-align: left;">slaapkamer 2</td>
-<td style="text-align: right;">nan</td>
-<td style="text-align: right;">nan</td>
-<td style="text-align: right;">nan</td>
-<td style="text-align: left;">9c82359a-67c3-49ce-9749-d081f3aa1901</td>
-<td style="text-align: left;">00 begane grond</td>
-<td style="text-align: left;">00dd6c87-6a6e-f482-7490-e6613659708a</td>
-<td style="text-align: left;">Building</td>
-</tr>
-<tr>
-<td style="text-align: left;">a5d652ca-fb20-48a6-9ee3-0584d428e867</td>
-<td style="text-align: left;">2.08</td>
-<td style="text-align: left;">badkamer</td>
-<td style="text-align: right;">nan</td>
-<td style="text-align: right;">nan</td>
-<td style="text-align: right;">nan</td>
-<td style="text-align: left;">9c82359a-67c3-49ce-9749-d081f3aa1901</td>
-<td style="text-align: left;">00 begane grond</td>
-<td style="text-align: left;">00dd6c87-6a6e-f482-7490-e6613659708a</td>
-<td style="text-align: left;">Building</td>
 </tr>
 <tr>
 <td style="text-align: left;">025d4fcd-3a77-4deb-8ab8-4bd0007b4dce</td>
@@ -2264,426 +2084,10 @@ There is apparently an <a href="#issue-for-the-display-of-spaces-for-ifc-schepen
 <td style="text-align: left;">00 begane grond</td>
 <td style="text-align: left;">00dd6c87-6a6e-f482-7490-e6613659708a</td>
 <td style="text-align: left;">Building</td>
-</tr>
-<tr>
-<td style="text-align: left;">42291957-3edd-443d-b4e2-bcf0751f358b</td>
-<td style="text-align: left;">2.10</td>
-<td style="text-align: left;">berging</td>
-<td style="text-align: right;">nan</td>
-<td style="text-align: right;">nan</td>
-<td style="text-align: right;">nan</td>
 <td style="text-align: left;">9c82359a-67c3-49ce-9749-d081f3aa1901</td>
 <td style="text-align: left;">00 begane grond</td>
-<td style="text-align: left;">00dd6c87-6a6e-f482-7490-e6613659708a</td>
-<td style="text-align: left;">Building</td>
-</tr>
-<tr>
-<td style="text-align: left;">50103ef1-cd0a-486e-8288-7bb08ac11022</td>
-<td style="text-align: left;">3.00</td>
-<td style="text-align: left;">entree</td>
+<td style="text-align: left;">IfcBuildingStorey</td>
 <td style="text-align: right;">nan</td>
-<td style="text-align: right;">nan</td>
-<td style="text-align: right;">nan</td>
-<td style="text-align: left;">9c82359a-67c3-49ce-9749-d081f3aa1901</td>
-<td style="text-align: left;">00 begane grond</td>
-<td style="text-align: left;">00dd6c87-6a6e-f482-7490-e6613659708a</td>
-<td style="text-align: left;">Building</td>
-</tr>
-<tr>
-<td style="text-align: left;">24dbce38-25d0-4a91-96c7-2b05cd541fa6</td>
-<td style="text-align: left;">3.01</td>
-<td style="text-align: left;">mk</td>
-<td style="text-align: right;">nan</td>
-<td style="text-align: right;">nan</td>
-<td style="text-align: right;">nan</td>
-<td style="text-align: left;">9c82359a-67c3-49ce-9749-d081f3aa1901</td>
-<td style="text-align: left;">00 begane grond</td>
-<td style="text-align: left;">00dd6c87-6a6e-f482-7490-e6613659708a</td>
-<td style="text-align: left;">Building</td>
-</tr>
-<tr>
-<td style="text-align: left;">12626d0f-e41e-4c83-a4fd-16605fc725e8</td>
-<td style="text-align: left;">3.02</td>
-<td style="text-align: left;">toilet</td>
-<td style="text-align: right;">nan</td>
-<td style="text-align: right;">nan</td>
-<td style="text-align: right;">nan</td>
-<td style="text-align: left;">9c82359a-67c3-49ce-9749-d081f3aa1901</td>
-<td style="text-align: left;">00 begane grond</td>
-<td style="text-align: left;">00dd6c87-6a6e-f482-7490-e6613659708a</td>
-<td style="text-align: left;">Building</td>
-</tr>
-<tr>
-<td style="text-align: left;">763100a6-79f9-4425-9ed3-90b2ce20153a</td>
-<td style="text-align: left;">3.03</td>
-<td style="text-align: left;">woonkamer</td>
-<td style="text-align: right;">nan</td>
-<td style="text-align: right;">nan</td>
-<td style="text-align: right;">nan</td>
-<td style="text-align: left;">9c82359a-67c3-49ce-9749-d081f3aa1901</td>
-<td style="text-align: left;">00 begane grond</td>
-<td style="text-align: left;">00dd6c87-6a6e-f482-7490-e6613659708a</td>
-<td style="text-align: left;">Building</td>
-</tr>
-<tr>
-<td style="text-align: left;">40fd27f7-2aaf-43ab-9915-04a305acf1b0</td>
-<td style="text-align: left;">3.04</td>
-<td style="text-align: left;">keuken</td>
-<td style="text-align: right;">nan</td>
-<td style="text-align: right;">nan</td>
-<td style="text-align: right;">nan</td>
-<td style="text-align: left;">9c82359a-67c3-49ce-9749-d081f3aa1901</td>
-<td style="text-align: left;">00 begane grond</td>
-<td style="text-align: left;">00dd6c87-6a6e-f482-7490-e6613659708a</td>
-<td style="text-align: left;">Building</td>
-</tr>
-<tr>
-<td style="text-align: left;">f20e64e4-6691-4145-9449-31e4f1a6c020</td>
-<td style="text-align: left;">3.05</td>
-<td style="text-align: left;">gang</td>
-<td style="text-align: right;">nan</td>
-<td style="text-align: right;">nan</td>
-<td style="text-align: right;">nan</td>
-<td style="text-align: left;">9c82359a-67c3-49ce-9749-d081f3aa1901</td>
-<td style="text-align: left;">00 begane grond</td>
-<td style="text-align: left;">00dd6c87-6a6e-f482-7490-e6613659708a</td>
-<td style="text-align: left;">Building</td>
-</tr>
-<tr>
-<td style="text-align: left;">c95dadc7-fc39-415b-bc49-1dea3691536c</td>
-<td style="text-align: left;">3.06</td>
-<td style="text-align: left;">slaapkamer 1</td>
-<td style="text-align: right;">nan</td>
-<td style="text-align: right;">nan</td>
-<td style="text-align: right;">nan</td>
-<td style="text-align: left;">9c82359a-67c3-49ce-9749-d081f3aa1901</td>
-<td style="text-align: left;">00 begane grond</td>
-<td style="text-align: left;">00dd6c87-6a6e-f482-7490-e6613659708a</td>
-<td style="text-align: left;">Building</td>
-</tr>
-<tr>
-<td style="text-align: left;">af73d12f-8a23-40f1-98e9-8c0b1af687ed</td>
-<td style="text-align: left;">3.07</td>
-<td style="text-align: left;">slaapkamer 2</td>
-<td style="text-align: right;">nan</td>
-<td style="text-align: right;">nan</td>
-<td style="text-align: right;">nan</td>
-<td style="text-align: left;">9c82359a-67c3-49ce-9749-d081f3aa1901</td>
-<td style="text-align: left;">00 begane grond</td>
-<td style="text-align: left;">00dd6c87-6a6e-f482-7490-e6613659708a</td>
-<td style="text-align: left;">Building</td>
-</tr>
-<tr>
-<td style="text-align: left;">90854a93-f12a-4aaf-b66c-c5b443ef0017</td>
-<td style="text-align: left;">3.08</td>
-<td style="text-align: left;">badkamer</td>
-<td style="text-align: right;">nan</td>
-<td style="text-align: right;">nan</td>
-<td style="text-align: right;">nan</td>
-<td style="text-align: left;">9c82359a-67c3-49ce-9749-d081f3aa1901</td>
-<td style="text-align: left;">00 begane grond</td>
-<td style="text-align: left;">00dd6c87-6a6e-f482-7490-e6613659708a</td>
-<td style="text-align: left;">Building</td>
-</tr>
-<tr>
-<td style="text-align: left;">74460c8d-da97-44a5-a333-37d98a05b8ed</td>
-<td style="text-align: left;">3.09</td>
-<td style="text-align: left;">instal. ruimte</td>
-<td style="text-align: right;">nan</td>
-<td style="text-align: right;">nan</td>
-<td style="text-align: right;">nan</td>
-<td style="text-align: left;">9c82359a-67c3-49ce-9749-d081f3aa1901</td>
-<td style="text-align: left;">00 begane grond</td>
-<td style="text-align: left;">00dd6c87-6a6e-f482-7490-e6613659708a</td>
-<td style="text-align: left;">Building</td>
-</tr>
-<tr>
-<td style="text-align: left;">a73ec9a0-46af-4151-9975-177460f56999</td>
-<td style="text-align: left;">A0.00</td>
-<td style="text-align: left;">entree</td>
-<td style="text-align: right;">nan</td>
-<td style="text-align: right;">nan</td>
-<td style="text-align: right;">nan</td>
-<td style="text-align: left;">9c82359a-67c3-49ce-9749-d081f3aa1901</td>
-<td style="text-align: left;">00 begane grond</td>
-<td style="text-align: left;">00dd6c87-6a6e-f482-7490-e6613659708a</td>
-<td style="text-align: left;">Building</td>
-</tr>
-<tr>
-<td style="text-align: left;">82bd3e52-fb5f-4503-8c39-7acf7df0e6ac</td>
-<td style="text-align: left;">A0.01</td>
-<td style="text-align: left;">instal. ruimte</td>
-<td style="text-align: right;">nan</td>
-<td style="text-align: right;">nan</td>
-<td style="text-align: right;">nan</td>
-<td style="text-align: left;">9c82359a-67c3-49ce-9749-d081f3aa1901</td>
-<td style="text-align: left;">00 begane grond</td>
-<td style="text-align: left;">00dd6c87-6a6e-f482-7490-e6613659708a</td>
-<td style="text-align: left;">Building</td>
-</tr>
-<tr>
-<td style="text-align: left;">e35ae068-0478-4e71-9ff9-6d8a19b0323e</td>
-<td style="text-align: left;">A0.02</td>
-<td style="text-align: left;">berging</td>
-<td style="text-align: right;">nan</td>
-<td style="text-align: right;">nan</td>
-<td style="text-align: right;">nan</td>
-<td style="text-align: left;">9c82359a-67c3-49ce-9749-d081f3aa1901</td>
-<td style="text-align: left;">00 begane grond</td>
-<td style="text-align: left;">00dd6c87-6a6e-f482-7490-e6613659708a</td>
-<td style="text-align: left;">Building</td>
-</tr>
-<tr>
-<td style="text-align: left;">9e3d3b91-5048-4cee-ad1f-d5debb8ba287</td>
-<td style="text-align: left;">4.00</td>
-<td style="text-align: left;">entree</td>
-<td style="text-align: right;">nan</td>
-<td style="text-align: right;">nan</td>
-<td style="text-align: right;">nan</td>
-<td style="text-align: left;">3813aa95-a06c-4028-b7e4-b21f2cba5b8a</td>
-<td style="text-align: left;">01 eerste verdieping</td>
-<td style="text-align: left;">00dd6c87-6a6e-f482-7490-e6613659708a</td>
-<td style="text-align: left;">Building</td>
-</tr>
-<tr>
-<td style="text-align: left;">37e49b23-eb08-436a-b63a-8aad6e9fcbe6</td>
-<td style="text-align: left;">4.01</td>
-<td style="text-align: left;">mk</td>
-<td style="text-align: right;">nan</td>
-<td style="text-align: right;">nan</td>
-<td style="text-align: right;">nan</td>
-<td style="text-align: left;">3813aa95-a06c-4028-b7e4-b21f2cba5b8a</td>
-<td style="text-align: left;">01 eerste verdieping</td>
-<td style="text-align: left;">00dd6c87-6a6e-f482-7490-e6613659708a</td>
-<td style="text-align: left;">Building</td>
-</tr>
-<tr>
-<td style="text-align: left;">183cd8e0-ab9d-4c97-9782-2b9c3350d50a</td>
-<td style="text-align: left;">4.02</td>
-<td style="text-align: left;">toilet</td>
-<td style="text-align: right;">nan</td>
-<td style="text-align: right;">nan</td>
-<td style="text-align: right;">nan</td>
-<td style="text-align: left;">3813aa95-a06c-4028-b7e4-b21f2cba5b8a</td>
-<td style="text-align: left;">01 eerste verdieping</td>
-<td style="text-align: left;">00dd6c87-6a6e-f482-7490-e6613659708a</td>
-<td style="text-align: left;">Building</td>
-</tr>
-<tr>
-<td style="text-align: left;">8b6e1299-d614-4fc9-b258-55db74423903</td>
-<td style="text-align: left;">4.03</td>
-<td style="text-align: left;">woonkamer</td>
-<td style="text-align: right;">nan</td>
-<td style="text-align: right;">nan</td>
-<td style="text-align: right;">nan</td>
-<td style="text-align: left;">3813aa95-a06c-4028-b7e4-b21f2cba5b8a</td>
-<td style="text-align: left;">01 eerste verdieping</td>
-<td style="text-align: left;">00dd6c87-6a6e-f482-7490-e6613659708a</td>
-<td style="text-align: left;">Building</td>
-</tr>
-<tr>
-<td style="text-align: left;">a87bae1f-19a0-4441-b47f-ae791d844acb</td>
-<td style="text-align: left;">4.04</td>
-<td style="text-align: left;">keuken</td>
-<td style="text-align: right;">nan</td>
-<td style="text-align: right;">nan</td>
-<td style="text-align: right;">nan</td>
-<td style="text-align: left;">3813aa95-a06c-4028-b7e4-b21f2cba5b8a</td>
-<td style="text-align: left;">01 eerste verdieping</td>
-<td style="text-align: left;">00dd6c87-6a6e-f482-7490-e6613659708a</td>
-<td style="text-align: left;">Building</td>
-</tr>
-<tr>
-<td style="text-align: left;">5b656d6c-e2c1-42bc-bd6c-71290ca1e30c</td>
-<td style="text-align: left;">4.05</td>
-<td style="text-align: left;">slaapkamer 1</td>
-<td style="text-align: right;">nan</td>
-<td style="text-align: right;">nan</td>
-<td style="text-align: right;">nan</td>
-<td style="text-align: left;">3813aa95-a06c-4028-b7e4-b21f2cba5b8a</td>
-<td style="text-align: left;">01 eerste verdieping</td>
-<td style="text-align: left;">00dd6c87-6a6e-f482-7490-e6613659708a</td>
-<td style="text-align: left;">Building</td>
-</tr>
-<tr>
-<td style="text-align: left;">cf0cc63a-367b-4555-b7e5-83d432d4f987</td>
-<td style="text-align: left;">4.06</td>
-<td style="text-align: left;">slaapkamer 2</td>
-<td style="text-align: right;">nan</td>
-<td style="text-align: right;">nan</td>
-<td style="text-align: right;">nan</td>
-<td style="text-align: left;">3813aa95-a06c-4028-b7e4-b21f2cba5b8a</td>
-<td style="text-align: left;">01 eerste verdieping</td>
-<td style="text-align: left;">00dd6c87-6a6e-f482-7490-e6613659708a</td>
-<td style="text-align: left;">Building</td>
-</tr>
-<tr>
-<td style="text-align: left;">e87e6759-644f-4567-992e-382877efb4f3</td>
-<td style="text-align: left;">4.07</td>
-<td style="text-align: left;">badkamer</td>
-<td style="text-align: right;">nan</td>
-<td style="text-align: right;">nan</td>
-<td style="text-align: right;">nan</td>
-<td style="text-align: left;">3813aa95-a06c-4028-b7e4-b21f2cba5b8a</td>
-<td style="text-align: left;">01 eerste verdieping</td>
-<td style="text-align: left;">00dd6c87-6a6e-f482-7490-e6613659708a</td>
-<td style="text-align: left;">Building</td>
-</tr>
-<tr>
-<td style="text-align: left;">09a7206d-82da-4fdd-a5a5-b35b018df683</td>
-<td style="text-align: left;">4.08</td>
-<td style="text-align: left;">instal. ruimte</td>
-<td style="text-align: right;">nan</td>
-<td style="text-align: right;">nan</td>
-<td style="text-align: right;">nan</td>
-<td style="text-align: left;">3813aa95-a06c-4028-b7e4-b21f2cba5b8a</td>
-<td style="text-align: left;">01 eerste verdieping</td>
-<td style="text-align: left;">00dd6c87-6a6e-f482-7490-e6613659708a</td>
-<td style="text-align: left;">Building</td>
-</tr>
-<tr>
-<td style="text-align: left;">4adf5603-1d57-48b1-aa81-6cd7caa3230a</td>
-<td style="text-align: left;">5.00</td>
-<td style="text-align: left;">entree</td>
-<td style="text-align: right;">nan</td>
-<td style="text-align: right;">nan</td>
-<td style="text-align: right;">nan</td>
-<td style="text-align: left;">3813aa95-a06c-4028-b7e4-b21f2cba5b8a</td>
-<td style="text-align: left;">01 eerste verdieping</td>
-<td style="text-align: left;">00dd6c87-6a6e-f482-7490-e6613659708a</td>
-<td style="text-align: left;">Building</td>
-</tr>
-<tr>
-<td style="text-align: left;">2b802645-17ec-4599-86c9-76b5ea603a06</td>
-<td style="text-align: left;">5.01</td>
-<td style="text-align: left;">mk</td>
-<td style="text-align: right;">nan</td>
-<td style="text-align: right;">nan</td>
-<td style="text-align: right;">nan</td>
-<td style="text-align: left;">3813aa95-a06c-4028-b7e4-b21f2cba5b8a</td>
-<td style="text-align: left;">01 eerste verdieping</td>
-<td style="text-align: left;">00dd6c87-6a6e-f482-7490-e6613659708a</td>
-<td style="text-align: left;">Building</td>
-</tr>
-<tr>
-<td style="text-align: left;">8e84831a-e727-437d-89ea-9a533aaec9fe</td>
-<td style="text-align: left;">5.02</td>
-<td style="text-align: left;">toilet</td>
-<td style="text-align: right;">nan</td>
-<td style="text-align: right;">nan</td>
-<td style="text-align: right;">nan</td>
-<td style="text-align: left;">3813aa95-a06c-4028-b7e4-b21f2cba5b8a</td>
-<td style="text-align: left;">01 eerste verdieping</td>
-<td style="text-align: left;">00dd6c87-6a6e-f482-7490-e6613659708a</td>
-<td style="text-align: left;">Building</td>
-</tr>
-<tr>
-<td style="text-align: left;">0bdb446f-bc26-45e6-b4d8-29138de8aeac</td>
-<td style="text-align: left;">5.03</td>
-<td style="text-align: left;">woonkamer</td>
-<td style="text-align: right;">nan</td>
-<td style="text-align: right;">nan</td>
-<td style="text-align: right;">nan</td>
-<td style="text-align: left;">3813aa95-a06c-4028-b7e4-b21f2cba5b8a</td>
-<td style="text-align: left;">01 eerste verdieping</td>
-<td style="text-align: left;">00dd6c87-6a6e-f482-7490-e6613659708a</td>
-<td style="text-align: left;">Building</td>
-</tr>
-<tr>
-<td style="text-align: left;">592f4e55-c5b3-4d78-a767-bfebf95e25ab</td>
-<td style="text-align: left;">5.04</td>
-<td style="text-align: left;">keuken</td>
-<td style="text-align: right;">nan</td>
-<td style="text-align: right;">nan</td>
-<td style="text-align: right;">nan</td>
-<td style="text-align: left;">3813aa95-a06c-4028-b7e4-b21f2cba5b8a</td>
-<td style="text-align: left;">01 eerste verdieping</td>
-<td style="text-align: left;">00dd6c87-6a6e-f482-7490-e6613659708a</td>
-<td style="text-align: left;">Building</td>
-</tr>
-<tr>
-<td style="text-align: left;">38cc76ca-efaa-4ad3-9cbc-30e06e37bcfc</td>
-<td style="text-align: left;">5.05</td>
-<td style="text-align: left;">slaapkamer 1</td>
-<td style="text-align: right;">nan</td>
-<td style="text-align: right;">nan</td>
-<td style="text-align: right;">nan</td>
-<td style="text-align: left;">3813aa95-a06c-4028-b7e4-b21f2cba5b8a</td>
-<td style="text-align: left;">01 eerste verdieping</td>
-<td style="text-align: left;">00dd6c87-6a6e-f482-7490-e6613659708a</td>
-<td style="text-align: left;">Building</td>
-</tr>
-<tr>
-<td style="text-align: left;">124a033e-593b-4076-8a8d-7dfa39d131e4</td>
-<td style="text-align: left;">5.06</td>
-<td style="text-align: left;">slaapkamer 2</td>
-<td style="text-align: right;">nan</td>
-<td style="text-align: right;">nan</td>
-<td style="text-align: right;">nan</td>
-<td style="text-align: left;">3813aa95-a06c-4028-b7e4-b21f2cba5b8a</td>
-<td style="text-align: left;">01 eerste verdieping</td>
-<td style="text-align: left;">00dd6c87-6a6e-f482-7490-e6613659708a</td>
-<td style="text-align: left;">Building</td>
-</tr>
-<tr>
-<td style="text-align: left;">676b06eb-d7ec-4ec2-8908-92cd912ae31a</td>
-<td style="text-align: left;">5.07</td>
-<td style="text-align: left;">badkamer</td>
-<td style="text-align: right;">nan</td>
-<td style="text-align: right;">nan</td>
-<td style="text-align: right;">nan</td>
-<td style="text-align: left;">3813aa95-a06c-4028-b7e4-b21f2cba5b8a</td>
-<td style="text-align: left;">01 eerste verdieping</td>
-<td style="text-align: left;">00dd6c87-6a6e-f482-7490-e6613659708a</td>
-<td style="text-align: left;">Building</td>
-</tr>
-<tr>
-<td style="text-align: left;">5444e211-c46e-4a66-8150-e898f5e25e2b</td>
-<td style="text-align: left;">5.08</td>
-<td style="text-align: left;">instal. ruimte</td>
-<td style="text-align: right;">nan</td>
-<td style="text-align: right;">nan</td>
-<td style="text-align: right;">nan</td>
-<td style="text-align: left;">3813aa95-a06c-4028-b7e4-b21f2cba5b8a</td>
-<td style="text-align: left;">01 eerste verdieping</td>
-<td style="text-align: left;">00dd6c87-6a6e-f482-7490-e6613659708a</td>
-<td style="text-align: left;">Building</td>
-</tr>
-<tr>
-<td style="text-align: left;">b6c83c65-9a50-434a-a262-9c7a9866c47f</td>
-<td style="text-align: left;">5.09</td>
-<td style="text-align: left;">kast</td>
-<td style="text-align: right;">nan</td>
-<td style="text-align: right;">nan</td>
-<td style="text-align: right;">nan</td>
-<td style="text-align: left;">3813aa95-a06c-4028-b7e4-b21f2cba5b8a</td>
-<td style="text-align: left;">01 eerste verdieping</td>
-<td style="text-align: left;">00dd6c87-6a6e-f482-7490-e6613659708a</td>
-<td style="text-align: left;">Building</td>
-</tr>
-<tr>
-<td style="text-align: left;">a0a6f337-1087-42f1-a96d-34a376b6e0e1</td>
-<td style="text-align: left;">6.00</td>
-<td style="text-align: left;">entree</td>
-<td style="text-align: right;">nan</td>
-<td style="text-align: right;">nan</td>
-<td style="text-align: right;">nan</td>
-<td style="text-align: left;">3813aa95-a06c-4028-b7e4-b21f2cba5b8a</td>
-<td style="text-align: left;">01 eerste verdieping</td>
-<td style="text-align: left;">00dd6c87-6a6e-f482-7490-e6613659708a</td>
-<td style="text-align: left;">Building</td>
-</tr>
-<tr>
-<td style="text-align: left;">65ce765b-21bb-4deb-8ea0-16c879183e27</td>
-<td style="text-align: left;">6.01</td>
-<td style="text-align: left;">mk</td>
-<td style="text-align: right;">nan</td>
-<td style="text-align: right;">nan</td>
-<td style="text-align: right;">nan</td>
-<td style="text-align: left;">3813aa95-a06c-4028-b7e4-b21f2cba5b8a</td>
-<td style="text-align: left;">01 eerste verdieping</td>
-<td style="text-align: left;">00dd6c87-6a6e-f482-7490-e6613659708a</td>
-<td style="text-align: left;">Building</td>
 </tr>
 <tr>
 <td style="text-align: left;">0982d75a-7284-41c4-8bb2-76b58d57e491</td>
@@ -2696,70 +2100,14 @@ There is apparently an <a href="#issue-for-the-display-of-spaces-for-ifc-schepen
 <td style="text-align: left;">01 eerste verdieping</td>
 <td style="text-align: left;">00dd6c87-6a6e-f482-7490-e6613659708a</td>
 <td style="text-align: left;">Building</td>
-</tr>
-<tr>
-<td style="text-align: left;">2ea86100-b35f-4716-bf36-612c296853e9</td>
-<td style="text-align: left;">6.03</td>
-<td style="text-align: left;">woonkamer</td>
-<td style="text-align: right;">nan</td>
-<td style="text-align: right;">nan</td>
-<td style="text-align: right;">nan</td>
 <td style="text-align: left;">3813aa95-a06c-4028-b7e4-b21f2cba5b8a</td>
 <td style="text-align: left;">01 eerste verdieping</td>
-<td style="text-align: left;">00dd6c87-6a6e-f482-7490-e6613659708a</td>
-<td style="text-align: left;">Building</td>
+<td style="text-align: left;">IfcBuildingStorey</td>
+<td style="text-align: right;">nan</td>
 </tr>
 <tr>
-<td style="text-align: left;">fea074b1-aa73-4bb5-845f-cccdbe74394c</td>
-<td style="text-align: left;">6.04</td>
-<td style="text-align: left;">keuken</td>
-<td style="text-align: right;">nan</td>
-<td style="text-align: right;">nan</td>
-<td style="text-align: right;">nan</td>
-<td style="text-align: left;">3813aa95-a06c-4028-b7e4-b21f2cba5b8a</td>
-<td style="text-align: left;">01 eerste verdieping</td>
-<td style="text-align: left;">00dd6c87-6a6e-f482-7490-e6613659708a</td>
-<td style="text-align: left;">Building</td>
-</tr>
-<tr>
-<td style="text-align: left;">dc65dfce-2c8d-4090-bedf-2f67f147815e</td>
-<td style="text-align: left;">6.05</td>
-<td style="text-align: left;">slaapkamer 1</td>
-<td style="text-align: right;">nan</td>
-<td style="text-align: right;">nan</td>
-<td style="text-align: right;">nan</td>
-<td style="text-align: left;">3813aa95-a06c-4028-b7e4-b21f2cba5b8a</td>
-<td style="text-align: left;">01 eerste verdieping</td>
-<td style="text-align: left;">00dd6c87-6a6e-f482-7490-e6613659708a</td>
-<td style="text-align: left;">Building</td>
-</tr>
-<tr>
-<td style="text-align: left;">3d07bc83-50d8-48f1-a5c5-2635f880ecbd</td>
-<td style="text-align: left;">6.06</td>
-<td style="text-align: left;">slaapkamer 2</td>
-<td style="text-align: right;">nan</td>
-<td style="text-align: right;">nan</td>
-<td style="text-align: right;">nan</td>
-<td style="text-align: left;">3813aa95-a06c-4028-b7e4-b21f2cba5b8a</td>
-<td style="text-align: left;">01 eerste verdieping</td>
-<td style="text-align: left;">00dd6c87-6a6e-f482-7490-e6613659708a</td>
-<td style="text-align: left;">Building</td>
-</tr>
-<tr>
-<td style="text-align: left;">ce99ad82-39ba-4a10-914f-136da87bee84</td>
-<td style="text-align: left;">6.07</td>
-<td style="text-align: left;">badkamer</td>
-<td style="text-align: right;">nan</td>
-<td style="text-align: right;">nan</td>
-<td style="text-align: right;">nan</td>
-<td style="text-align: left;">3813aa95-a06c-4028-b7e4-b21f2cba5b8a</td>
-<td style="text-align: left;">01 eerste verdieping</td>
-<td style="text-align: left;">00dd6c87-6a6e-f482-7490-e6613659708a</td>
-<td style="text-align: left;">Building</td>
-</tr>
-<tr>
-<td style="text-align: left;">9061057e-3b37-492d-856c-08647fc48881</td>
-<td style="text-align: left;">6.08</td>
+<td style="text-align: left;">09a7206d-82da-4fdd-a5a5-b35b018df683</td>
+<td style="text-align: left;">4.08</td>
 <td style="text-align: left;">instal. ruimte</td>
 <td style="text-align: right;">nan</td>
 <td style="text-align: right;">nan</td>
@@ -2768,11 +2116,15 @@ There is apparently an <a href="#issue-for-the-display-of-spaces-for-ifc-schepen
 <td style="text-align: left;">01 eerste verdieping</td>
 <td style="text-align: left;">00dd6c87-6a6e-f482-7490-e6613659708a</td>
 <td style="text-align: left;">Building</td>
+<td style="text-align: left;">3813aa95-a06c-4028-b7e4-b21f2cba5b8a</td>
+<td style="text-align: left;">01 eerste verdieping</td>
+<td style="text-align: left;">IfcBuildingStorey</td>
+<td style="text-align: right;">nan</td>
 </tr>
 <tr>
-<td style="text-align: left;">2f9d5b90-373e-45e9-b741-6bf6837c2581</td>
-<td style="text-align: left;">A1.01</td>
-<td style="text-align: left;">overloop</td>
+<td style="text-align: left;">0bdb446f-bc26-45e6-b4d8-29138de8aeac</td>
+<td style="text-align: left;">5.03</td>
+<td style="text-align: left;">woonkamer</td>
 <td style="text-align: right;">nan</td>
 <td style="text-align: right;">nan</td>
 <td style="text-align: right;">nan</td>
@@ -2780,198 +2132,10 @@ There is apparently an <a href="#issue-for-the-display-of-spaces-for-ifc-schepen
 <td style="text-align: left;">01 eerste verdieping</td>
 <td style="text-align: left;">00dd6c87-6a6e-f482-7490-e6613659708a</td>
 <td style="text-align: left;">Building</td>
-</tr>
-<tr>
-<td style="text-align: left;">30186c45-2d2c-4c1a-92fd-3e520e83af0e</td>
-<td style="text-align: left;">7.00</td>
-<td style="text-align: left;">entree</td>
+<td style="text-align: left;">3813aa95-a06c-4028-b7e4-b21f2cba5b8a</td>
+<td style="text-align: left;">01 eerste verdieping</td>
+<td style="text-align: left;">IfcBuildingStorey</td>
 <td style="text-align: right;">nan</td>
-<td style="text-align: right;">nan</td>
-<td style="text-align: right;">nan</td>
-<td style="text-align: left;">3a674ee9-2548-40c5-936d-abd348c21e8d</td>
-<td style="text-align: left;">02 tweede verdieping</td>
-<td style="text-align: left;">00dd6c87-6a6e-f482-7490-e6613659708a</td>
-<td style="text-align: left;">Building</td>
-</tr>
-<tr>
-<td style="text-align: left;">ad23ea9f-8339-4a33-b61f-c1736c1a540e</td>
-<td style="text-align: left;">7.01</td>
-<td style="text-align: left;">mk</td>
-<td style="text-align: right;">nan</td>
-<td style="text-align: right;">nan</td>
-<td style="text-align: right;">nan</td>
-<td style="text-align: left;">3a674ee9-2548-40c5-936d-abd348c21e8d</td>
-<td style="text-align: left;">02 tweede verdieping</td>
-<td style="text-align: left;">00dd6c87-6a6e-f482-7490-e6613659708a</td>
-<td style="text-align: left;">Building</td>
-</tr>
-<tr>
-<td style="text-align: left;">3c56aaec-921d-44cc-b18b-1224592d8bdd</td>
-<td style="text-align: left;">7.02</td>
-<td style="text-align: left;">toilet</td>
-<td style="text-align: right;">nan</td>
-<td style="text-align: right;">nan</td>
-<td style="text-align: right;">nan</td>
-<td style="text-align: left;">3a674ee9-2548-40c5-936d-abd348c21e8d</td>
-<td style="text-align: left;">02 tweede verdieping</td>
-<td style="text-align: left;">00dd6c87-6a6e-f482-7490-e6613659708a</td>
-<td style="text-align: left;">Building</td>
-</tr>
-<tr>
-<td style="text-align: left;">76de29eb-c020-4e79-a5bd-0ed7c6827466</td>
-<td style="text-align: left;">7.03</td>
-<td style="text-align: left;">woonkamer</td>
-<td style="text-align: right;">nan</td>
-<td style="text-align: right;">nan</td>
-<td style="text-align: right;">nan</td>
-<td style="text-align: left;">3a674ee9-2548-40c5-936d-abd348c21e8d</td>
-<td style="text-align: left;">02 tweede verdieping</td>
-<td style="text-align: left;">00dd6c87-6a6e-f482-7490-e6613659708a</td>
-<td style="text-align: left;">Building</td>
-</tr>
-<tr>
-<td style="text-align: left;">ffe7b54f-3cc7-4cb6-b4b5-2914fa1cbed8</td>
-<td style="text-align: left;">7.04</td>
-<td style="text-align: left;">keuken</td>
-<td style="text-align: right;">nan</td>
-<td style="text-align: right;">nan</td>
-<td style="text-align: right;">nan</td>
-<td style="text-align: left;">3a674ee9-2548-40c5-936d-abd348c21e8d</td>
-<td style="text-align: left;">02 tweede verdieping</td>
-<td style="text-align: left;">00dd6c87-6a6e-f482-7490-e6613659708a</td>
-<td style="text-align: left;">Building</td>
-</tr>
-<tr>
-<td style="text-align: left;">6aa148cc-4ca4-4a7d-aee1-52e8ae349c5f</td>
-<td style="text-align: left;">7.05</td>
-<td style="text-align: left;">slaapkamer 1</td>
-<td style="text-align: right;">nan</td>
-<td style="text-align: right;">nan</td>
-<td style="text-align: right;">nan</td>
-<td style="text-align: left;">3a674ee9-2548-40c5-936d-abd348c21e8d</td>
-<td style="text-align: left;">02 tweede verdieping</td>
-<td style="text-align: left;">00dd6c87-6a6e-f482-7490-e6613659708a</td>
-<td style="text-align: left;">Building</td>
-</tr>
-<tr>
-<td style="text-align: left;">eac234ed-6973-491b-a164-18ea3ff4292b</td>
-<td style="text-align: left;">7.06</td>
-<td style="text-align: left;">slaapkamer 2</td>
-<td style="text-align: right;">nan</td>
-<td style="text-align: right;">nan</td>
-<td style="text-align: right;">nan</td>
-<td style="text-align: left;">3a674ee9-2548-40c5-936d-abd348c21e8d</td>
-<td style="text-align: left;">02 tweede verdieping</td>
-<td style="text-align: left;">00dd6c87-6a6e-f482-7490-e6613659708a</td>
-<td style="text-align: left;">Building</td>
-</tr>
-<tr>
-<td style="text-align: left;">70f54dd5-bcf2-4b00-8084-abdbae4a0bfd</td>
-<td style="text-align: left;">7.07</td>
-<td style="text-align: left;">badkamer</td>
-<td style="text-align: right;">nan</td>
-<td style="text-align: right;">nan</td>
-<td style="text-align: right;">nan</td>
-<td style="text-align: left;">3a674ee9-2548-40c5-936d-abd348c21e8d</td>
-<td style="text-align: left;">02 tweede verdieping</td>
-<td style="text-align: left;">00dd6c87-6a6e-f482-7490-e6613659708a</td>
-<td style="text-align: left;">Building</td>
-</tr>
-<tr>
-<td style="text-align: left;">d4a13317-f4fe-4299-9b78-f3409494607d</td>
-<td style="text-align: left;">7.08</td>
-<td style="text-align: left;">instal. ruimte</td>
-<td style="text-align: right;">nan</td>
-<td style="text-align: right;">nan</td>
-<td style="text-align: right;">nan</td>
-<td style="text-align: left;">3a674ee9-2548-40c5-936d-abd348c21e8d</td>
-<td style="text-align: left;">02 tweede verdieping</td>
-<td style="text-align: left;">00dd6c87-6a6e-f482-7490-e6613659708a</td>
-<td style="text-align: left;">Building</td>
-</tr>
-<tr>
-<td style="text-align: left;">0ce2d3f6-1e1e-4b44-a314-6cd794d775bf</td>
-<td style="text-align: left;">8.00</td>
-<td style="text-align: left;">entree</td>
-<td style="text-align: right;">nan</td>
-<td style="text-align: right;">nan</td>
-<td style="text-align: right;">nan</td>
-<td style="text-align: left;">3a674ee9-2548-40c5-936d-abd348c21e8d</td>
-<td style="text-align: left;">02 tweede verdieping</td>
-<td style="text-align: left;">00dd6c87-6a6e-f482-7490-e6613659708a</td>
-<td style="text-align: left;">Building</td>
-</tr>
-<tr>
-<td style="text-align: left;">754368d8-fa84-46ac-be69-0d991d675d67</td>
-<td style="text-align: left;">8.01</td>
-<td style="text-align: left;">mk</td>
-<td style="text-align: right;">nan</td>
-<td style="text-align: right;">nan</td>
-<td style="text-align: right;">nan</td>
-<td style="text-align: left;">3a674ee9-2548-40c5-936d-abd348c21e8d</td>
-<td style="text-align: left;">02 tweede verdieping</td>
-<td style="text-align: left;">00dd6c87-6a6e-f482-7490-e6613659708a</td>
-<td style="text-align: left;">Building</td>
-</tr>
-<tr>
-<td style="text-align: left;">b79145c3-70f1-4ad2-bc93-a8b38d62c555</td>
-<td style="text-align: left;">8.02</td>
-<td style="text-align: left;">toilet</td>
-<td style="text-align: right;">nan</td>
-<td style="text-align: right;">nan</td>
-<td style="text-align: right;">nan</td>
-<td style="text-align: left;">3a674ee9-2548-40c5-936d-abd348c21e8d</td>
-<td style="text-align: left;">02 tweede verdieping</td>
-<td style="text-align: left;">00dd6c87-6a6e-f482-7490-e6613659708a</td>
-<td style="text-align: left;">Building</td>
-</tr>
-<tr>
-<td style="text-align: left;">24fae3c4-60b6-4241-9ec5-aeae522dc868</td>
-<td style="text-align: left;">8.03</td>
-<td style="text-align: left;">woonkamer</td>
-<td style="text-align: right;">nan</td>
-<td style="text-align: right;">nan</td>
-<td style="text-align: right;">nan</td>
-<td style="text-align: left;">3a674ee9-2548-40c5-936d-abd348c21e8d</td>
-<td style="text-align: left;">02 tweede verdieping</td>
-<td style="text-align: left;">00dd6c87-6a6e-f482-7490-e6613659708a</td>
-<td style="text-align: left;">Building</td>
-</tr>
-<tr>
-<td style="text-align: left;">da526ff3-fd78-4ee5-b5d0-0f39ef2ad002</td>
-<td style="text-align: left;">8.04</td>
-<td style="text-align: left;">keuken</td>
-<td style="text-align: right;">nan</td>
-<td style="text-align: right;">nan</td>
-<td style="text-align: right;">nan</td>
-<td style="text-align: left;">3a674ee9-2548-40c5-936d-abd348c21e8d</td>
-<td style="text-align: left;">02 tweede verdieping</td>
-<td style="text-align: left;">00dd6c87-6a6e-f482-7490-e6613659708a</td>
-<td style="text-align: left;">Building</td>
-</tr>
-<tr>
-<td style="text-align: left;">b4fae5c3-578a-47eb-a65f-9a189ab4bedb</td>
-<td style="text-align: left;">8.05</td>
-<td style="text-align: left;">slaapkamer 1</td>
-<td style="text-align: right;">nan</td>
-<td style="text-align: right;">nan</td>
-<td style="text-align: right;">nan</td>
-<td style="text-align: left;">3a674ee9-2548-40c5-936d-abd348c21e8d</td>
-<td style="text-align: left;">02 tweede verdieping</td>
-<td style="text-align: left;">00dd6c87-6a6e-f482-7490-e6613659708a</td>
-<td style="text-align: left;">Building</td>
-</tr>
-<tr>
-<td style="text-align: left;">55a2c35c-cc9a-4a1a-b1bf-94e8b701f711</td>
-<td style="text-align: left;">8.06</td>
-<td style="text-align: left;">slaapkamer 2</td>
-<td style="text-align: right;">nan</td>
-<td style="text-align: right;">nan</td>
-<td style="text-align: right;">nan</td>
-<td style="text-align: left;">3a674ee9-2548-40c5-936d-abd348c21e8d</td>
-<td style="text-align: left;">02 tweede verdieping</td>
-<td style="text-align: left;">00dd6c87-6a6e-f482-7490-e6613659708a</td>
-<td style="text-align: left;">Building</td>
 </tr>
 <tr>
 <td style="text-align: left;">0c4cda91-5635-4c83-81cd-97861e2007d7</td>
@@ -2984,138 +2148,58 @@ There is apparently an <a href="#issue-for-the-display-of-spaces-for-ifc-schepen
 <td style="text-align: left;">02 tweede verdieping</td>
 <td style="text-align: left;">00dd6c87-6a6e-f482-7490-e6613659708a</td>
 <td style="text-align: left;">Building</td>
-</tr>
-<tr>
-<td style="text-align: left;">76228b65-0e94-41e8-afd0-1a7896150a8c</td>
-<td style="text-align: left;">8.08</td>
-<td style="text-align: left;">instal. ruimte</td>
-<td style="text-align: right;">nan</td>
-<td style="text-align: right;">nan</td>
-<td style="text-align: right;">nan</td>
 <td style="text-align: left;">3a674ee9-2548-40c5-936d-abd348c21e8d</td>
 <td style="text-align: left;">02 tweede verdieping</td>
-<td style="text-align: left;">00dd6c87-6a6e-f482-7490-e6613659708a</td>
-<td style="text-align: left;">Building</td>
+<td style="text-align: left;">IfcBuildingStorey</td>
+<td style="text-align: right;">nan</td>
 </tr>
 <tr>
-<td style="text-align: left;">363a28d9-7e78-4a8c-a932-d758fa09553c</td>
-<td style="text-align: left;">8.09</td>
-<td style="text-align: left;">kast</td>
-<td style="text-align: right;">nan</td>
-<td style="text-align: right;">nan</td>
-<td style="text-align: right;">nan</td>
-<td style="text-align: left;">3a674ee9-2548-40c5-936d-abd348c21e8d</td>
-<td style="text-align: left;">02 tweede verdieping</td>
-<td style="text-align: left;">00dd6c87-6a6e-f482-7490-e6613659708a</td>
-<td style="text-align: left;">Building</td>
-</tr>
-<tr>
-<td style="text-align: left;">97c45622-5687-493c-b995-766888ca8a9c</td>
-<td style="text-align: left;">A2.01</td>
-<td style="text-align: left;">overloop</td>
-<td style="text-align: right;">nan</td>
-<td style="text-align: right;">nan</td>
-<td style="text-align: right;">nan</td>
-<td style="text-align: left;">3a674ee9-2548-40c5-936d-abd348c21e8d</td>
-<td style="text-align: left;">02 tweede verdieping</td>
-<td style="text-align: left;">00dd6c87-6a6e-f482-7490-e6613659708a</td>
-<td style="text-align: left;">Building</td>
-</tr>
-<tr>
-<td style="text-align: left;">26255731-3eab-4760-befa-6dd126309bd4</td>
-<td style="text-align: left;">10.00</td>
+<td style="text-align: left;">0ce2d3f6-1e1e-4b44-a314-6cd794d775bf</td>
+<td style="text-align: left;">8.00</td>
 <td style="text-align: left;">entree</td>
 <td style="text-align: right;">nan</td>
 <td style="text-align: right;">nan</td>
 <td style="text-align: right;">nan</td>
-<td style="text-align: left;">91f24dc1-a766-4e42-9f22-67cb30042281</td>
-<td style="text-align: left;">03 derde verdieping</td>
+<td style="text-align: left;">3a674ee9-2548-40c5-936d-abd348c21e8d</td>
+<td style="text-align: left;">02 tweede verdieping</td>
 <td style="text-align: left;">00dd6c87-6a6e-f482-7490-e6613659708a</td>
 <td style="text-align: left;">Building</td>
+<td style="text-align: left;">3a674ee9-2548-40c5-936d-abd348c21e8d</td>
+<td style="text-align: left;">02 tweede verdieping</td>
+<td style="text-align: left;">IfcBuildingStorey</td>
+<td style="text-align: right;">nan</td>
 </tr>
 <tr>
-<td style="text-align: left;">a2cbf3b3-67ff-429d-8306-f578c314b4f4</td>
-<td style="text-align: left;">10.01</td>
+<td style="text-align: left;">0db465ff-68ab-4c90-8fe7-992e36945730</td>
+<td style="text-align: left;">2.00</td>
+<td style="text-align: left;">entree</td>
+<td style="text-align: right;">nan</td>
+<td style="text-align: right;">nan</td>
+<td style="text-align: right;">nan</td>
+<td style="text-align: left;">9c82359a-67c3-49ce-9749-d081f3aa1901</td>
+<td style="text-align: left;">00 begane grond</td>
+<td style="text-align: left;">00dd6c87-6a6e-f482-7490-e6613659708a</td>
+<td style="text-align: left;">Building</td>
+<td style="text-align: left;">9c82359a-67c3-49ce-9749-d081f3aa1901</td>
+<td style="text-align: left;">00 begane grond</td>
+<td style="text-align: left;">IfcBuildingStorey</td>
+<td style="text-align: right;">nan</td>
+</tr>
+<tr>
+<td style="text-align: left;">0e44feae-35d6-452c-ae59-fd5d4479e2ae</td>
+<td style="text-align: left;">1.01</td>
 <td style="text-align: left;">mk</td>
 <td style="text-align: right;">nan</td>
 <td style="text-align: right;">nan</td>
 <td style="text-align: right;">nan</td>
-<td style="text-align: left;">91f24dc1-a766-4e42-9f22-67cb30042281</td>
-<td style="text-align: left;">03 derde verdieping</td>
+<td style="text-align: left;">9c82359a-67c3-49ce-9749-d081f3aa1901</td>
+<td style="text-align: left;">00 begane grond</td>
 <td style="text-align: left;">00dd6c87-6a6e-f482-7490-e6613659708a</td>
 <td style="text-align: left;">Building</td>
-</tr>
-<tr>
-<td style="text-align: left;">99979f8b-4e97-483b-905c-b454eb11daac</td>
-<td style="text-align: left;">10.02</td>
-<td style="text-align: left;">toilet</td>
+<td style="text-align: left;">9c82359a-67c3-49ce-9749-d081f3aa1901</td>
+<td style="text-align: left;">00 begane grond</td>
+<td style="text-align: left;">IfcBuildingStorey</td>
 <td style="text-align: right;">nan</td>
-<td style="text-align: right;">nan</td>
-<td style="text-align: right;">nan</td>
-<td style="text-align: left;">91f24dc1-a766-4e42-9f22-67cb30042281</td>
-<td style="text-align: left;">03 derde verdieping</td>
-<td style="text-align: left;">00dd6c87-6a6e-f482-7490-e6613659708a</td>
-<td style="text-align: left;">Building</td>
-</tr>
-<tr>
-<td style="text-align: left;">2f423a09-aed5-4541-a5db-5c2538242ef5</td>
-<td style="text-align: left;">10.03</td>
-<td style="text-align: left;">woonkamer</td>
-<td style="text-align: right;">nan</td>
-<td style="text-align: right;">nan</td>
-<td style="text-align: right;">nan</td>
-<td style="text-align: left;">91f24dc1-a766-4e42-9f22-67cb30042281</td>
-<td style="text-align: left;">03 derde verdieping</td>
-<td style="text-align: left;">00dd6c87-6a6e-f482-7490-e6613659708a</td>
-<td style="text-align: left;">Building</td>
-</tr>
-<tr>
-<td style="text-align: left;">37afb7b7-8853-43c5-a36f-5c397ea907d4</td>
-<td style="text-align: left;">10.04</td>
-<td style="text-align: left;">keuken</td>
-<td style="text-align: right;">nan</td>
-<td style="text-align: right;">nan</td>
-<td style="text-align: right;">nan</td>
-<td style="text-align: left;">91f24dc1-a766-4e42-9f22-67cb30042281</td>
-<td style="text-align: left;">03 derde verdieping</td>
-<td style="text-align: left;">00dd6c87-6a6e-f482-7490-e6613659708a</td>
-<td style="text-align: left;">Building</td>
-</tr>
-<tr>
-<td style="text-align: left;">53d5628c-940e-4e24-9a47-252094299e17</td>
-<td style="text-align: left;">10.05</td>
-<td style="text-align: left;">slaapkamer</td>
-<td style="text-align: right;">nan</td>
-<td style="text-align: right;">nan</td>
-<td style="text-align: right;">nan</td>
-<td style="text-align: left;">91f24dc1-a766-4e42-9f22-67cb30042281</td>
-<td style="text-align: left;">03 derde verdieping</td>
-<td style="text-align: left;">00dd6c87-6a6e-f482-7490-e6613659708a</td>
-<td style="text-align: left;">Building</td>
-</tr>
-<tr>
-<td style="text-align: left;">42d94669-d1ee-4d3f-9fe1-13a21e8915d4</td>
-<td style="text-align: left;">10.06</td>
-<td style="text-align: left;">onben. ruimte</td>
-<td style="text-align: right;">nan</td>
-<td style="text-align: right;">nan</td>
-<td style="text-align: right;">nan</td>
-<td style="text-align: left;">91f24dc1-a766-4e42-9f22-67cb30042281</td>
-<td style="text-align: left;">03 derde verdieping</td>
-<td style="text-align: left;">00dd6c87-6a6e-f482-7490-e6613659708a</td>
-<td style="text-align: left;">Building</td>
-</tr>
-<tr>
-<td style="text-align: left;">4abd018d-c095-41ac-8544-f112772c83d8</td>
-<td style="text-align: left;">10.07</td>
-<td style="text-align: left;">badkamer</td>
-<td style="text-align: right;">nan</td>
-<td style="text-align: right;">nan</td>
-<td style="text-align: right;">nan</td>
-<td style="text-align: left;">91f24dc1-a766-4e42-9f22-67cb30042281</td>
-<td style="text-align: left;">03 derde verdieping</td>
-<td style="text-align: left;">00dd6c87-6a6e-f482-7490-e6613659708a</td>
-<td style="text-align: left;">Building</td>
 </tr>
 <tr>
 <td style="text-align: left;">0f615aab-4637-4b61-9348-50f1996f5ec0</td>
@@ -3128,10 +2212,190 @@ There is apparently an <a href="#issue-for-the-display-of-spaces-for-ifc-schepen
 <td style="text-align: left;">03 derde verdieping</td>
 <td style="text-align: left;">00dd6c87-6a6e-f482-7490-e6613659708a</td>
 <td style="text-align: left;">Building</td>
+<td style="text-align: left;">91f24dc1-a766-4e42-9f22-67cb30042281</td>
+<td style="text-align: left;">03 derde verdieping</td>
+<td style="text-align: left;">IfcBuildingStorey</td>
+<td style="text-align: right;">nan</td>
 </tr>
 <tr>
-<td style="text-align: left;">0085ff3d-8503-4d69-9d91-6685fa317c23</td>
-<td style="text-align: left;">9.00</td>
+<td style="text-align: left;">124a033e-593b-4076-8a8d-7dfa39d131e4</td>
+<td style="text-align: left;">5.06</td>
+<td style="text-align: left;">slaapkamer 2</td>
+<td style="text-align: right;">nan</td>
+<td style="text-align: right;">nan</td>
+<td style="text-align: right;">nan</td>
+<td style="text-align: left;">3813aa95-a06c-4028-b7e4-b21f2cba5b8a</td>
+<td style="text-align: left;">01 eerste verdieping</td>
+<td style="text-align: left;">00dd6c87-6a6e-f482-7490-e6613659708a</td>
+<td style="text-align: left;">Building</td>
+<td style="text-align: left;">3813aa95-a06c-4028-b7e4-b21f2cba5b8a</td>
+<td style="text-align: left;">01 eerste verdieping</td>
+<td style="text-align: left;">IfcBuildingStorey</td>
+<td style="text-align: right;">nan</td>
+</tr>
+<tr>
+<td style="text-align: left;">12626d0f-e41e-4c83-a4fd-16605fc725e8</td>
+<td style="text-align: left;">3.02</td>
+<td style="text-align: left;">toilet</td>
+<td style="text-align: right;">nan</td>
+<td style="text-align: right;">nan</td>
+<td style="text-align: right;">nan</td>
+<td style="text-align: left;">9c82359a-67c3-49ce-9749-d081f3aa1901</td>
+<td style="text-align: left;">00 begane grond</td>
+<td style="text-align: left;">00dd6c87-6a6e-f482-7490-e6613659708a</td>
+<td style="text-align: left;">Building</td>
+<td style="text-align: left;">9c82359a-67c3-49ce-9749-d081f3aa1901</td>
+<td style="text-align: left;">00 begane grond</td>
+<td style="text-align: left;">IfcBuildingStorey</td>
+<td style="text-align: right;">nan</td>
+</tr>
+<tr>
+<td style="text-align: left;">13badbc8-ddd4-4574-b2e6-634d636ed980</td>
+<td style="text-align: left;">1.06</td>
+<td style="text-align: left;">badkamer</td>
+<td style="text-align: right;">nan</td>
+<td style="text-align: right;">nan</td>
+<td style="text-align: right;">nan</td>
+<td style="text-align: left;">9c82359a-67c3-49ce-9749-d081f3aa1901</td>
+<td style="text-align: left;">00 begane grond</td>
+<td style="text-align: left;">00dd6c87-6a6e-f482-7490-e6613659708a</td>
+<td style="text-align: left;">Building</td>
+<td style="text-align: left;">9c82359a-67c3-49ce-9749-d081f3aa1901</td>
+<td style="text-align: left;">00 begane grond</td>
+<td style="text-align: left;">IfcBuildingStorey</td>
+<td style="text-align: right;">nan</td>
+</tr>
+<tr>
+<td style="text-align: left;">183cd8e0-ab9d-4c97-9782-2b9c3350d50a</td>
+<td style="text-align: left;">4.02</td>
+<td style="text-align: left;">toilet</td>
+<td style="text-align: right;">nan</td>
+<td style="text-align: right;">nan</td>
+<td style="text-align: right;">nan</td>
+<td style="text-align: left;">3813aa95-a06c-4028-b7e4-b21f2cba5b8a</td>
+<td style="text-align: left;">01 eerste verdieping</td>
+<td style="text-align: left;">00dd6c87-6a6e-f482-7490-e6613659708a</td>
+<td style="text-align: left;">Building</td>
+<td style="text-align: left;">3813aa95-a06c-4028-b7e4-b21f2cba5b8a</td>
+<td style="text-align: left;">01 eerste verdieping</td>
+<td style="text-align: left;">IfcBuildingStorey</td>
+<td style="text-align: right;">nan</td>
+</tr>
+<tr>
+<td style="text-align: left;">18d30475-d715-4123-acdf-9df8a43863b4</td>
+<td style="text-align: left;">2.07</td>
+<td style="text-align: left;">slaapkamer 2</td>
+<td style="text-align: right;">nan</td>
+<td style="text-align: right;">nan</td>
+<td style="text-align: right;">nan</td>
+<td style="text-align: left;">9c82359a-67c3-49ce-9749-d081f3aa1901</td>
+<td style="text-align: left;">00 begane grond</td>
+<td style="text-align: left;">00dd6c87-6a6e-f482-7490-e6613659708a</td>
+<td style="text-align: left;">Building</td>
+<td style="text-align: left;">9c82359a-67c3-49ce-9749-d081f3aa1901</td>
+<td style="text-align: left;">00 begane grond</td>
+<td style="text-align: left;">IfcBuildingStorey</td>
+<td style="text-align: right;">nan</td>
+</tr>
+<tr>
+<td style="text-align: left;">1912449b-86a3-4985-99fb-4f29e1670d92</td>
+<td style="text-align: left;">1.07</td>
+<td style="text-align: left;">instal. ruimte</td>
+<td style="text-align: right;">nan</td>
+<td style="text-align: right;">nan</td>
+<td style="text-align: right;">nan</td>
+<td style="text-align: left;">9c82359a-67c3-49ce-9749-d081f3aa1901</td>
+<td style="text-align: left;">00 begane grond</td>
+<td style="text-align: left;">00dd6c87-6a6e-f482-7490-e6613659708a</td>
+<td style="text-align: left;">Building</td>
+<td style="text-align: left;">9c82359a-67c3-49ce-9749-d081f3aa1901</td>
+<td style="text-align: left;">00 begane grond</td>
+<td style="text-align: left;">IfcBuildingStorey</td>
+<td style="text-align: right;">nan</td>
+</tr>
+<tr>
+<td style="text-align: left;">191513ed-452b-4ada-8e63-a0f0404e48dc</td>
+<td style="text-align: left;">2.01</td>
+<td style="text-align: left;">mk</td>
+<td style="text-align: right;">nan</td>
+<td style="text-align: right;">nan</td>
+<td style="text-align: right;">nan</td>
+<td style="text-align: left;">9c82359a-67c3-49ce-9749-d081f3aa1901</td>
+<td style="text-align: left;">00 begane grond</td>
+<td style="text-align: left;">00dd6c87-6a6e-f482-7490-e6613659708a</td>
+<td style="text-align: left;">Building</td>
+<td style="text-align: left;">9c82359a-67c3-49ce-9749-d081f3aa1901</td>
+<td style="text-align: left;">00 begane grond</td>
+<td style="text-align: left;">IfcBuildingStorey</td>
+<td style="text-align: right;">nan</td>
+</tr>
+<tr>
+<td style="text-align: left;">24b55506-3614-4a92-85ae-1c0111b16da1</td>
+<td style="text-align: left;">2.06</td>
+<td style="text-align: left;">slaapkamer 1</td>
+<td style="text-align: right;">nan</td>
+<td style="text-align: right;">nan</td>
+<td style="text-align: right;">nan</td>
+<td style="text-align: left;">9c82359a-67c3-49ce-9749-d081f3aa1901</td>
+<td style="text-align: left;">00 begane grond</td>
+<td style="text-align: left;">00dd6c87-6a6e-f482-7490-e6613659708a</td>
+<td style="text-align: left;">Building</td>
+<td style="text-align: left;">9c82359a-67c3-49ce-9749-d081f3aa1901</td>
+<td style="text-align: left;">00 begane grond</td>
+<td style="text-align: left;">IfcBuildingStorey</td>
+<td style="text-align: right;">nan</td>
+</tr>
+<tr>
+<td style="text-align: left;">24dbce38-25d0-4a91-96c7-2b05cd541fa6</td>
+<td style="text-align: left;">3.01</td>
+<td style="text-align: left;">mk</td>
+<td style="text-align: right;">nan</td>
+<td style="text-align: right;">nan</td>
+<td style="text-align: right;">nan</td>
+<td style="text-align: left;">9c82359a-67c3-49ce-9749-d081f3aa1901</td>
+<td style="text-align: left;">00 begane grond</td>
+<td style="text-align: left;">00dd6c87-6a6e-f482-7490-e6613659708a</td>
+<td style="text-align: left;">Building</td>
+<td style="text-align: left;">9c82359a-67c3-49ce-9749-d081f3aa1901</td>
+<td style="text-align: left;">00 begane grond</td>
+<td style="text-align: left;">IfcBuildingStorey</td>
+<td style="text-align: right;">nan</td>
+</tr>
+<tr>
+<td style="text-align: left;">24fae3c4-60b6-4241-9ec5-aeae522dc868</td>
+<td style="text-align: left;">8.03</td>
+<td style="text-align: left;">woonkamer</td>
+<td style="text-align: right;">nan</td>
+<td style="text-align: right;">nan</td>
+<td style="text-align: right;">nan</td>
+<td style="text-align: left;">3a674ee9-2548-40c5-936d-abd348c21e8d</td>
+<td style="text-align: left;">02 tweede verdieping</td>
+<td style="text-align: left;">00dd6c87-6a6e-f482-7490-e6613659708a</td>
+<td style="text-align: left;">Building</td>
+<td style="text-align: left;">3a674ee9-2548-40c5-936d-abd348c21e8d</td>
+<td style="text-align: left;">02 tweede verdieping</td>
+<td style="text-align: left;">IfcBuildingStorey</td>
+<td style="text-align: right;">nan</td>
+</tr>
+<tr>
+<td style="text-align: left;">255e8da7-f833-4cd6-b9fc-51b4df1ee11e</td>
+<td style="text-align: left;">1.02</td>
+<td style="text-align: left;">toilet</td>
+<td style="text-align: right;">nan</td>
+<td style="text-align: right;">nan</td>
+<td style="text-align: right;">nan</td>
+<td style="text-align: left;">9c82359a-67c3-49ce-9749-d081f3aa1901</td>
+<td style="text-align: left;">00 begane grond</td>
+<td style="text-align: left;">00dd6c87-6a6e-f482-7490-e6613659708a</td>
+<td style="text-align: left;">Building</td>
+<td style="text-align: left;">9c82359a-67c3-49ce-9749-d081f3aa1901</td>
+<td style="text-align: left;">00 begane grond</td>
+<td style="text-align: left;">IfcBuildingStorey</td>
+<td style="text-align: right;">nan</td>
+</tr>
+<tr>
+<td style="text-align: left;">26255731-3eab-4760-befa-6dd126309bd4</td>
+<td style="text-align: left;">10.00</td>
 <td style="text-align: left;">entree</td>
 <td style="text-align: right;">nan</td>
 <td style="text-align: right;">nan</td>
@@ -3140,6 +2404,90 @@ There is apparently an <a href="#issue-for-the-display-of-spaces-for-ifc-schepen
 <td style="text-align: left;">03 derde verdieping</td>
 <td style="text-align: left;">00dd6c87-6a6e-f482-7490-e6613659708a</td>
 <td style="text-align: left;">Building</td>
+<td style="text-align: left;">91f24dc1-a766-4e42-9f22-67cb30042281</td>
+<td style="text-align: left;">03 derde verdieping</td>
+<td style="text-align: left;">IfcBuildingStorey</td>
+<td style="text-align: right;">nan</td>
+</tr>
+<tr>
+<td style="text-align: left;">2b802645-17ec-4599-86c9-76b5ea603a06</td>
+<td style="text-align: left;">5.01</td>
+<td style="text-align: left;">mk</td>
+<td style="text-align: right;">nan</td>
+<td style="text-align: right;">nan</td>
+<td style="text-align: right;">nan</td>
+<td style="text-align: left;">3813aa95-a06c-4028-b7e4-b21f2cba5b8a</td>
+<td style="text-align: left;">01 eerste verdieping</td>
+<td style="text-align: left;">00dd6c87-6a6e-f482-7490-e6613659708a</td>
+<td style="text-align: left;">Building</td>
+<td style="text-align: left;">3813aa95-a06c-4028-b7e4-b21f2cba5b8a</td>
+<td style="text-align: left;">01 eerste verdieping</td>
+<td style="text-align: left;">IfcBuildingStorey</td>
+<td style="text-align: right;">nan</td>
+</tr>
+<tr>
+<td style="text-align: left;">2ea86100-b35f-4716-bf36-612c296853e9</td>
+<td style="text-align: left;">6.03</td>
+<td style="text-align: left;">woonkamer</td>
+<td style="text-align: right;">nan</td>
+<td style="text-align: right;">nan</td>
+<td style="text-align: right;">nan</td>
+<td style="text-align: left;">3813aa95-a06c-4028-b7e4-b21f2cba5b8a</td>
+<td style="text-align: left;">01 eerste verdieping</td>
+<td style="text-align: left;">00dd6c87-6a6e-f482-7490-e6613659708a</td>
+<td style="text-align: left;">Building</td>
+<td style="text-align: left;">3813aa95-a06c-4028-b7e4-b21f2cba5b8a</td>
+<td style="text-align: left;">01 eerste verdieping</td>
+<td style="text-align: left;">IfcBuildingStorey</td>
+<td style="text-align: right;">nan</td>
+</tr>
+<tr>
+<td style="text-align: left;">2f423a09-aed5-4541-a5db-5c2538242ef5</td>
+<td style="text-align: left;">10.03</td>
+<td style="text-align: left;">woonkamer</td>
+<td style="text-align: right;">nan</td>
+<td style="text-align: right;">nan</td>
+<td style="text-align: right;">nan</td>
+<td style="text-align: left;">91f24dc1-a766-4e42-9f22-67cb30042281</td>
+<td style="text-align: left;">03 derde verdieping</td>
+<td style="text-align: left;">00dd6c87-6a6e-f482-7490-e6613659708a</td>
+<td style="text-align: left;">Building</td>
+<td style="text-align: left;">91f24dc1-a766-4e42-9f22-67cb30042281</td>
+<td style="text-align: left;">03 derde verdieping</td>
+<td style="text-align: left;">IfcBuildingStorey</td>
+<td style="text-align: right;">nan</td>
+</tr>
+<tr>
+<td style="text-align: left;">2f9d5b90-373e-45e9-b741-6bf6837c2581</td>
+<td style="text-align: left;">A1.01</td>
+<td style="text-align: left;">overloop</td>
+<td style="text-align: right;">nan</td>
+<td style="text-align: right;">nan</td>
+<td style="text-align: right;">nan</td>
+<td style="text-align: left;">3813aa95-a06c-4028-b7e4-b21f2cba5b8a</td>
+<td style="text-align: left;">01 eerste verdieping</td>
+<td style="text-align: left;">00dd6c87-6a6e-f482-7490-e6613659708a</td>
+<td style="text-align: left;">Building</td>
+<td style="text-align: left;">3813aa95-a06c-4028-b7e4-b21f2cba5b8a</td>
+<td style="text-align: left;">01 eerste verdieping</td>
+<td style="text-align: left;">IfcBuildingStorey</td>
+<td style="text-align: right;">nan</td>
+</tr>
+<tr>
+<td style="text-align: left;">30186c45-2d2c-4c1a-92fd-3e520e83af0e</td>
+<td style="text-align: left;">7.00</td>
+<td style="text-align: left;">entree</td>
+<td style="text-align: right;">nan</td>
+<td style="text-align: right;">nan</td>
+<td style="text-align: right;">nan</td>
+<td style="text-align: left;">3a674ee9-2548-40c5-936d-abd348c21e8d</td>
+<td style="text-align: left;">02 tweede verdieping</td>
+<td style="text-align: left;">00dd6c87-6a6e-f482-7490-e6613659708a</td>
+<td style="text-align: left;">Building</td>
+<td style="text-align: left;">3a674ee9-2548-40c5-936d-abd348c21e8d</td>
+<td style="text-align: left;">02 tweede verdieping</td>
+<td style="text-align: left;">IfcBuildingStorey</td>
+<td style="text-align: right;">nan</td>
 </tr>
 <tr>
 <td style="text-align: left;">323a5b95-1e23-4d20-a8b0-1a88b329d10b</td>
@@ -3152,34 +2500,30 @@ There is apparently an <a href="#issue-for-the-display-of-spaces-for-ifc-schepen
 <td style="text-align: left;">03 derde verdieping</td>
 <td style="text-align: left;">00dd6c87-6a6e-f482-7490-e6613659708a</td>
 <td style="text-align: left;">Building</td>
-</tr>
-<tr>
-<td style="text-align: left;">9c3aabce-8c60-48b1-891f-8bfb59b6f075</td>
-<td style="text-align: left;">9.02</td>
-<td style="text-align: left;">toilet</td>
-<td style="text-align: right;">nan</td>
-<td style="text-align: right;">nan</td>
-<td style="text-align: right;">nan</td>
 <td style="text-align: left;">91f24dc1-a766-4e42-9f22-67cb30042281</td>
 <td style="text-align: left;">03 derde verdieping</td>
-<td style="text-align: left;">00dd6c87-6a6e-f482-7490-e6613659708a</td>
-<td style="text-align: left;">Building</td>
+<td style="text-align: left;">IfcBuildingStorey</td>
+<td style="text-align: right;">nan</td>
 </tr>
 <tr>
-<td style="text-align: left;">60def17e-9b13-4dac-a4aa-999cd8ee076f</td>
-<td style="text-align: left;">9.03</td>
-<td style="text-align: left;">woonkamer</td>
+<td style="text-align: left;">363a28d9-7e78-4a8c-a932-d758fa09553c</td>
+<td style="text-align: left;">8.09</td>
+<td style="text-align: left;">kast</td>
 <td style="text-align: right;">nan</td>
 <td style="text-align: right;">nan</td>
 <td style="text-align: right;">nan</td>
-<td style="text-align: left;">91f24dc1-a766-4e42-9f22-67cb30042281</td>
-<td style="text-align: left;">03 derde verdieping</td>
+<td style="text-align: left;">3a674ee9-2548-40c5-936d-abd348c21e8d</td>
+<td style="text-align: left;">02 tweede verdieping</td>
 <td style="text-align: left;">00dd6c87-6a6e-f482-7490-e6613659708a</td>
 <td style="text-align: left;">Building</td>
+<td style="text-align: left;">3a674ee9-2548-40c5-936d-abd348c21e8d</td>
+<td style="text-align: left;">02 tweede verdieping</td>
+<td style="text-align: left;">IfcBuildingStorey</td>
+<td style="text-align: right;">nan</td>
 </tr>
 <tr>
-<td style="text-align: left;">ec404de5-8532-4005-bba3-018f31512955</td>
-<td style="text-align: left;">9.04</td>
+<td style="text-align: left;">37afb7b7-8853-43c5-a36f-5c397ea907d4</td>
+<td style="text-align: left;">10.04</td>
 <td style="text-align: left;">keuken</td>
 <td style="text-align: right;">nan</td>
 <td style="text-align: right;">nan</td>
@@ -3188,42 +2532,58 @@ There is apparently an <a href="#issue-for-the-display-of-spaces-for-ifc-schepen
 <td style="text-align: left;">03 derde verdieping</td>
 <td style="text-align: left;">00dd6c87-6a6e-f482-7490-e6613659708a</td>
 <td style="text-align: left;">Building</td>
+<td style="text-align: left;">91f24dc1-a766-4e42-9f22-67cb30042281</td>
+<td style="text-align: left;">03 derde verdieping</td>
+<td style="text-align: left;">IfcBuildingStorey</td>
+<td style="text-align: right;">nan</td>
 </tr>
 <tr>
-<td style="text-align: left;">fea59720-007f-4797-8a51-be60dcd9ea8f</td>
-<td style="text-align: left;">9.05</td>
+<td style="text-align: left;">37e49b23-eb08-436a-b63a-8aad6e9fcbe6</td>
+<td style="text-align: left;">4.01</td>
+<td style="text-align: left;">mk</td>
+<td style="text-align: right;">nan</td>
+<td style="text-align: right;">nan</td>
+<td style="text-align: right;">nan</td>
+<td style="text-align: left;">3813aa95-a06c-4028-b7e4-b21f2cba5b8a</td>
+<td style="text-align: left;">01 eerste verdieping</td>
+<td style="text-align: left;">00dd6c87-6a6e-f482-7490-e6613659708a</td>
+<td style="text-align: left;">Building</td>
+<td style="text-align: left;">3813aa95-a06c-4028-b7e4-b21f2cba5b8a</td>
+<td style="text-align: left;">01 eerste verdieping</td>
+<td style="text-align: left;">IfcBuildingStorey</td>
+<td style="text-align: right;">nan</td>
+</tr>
+<tr>
+<td style="text-align: left;">38cc76ca-efaa-4ad3-9cbc-30e06e37bcfc</td>
+<td style="text-align: left;">5.05</td>
 <td style="text-align: left;">slaapkamer 1</td>
 <td style="text-align: right;">nan</td>
 <td style="text-align: right;">nan</td>
 <td style="text-align: right;">nan</td>
-<td style="text-align: left;">91f24dc1-a766-4e42-9f22-67cb30042281</td>
-<td style="text-align: left;">03 derde verdieping</td>
+<td style="text-align: left;">3813aa95-a06c-4028-b7e4-b21f2cba5b8a</td>
+<td style="text-align: left;">01 eerste verdieping</td>
 <td style="text-align: left;">00dd6c87-6a6e-f482-7490-e6613659708a</td>
 <td style="text-align: left;">Building</td>
+<td style="text-align: left;">3813aa95-a06c-4028-b7e4-b21f2cba5b8a</td>
+<td style="text-align: left;">01 eerste verdieping</td>
+<td style="text-align: left;">IfcBuildingStorey</td>
+<td style="text-align: right;">nan</td>
 </tr>
 <tr>
-<td style="text-align: left;">6edb9947-be66-4bdc-9d70-324718d12ce7</td>
-<td style="text-align: left;">9.06</td>
-<td style="text-align: left;">slaapkamer 2</td>
+<td style="text-align: left;">3c56aaec-921d-44cc-b18b-1224592d8bdd</td>
+<td style="text-align: left;">7.02</td>
+<td style="text-align: left;">toilet</td>
 <td style="text-align: right;">nan</td>
 <td style="text-align: right;">nan</td>
 <td style="text-align: right;">nan</td>
-<td style="text-align: left;">91f24dc1-a766-4e42-9f22-67cb30042281</td>
-<td style="text-align: left;">03 derde verdieping</td>
+<td style="text-align: left;">3a674ee9-2548-40c5-936d-abd348c21e8d</td>
+<td style="text-align: left;">02 tweede verdieping</td>
 <td style="text-align: left;">00dd6c87-6a6e-f482-7490-e6613659708a</td>
 <td style="text-align: left;">Building</td>
-</tr>
-<tr>
-<td style="text-align: left;">c44d52f7-bd98-4e92-84ee-3c7cf3e1e009</td>
-<td style="text-align: left;">9.07</td>
-<td style="text-align: left;">badkamer</td>
+<td style="text-align: left;">3a674ee9-2548-40c5-936d-abd348c21e8d</td>
+<td style="text-align: left;">02 tweede verdieping</td>
+<td style="text-align: left;">IfcBuildingStorey</td>
 <td style="text-align: right;">nan</td>
-<td style="text-align: right;">nan</td>
-<td style="text-align: right;">nan</td>
-<td style="text-align: left;">91f24dc1-a766-4e42-9f22-67cb30042281</td>
-<td style="text-align: left;">03 derde verdieping</td>
-<td style="text-align: left;">00dd6c87-6a6e-f482-7490-e6613659708a</td>
-<td style="text-align: left;">Building</td>
 </tr>
 <tr>
 <td style="text-align: left;">3d04d597-2bc9-4205-b6e7-877b82f0ffe4</td>
@@ -3236,6 +2596,906 @@ There is apparently an <a href="#issue-for-the-display-of-spaces-for-ifc-schepen
 <td style="text-align: left;">03 derde verdieping</td>
 <td style="text-align: left;">00dd6c87-6a6e-f482-7490-e6613659708a</td>
 <td style="text-align: left;">Building</td>
+<td style="text-align: left;">91f24dc1-a766-4e42-9f22-67cb30042281</td>
+<td style="text-align: left;">03 derde verdieping</td>
+<td style="text-align: left;">IfcBuildingStorey</td>
+<td style="text-align: right;">nan</td>
+</tr>
+<tr>
+<td style="text-align: left;">3d07bc83-50d8-48f1-a5c5-2635f880ecbd</td>
+<td style="text-align: left;">6.06</td>
+<td style="text-align: left;">slaapkamer 2</td>
+<td style="text-align: right;">nan</td>
+<td style="text-align: right;">nan</td>
+<td style="text-align: right;">nan</td>
+<td style="text-align: left;">3813aa95-a06c-4028-b7e4-b21f2cba5b8a</td>
+<td style="text-align: left;">01 eerste verdieping</td>
+<td style="text-align: left;">00dd6c87-6a6e-f482-7490-e6613659708a</td>
+<td style="text-align: left;">Building</td>
+<td style="text-align: left;">3813aa95-a06c-4028-b7e4-b21f2cba5b8a</td>
+<td style="text-align: left;">01 eerste verdieping</td>
+<td style="text-align: left;">IfcBuildingStorey</td>
+<td style="text-align: right;">nan</td>
+</tr>
+<tr>
+<td style="text-align: left;">40fd27f7-2aaf-43ab-9915-04a305acf1b0</td>
+<td style="text-align: left;">3.04</td>
+<td style="text-align: left;">keuken</td>
+<td style="text-align: right;">nan</td>
+<td style="text-align: right;">nan</td>
+<td style="text-align: right;">nan</td>
+<td style="text-align: left;">9c82359a-67c3-49ce-9749-d081f3aa1901</td>
+<td style="text-align: left;">00 begane grond</td>
+<td style="text-align: left;">00dd6c87-6a6e-f482-7490-e6613659708a</td>
+<td style="text-align: left;">Building</td>
+<td style="text-align: left;">9c82359a-67c3-49ce-9749-d081f3aa1901</td>
+<td style="text-align: left;">00 begane grond</td>
+<td style="text-align: left;">IfcBuildingStorey</td>
+<td style="text-align: right;">nan</td>
+</tr>
+<tr>
+<td style="text-align: left;">42291957-3edd-443d-b4e2-bcf0751f358b</td>
+<td style="text-align: left;">2.10</td>
+<td style="text-align: left;">berging</td>
+<td style="text-align: right;">nan</td>
+<td style="text-align: right;">nan</td>
+<td style="text-align: right;">nan</td>
+<td style="text-align: left;">9c82359a-67c3-49ce-9749-d081f3aa1901</td>
+<td style="text-align: left;">00 begane grond</td>
+<td style="text-align: left;">00dd6c87-6a6e-f482-7490-e6613659708a</td>
+<td style="text-align: left;">Building</td>
+<td style="text-align: left;">9c82359a-67c3-49ce-9749-d081f3aa1901</td>
+<td style="text-align: left;">00 begane grond</td>
+<td style="text-align: left;">IfcBuildingStorey</td>
+<td style="text-align: right;">nan</td>
+</tr>
+<tr>
+<td style="text-align: left;">42d94669-d1ee-4d3f-9fe1-13a21e8915d4</td>
+<td style="text-align: left;">10.06</td>
+<td style="text-align: left;">onben. ruimte</td>
+<td style="text-align: right;">nan</td>
+<td style="text-align: right;">nan</td>
+<td style="text-align: right;">nan</td>
+<td style="text-align: left;">91f24dc1-a766-4e42-9f22-67cb30042281</td>
+<td style="text-align: left;">03 derde verdieping</td>
+<td style="text-align: left;">00dd6c87-6a6e-f482-7490-e6613659708a</td>
+<td style="text-align: left;">Building</td>
+<td style="text-align: left;">91f24dc1-a766-4e42-9f22-67cb30042281</td>
+<td style="text-align: left;">03 derde verdieping</td>
+<td style="text-align: left;">IfcBuildingStorey</td>
+<td style="text-align: right;">nan</td>
+</tr>
+<tr>
+<td style="text-align: left;">4abd018d-c095-41ac-8544-f112772c83d8</td>
+<td style="text-align: left;">10.07</td>
+<td style="text-align: left;">badkamer</td>
+<td style="text-align: right;">nan</td>
+<td style="text-align: right;">nan</td>
+<td style="text-align: right;">nan</td>
+<td style="text-align: left;">91f24dc1-a766-4e42-9f22-67cb30042281</td>
+<td style="text-align: left;">03 derde verdieping</td>
+<td style="text-align: left;">00dd6c87-6a6e-f482-7490-e6613659708a</td>
+<td style="text-align: left;">Building</td>
+<td style="text-align: left;">91f24dc1-a766-4e42-9f22-67cb30042281</td>
+<td style="text-align: left;">03 derde verdieping</td>
+<td style="text-align: left;">IfcBuildingStorey</td>
+<td style="text-align: right;">nan</td>
+</tr>
+<tr>
+<td style="text-align: left;">4adf5603-1d57-48b1-aa81-6cd7caa3230a</td>
+<td style="text-align: left;">5.00</td>
+<td style="text-align: left;">entree</td>
+<td style="text-align: right;">nan</td>
+<td style="text-align: right;">nan</td>
+<td style="text-align: right;">nan</td>
+<td style="text-align: left;">3813aa95-a06c-4028-b7e4-b21f2cba5b8a</td>
+<td style="text-align: left;">01 eerste verdieping</td>
+<td style="text-align: left;">00dd6c87-6a6e-f482-7490-e6613659708a</td>
+<td style="text-align: left;">Building</td>
+<td style="text-align: left;">3813aa95-a06c-4028-b7e4-b21f2cba5b8a</td>
+<td style="text-align: left;">01 eerste verdieping</td>
+<td style="text-align: left;">IfcBuildingStorey</td>
+<td style="text-align: right;">nan</td>
+</tr>
+<tr>
+<td style="text-align: left;">4e60658c-4a93-4fe1-b642-7aaabfeb8fe9</td>
+<td style="text-align: left;">1.02</td>
+<td style="text-align: left;">toilet</td>
+<td style="text-align: right;">nan</td>
+<td style="text-align: right;">nan</td>
+<td style="text-align: right;">nan</td>
+<td style="text-align: left;">9c82359a-67c3-49ce-9749-d081f3aa1901</td>
+<td style="text-align: left;">00 begane grond</td>
+<td style="text-align: left;">00dd6c87-6a6e-f482-7490-e6613659708a</td>
+<td style="text-align: left;">Building</td>
+<td style="text-align: left;">9c82359a-67c3-49ce-9749-d081f3aa1901</td>
+<td style="text-align: left;">00 begane grond</td>
+<td style="text-align: left;">IfcBuildingStorey</td>
+<td style="text-align: right;">nan</td>
+</tr>
+<tr>
+<td style="text-align: left;">50103ef1-cd0a-486e-8288-7bb08ac11022</td>
+<td style="text-align: left;">3.00</td>
+<td style="text-align: left;">entree</td>
+<td style="text-align: right;">nan</td>
+<td style="text-align: right;">nan</td>
+<td style="text-align: right;">nan</td>
+<td style="text-align: left;">9c82359a-67c3-49ce-9749-d081f3aa1901</td>
+<td style="text-align: left;">00 begane grond</td>
+<td style="text-align: left;">00dd6c87-6a6e-f482-7490-e6613659708a</td>
+<td style="text-align: left;">Building</td>
+<td style="text-align: left;">9c82359a-67c3-49ce-9749-d081f3aa1901</td>
+<td style="text-align: left;">00 begane grond</td>
+<td style="text-align: left;">IfcBuildingStorey</td>
+<td style="text-align: right;">nan</td>
+</tr>
+<tr>
+<td style="text-align: left;">502e4848-6b60-4981-9ea6-9d2b741985f1</td>
+<td style="text-align: left;">2.05</td>
+<td style="text-align: left;">gang</td>
+<td style="text-align: right;">nan</td>
+<td style="text-align: right;">nan</td>
+<td style="text-align: right;">nan</td>
+<td style="text-align: left;">9c82359a-67c3-49ce-9749-d081f3aa1901</td>
+<td style="text-align: left;">00 begane grond</td>
+<td style="text-align: left;">00dd6c87-6a6e-f482-7490-e6613659708a</td>
+<td style="text-align: left;">Building</td>
+<td style="text-align: left;">9c82359a-67c3-49ce-9749-d081f3aa1901</td>
+<td style="text-align: left;">00 begane grond</td>
+<td style="text-align: left;">IfcBuildingStorey</td>
+<td style="text-align: right;">nan</td>
+</tr>
+<tr>
+<td style="text-align: left;">53d5628c-940e-4e24-9a47-252094299e17</td>
+<td style="text-align: left;">10.05</td>
+<td style="text-align: left;">slaapkamer</td>
+<td style="text-align: right;">nan</td>
+<td style="text-align: right;">nan</td>
+<td style="text-align: right;">nan</td>
+<td style="text-align: left;">91f24dc1-a766-4e42-9f22-67cb30042281</td>
+<td style="text-align: left;">03 derde verdieping</td>
+<td style="text-align: left;">00dd6c87-6a6e-f482-7490-e6613659708a</td>
+<td style="text-align: left;">Building</td>
+<td style="text-align: left;">91f24dc1-a766-4e42-9f22-67cb30042281</td>
+<td style="text-align: left;">03 derde verdieping</td>
+<td style="text-align: left;">IfcBuildingStorey</td>
+<td style="text-align: right;">nan</td>
+</tr>
+<tr>
+<td style="text-align: left;">5444e211-c46e-4a66-8150-e898f5e25e2b</td>
+<td style="text-align: left;">5.08</td>
+<td style="text-align: left;">instal. ruimte</td>
+<td style="text-align: right;">nan</td>
+<td style="text-align: right;">nan</td>
+<td style="text-align: right;">nan</td>
+<td style="text-align: left;">3813aa95-a06c-4028-b7e4-b21f2cba5b8a</td>
+<td style="text-align: left;">01 eerste verdieping</td>
+<td style="text-align: left;">00dd6c87-6a6e-f482-7490-e6613659708a</td>
+<td style="text-align: left;">Building</td>
+<td style="text-align: left;">3813aa95-a06c-4028-b7e4-b21f2cba5b8a</td>
+<td style="text-align: left;">01 eerste verdieping</td>
+<td style="text-align: left;">IfcBuildingStorey</td>
+<td style="text-align: right;">nan</td>
+</tr>
+<tr>
+<td style="text-align: left;">55a2c35c-cc9a-4a1a-b1bf-94e8b701f711</td>
+<td style="text-align: left;">8.06</td>
+<td style="text-align: left;">slaapkamer 2</td>
+<td style="text-align: right;">nan</td>
+<td style="text-align: right;">nan</td>
+<td style="text-align: right;">nan</td>
+<td style="text-align: left;">3a674ee9-2548-40c5-936d-abd348c21e8d</td>
+<td style="text-align: left;">02 tweede verdieping</td>
+<td style="text-align: left;">00dd6c87-6a6e-f482-7490-e6613659708a</td>
+<td style="text-align: left;">Building</td>
+<td style="text-align: left;">3a674ee9-2548-40c5-936d-abd348c21e8d</td>
+<td style="text-align: left;">02 tweede verdieping</td>
+<td style="text-align: left;">IfcBuildingStorey</td>
+<td style="text-align: right;">nan</td>
+</tr>
+<tr>
+<td style="text-align: left;">592f4e55-c5b3-4d78-a767-bfebf95e25ab</td>
+<td style="text-align: left;">5.04</td>
+<td style="text-align: left;">keuken</td>
+<td style="text-align: right;">nan</td>
+<td style="text-align: right;">nan</td>
+<td style="text-align: right;">nan</td>
+<td style="text-align: left;">3813aa95-a06c-4028-b7e4-b21f2cba5b8a</td>
+<td style="text-align: left;">01 eerste verdieping</td>
+<td style="text-align: left;">00dd6c87-6a6e-f482-7490-e6613659708a</td>
+<td style="text-align: left;">Building</td>
+<td style="text-align: left;">3813aa95-a06c-4028-b7e4-b21f2cba5b8a</td>
+<td style="text-align: left;">01 eerste verdieping</td>
+<td style="text-align: left;">IfcBuildingStorey</td>
+<td style="text-align: right;">nan</td>
+</tr>
+<tr>
+<td style="text-align: left;">5b656d6c-e2c1-42bc-bd6c-71290ca1e30c</td>
+<td style="text-align: left;">4.05</td>
+<td style="text-align: left;">slaapkamer 1</td>
+<td style="text-align: right;">nan</td>
+<td style="text-align: right;">nan</td>
+<td style="text-align: right;">nan</td>
+<td style="text-align: left;">3813aa95-a06c-4028-b7e4-b21f2cba5b8a</td>
+<td style="text-align: left;">01 eerste verdieping</td>
+<td style="text-align: left;">00dd6c87-6a6e-f482-7490-e6613659708a</td>
+<td style="text-align: left;">Building</td>
+<td style="text-align: left;">3813aa95-a06c-4028-b7e4-b21f2cba5b8a</td>
+<td style="text-align: left;">01 eerste verdieping</td>
+<td style="text-align: left;">IfcBuildingStorey</td>
+<td style="text-align: right;">nan</td>
+</tr>
+<tr>
+<td style="text-align: left;">5c1788cb-3b4f-491f-942f-512f732223eb</td>
+<td style="text-align: left;">1.04</td>
+<td style="text-align: left;">keuken</td>
+<td style="text-align: right;">nan</td>
+<td style="text-align: right;">nan</td>
+<td style="text-align: right;">nan</td>
+<td style="text-align: left;">9c82359a-67c3-49ce-9749-d081f3aa1901</td>
+<td style="text-align: left;">00 begane grond</td>
+<td style="text-align: left;">00dd6c87-6a6e-f482-7490-e6613659708a</td>
+<td style="text-align: left;">Building</td>
+<td style="text-align: left;">9c82359a-67c3-49ce-9749-d081f3aa1901</td>
+<td style="text-align: left;">00 begane grond</td>
+<td style="text-align: left;">IfcBuildingStorey</td>
+<td style="text-align: right;">nan</td>
+</tr>
+<tr>
+<td style="text-align: left;">60def17e-9b13-4dac-a4aa-999cd8ee076f</td>
+<td style="text-align: left;">9.03</td>
+<td style="text-align: left;">woonkamer</td>
+<td style="text-align: right;">nan</td>
+<td style="text-align: right;">nan</td>
+<td style="text-align: right;">nan</td>
+<td style="text-align: left;">91f24dc1-a766-4e42-9f22-67cb30042281</td>
+<td style="text-align: left;">03 derde verdieping</td>
+<td style="text-align: left;">00dd6c87-6a6e-f482-7490-e6613659708a</td>
+<td style="text-align: left;">Building</td>
+<td style="text-align: left;">91f24dc1-a766-4e42-9f22-67cb30042281</td>
+<td style="text-align: left;">03 derde verdieping</td>
+<td style="text-align: left;">IfcBuildingStorey</td>
+<td style="text-align: right;">nan</td>
+</tr>
+<tr>
+<td style="text-align: left;">65ce765b-21bb-4deb-8ea0-16c879183e27</td>
+<td style="text-align: left;">6.01</td>
+<td style="text-align: left;">mk</td>
+<td style="text-align: right;">nan</td>
+<td style="text-align: right;">nan</td>
+<td style="text-align: right;">nan</td>
+<td style="text-align: left;">3813aa95-a06c-4028-b7e4-b21f2cba5b8a</td>
+<td style="text-align: left;">01 eerste verdieping</td>
+<td style="text-align: left;">00dd6c87-6a6e-f482-7490-e6613659708a</td>
+<td style="text-align: left;">Building</td>
+<td style="text-align: left;">3813aa95-a06c-4028-b7e4-b21f2cba5b8a</td>
+<td style="text-align: left;">01 eerste verdieping</td>
+<td style="text-align: left;">IfcBuildingStorey</td>
+<td style="text-align: right;">nan</td>
+</tr>
+<tr>
+<td style="text-align: left;">676b06eb-d7ec-4ec2-8908-92cd912ae31a</td>
+<td style="text-align: left;">5.07</td>
+<td style="text-align: left;">badkamer</td>
+<td style="text-align: right;">nan</td>
+<td style="text-align: right;">nan</td>
+<td style="text-align: right;">nan</td>
+<td style="text-align: left;">3813aa95-a06c-4028-b7e4-b21f2cba5b8a</td>
+<td style="text-align: left;">01 eerste verdieping</td>
+<td style="text-align: left;">00dd6c87-6a6e-f482-7490-e6613659708a</td>
+<td style="text-align: left;">Building</td>
+<td style="text-align: left;">3813aa95-a06c-4028-b7e4-b21f2cba5b8a</td>
+<td style="text-align: left;">01 eerste verdieping</td>
+<td style="text-align: left;">IfcBuildingStorey</td>
+<td style="text-align: right;">nan</td>
+</tr>
+<tr>
+<td style="text-align: left;">6aa148cc-4ca4-4a7d-aee1-52e8ae349c5f</td>
+<td style="text-align: left;">7.05</td>
+<td style="text-align: left;">slaapkamer 1</td>
+<td style="text-align: right;">nan</td>
+<td style="text-align: right;">nan</td>
+<td style="text-align: right;">nan</td>
+<td style="text-align: left;">3a674ee9-2548-40c5-936d-abd348c21e8d</td>
+<td style="text-align: left;">02 tweede verdieping</td>
+<td style="text-align: left;">00dd6c87-6a6e-f482-7490-e6613659708a</td>
+<td style="text-align: left;">Building</td>
+<td style="text-align: left;">3a674ee9-2548-40c5-936d-abd348c21e8d</td>
+<td style="text-align: left;">02 tweede verdieping</td>
+<td style="text-align: left;">IfcBuildingStorey</td>
+<td style="text-align: right;">nan</td>
+</tr>
+<tr>
+<td style="text-align: left;">6edb9947-be66-4bdc-9d70-324718d12ce7</td>
+<td style="text-align: left;">9.06</td>
+<td style="text-align: left;">slaapkamer 2</td>
+<td style="text-align: right;">nan</td>
+<td style="text-align: right;">nan</td>
+<td style="text-align: right;">nan</td>
+<td style="text-align: left;">91f24dc1-a766-4e42-9f22-67cb30042281</td>
+<td style="text-align: left;">03 derde verdieping</td>
+<td style="text-align: left;">00dd6c87-6a6e-f482-7490-e6613659708a</td>
+<td style="text-align: left;">Building</td>
+<td style="text-align: left;">91f24dc1-a766-4e42-9f22-67cb30042281</td>
+<td style="text-align: left;">03 derde verdieping</td>
+<td style="text-align: left;">IfcBuildingStorey</td>
+<td style="text-align: right;">nan</td>
+</tr>
+<tr>
+<td style="text-align: left;">70f54dd5-bcf2-4b00-8084-abdbae4a0bfd</td>
+<td style="text-align: left;">7.07</td>
+<td style="text-align: left;">badkamer</td>
+<td style="text-align: right;">nan</td>
+<td style="text-align: right;">nan</td>
+<td style="text-align: right;">nan</td>
+<td style="text-align: left;">3a674ee9-2548-40c5-936d-abd348c21e8d</td>
+<td style="text-align: left;">02 tweede verdieping</td>
+<td style="text-align: left;">00dd6c87-6a6e-f482-7490-e6613659708a</td>
+<td style="text-align: left;">Building</td>
+<td style="text-align: left;">3a674ee9-2548-40c5-936d-abd348c21e8d</td>
+<td style="text-align: left;">02 tweede verdieping</td>
+<td style="text-align: left;">IfcBuildingStorey</td>
+<td style="text-align: right;">nan</td>
+</tr>
+<tr>
+<td style="text-align: left;">74460c8d-da97-44a5-a333-37d98a05b8ed</td>
+<td style="text-align: left;">3.09</td>
+<td style="text-align: left;">instal. ruimte</td>
+<td style="text-align: right;">nan</td>
+<td style="text-align: right;">nan</td>
+<td style="text-align: right;">nan</td>
+<td style="text-align: left;">9c82359a-67c3-49ce-9749-d081f3aa1901</td>
+<td style="text-align: left;">00 begane grond</td>
+<td style="text-align: left;">00dd6c87-6a6e-f482-7490-e6613659708a</td>
+<td style="text-align: left;">Building</td>
+<td style="text-align: left;">9c82359a-67c3-49ce-9749-d081f3aa1901</td>
+<td style="text-align: left;">00 begane grond</td>
+<td style="text-align: left;">IfcBuildingStorey</td>
+<td style="text-align: right;">nan</td>
+</tr>
+<tr>
+<td style="text-align: left;">754368d8-fa84-46ac-be69-0d991d675d67</td>
+<td style="text-align: left;">8.01</td>
+<td style="text-align: left;">mk</td>
+<td style="text-align: right;">nan</td>
+<td style="text-align: right;">nan</td>
+<td style="text-align: right;">nan</td>
+<td style="text-align: left;">3a674ee9-2548-40c5-936d-abd348c21e8d</td>
+<td style="text-align: left;">02 tweede verdieping</td>
+<td style="text-align: left;">00dd6c87-6a6e-f482-7490-e6613659708a</td>
+<td style="text-align: left;">Building</td>
+<td style="text-align: left;">3a674ee9-2548-40c5-936d-abd348c21e8d</td>
+<td style="text-align: left;">02 tweede verdieping</td>
+<td style="text-align: left;">IfcBuildingStorey</td>
+<td style="text-align: right;">nan</td>
+</tr>
+<tr>
+<td style="text-align: left;">76228b65-0e94-41e8-afd0-1a7896150a8c</td>
+<td style="text-align: left;">8.08</td>
+<td style="text-align: left;">instal. ruimte</td>
+<td style="text-align: right;">nan</td>
+<td style="text-align: right;">nan</td>
+<td style="text-align: right;">nan</td>
+<td style="text-align: left;">3a674ee9-2548-40c5-936d-abd348c21e8d</td>
+<td style="text-align: left;">02 tweede verdieping</td>
+<td style="text-align: left;">00dd6c87-6a6e-f482-7490-e6613659708a</td>
+<td style="text-align: left;">Building</td>
+<td style="text-align: left;">3a674ee9-2548-40c5-936d-abd348c21e8d</td>
+<td style="text-align: left;">02 tweede verdieping</td>
+<td style="text-align: left;">IfcBuildingStorey</td>
+<td style="text-align: right;">nan</td>
+</tr>
+<tr>
+<td style="text-align: left;">763100a6-79f9-4425-9ed3-90b2ce20153a</td>
+<td style="text-align: left;">3.03</td>
+<td style="text-align: left;">woonkamer</td>
+<td style="text-align: right;">nan</td>
+<td style="text-align: right;">nan</td>
+<td style="text-align: right;">nan</td>
+<td style="text-align: left;">9c82359a-67c3-49ce-9749-d081f3aa1901</td>
+<td style="text-align: left;">00 begane grond</td>
+<td style="text-align: left;">00dd6c87-6a6e-f482-7490-e6613659708a</td>
+<td style="text-align: left;">Building</td>
+<td style="text-align: left;">9c82359a-67c3-49ce-9749-d081f3aa1901</td>
+<td style="text-align: left;">00 begane grond</td>
+<td style="text-align: left;">IfcBuildingStorey</td>
+<td style="text-align: right;">nan</td>
+</tr>
+<tr>
+<td style="text-align: left;">76de29eb-c020-4e79-a5bd-0ed7c6827466</td>
+<td style="text-align: left;">7.03</td>
+<td style="text-align: left;">woonkamer</td>
+<td style="text-align: right;">nan</td>
+<td style="text-align: right;">nan</td>
+<td style="text-align: right;">nan</td>
+<td style="text-align: left;">3a674ee9-2548-40c5-936d-abd348c21e8d</td>
+<td style="text-align: left;">02 tweede verdieping</td>
+<td style="text-align: left;">00dd6c87-6a6e-f482-7490-e6613659708a</td>
+<td style="text-align: left;">Building</td>
+<td style="text-align: left;">3a674ee9-2548-40c5-936d-abd348c21e8d</td>
+<td style="text-align: left;">02 tweede verdieping</td>
+<td style="text-align: left;">IfcBuildingStorey</td>
+<td style="text-align: right;">nan</td>
+</tr>
+<tr>
+<td style="text-align: left;">82bd3e52-fb5f-4503-8c39-7acf7df0e6ac</td>
+<td style="text-align: left;">A0.01</td>
+<td style="text-align: left;">instal. ruimte</td>
+<td style="text-align: right;">nan</td>
+<td style="text-align: right;">nan</td>
+<td style="text-align: right;">nan</td>
+<td style="text-align: left;">9c82359a-67c3-49ce-9749-d081f3aa1901</td>
+<td style="text-align: left;">00 begane grond</td>
+<td style="text-align: left;">00dd6c87-6a6e-f482-7490-e6613659708a</td>
+<td style="text-align: left;">Building</td>
+<td style="text-align: left;">9c82359a-67c3-49ce-9749-d081f3aa1901</td>
+<td style="text-align: left;">00 begane grond</td>
+<td style="text-align: left;">IfcBuildingStorey</td>
+<td style="text-align: right;">nan</td>
+</tr>
+<tr>
+<td style="text-align: left;">8b6e1299-d614-4fc9-b258-55db74423903</td>
+<td style="text-align: left;">4.03</td>
+<td style="text-align: left;">woonkamer</td>
+<td style="text-align: right;">nan</td>
+<td style="text-align: right;">nan</td>
+<td style="text-align: right;">nan</td>
+<td style="text-align: left;">3813aa95-a06c-4028-b7e4-b21f2cba5b8a</td>
+<td style="text-align: left;">01 eerste verdieping</td>
+<td style="text-align: left;">00dd6c87-6a6e-f482-7490-e6613659708a</td>
+<td style="text-align: left;">Building</td>
+<td style="text-align: left;">3813aa95-a06c-4028-b7e4-b21f2cba5b8a</td>
+<td style="text-align: left;">01 eerste verdieping</td>
+<td style="text-align: left;">IfcBuildingStorey</td>
+<td style="text-align: right;">nan</td>
+</tr>
+<tr>
+<td style="text-align: left;">8e84831a-e727-437d-89ea-9a533aaec9fe</td>
+<td style="text-align: left;">5.02</td>
+<td style="text-align: left;">toilet</td>
+<td style="text-align: right;">nan</td>
+<td style="text-align: right;">nan</td>
+<td style="text-align: right;">nan</td>
+<td style="text-align: left;">3813aa95-a06c-4028-b7e4-b21f2cba5b8a</td>
+<td style="text-align: left;">01 eerste verdieping</td>
+<td style="text-align: left;">00dd6c87-6a6e-f482-7490-e6613659708a</td>
+<td style="text-align: left;">Building</td>
+<td style="text-align: left;">3813aa95-a06c-4028-b7e4-b21f2cba5b8a</td>
+<td style="text-align: left;">01 eerste verdieping</td>
+<td style="text-align: left;">IfcBuildingStorey</td>
+<td style="text-align: right;">nan</td>
+</tr>
+<tr>
+<td style="text-align: left;">9061057e-3b37-492d-856c-08647fc48881</td>
+<td style="text-align: left;">6.08</td>
+<td style="text-align: left;">instal. ruimte</td>
+<td style="text-align: right;">nan</td>
+<td style="text-align: right;">nan</td>
+<td style="text-align: right;">nan</td>
+<td style="text-align: left;">3813aa95-a06c-4028-b7e4-b21f2cba5b8a</td>
+<td style="text-align: left;">01 eerste verdieping</td>
+<td style="text-align: left;">00dd6c87-6a6e-f482-7490-e6613659708a</td>
+<td style="text-align: left;">Building</td>
+<td style="text-align: left;">3813aa95-a06c-4028-b7e4-b21f2cba5b8a</td>
+<td style="text-align: left;">01 eerste verdieping</td>
+<td style="text-align: left;">IfcBuildingStorey</td>
+<td style="text-align: right;">nan</td>
+</tr>
+<tr>
+<td style="text-align: left;">90854a93-f12a-4aaf-b66c-c5b443ef0017</td>
+<td style="text-align: left;">3.08</td>
+<td style="text-align: left;">badkamer</td>
+<td style="text-align: right;">nan</td>
+<td style="text-align: right;">nan</td>
+<td style="text-align: right;">nan</td>
+<td style="text-align: left;">9c82359a-67c3-49ce-9749-d081f3aa1901</td>
+<td style="text-align: left;">00 begane grond</td>
+<td style="text-align: left;">00dd6c87-6a6e-f482-7490-e6613659708a</td>
+<td style="text-align: left;">Building</td>
+<td style="text-align: left;">9c82359a-67c3-49ce-9749-d081f3aa1901</td>
+<td style="text-align: left;">00 begane grond</td>
+<td style="text-align: left;">IfcBuildingStorey</td>
+<td style="text-align: right;">nan</td>
+</tr>
+<tr>
+<td style="text-align: left;">97c45622-5687-493c-b995-766888ca8a9c</td>
+<td style="text-align: left;">A2.01</td>
+<td style="text-align: left;">overloop</td>
+<td style="text-align: right;">nan</td>
+<td style="text-align: right;">nan</td>
+<td style="text-align: right;">nan</td>
+<td style="text-align: left;">3a674ee9-2548-40c5-936d-abd348c21e8d</td>
+<td style="text-align: left;">02 tweede verdieping</td>
+<td style="text-align: left;">00dd6c87-6a6e-f482-7490-e6613659708a</td>
+<td style="text-align: left;">Building</td>
+<td style="text-align: left;">3a674ee9-2548-40c5-936d-abd348c21e8d</td>
+<td style="text-align: left;">02 tweede verdieping</td>
+<td style="text-align: left;">IfcBuildingStorey</td>
+<td style="text-align: right;">nan</td>
+</tr>
+<tr>
+<td style="text-align: left;">99979f8b-4e97-483b-905c-b454eb11daac</td>
+<td style="text-align: left;">10.02</td>
+<td style="text-align: left;">toilet</td>
+<td style="text-align: right;">nan</td>
+<td style="text-align: right;">nan</td>
+<td style="text-align: right;">nan</td>
+<td style="text-align: left;">91f24dc1-a766-4e42-9f22-67cb30042281</td>
+<td style="text-align: left;">03 derde verdieping</td>
+<td style="text-align: left;">00dd6c87-6a6e-f482-7490-e6613659708a</td>
+<td style="text-align: left;">Building</td>
+<td style="text-align: left;">91f24dc1-a766-4e42-9f22-67cb30042281</td>
+<td style="text-align: left;">03 derde verdieping</td>
+<td style="text-align: left;">IfcBuildingStorey</td>
+<td style="text-align: right;">nan</td>
+</tr>
+<tr>
+<td style="text-align: left;">9c3aabce-8c60-48b1-891f-8bfb59b6f075</td>
+<td style="text-align: left;">9.02</td>
+<td style="text-align: left;">toilet</td>
+<td style="text-align: right;">nan</td>
+<td style="text-align: right;">nan</td>
+<td style="text-align: right;">nan</td>
+<td style="text-align: left;">91f24dc1-a766-4e42-9f22-67cb30042281</td>
+<td style="text-align: left;">03 derde verdieping</td>
+<td style="text-align: left;">00dd6c87-6a6e-f482-7490-e6613659708a</td>
+<td style="text-align: left;">Building</td>
+<td style="text-align: left;">91f24dc1-a766-4e42-9f22-67cb30042281</td>
+<td style="text-align: left;">03 derde verdieping</td>
+<td style="text-align: left;">IfcBuildingStorey</td>
+<td style="text-align: right;">nan</td>
+</tr>
+<tr>
+<td style="text-align: left;">9e3d3b91-5048-4cee-ad1f-d5debb8ba287</td>
+<td style="text-align: left;">4.00</td>
+<td style="text-align: left;">entree</td>
+<td style="text-align: right;">nan</td>
+<td style="text-align: right;">nan</td>
+<td style="text-align: right;">nan</td>
+<td style="text-align: left;">3813aa95-a06c-4028-b7e4-b21f2cba5b8a</td>
+<td style="text-align: left;">01 eerste verdieping</td>
+<td style="text-align: left;">00dd6c87-6a6e-f482-7490-e6613659708a</td>
+<td style="text-align: left;">Building</td>
+<td style="text-align: left;">3813aa95-a06c-4028-b7e4-b21f2cba5b8a</td>
+<td style="text-align: left;">01 eerste verdieping</td>
+<td style="text-align: left;">IfcBuildingStorey</td>
+<td style="text-align: right;">nan</td>
+</tr>
+<tr>
+<td style="text-align: left;">a0a6f337-1087-42f1-a96d-34a376b6e0e1</td>
+<td style="text-align: left;">6.00</td>
+<td style="text-align: left;">entree</td>
+<td style="text-align: right;">nan</td>
+<td style="text-align: right;">nan</td>
+<td style="text-align: right;">nan</td>
+<td style="text-align: left;">3813aa95-a06c-4028-b7e4-b21f2cba5b8a</td>
+<td style="text-align: left;">01 eerste verdieping</td>
+<td style="text-align: left;">00dd6c87-6a6e-f482-7490-e6613659708a</td>
+<td style="text-align: left;">Building</td>
+<td style="text-align: left;">3813aa95-a06c-4028-b7e4-b21f2cba5b8a</td>
+<td style="text-align: left;">01 eerste verdieping</td>
+<td style="text-align: left;">IfcBuildingStorey</td>
+<td style="text-align: right;">nan</td>
+</tr>
+<tr>
+<td style="text-align: left;">a2cbf3b3-67ff-429d-8306-f578c314b4f4</td>
+<td style="text-align: left;">10.01</td>
+<td style="text-align: left;">mk</td>
+<td style="text-align: right;">nan</td>
+<td style="text-align: right;">nan</td>
+<td style="text-align: right;">nan</td>
+<td style="text-align: left;">91f24dc1-a766-4e42-9f22-67cb30042281</td>
+<td style="text-align: left;">03 derde verdieping</td>
+<td style="text-align: left;">00dd6c87-6a6e-f482-7490-e6613659708a</td>
+<td style="text-align: left;">Building</td>
+<td style="text-align: left;">91f24dc1-a766-4e42-9f22-67cb30042281</td>
+<td style="text-align: left;">03 derde verdieping</td>
+<td style="text-align: left;">IfcBuildingStorey</td>
+<td style="text-align: right;">nan</td>
+</tr>
+<tr>
+<td style="text-align: left;">a5d652ca-fb20-48a6-9ee3-0584d428e867</td>
+<td style="text-align: left;">2.08</td>
+<td style="text-align: left;">badkamer</td>
+<td style="text-align: right;">nan</td>
+<td style="text-align: right;">nan</td>
+<td style="text-align: right;">nan</td>
+<td style="text-align: left;">9c82359a-67c3-49ce-9749-d081f3aa1901</td>
+<td style="text-align: left;">00 begane grond</td>
+<td style="text-align: left;">00dd6c87-6a6e-f482-7490-e6613659708a</td>
+<td style="text-align: left;">Building</td>
+<td style="text-align: left;">9c82359a-67c3-49ce-9749-d081f3aa1901</td>
+<td style="text-align: left;">00 begane grond</td>
+<td style="text-align: left;">IfcBuildingStorey</td>
+<td style="text-align: right;">nan</td>
+</tr>
+<tr>
+<td style="text-align: left;">a73ec9a0-46af-4151-9975-177460f56999</td>
+<td style="text-align: left;">A0.00</td>
+<td style="text-align: left;">entree</td>
+<td style="text-align: right;">nan</td>
+<td style="text-align: right;">nan</td>
+<td style="text-align: right;">nan</td>
+<td style="text-align: left;">9c82359a-67c3-49ce-9749-d081f3aa1901</td>
+<td style="text-align: left;">00 begane grond</td>
+<td style="text-align: left;">00dd6c87-6a6e-f482-7490-e6613659708a</td>
+<td style="text-align: left;">Building</td>
+<td style="text-align: left;">9c82359a-67c3-49ce-9749-d081f3aa1901</td>
+<td style="text-align: left;">00 begane grond</td>
+<td style="text-align: left;">IfcBuildingStorey</td>
+<td style="text-align: right;">nan</td>
+</tr>
+<tr>
+<td style="text-align: left;">a87bae1f-19a0-4441-b47f-ae791d844acb</td>
+<td style="text-align: left;">4.04</td>
+<td style="text-align: left;">keuken</td>
+<td style="text-align: right;">nan</td>
+<td style="text-align: right;">nan</td>
+<td style="text-align: right;">nan</td>
+<td style="text-align: left;">3813aa95-a06c-4028-b7e4-b21f2cba5b8a</td>
+<td style="text-align: left;">01 eerste verdieping</td>
+<td style="text-align: left;">00dd6c87-6a6e-f482-7490-e6613659708a</td>
+<td style="text-align: left;">Building</td>
+<td style="text-align: left;">3813aa95-a06c-4028-b7e4-b21f2cba5b8a</td>
+<td style="text-align: left;">01 eerste verdieping</td>
+<td style="text-align: left;">IfcBuildingStorey</td>
+<td style="text-align: right;">nan</td>
+</tr>
+<tr>
+<td style="text-align: left;">ad23ea9f-8339-4a33-b61f-c1736c1a540e</td>
+<td style="text-align: left;">7.01</td>
+<td style="text-align: left;">mk</td>
+<td style="text-align: right;">nan</td>
+<td style="text-align: right;">nan</td>
+<td style="text-align: right;">nan</td>
+<td style="text-align: left;">3a674ee9-2548-40c5-936d-abd348c21e8d</td>
+<td style="text-align: left;">02 tweede verdieping</td>
+<td style="text-align: left;">00dd6c87-6a6e-f482-7490-e6613659708a</td>
+<td style="text-align: left;">Building</td>
+<td style="text-align: left;">3a674ee9-2548-40c5-936d-abd348c21e8d</td>
+<td style="text-align: left;">02 tweede verdieping</td>
+<td style="text-align: left;">IfcBuildingStorey</td>
+<td style="text-align: right;">nan</td>
+</tr>
+<tr>
+<td style="text-align: left;">af73d12f-8a23-40f1-98e9-8c0b1af687ed</td>
+<td style="text-align: left;">3.07</td>
+<td style="text-align: left;">slaapkamer 2</td>
+<td style="text-align: right;">nan</td>
+<td style="text-align: right;">nan</td>
+<td style="text-align: right;">nan</td>
+<td style="text-align: left;">9c82359a-67c3-49ce-9749-d081f3aa1901</td>
+<td style="text-align: left;">00 begane grond</td>
+<td style="text-align: left;">00dd6c87-6a6e-f482-7490-e6613659708a</td>
+<td style="text-align: left;">Building</td>
+<td style="text-align: left;">9c82359a-67c3-49ce-9749-d081f3aa1901</td>
+<td style="text-align: left;">00 begane grond</td>
+<td style="text-align: left;">IfcBuildingStorey</td>
+<td style="text-align: right;">nan</td>
+</tr>
+<tr>
+<td style="text-align: left;">b4fae5c3-578a-47eb-a65f-9a189ab4bedb</td>
+<td style="text-align: left;">8.05</td>
+<td style="text-align: left;">slaapkamer 1</td>
+<td style="text-align: right;">nan</td>
+<td style="text-align: right;">nan</td>
+<td style="text-align: right;">nan</td>
+<td style="text-align: left;">3a674ee9-2548-40c5-936d-abd348c21e8d</td>
+<td style="text-align: left;">02 tweede verdieping</td>
+<td style="text-align: left;">00dd6c87-6a6e-f482-7490-e6613659708a</td>
+<td style="text-align: left;">Building</td>
+<td style="text-align: left;">3a674ee9-2548-40c5-936d-abd348c21e8d</td>
+<td style="text-align: left;">02 tweede verdieping</td>
+<td style="text-align: left;">IfcBuildingStorey</td>
+<td style="text-align: right;">nan</td>
+</tr>
+<tr>
+<td style="text-align: left;">b5cf30ec-8cf7-4c7f-a40e-387ec9d2c688</td>
+<td style="text-align: left;">2.04</td>
+<td style="text-align: left;">keuken</td>
+<td style="text-align: right;">nan</td>
+<td style="text-align: right;">nan</td>
+<td style="text-align: right;">nan</td>
+<td style="text-align: left;">9c82359a-67c3-49ce-9749-d081f3aa1901</td>
+<td style="text-align: left;">00 begane grond</td>
+<td style="text-align: left;">00dd6c87-6a6e-f482-7490-e6613659708a</td>
+<td style="text-align: left;">Building</td>
+<td style="text-align: left;">9c82359a-67c3-49ce-9749-d081f3aa1901</td>
+<td style="text-align: left;">00 begane grond</td>
+<td style="text-align: left;">IfcBuildingStorey</td>
+<td style="text-align: right;">nan</td>
+</tr>
+<tr>
+<td style="text-align: left;">b6c83c65-9a50-434a-a262-9c7a9866c47f</td>
+<td style="text-align: left;">5.09</td>
+<td style="text-align: left;">kast</td>
+<td style="text-align: right;">nan</td>
+<td style="text-align: right;">nan</td>
+<td style="text-align: right;">nan</td>
+<td style="text-align: left;">3813aa95-a06c-4028-b7e4-b21f2cba5b8a</td>
+<td style="text-align: left;">01 eerste verdieping</td>
+<td style="text-align: left;">00dd6c87-6a6e-f482-7490-e6613659708a</td>
+<td style="text-align: left;">Building</td>
+<td style="text-align: left;">3813aa95-a06c-4028-b7e4-b21f2cba5b8a</td>
+<td style="text-align: left;">01 eerste verdieping</td>
+<td style="text-align: left;">IfcBuildingStorey</td>
+<td style="text-align: right;">nan</td>
+</tr>
+<tr>
+<td style="text-align: left;">b79145c3-70f1-4ad2-bc93-a8b38d62c555</td>
+<td style="text-align: left;">8.02</td>
+<td style="text-align: left;">toilet</td>
+<td style="text-align: right;">nan</td>
+<td style="text-align: right;">nan</td>
+<td style="text-align: right;">nan</td>
+<td style="text-align: left;">3a674ee9-2548-40c5-936d-abd348c21e8d</td>
+<td style="text-align: left;">02 tweede verdieping</td>
+<td style="text-align: left;">00dd6c87-6a6e-f482-7490-e6613659708a</td>
+<td style="text-align: left;">Building</td>
+<td style="text-align: left;">3a674ee9-2548-40c5-936d-abd348c21e8d</td>
+<td style="text-align: left;">02 tweede verdieping</td>
+<td style="text-align: left;">IfcBuildingStorey</td>
+<td style="text-align: right;">nan</td>
+</tr>
+<tr>
+<td style="text-align: left;">c44d52f7-bd98-4e92-84ee-3c7cf3e1e009</td>
+<td style="text-align: left;">9.07</td>
+<td style="text-align: left;">badkamer</td>
+<td style="text-align: right;">nan</td>
+<td style="text-align: right;">nan</td>
+<td style="text-align: right;">nan</td>
+<td style="text-align: left;">91f24dc1-a766-4e42-9f22-67cb30042281</td>
+<td style="text-align: left;">03 derde verdieping</td>
+<td style="text-align: left;">00dd6c87-6a6e-f482-7490-e6613659708a</td>
+<td style="text-align: left;">Building</td>
+<td style="text-align: left;">91f24dc1-a766-4e42-9f22-67cb30042281</td>
+<td style="text-align: left;">03 derde verdieping</td>
+<td style="text-align: left;">IfcBuildingStorey</td>
+<td style="text-align: right;">nan</td>
+</tr>
+<tr>
+<td style="text-align: left;">c95dadc7-fc39-415b-bc49-1dea3691536c</td>
+<td style="text-align: left;">3.06</td>
+<td style="text-align: left;">slaapkamer 1</td>
+<td style="text-align: right;">nan</td>
+<td style="text-align: right;">nan</td>
+<td style="text-align: right;">nan</td>
+<td style="text-align: left;">9c82359a-67c3-49ce-9749-d081f3aa1901</td>
+<td style="text-align: left;">00 begane grond</td>
+<td style="text-align: left;">00dd6c87-6a6e-f482-7490-e6613659708a</td>
+<td style="text-align: left;">Building</td>
+<td style="text-align: left;">9c82359a-67c3-49ce-9749-d081f3aa1901</td>
+<td style="text-align: left;">00 begane grond</td>
+<td style="text-align: left;">IfcBuildingStorey</td>
+<td style="text-align: right;">nan</td>
+</tr>
+<tr>
+<td style="text-align: left;">ce99ad82-39ba-4a10-914f-136da87bee84</td>
+<td style="text-align: left;">6.07</td>
+<td style="text-align: left;">badkamer</td>
+<td style="text-align: right;">nan</td>
+<td style="text-align: right;">nan</td>
+<td style="text-align: right;">nan</td>
+<td style="text-align: left;">3813aa95-a06c-4028-b7e4-b21f2cba5b8a</td>
+<td style="text-align: left;">01 eerste verdieping</td>
+<td style="text-align: left;">00dd6c87-6a6e-f482-7490-e6613659708a</td>
+<td style="text-align: left;">Building</td>
+<td style="text-align: left;">3813aa95-a06c-4028-b7e4-b21f2cba5b8a</td>
+<td style="text-align: left;">01 eerste verdieping</td>
+<td style="text-align: left;">IfcBuildingStorey</td>
+<td style="text-align: right;">nan</td>
+</tr>
+<tr>
+<td style="text-align: left;">cf0cc63a-367b-4555-b7e5-83d432d4f987</td>
+<td style="text-align: left;">4.06</td>
+<td style="text-align: left;">slaapkamer 2</td>
+<td style="text-align: right;">nan</td>
+<td style="text-align: right;">nan</td>
+<td style="text-align: right;">nan</td>
+<td style="text-align: left;">3813aa95-a06c-4028-b7e4-b21f2cba5b8a</td>
+<td style="text-align: left;">01 eerste verdieping</td>
+<td style="text-align: left;">00dd6c87-6a6e-f482-7490-e6613659708a</td>
+<td style="text-align: left;">Building</td>
+<td style="text-align: left;">3813aa95-a06c-4028-b7e4-b21f2cba5b8a</td>
+<td style="text-align: left;">01 eerste verdieping</td>
+<td style="text-align: left;">IfcBuildingStorey</td>
+<td style="text-align: right;">nan</td>
+</tr>
+<tr>
+<td style="text-align: left;">d4141660-7677-49d8-9cc1-d96d80b0618a</td>
+<td style="text-align: left;">1.00</td>
+<td style="text-align: left;">entree</td>
+<td style="text-align: right;">nan</td>
+<td style="text-align: right;">nan</td>
+<td style="text-align: right;">nan</td>
+<td style="text-align: left;">9c82359a-67c3-49ce-9749-d081f3aa1901</td>
+<td style="text-align: left;">00 begane grond</td>
+<td style="text-align: left;">00dd6c87-6a6e-f482-7490-e6613659708a</td>
+<td style="text-align: left;">Building</td>
+<td style="text-align: left;">9c82359a-67c3-49ce-9749-d081f3aa1901</td>
+<td style="text-align: left;">00 begane grond</td>
+<td style="text-align: left;">IfcBuildingStorey</td>
+<td style="text-align: right;">nan</td>
+</tr>
+<tr>
+<td style="text-align: left;">d4a13317-f4fe-4299-9b78-f3409494607d</td>
+<td style="text-align: left;">7.08</td>
+<td style="text-align: left;">instal. ruimte</td>
+<td style="text-align: right;">nan</td>
+<td style="text-align: right;">nan</td>
+<td style="text-align: right;">nan</td>
+<td style="text-align: left;">3a674ee9-2548-40c5-936d-abd348c21e8d</td>
+<td style="text-align: left;">02 tweede verdieping</td>
+<td style="text-align: left;">00dd6c87-6a6e-f482-7490-e6613659708a</td>
+<td style="text-align: left;">Building</td>
+<td style="text-align: left;">3a674ee9-2548-40c5-936d-abd348c21e8d</td>
+<td style="text-align: left;">02 tweede verdieping</td>
+<td style="text-align: left;">IfcBuildingStorey</td>
+<td style="text-align: right;">nan</td>
+</tr>
+<tr>
+<td style="text-align: left;">da526ff3-fd78-4ee5-b5d0-0f39ef2ad002</td>
+<td style="text-align: left;">8.04</td>
+<td style="text-align: left;">keuken</td>
+<td style="text-align: right;">nan</td>
+<td style="text-align: right;">nan</td>
+<td style="text-align: right;">nan</td>
+<td style="text-align: left;">3a674ee9-2548-40c5-936d-abd348c21e8d</td>
+<td style="text-align: left;">02 tweede verdieping</td>
+<td style="text-align: left;">00dd6c87-6a6e-f482-7490-e6613659708a</td>
+<td style="text-align: left;">Building</td>
+<td style="text-align: left;">3a674ee9-2548-40c5-936d-abd348c21e8d</td>
+<td style="text-align: left;">02 tweede verdieping</td>
+<td style="text-align: left;">IfcBuildingStorey</td>
+<td style="text-align: right;">nan</td>
+</tr>
+<tr>
+<td style="text-align: left;">db806df3-e245-4a16-9858-358843d58be5</td>
+<td style="text-align: left;">1.03</td>
+<td style="text-align: left;">woonkamer</td>
+<td style="text-align: right;">nan</td>
+<td style="text-align: right;">nan</td>
+<td style="text-align: right;">nan</td>
+<td style="text-align: left;">9c82359a-67c3-49ce-9749-d081f3aa1901</td>
+<td style="text-align: left;">00 begane grond</td>
+<td style="text-align: left;">00dd6c87-6a6e-f482-7490-e6613659708a</td>
+<td style="text-align: left;">Building</td>
+<td style="text-align: left;">9c82359a-67c3-49ce-9749-d081f3aa1901</td>
+<td style="text-align: left;">00 begane grond</td>
+<td style="text-align: left;">IfcBuildingStorey</td>
+<td style="text-align: right;">nan</td>
+</tr>
+<tr>
+<td style="text-align: left;">dc65dfce-2c8d-4090-bedf-2f67f147815e</td>
+<td style="text-align: left;">6.05</td>
+<td style="text-align: left;">slaapkamer 1</td>
+<td style="text-align: right;">nan</td>
+<td style="text-align: right;">nan</td>
+<td style="text-align: right;">nan</td>
+<td style="text-align: left;">3813aa95-a06c-4028-b7e4-b21f2cba5b8a</td>
+<td style="text-align: left;">01 eerste verdieping</td>
+<td style="text-align: left;">00dd6c87-6a6e-f482-7490-e6613659708a</td>
+<td style="text-align: left;">Building</td>
+<td style="text-align: left;">3813aa95-a06c-4028-b7e4-b21f2cba5b8a</td>
+<td style="text-align: left;">01 eerste verdieping</td>
+<td style="text-align: left;">IfcBuildingStorey</td>
+<td style="text-align: right;">nan</td>
+</tr>
+<tr>
+<td style="text-align: left;">e35ae068-0478-4e71-9ff9-6d8a19b0323e</td>
+<td style="text-align: left;">A0.02</td>
+<td style="text-align: left;">berging</td>
+<td style="text-align: right;">nan</td>
+<td style="text-align: right;">nan</td>
+<td style="text-align: right;">nan</td>
+<td style="text-align: left;">9c82359a-67c3-49ce-9749-d081f3aa1901</td>
+<td style="text-align: left;">00 begane grond</td>
+<td style="text-align: left;">00dd6c87-6a6e-f482-7490-e6613659708a</td>
+<td style="text-align: left;">Building</td>
+<td style="text-align: left;">9c82359a-67c3-49ce-9749-d081f3aa1901</td>
+<td style="text-align: left;">00 begane grond</td>
+<td style="text-align: left;">IfcBuildingStorey</td>
+<td style="text-align: right;">nan</td>
 </tr>
 <tr>
 <td style="text-align: left;">e626aa4b-c738-4ade-a2c1-c91aa2daa4b6</td>
@@ -3248,6 +3508,154 @@ There is apparently an <a href="#issue-for-the-display-of-spaces-for-ifc-schepen
 <td style="text-align: left;">03 derde verdieping</td>
 <td style="text-align: left;">00dd6c87-6a6e-f482-7490-e6613659708a</td>
 <td style="text-align: left;">Building</td>
+<td style="text-align: left;">91f24dc1-a766-4e42-9f22-67cb30042281</td>
+<td style="text-align: left;">03 derde verdieping</td>
+<td style="text-align: left;">IfcBuildingStorey</td>
+<td style="text-align: right;">nan</td>
+</tr>
+<tr>
+<td style="text-align: left;">e87e6759-644f-4567-992e-382877efb4f3</td>
+<td style="text-align: left;">4.07</td>
+<td style="text-align: left;">badkamer</td>
+<td style="text-align: right;">nan</td>
+<td style="text-align: right;">nan</td>
+<td style="text-align: right;">nan</td>
+<td style="text-align: left;">3813aa95-a06c-4028-b7e4-b21f2cba5b8a</td>
+<td style="text-align: left;">01 eerste verdieping</td>
+<td style="text-align: left;">00dd6c87-6a6e-f482-7490-e6613659708a</td>
+<td style="text-align: left;">Building</td>
+<td style="text-align: left;">3813aa95-a06c-4028-b7e4-b21f2cba5b8a</td>
+<td style="text-align: left;">01 eerste verdieping</td>
+<td style="text-align: left;">IfcBuildingStorey</td>
+<td style="text-align: right;">nan</td>
+</tr>
+<tr>
+<td style="text-align: left;">eac234ed-6973-491b-a164-18ea3ff4292b</td>
+<td style="text-align: left;">7.06</td>
+<td style="text-align: left;">slaapkamer 2</td>
+<td style="text-align: right;">nan</td>
+<td style="text-align: right;">nan</td>
+<td style="text-align: right;">nan</td>
+<td style="text-align: left;">3a674ee9-2548-40c5-936d-abd348c21e8d</td>
+<td style="text-align: left;">02 tweede verdieping</td>
+<td style="text-align: left;">00dd6c87-6a6e-f482-7490-e6613659708a</td>
+<td style="text-align: left;">Building</td>
+<td style="text-align: left;">3a674ee9-2548-40c5-936d-abd348c21e8d</td>
+<td style="text-align: left;">02 tweede verdieping</td>
+<td style="text-align: left;">IfcBuildingStorey</td>
+<td style="text-align: right;">nan</td>
+</tr>
+<tr>
+<td style="text-align: left;">ec404de5-8532-4005-bba3-018f31512955</td>
+<td style="text-align: left;">9.04</td>
+<td style="text-align: left;">keuken</td>
+<td style="text-align: right;">nan</td>
+<td style="text-align: right;">nan</td>
+<td style="text-align: right;">nan</td>
+<td style="text-align: left;">91f24dc1-a766-4e42-9f22-67cb30042281</td>
+<td style="text-align: left;">03 derde verdieping</td>
+<td style="text-align: left;">00dd6c87-6a6e-f482-7490-e6613659708a</td>
+<td style="text-align: left;">Building</td>
+<td style="text-align: left;">91f24dc1-a766-4e42-9f22-67cb30042281</td>
+<td style="text-align: left;">03 derde verdieping</td>
+<td style="text-align: left;">IfcBuildingStorey</td>
+<td style="text-align: right;">nan</td>
+</tr>
+<tr>
+<td style="text-align: left;">f0028917-8d2b-4483-8d15-286079cfe653</td>
+<td style="text-align: left;">1.05</td>
+<td style="text-align: left;">slaapkamer</td>
+<td style="text-align: right;">nan</td>
+<td style="text-align: right;">nan</td>
+<td style="text-align: right;">nan</td>
+<td style="text-align: left;">9c82359a-67c3-49ce-9749-d081f3aa1901</td>
+<td style="text-align: left;">00 begane grond</td>
+<td style="text-align: left;">00dd6c87-6a6e-f482-7490-e6613659708a</td>
+<td style="text-align: left;">Building</td>
+<td style="text-align: left;">9c82359a-67c3-49ce-9749-d081f3aa1901</td>
+<td style="text-align: left;">00 begane grond</td>
+<td style="text-align: left;">IfcBuildingStorey</td>
+<td style="text-align: right;">nan</td>
+</tr>
+<tr>
+<td style="text-align: left;">f20e64e4-6691-4145-9449-31e4f1a6c020</td>
+<td style="text-align: left;">3.05</td>
+<td style="text-align: left;">gang</td>
+<td style="text-align: right;">nan</td>
+<td style="text-align: right;">nan</td>
+<td style="text-align: right;">nan</td>
+<td style="text-align: left;">9c82359a-67c3-49ce-9749-d081f3aa1901</td>
+<td style="text-align: left;">00 begane grond</td>
+<td style="text-align: left;">00dd6c87-6a6e-f482-7490-e6613659708a</td>
+<td style="text-align: left;">Building</td>
+<td style="text-align: left;">9c82359a-67c3-49ce-9749-d081f3aa1901</td>
+<td style="text-align: left;">00 begane grond</td>
+<td style="text-align: left;">IfcBuildingStorey</td>
+<td style="text-align: right;">nan</td>
+</tr>
+<tr>
+<td style="text-align: left;">f99fd6d6-2a05-4618-b1a8-e85ff6b58b7f</td>
+<td style="text-align: left;">2.03</td>
+<td style="text-align: left;">woonkamer</td>
+<td style="text-align: right;">nan</td>
+<td style="text-align: right;">nan</td>
+<td style="text-align: right;">nan</td>
+<td style="text-align: left;">9c82359a-67c3-49ce-9749-d081f3aa1901</td>
+<td style="text-align: left;">00 begane grond</td>
+<td style="text-align: left;">00dd6c87-6a6e-f482-7490-e6613659708a</td>
+<td style="text-align: left;">Building</td>
+<td style="text-align: left;">9c82359a-67c3-49ce-9749-d081f3aa1901</td>
+<td style="text-align: left;">00 begane grond</td>
+<td style="text-align: left;">IfcBuildingStorey</td>
+<td style="text-align: right;">nan</td>
+</tr>
+<tr>
+<td style="text-align: left;">fea074b1-aa73-4bb5-845f-cccdbe74394c</td>
+<td style="text-align: left;">6.04</td>
+<td style="text-align: left;">keuken</td>
+<td style="text-align: right;">nan</td>
+<td style="text-align: right;">nan</td>
+<td style="text-align: right;">nan</td>
+<td style="text-align: left;">3813aa95-a06c-4028-b7e4-b21f2cba5b8a</td>
+<td style="text-align: left;">01 eerste verdieping</td>
+<td style="text-align: left;">00dd6c87-6a6e-f482-7490-e6613659708a</td>
+<td style="text-align: left;">Building</td>
+<td style="text-align: left;">3813aa95-a06c-4028-b7e4-b21f2cba5b8a</td>
+<td style="text-align: left;">01 eerste verdieping</td>
+<td style="text-align: left;">IfcBuildingStorey</td>
+<td style="text-align: right;">nan</td>
+</tr>
+<tr>
+<td style="text-align: left;">fea59720-007f-4797-8a51-be60dcd9ea8f</td>
+<td style="text-align: left;">9.05</td>
+<td style="text-align: left;">slaapkamer 1</td>
+<td style="text-align: right;">nan</td>
+<td style="text-align: right;">nan</td>
+<td style="text-align: right;">nan</td>
+<td style="text-align: left;">91f24dc1-a766-4e42-9f22-67cb30042281</td>
+<td style="text-align: left;">03 derde verdieping</td>
+<td style="text-align: left;">00dd6c87-6a6e-f482-7490-e6613659708a</td>
+<td style="text-align: left;">Building</td>
+<td style="text-align: left;">91f24dc1-a766-4e42-9f22-67cb30042281</td>
+<td style="text-align: left;">03 derde verdieping</td>
+<td style="text-align: left;">IfcBuildingStorey</td>
+<td style="text-align: right;">nan</td>
+</tr>
+<tr>
+<td style="text-align: left;">ffe7b54f-3cc7-4cb6-b4b5-2914fa1cbed8</td>
+<td style="text-align: left;">7.04</td>
+<td style="text-align: left;">keuken</td>
+<td style="text-align: right;">nan</td>
+<td style="text-align: right;">nan</td>
+<td style="text-align: right;">nan</td>
+<td style="text-align: left;">3a674ee9-2548-40c5-936d-abd348c21e8d</td>
+<td style="text-align: left;">02 tweede verdieping</td>
+<td style="text-align: left;">00dd6c87-6a6e-f482-7490-e6613659708a</td>
+<td style="text-align: left;">Building</td>
+<td style="text-align: left;">3a674ee9-2548-40c5-936d-abd348c21e8d</td>
+<td style="text-align: left;">02 tweede verdieping</td>
+<td style="text-align: left;">IfcBuildingStorey</td>
+<td style="text-align: right;">nan</td>
 </tr>
 </tbody>
 </table>

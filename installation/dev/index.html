@@ -1889,6 +1889,15 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#install-opentofu-and-localstack" class="md-nav__link">
+    <span class="md-ellipsis">
+      Install OpenTofu and LocalStack
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -2117,6 +2126,15 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#install-opentofu-and-localstack" class="md-nav__link">
+    <span class="md-ellipsis">
+      Install OpenTofu and LocalStack
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -2299,8 +2317,40 @@ conda activate envconda
 conda install python=3.11.0
 conda install -c conda-forge ifcopenshell
 conda install shapely --channel conda-forge</p>
-<p>python -m venv .venv311
-source .venv311/bin/activate</p>
+<p>======</p>
+<h2 id="install-opentofu-and-localstack">Install OpenTofu and LocalStack</h2>
+<p><a href="https://www.linkedin.com/pulse/deploy-aws-resources-locally-opentofu-localstack-ambati-bhargavi-fya3c/">https://www.linkedin.com/pulse/deploy-aws-resources-locally-opentofu-localstack-ambati-bhargavi-fya3c/</a></p>
+<p>Install OpenTofu</p>
+<ul>
+<li>brew install opentofu</li>
+</ul>
+<p>Create virtual environment and activate</p>
+<ul>
+<li>python -m venv .venvtofu</li>
+<li>source .venv311/bin/activate</li>
+</ul>
+<p>Install localstack &amp; awscli-local</p>
+<ul>
+<li>pip install localstack awscli-local</li>
+</ul>
+<p>Start LocalStack</p>
+<ul>
+<li>localstack start</li>
+<li>dashboard available on <a href="https://app.localstack.cloud/dashboard">https://app.localstack.cloud/dashboard</a></li>
+</ul>
+<p>Use tofu</p>
+<ul>
+<li>setup in tofu/main.tf</li>
+<li>tofu init</li>
+<li>tofu plan</li>
+<li>tofu apply</li>
+</ul>
+<p>Verify</p>
+<p>requires running 'aws configuration' with the values in awsenv.sh</p>
+<ul>
+<li>aws s3 ls --endpoint-url=https://localhost.localstack.cloud:4566</li>
+<li>aws ec2 describe-instances --endpoint-url=https://localhost.localstack.cloud:4566</li>
+</ul>
 
 
 
