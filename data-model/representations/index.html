@@ -2080,10 +2080,10 @@
 
 <h1 id="representations">Representations</h1>
 <h2 id="introduction">Introduction</h2>
-<p>An <strong>IfcProduct</strong> can have a representation. The <strong>IfcRepresentationItem</strong>  conveys the representation data and can take a variety of forms that each calls for specific technical handling. Indeed we have <strong>IfcBoundingBox</strong>, <strong>IfcExtrudedAreaSolid</strong>, <strong>IfcGeometricCurveSet</strong>, <strong>IfcFaceBasedSurfaceModel</strong>, <strong>IfcMappedItem</strong>, ... to name a few.
-Also <strong>Tessellation</strong> is available as of IFC4. This introduces a simple Mesh geometry where every shape is approximated by a set of non overlaping triangles.
-It will be convenient - or necessary - to reduce the variety of representations used in the IFC for the submission process. Alternatively, applying IfcOpenshell tessellation might help.
-It is worth noting that in IFC5, Mesh geometry will be at the core (base/default geometry)  </p>
+<p>An <strong>IfcProduct</strong> may have a representation. The <strong>IfcRepresentationItem</strong>  conveys the geometry data and can take a variety of forms that each calls for specific technical handling. Indeed we have <strong>IfcBoundingBox</strong>, <strong>IfcExtrudedAreaSolid</strong>, <strong>IfcGeometricCurveSet</strong>, <strong>IfcFaceBasedSurfaceModel</strong>, ... to name a few.</p>
+<p>Aqs of IFC4, <strong>Tessellation</strong> is also available. This introduces a simple <strong>Mesh geometry</strong> where every shape is approximated by a set of non overlaping triangles.</p>
+<p>For administrative processes, It will be convenient - or necessary - to reduce the variety of representations used in the IFC that is submitted. Alternatively, applying IfcOpenshell tessellation might help.</p>
+<p>It is worth noting that in IFC5, Mesh geometry will be at the core (base/default geometry)  </p>
 <p>An overview of the IFC geometry is provided in <a href="#books">Building Information Modeling</a>.</p>
 <pre class="mermaid"><code>flowchart TB
     IfcObject --o IfcProduct
@@ -2108,13 +2108,17 @@ It is worth noting that in IFC5, Mesh geometry will be at the core (base/default
         IfcGeometricRepresentationItem --o item["IfcBoundingBox,&lt;br/&gt;IfcExtrudedAreaSolid,&lt;br/&gt;IfcGeometricCurveSet,&lt;br/&gt;IfcFaceBasedSurfaceModel,&lt;br/&gt;IfcMappedItem,&lt;br/&gt;...&lt;br/&gt;,&lt;br/&gt;Tessellation&lt;br/&gt;"] 
     end </code></pre>
 <h2 id="representation-geometric-context">Representation Geometric Context</h2>
-<p>The <strong>IfcGeometricRepresentationContext</strong> defines the context that applies to several shape representations of products within a project. It defines the type of the context in which the shape representation is defined, and the numeric precision applicable to the geometric representation items defined in this context. In addition it can be used to offset the project coordinate system from a global point of origin, using the WorldCoordinateSystem attribute. The main representation context may also provide the true north direction.</p>
-<p>There is also an <strong>IfcGeometricRepresentationSubContext</strong> which is used to define semantically distinguished representation types for different information content, dependent on the representation view and the target scale. It can be used to control the level of detail of the shape representation that is most applicable to this geometric representation context. In addition the sub context is used to control the later appearance of the IfcShapeRepresentation within a plot view.</p>
+<p>The <strong>IfcGeometricRepresentationContext</strong> defines the context that applies to several shape representations of products within a project.</p>
+<p>It defines the type of the context in which the shape representation is defined, and the numeric precision applicable to the geometric representation items defined in this context.</p>
+<p>In addition it can be used to offset the project coordinate system from a global point of origin, using the WorldCoordinateSystem attribute. The main representation context may also provide the true north direction.</p>
+<p>There is also an <strong>IfcGeometricRepresentationSubContext</strong> which is used to define semantically distinguished representation types for different information content, dependent on the representation view and the target scale. </p>
+<p>It can be used to control the level of detail of the shape representation that is most applicable to this geometric representation context.</p>
+<p>In addition the sub context is used to control the later appearance of the IfcShapeRepresentation within a plot view.</p>
 <p>The <strong>IfcGeometricRepresentationSubContext</strong> has a <strong>TargetView</strong> attribute of type <strong>IfcGeometricProjectionEnum</strong> with the values:</p>
 <ul>
 <li>ELEVATION_VIEW</li>
 <li>GRAPH_VIEW</li>
-<li>MODEL_VIEW (should be provided)</li>
+<li><strong>MODEL_VIEW (should be provided)</strong></li>
 <li>PLAN_VIEW</li>
 <li>REFLECTED_PLAN_VIEW</li>
 <li>SECTION_VIEW</li>
@@ -2149,7 +2153,7 @@ It is worth noting that in IFC5, Mesh geometry will be at the core (base/default
 <p>There we have several possibilities to explore:</p>
 <ul>
 <li>Use IfcOpenShell Geometry in Python (Python wrapper above CGAL and OpenCascade); possibly also use the Voxelization capabilities</li>
-<li>le the geometry during the import &amp; transform</li>
+<li>Handle the geometry during the import &amp; transform</li>
 <li>Use PostGIS Geometry in the DB; PostGIS uses GEOS which can also be accessed via Shapely</li>
 <li>Use an external Tool when an Agent must perform adjustments</li>
 </ul>
