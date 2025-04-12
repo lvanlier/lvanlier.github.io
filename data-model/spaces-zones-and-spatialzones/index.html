@@ -2120,8 +2120,8 @@
 <p><a class="glightbox" href="../../assets/images/ifcrelspaceboundary_physical.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="IFC Space Boundary" src="../../assets/images/ifcrelspaceboundary_physical.png" /></a></p>
 <p>As documented in <a href="../references/#ifcrelspaceboundary">The official 4.3.2.0 documentation for "IFC 4.3".</a>, space boundaries are always defined as seen from the space. In general two basic types of space boundaries are distinguished:</p>
 <ul>
-<li>1st level space boundary: defined as boundaries of the space, not taking into account any change in building element or spaces on the other side.</li>
-<li>2nd level space boundary: defined as boundary taking any change in building element or spaces on the other side into account. It can be further distinguished into<ul>
+<li><strong>1st level space boundary</strong>: defined as boundaries of the space, not taking into account any change in building element or spaces on the other side.</li>
+<li><strong>2nd level space boundary</strong>: defined as boundary taking any change in building element or spaces on the other side into account. It can be further distinguished into<ul>
 <li><strong>2nd level type A</strong>: There is a space on the other side.</li>
 <li><strong>2nd level type B</strong>: There is a building element on the other side.</li>
 </ul>
@@ -2130,6 +2130,9 @@
 <p>The exact definition of how space boundaries are broken down depends on the view definition, more detailed conventions on how space boundaries are decomposed can only be given at the domain or application type level.</p>
 <p>In an <strong>architectural or FM</strong> related view, a space boundary is defined totally from inside the space. This is a <strong>1st level</strong> space boundary.</p>
 <p>In a <strong>thermal view</strong>, the decomposition of the space boundary depends on the material of the providing building element and the adjacent spaces behind. This is a <strong>2nd level space</strong> boundary.</p>
+<p>With the <strong>space boundary</strong> comes the <strong>connection geometry</strong> as illustrated by the figure below from the paper <a href="../references/#3d-cadastre-ladm-geometry">The Extension of IFC For Supporting 3D Cadastre LADM Geometry</a>.</p>
+<p><a class="glightbox" href="../../assets/images/ijgi-10-00297-g003-550.jpg" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="IFC Space Boundary Geometry" src="../../assets/images/ijgi-10-00297-g003-550.jpg" /></a></p>
+<p>What this figure illustrates is that although the entire wall is referenced by the space boundary (via the <strong>IfcRelSpaceBoundary</strong> relationship between the space and the wall), there is also a  <strong>connection geometry</strong> that clearly delineates the boundary of the space with respect to the wall. The precise geometry is necessary for a 3D cadastre, and the surface can be used for the thermal analysis together with the properties of the wall and coverings.</p>
 <h2 id="zones">Zones</h2>
 <p>As documented in <a href="../references/#ifczone">The official 4.3.2.0 documentation for "IFC 4.3".</a></p>
 <p>A zone is a <strong>group</strong> of <strong>spaces</strong>, <strong>partial spaces</strong> or other <strong>zones</strong>. These spaces may or may not be adjacent. A zone does not have its own shape representation.</p>

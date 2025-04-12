@@ -1977,6 +1977,7 @@
 
 <span class="k">class</span> <span class="nc">IfcSplitStoreys_Result</span><span class="p">(</span><span class="n">BaseModel</span><span class="p">):</span>
     <span class="n">resultPath</span><span class="p">:</span> <span class="nb">str</span> <span class="c1"># relative path of the zip file containing all storey files (ifc)</span>
+    <span class="n">runtime</span><span class="p">:</span> <span class="nb">float</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="mf">0.0</span> <span class="c1"># in seconds</span>
 </code></pre></div>
 <h2 id="extraction-of-storeys-with-ifcpatch">Extraction of Storeys with <a href="../references/#ifcpatch">IfcPatch</a></h2>
 <p>IfcPatch from IfcOpenShell lets split a Building into Storeys, creating one IFC file for each storey.</p>

@@ -1973,6 +1973,7 @@
 
 <span class="k">class</span> <span class="nc">IfcExtractElements_Result</span><span class="p">(</span><span class="n">BaseModel</span><span class="p">):</span>
     <span class="n">resultPath</span><span class="p">:</span> <span class="nb">str</span> <span class="c1"># relative path of the result file (ifc)</span>
+    <span class="n">runtime</span><span class="p">:</span> <span class="nb">float</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="mf">0.0</span> <span class="c1"># in seconds</span>
 </code></pre></div>
 <h2 id="extract-the-storeys-with-ifcpatch">Extract the Storeys with <a href="../references/#ifcpatch">IfcPatch</a></h2>
 <p>Extracting elements from the IFC model is both efficient and convenient when the number of elements that we we want to keep is resonably limited. It is also a an effective way to reduce the size of an IFC model that must be displayed on the screen.</p>

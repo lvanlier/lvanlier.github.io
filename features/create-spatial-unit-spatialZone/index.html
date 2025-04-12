@@ -2292,6 +2292,7 @@ This is configurable.</p>
 
 <span class="k">class</span> <span class="nc">CreateSpatialZonesInBundle_Result</span><span class="p">(</span><span class="n">BaseModel</span><span class="p">):</span>
     <span class="n">resultPath</span><span class="p">:</span> <span class="nb">str</span> <span class="c1"># relative path of the result file (json) with the spatial zones</span>
+    <span class="n">runtime</span><span class="p">:</span> <span class="nb">float</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="mf">0.0</span> <span class="c1"># in seconds</span>
 
 <span class="c1"># The Information for each spatial zone will be as listed hereunder </span>
 <span class="k">class</span> <span class="nc">SpatialZone</span><span class="p">(</span><span class="n">BaseModel</span><span class="p">):</span>

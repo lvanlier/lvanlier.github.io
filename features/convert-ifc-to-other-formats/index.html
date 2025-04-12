@@ -1528,6 +1528,15 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#conversion-to-gltf-of-duplex-a-apartment-extracted-as-a-spatialzone-from-duplex_a_20110907_optimized" class="md-nav__link">
+    <span class="md-ellipsis">
+      Conversion to glTF of Duplex-A (apartment) extracted as a SpatialZone from Duplex_A_20110907_optimized
+    </span>
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -2049,6 +2058,15 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#conversion-to-gltf-of-duplex-a-apartment-extracted-as-a-spatialzone-from-duplex_a_20110907_optimized" class="md-nav__link">
+    <span class="md-ellipsis">
+      Conversion to glTF of Duplex-A (apartment) extracted as a SpatialZone from Duplex_A_20110907_optimized
+    </span>
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -2128,6 +2146,7 @@
 
 <span class="k">class</span> <span class="nc">IfcConvert_Result</span><span class="p">(</span><span class="n">BaseModel</span><span class="p">):</span>
     <span class="n">resultPath</span><span class="p">:</span> <span class="nb">str</span> <span class="c1"># relative path of the result file (gltf, dae, or json)</span>
+    <span class="n">runtime</span><span class="p">:</span> <span class="nb">float</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="mf">0.0</span> <span class="c1"># in seconds</span>
 </code></pre></div>
 <h2 id="examples">Examples</h2>
 <h3 id="conversion-of-duplex_a_20110907_optimizedifc-to-collada">Conversion of Duplex_A_20110907_optimized.ifc to Collada</h3>
@@ -2136,6 +2155,10 @@
 <h3 id="conversion-of-duplex_a_20110907_optimizedifc-to-gltf">Conversion of Duplex_A_20110907_optimized.ifc to glTF</h3>
 <p>Same viewer</p>
 <p><a class="glightbox" href="../../assets/images/Duplex_A_20110907_optimized.glb.3dviewer.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Duplex_A_20110907_optimized.glb with Online 3D Viewer" src="../../assets/images/Duplex_A_20110907_optimized.glb.3dviewer.png" /></a></p>
+<h3 id="conversion-to-gltf-of-duplex-a-apartment-extracted-as-a-spatialzone-from-duplex_a_20110907_optimized">Conversion to glTF of Duplex-A (apartment) extracted as a SpatialZone from Duplex_A_20110907_optimized</h3>
+<p><a class="glightbox" href="../../assets/images/Duplex-A.glb.3dviewer.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Duplex-A.glb with Online 3D Viewer" src="../../assets/images/Duplex-A.glb.3dviewer.png" /></a></p>
+<p>Same but with some meshes hidden in Online 3D Viewer to see the inside of the apartment</p>
+<p><a class="glightbox" href="../../assets/images/Duplex-A-interior.glb.3dviewer.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Duplex-A.glb with some hidden meshes in Online 3D Viewer" src="../../assets/images/Duplex-A-interior.glb.3dviewer.png" /></a></p>
 <h2 id="conversion-to-cityjson">Conversion to CityJSON</h2>
 <p>This originates from the paper <a href="../../assets/pdfs/16_tgis_ifcitygml.pdf">Automatic conversion of IFC datasets to geometrically and semantically correct CityGML LOD3 buildings</a>  (../features/references.md#ifc-to-citygml).</p>
 <p>The code was originally published on <a href="https://github.com/tudelft3d/ifc2citygml">https://github.com/tudelft3d/ifc2citygml</a>, thenafter on <a href="https://github.com/tudelft3d/esri_geobim">https://github.com/tudelft3d/esri_geobim</a>, then enventually made available under the umbrella of IfcOpenShell on <a href="https://github.com/IfcOpenShell/ifc-to-cityjson">https://github.com/IfcOpenShell/ifc-to-cityjson</a>.</p>

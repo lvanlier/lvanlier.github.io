@@ -2170,10 +2170,11 @@
 
 <span class="k">class</span> <span class="nc">ExtractSpatialUnit_Result</span><span class="p">(</span><span class="n">BaseModel</span><span class="p">):</span>
     <span class="n">resultPath</span><span class="p">:</span> <span class="nb">str</span> <span class="c1"># relative path of the result file (json)</span>
-
+    <span class="n">runtime</span><span class="p">:</span> <span class="nb">float</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="mf">0.0</span> <span class="c1"># in seconds</span>
 <span class="c1"># When withIFC = True, the conversion to IFC is also included and its result also     </span>
 <span class="k">class</span> <span class="nc">ConvertIfcJsonToIfc_Result</span><span class="p">(</span><span class="n">BaseModel</span><span class="p">):</span>
     <span class="n">resultPath</span><span class="p">:</span> <span class="nb">str</span> <span class="c1"># relative path of the result file (ifc)</span>
+    <span class="n">runtime</span><span class="p">:</span> <span class="nb">float</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="mf">0.0</span> <span class="c1"># in seconds</span>
 </code></pre></div>
 <p>What needs to be included into <strong>includeRelationshipTypes</strong>  may be tuned to the source model data and the <strong>elementType</strong>, - here an IfcBuildingStorey</p>
 <h3 id="processing">Processing</h3>

@@ -2021,18 +2021,18 @@
 <p>Transformations such as translation, rotation and scaling can be represented by matrices and chained by matrix products.</p>
 <div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 
-<span class="c1"># translation</span>
+<span class="c1"># 3D translation (X,Y,Z)</span>
 <span class="n">t_x</span> <span class="o">=</span> <span class="mi">10</span>
 <span class="n">t_y</span> <span class="o">=</span> <span class="mi">0</span>
 <span class="n">t_z</span> <span class="o">=</span> <span class="mi">0</span>
 
-<span class="c1"># rotation </span>
+<span class="c1"># 2D rotation in (X,Y,-) around origin</span>
 <span class="n">angle_degrees</span> <span class="o">=</span> <span class="mi">90</span>
 <span class="n">angle_radians</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">radians</span><span class="p">(</span><span class="n">angle_degrees</span><span class="p">)</span>
 <span class="n">r_cos</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">angle_radians</span><span class="p">)</span>
 <span class="n">r_sin</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">angle_radians</span><span class="p">)</span>
 
-<span class="c1"># scaling  </span>
+<span class="c1"># 3D scaling in (Y,Y,Z) </span>
 <span class="n">s_x</span> <span class="o">=</span> <span class="mf">1.0</span>
 <span class="n">s_y</span> <span class="o">=</span> <span class="mf">1.0</span>
 <span class="n">s_z</span> <span class="o">=</span> <span class="mf">1.0</span>

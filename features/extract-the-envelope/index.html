@@ -2116,10 +2116,11 @@
 
 <span class="k">class</span> <span class="nc">ExtractEnvelope_Result</span><span class="p">(</span><span class="n">BaseModel</span><span class="p">):</span>
     <span class="n">resultPath</span><span class="p">:</span> <span class="nb">str</span> <span class="c1"># relative path of the result file (json) with the envelope</span>
-
+    <span class="n">runtime</span><span class="p">:</span> <span class="nb">float</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="mf">0.0</span> <span class="c1"># in seconds</span>
 <span class="c1"># When withIFC = True, the conversion to IFC is also included and its result also     </span>
 <span class="k">class</span> <span class="nc">ConvertIfcJsonToIfc_Result</span><span class="p">(</span><span class="n">BaseModel</span><span class="p">):</span>
     <span class="n">resultPath</span><span class="p">:</span> <span class="nb">str</span> <span class="c1"># relative path of the result file (ifc)</span>
+    <span class="n">runtime</span><span class="p">:</span> <span class="nb">float</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="mf">0.0</span> <span class="c1"># in seconds</span>
 </code></pre></div>
 <h2 id="examples">Examples</h2>
 <h3 id="extraction-of-the-envelope-of-duplex_a_20110907_optimized">Extraction of the envelope of Duplex_A_20110907_optimized</h3>

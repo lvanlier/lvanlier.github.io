@@ -2004,10 +2004,12 @@
     <span class="n">bundleId</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="s2">&quot;1&quot;</span>  
     <span class="n">ifNotPopulated</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">True</span> <span class="c1"># When True, the processing  will be skipped if the bundleUnitProperties is already populated</span>
     <span class="n">withCSVExport</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">True</span>
+
 <span class="k">class</span> <span class="nc">PopulateBundleUnitProperties_Result</span><span class="p">(</span><span class="n">BaseModel</span><span class="p">):</span>
     <span class="n">skipped</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">False</span> <span class="c1"># True if the bundleUnitProperties was already populated and ifNotPopulated was set to True</span>
     <span class="n">nbrEntries</span><span class="p">:</span> <span class="nb">int</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="mi">0</span> <span class="c1"># Number of entries created in the bundleUnitProperties</span>
     <span class="n">resultPath</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span> <span class="c1"># relative path of the result file (csv)</span>
+    <span class="n">runtime</span><span class="p">:</span> <span class="nb">float</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="mf">0.0</span> <span class="c1"># in seconds</span>
 </code></pre></div>
 <h3 id="result">Result</h3>
 <p>The following screen capture shows two subsequent executions of the request: at first there are no data for the bundleId = 60, thereafter the processing is skipped</p>

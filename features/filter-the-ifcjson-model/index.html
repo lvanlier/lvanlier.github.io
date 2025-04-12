@@ -1977,6 +1977,7 @@
 
 <span class="k">class</span> <span class="nc">FilterIfcJson_Result</span><span class="p">(</span><span class="n">BaseModel</span><span class="p">):</span>
     <span class="n">resultPath</span><span class="p">:</span> <span class="nb">str</span> <span class="c1"># relative path of the result file (json)    </span>
+    <span class="n">runtime</span><span class="p">:</span> <span class="nb">float</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="mf">0.0</span> <span class="c1"># in seconds</span>
 </code></pre></div>
 <h2 id="filter-the-ifcjson">Filter the IfcJSON</h2>
 <p>Filtering the content of an IFC helps to provide a focused information set that is relevant for a specific administrative use case.</p>

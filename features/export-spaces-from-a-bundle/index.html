@@ -2015,6 +2015,7 @@ There is apparently an <a href="#issue-for-the-display-of-spaces-for-ifc-schepen
 
 <span class="k">class</span> <span class="nc">ExportSpacesFromBundle_Result</span><span class="p">(</span><span class="n">BaseModel</span><span class="p">):</span>
     <span class="n">resultPath</span><span class="p">:</span> <span class="nb">str</span> <span class="c1"># relative path of the result file (cvs, or json)</span>
+    <span class="n">runtime</span><span class="p">:</span> <span class="nb">float</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="mf">0.0</span> <span class="c1"># in seconds</span>
 </code></pre></div>
 <p>The request provides the id (integer) of the bundle and a selection of space-related data is made and provided in a csv or a json. We assume hereunder that the csv is the prefered way to work we the data.</p>
 <p>The spaces come from the <strong>bundleunit</strong> table and are made available in a csv <a href="#list-of-spaces-in-ifc-schependomlaan">List of Spaces in IFC Schependomlaan</a>. The csv contains placeholders to enter the information for the spatial zone (see <a href="../create-spatial-unit-spatialZone/">Create SpatialZones - Apartments or Common Parts</a> )</p>
