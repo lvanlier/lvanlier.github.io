@@ -80,6 +80,11 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
+        
+        <a href="#the-viewer" class="md-skip">
+          Skip to content
+        </a>
+      
     </div>
     <div data-md-component="announce">
       
@@ -1558,6 +1563,8 @@
       <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
       
       
+        
+      
       
       <a href="./" class="md-nav__link md-nav__link--active">
         
@@ -1924,6 +1931,8 @@
   
   
   
+    
+  
   
 </nav>
                   </div>
@@ -1938,9 +1947,25 @@
                   
 
 
-  <h1>Viewer</h1>
-
-
+<h1 id="the-viewer">The Viewer</h1>
+<p>This is a an illustation of the use of the <a href="../crud/">CRUD REST APIs</a> to access the data and in this specific case, get the IFC file of  a SpatialZone and display it with the <a href="https://github.com/ThatOpen">ThatOpen IFC Viewer</a>.</p>
+<p>The service is available at</p>
+<p><code>/pages/thatopen-viewer</code></p>
+<p><a class="glightbox" href="../../assets/images/viewer-01.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Viewer Page" src="../../assets/images/viewer-01.png" /></a></p>
+<p>The page has a basic layout.</p>
+<p>It lets:</p>
+<p>(1) Enter the id of a bundle (e.g. 128) and activate the <code>Get SpatialZones</code> button</p>
+<p>(2) This triggers the call of <code>/common/bundle/128/bundle-unit-list/?unit_type=IfcSpatialZone</code> which comes with the list of SpatialZones for the bundle.</p>
+<p><a class="glightbox" href="../../assets/images/viewer-02.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Viewer Page" src="../../assets/images/viewer-02.png" /></a></p>
+<p>The user can select the apartment <code>Duplex-A</code>and activate the <code>Get IFC</code> button.</p>
+<p><a class="glightbox" href="../../assets/images/viewer-03.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Viewer Page" src="../../assets/images/viewer-03.png" /></a></p>
+<p>(4) This triggers the call of  <code>common/bundle/128/unit/4e8cd602-9f7c-46f0-a68c-e17c876ff910</code> which comes back with the detail of the IfcSpatialZone for the apartment Duplex-A, with the path of the IFC file in the <code>unitjson</code> field. This is passed to the viewer so that the viewer can get and and display the IFC file</p>
+<p><a class="glightbox" href="../../assets/images/viewer-04.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Viewer Page" src="../../assets/images/viewer-04.png" /></a></p>
+<p>Then, the user can select an object (here a wall) and gets the details of the object in the right panel.</p>
+<p><a class="glightbox" href="../../assets/images/viewer-05.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Viewer Page" src="../../assets/images/viewer-05.png" /></a></p>
+<details class="note">
+<summary>This version of the Viewer can display the IFC file of the extract of the SpatialZone but does not handle the <strong>IfcRelReferencedInSpatialStructure</strong> relationship. This is also the case with the other viewers: the relation of the <strong>IfcSpaces</strong> and the <strong>IfcSpatialZone</strong> is not exposed. But that could be developed.</summary>
+</details>
 
 
 
