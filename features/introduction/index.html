@@ -1133,6 +1133,48 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#access" class="md-nav__link">
+    <span class="md-ellipsis">
+      Access
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Access">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#home-page" class="md-nav__link">
+    <span class="md-ellipsis">
+      Home page
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#swagger" class="md-nav__link">
+    <span class="md-ellipsis">
+      Swagger
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#proxy-websocket-client" class="md-nav__link">
+    <span class="md-ellipsis">
+      Proxy WebSocket Client
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#worflows" class="md-nav__link">
     <span class="md-ellipsis">
       Worflows
@@ -2319,6 +2361,48 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#access" class="md-nav__link">
+    <span class="md-ellipsis">
+      Access
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Access">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#home-page" class="md-nav__link">
+    <span class="md-ellipsis">
+      Home page
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#swagger" class="md-nav__link">
+    <span class="md-ellipsis">
+      Swagger
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#proxy-websocket-client" class="md-nav__link">
+    <span class="md-ellipsis">
+      Proxy WebSocket Client
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#worflows" class="md-nav__link">
     <span class="md-ellipsis">
       Worflows
@@ -2521,7 +2605,7 @@
 <p>Because d4SU is not yet a <em>production environment</em> for <em>specific identified administrative processes</em>, the presented features are actually <em>illustrations</em> of <strong>capabilities</strong> rather that a set of <strong>product features</strong>.</p>
 <p>Features specific to the platform rely on Python tools such as <strong>IfcOpenShell-python</strong>, pandas DataFrames and Series.</p>
 <p>However, other features rely explicitely on <strong>standard SQL</strong> and other constructs that are <strong>programming language agnostic</strong>. The code is in Python but could as well be in Typescript, Rust, Java, C#, ...</p>
-<p>Unless explicitly specified only IFC2X3, IFC4X* are supported. IFC5 is still under development.</p>
+<p>Unless explicitly specified only IFC2X3, IFC4X* are supported. IFC5 is still under development and addressed in <a href="../../ifc5/introduction/">IFC5</a>.</p>
 <h2 id="key-functional-features">Key Functional Features</h2>
 <p>As stated in the <a href="../../architecture/d4su-server/#overview">Architecture</a> there are 9 groups of features targeted by d4SU</p>
 <ul>
@@ -2547,7 +2631,7 @@
 <tbody>
 <tr>
 <td>/web</td>
-<td>API layer</td>
+<td>API layer exposed via Swagger</td>
 </tr>
 <tr>
 <td>/service</td>
@@ -2579,6 +2663,28 @@
 </tr>
 </tbody>
 </table>
+<h2 id="access">Access</h2>
+<h3 id="home-page">Home page</h3>
+<p>A simple page is provided at the root (/) with a base menu that gives  access to:</p>
+<ul>
+<li>the Swagger and Redoc for all APIs</li>
+<li>the Proxy WebSocket Client</li>
+<li>the That Open viewer</li>
+<li>the IFC5 viewer from IFC5-developement</li>
+</ul>
+<p><a class="glightbox" href="../../assets/images/home.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Home Page" src="../../assets/images/home.png" /></a></p>
+<h3 id="swagger">Swagger</h3>
+<p>A Swagger is provided at /docs with the documentation of API's and a 'Try it out' capability for all API's.</p>
+<p><a class="glightbox" href="../../assets/images/swagger.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Swagger" src="../../assets/images/swagger.png" /></a></p>
+<h3 id="proxy-websocket-client">Proxy WebSocket Client</h3>
+<p>API are either served synchronously, such as all CRUD API's or asynchronously, such as import, convert, extract,... API's.</p>
+<p>Fore those API's the request is done synchronously and the response is in two steps:</p>
+<ul>
+<li>a synchronous response with a status and proctoken that will serve for pairing the asynchronous response with the request</li>
+<li>an asynchronous response with the result of the request which will be provided via a WebSocket.</li>
+</ul>
+<p>The Proxy WebSocket Client pages allows to see all asynchronous responses.</p>
+<p><a class="glightbox" href="../../assets/images/populatebundleunitproperties.websocket.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Proxy WebSocket Client" src="../../assets/images/populatebundleunitproperties.websocket.png" /></a></p>
 <h2 id="worflows">Worflows</h2>
 <p>The following schema shows key expected workflows</p>
 <pre class="mermaid"><code>block-beta
