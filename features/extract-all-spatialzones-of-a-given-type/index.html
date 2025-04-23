@@ -2222,6 +2222,25 @@
 <h3 id="processing">Processing</h3>
 <p>The processing is done by using a <strong>Celery Workflow</strong> of type <strong>chord</strong></p>
 <p>This type of workflow makes it possible to execute all extractions in parallel and then journalize and notify the result when all parallel tasks have individually completed or failed.</p>
+<pre class="mermaid"><code>%%{init: {"flowchart": {"htmlLabels": true}} }%%
+flowchart
+    direction TB
+    start
+    subgraph fastapi ["header"]
+        direction TB
+        task-1
+        task-2
+        task-n
+    end
+    callback
+    start --&gt; task-1
+    start --&gt; task-2
+    start --&gt; task-n
+    task-1 --&gt; callback
+    task-2 --&gt; callback
+    task-n --&gt; callback
+</code></pre>
+<p>So, the total processing time is the runtime of the longest running task and not the sum of all runtimes.</p>
 
 
 
