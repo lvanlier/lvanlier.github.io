@@ -257,6 +257,8 @@
         <a href="../../introduction/needs-and-case-for-action/" class="md-tabs__link">
           
   
+    
+  
   Introduction
 
         </a>
@@ -274,6 +276,8 @@
       <li class="md-tabs__item">
         <a href="../../architecture/d4su-server/" class="md-tabs__link">
           
+  
+    
   
   Architecture
 
@@ -295,6 +299,8 @@
         <a href="../introduction/" class="md-tabs__link">
           
   
+    
+  
   Concepts & Data Model
 
         </a>
@@ -312,6 +318,8 @@
       <li class="md-tabs__item">
         <a href="../../features/introduction/" class="md-tabs__link">
           
+  
+    
   
   Features
 
@@ -331,6 +339,8 @@
         <a href="../../ifc5/introduction/" class="md-tabs__link">
           
   
+    
+  
   IFC5
 
         </a>
@@ -348,6 +358,8 @@
       <li class="md-tabs__item">
         <a href="../../installation/dev/" class="md-tabs__link">
           
+  
+    
   
   Installation
 
@@ -470,6 +482,14 @@
   
     
     
+      
+        
+      
+        
+      
+        
+      
+    
     
       
       
@@ -582,6 +602,12 @@
   
     
     
+      
+        
+      
+        
+      
+    
     
       
       
@@ -674,6 +700,36 @@
   
   
     
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
     
     
       
@@ -1028,6 +1084,48 @@
   
   
     
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
     
     
       
@@ -1428,6 +1526,16 @@
   
     
     
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
     
       
       
@@ -1561,6 +1669,18 @@
   
   
     
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
     
     
       
@@ -1745,6 +1865,16 @@
   
     
     
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
     
       
       
@@ -1877,6 +2007,14 @@
   
   
     
+    
+      
+        
+      
+        
+      
+        
+      
     
     
       
@@ -2059,56 +2197,67 @@
 
 
 <h1 id="more-on-classifications">More on Classifications</h1>
-<p>TO DO</p>
-<!--
+<p>According to the IFC documentation, an <a href="https://ifc43-docs.standards.buildingsmart.org/IFC/RELEASE/IFC4x3/HTML/lexical/IfcClassification.htm">IfcClassification</a> is used for the arrangement of objects into a class or category according to a common purpose or their possession of common characteristics. A classification in the sense of IfcClassification is taxonomy, or taxonomic scheme, arranged in a hierarchical structure. A category of objects relates to other categories in a generalization-specialization relationship. Therefore the classification items in an classification are organized in a tree structure.</p>
+<p>The IfcClassification identifies the <strong>classification system</strong> or source to which a classification reference refers to. Each classification reference may reference an instance of IfcClassification. A classification system declared may be either formally published, or it may be a locally defined method of classifying information.</p>
+<p>Examples of classifications are provided in <a href="https://github.com/Moult/IfcClassification">https://github.com/Moult/IfcClassification</a></p>
+<p>The link between the IfcBuildingElement (Wall, Slab, Column, Beam, Door, Window, Covering, ...) and a Classification is made via the <strong>IfcRelAssociatesClassification</strong> relationship where the relatedObjects are the concerned IfcBuildingElement and the relatingClassification is expanded on the relationship itself and not as a distinct elements with a GlobalId (GUID).</p>
+<p>Classifications play a central role in <strong>Life Cycle Assessment</strong>.</p>
+<p>A <strong>Google AI Overview</strong> for 'ifcclassification and life cycle assessment' gives the following summary</p>
+<div style="color:grey">
+IFC (Industry Foundation Classes) classification is used in Life Cycle Assessment (LCA) to facilitate the extraction and analysis of building material data from BIM models, enabling a more accurate and efficient assessment of a building's environmental impact. By classifying building elements within IFC files, LCA software can leverage these classifications to match materials with their respective environmental profiles, making it easier to calculate the embodied carbon and other environmental impacts of a building throughout its life cycle.
 
-## Introduction
+How IFC Classification Supports LCA:
+<br>
+1. Data Extraction and Organization:
+IFC files, which contain detailed building information, can be used to extract data about building components, including materials, quantities, and characteristics. 
+<br>
+1. Material Matching:
+IFC classifications, when linked to environmental databases, allow LCA tools to automatically match building elements with their corresponding environmental data (e.g., embodied carbon, water consumption, energy use). 
+<br>
+1. Automated Calculations:
+The integration of IFC data and environmental databases enables automated calculations of environmental impacts, saving time and effort compared to manual calculations. 
+<br>
+1. Improved Accuracy:
+Using detailed, classified data from IFC models can lead to more accurate LCA results, as it allows for a more precise assessment of material quantities and characteristics. 
+<br>
+1. Early Design Stage Integration:
+IFC-based LCA allows for the early integration of sustainability considerations into the design process, enabling designers to make informed decisions about material selection and design choices.
 
-To be expanded !!
+</div>
 
-Role of classifications in BAMB, LCA, ...
-
-Example from ARK_NordicLCA_Housing_Concrete_BuildingPermit_Revit.ifc
-{
-      "type": "IfcRelAssociatesClassification",
-      "globalId": "d4175431-f8e4-b3c3-b5cb-471634e42713",
-      "ownerHistory": {
-        "type": "IfcOwnerHistory",
-        "ref": "3de63ee2-9c7c-491c-b0c4-8f22c8df5579"
-      },
-      "name": "Uniformat:1242",
-      "relatedObjects": [
-        {
-          "type": "IfcWindow",
-          "ref": "4d6d93dc-1013-4546-96f4-5c198f8a4592"
-        },
-        {
-          "type": "IfcWindow",
-          "ref": "4d6d93dc-1013-4546-96f4-5c198f8a4593"
-        }
-      ],
-      "relatingClassification": {
-        "type": "IfcClassificationReference",
-        "location": "https://www.csiresources.org/standards/uniformat",
-        "identification": "1242",
-        "name": "Uniformat",
-        "referencedSource": {
-          "type": "IfcClassification",
-          "source": "https://www.csiresources.org/standards/uniformat",
-          "edition": "1998",
-          "name": "Uniformat"
-        }
-      }
-    },
-
-
-Verifify all info here
-
-We don't create entities/tables for Classifications. Classifications are handled in a specific way in Ifc.
-
-The link between the IfcBuildingElement (Wall, Slab, Column, Beam, Door, Window, Covering, ...) and a Classification is made via the **IfcRelAssociatesClassification** relationship where the relatedObjects are the concerned IfcBuildingElement and the relatingClassification is refexpanded on the relationship itself and not as a distinct elements with a GlobalId (GUID).
-
--->
+<p>Hereunder an example from ARK_NordicLCA_Housing_Concrete_BuildingPermit_Revit.ifc where the ifc has been converted to ifcJSON.</p>
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+<span class="w">      </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;IfcRelAssociatesClassification&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;globalId&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;d4175431-f8e4-b3c3-b5cb-471634e42713&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;ownerHistory&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;IfcOwnerHistory&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;ref&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;3de63ee2-9c7c-491c-b0c4-8f22c8df5579&quot;</span>
+<span class="w">      </span><span class="p">},</span>
+<span class="w">      </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Uniformat:1242&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;relatedObjects&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">          </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;IfcWindow&quot;</span><span class="p">,</span>
+<span class="w">          </span><span class="nt">&quot;ref&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;4d6d93dc-1013-4546-96f4-5c198f8a4592&quot;</span>
+<span class="w">        </span><span class="p">},</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">          </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;IfcWindow&quot;</span><span class="p">,</span>
+<span class="w">          </span><span class="nt">&quot;ref&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;4d6d93dc-1013-4546-96f4-5c198f8a4593&quot;</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">      </span><span class="p">],</span>
+<span class="w">      </span><span class="nt">&quot;relatingClassification&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;IfcClassificationReference&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;location&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;https://www.csiresources.org/standards/uniformat&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;identification&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;1242&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Uniformat&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;referencedSource&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">          </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;IfcClassification&quot;</span><span class="p">,</span>
+<span class="w">          </span><span class="nt">&quot;source&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;https://www.csiresources.org/standards/uniformat&quot;</span><span class="p">,</span>
+<span class="w">          </span><span class="nt">&quot;edition&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;1998&quot;</span><span class="p">,</span>
+<span class="w">          </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Uniformat&quot;</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">      </span><span class="p">}</span>
+<span class="w">    </span><span class="p">},</span>
+</code></pre></div>
 
 
 
@@ -2126,12 +2275,60 @@ The link between the IfcBuildingElement (Wall, Slab, Column, Beam, Door, Window,
             </div>
           
           
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var labels=set.querySelector(".tabbed-labels");for(var tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
 <script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
         </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
         
       </main>
       
         <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+        
+          
+          <a href="../materials/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Materials">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                Materials
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../representations/" class="md-footer__link md-footer__link--next" aria-label="Next: Representations">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              <div class="md-ellipsis">
+                Representations
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
   
   <div class="md-footer-meta md-typeset">
     <div class="md-footer-meta__inner md-grid">
@@ -2154,8 +2351,10 @@ The link between the IfcBuildingElement (Wall, Slab, Column, Beam, Door, Window,
       <div class="md-dialog__inner md-typeset"></div>
     </div>
     
+      <div class="md-progress" data-md-component="progress" role="progressbar"></div>
     
-    <script id="__config" type="application/json">{"base": "../..", "features": ["search.suggest", "search.highlight", "search.share", "content.code.copy", "navigation.tabs", "navigation.tabs.sticky", "navigation.path", "navigation.sections", "navigation.expand", "navigation.expandable", "navigation.tracking"], "search": "../../assets/javascripts/workers/search.6ce7567c.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": ["search.suggest", "search.highlight", "search.share", "content.code.copy", "navigation.tabs", "navigation.tabs.sticky", "navigation.path", "navigation.sections", "navigation.expand", "navigation.expandable", "navigation.tracking", "content.code.annotate", "content.footnote.tooltips", "content.tabs.link", "content.tooltips", "navigation.footer", "navigation.indexes", "navigation.instant", "navigation.instant.prefetch", "navigation.instant.progress", "navigation.top", "navigation.tracking", "search.highlight", "search.share", "search.suggest", "toc.follow"], "search": "../../assets/javascripts/workers/search.6ce7567c.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
     
     
       <script src="../../assets/javascripts/bundle.88dd0f4e.min.js"></script>
