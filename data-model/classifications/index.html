@@ -887,6 +887,17 @@
         
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Classifications
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="./" class="md-nav__link md-nav__link--active">
         
   
@@ -896,6 +907,61 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#definition" class="md-nav__link">
+    <span class="md-ellipsis">
+      Definition
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#examples" class="md-nav__link">
+    <span class="md-ellipsis">
+      Examples
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#link-between-and-element-and-a-classificaton" class="md-nav__link">
+    <span class="md-ellipsis">
+      Link between and Element and a Classificaton
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#classifications-and-life-cycle-assessment-lca" class="md-nav__link">
+    <span class="md-ellipsis">
+      Classifications and Life Cycle Assessment (LCA)
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -2180,6 +2246,50 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#definition" class="md-nav__link">
+    <span class="md-ellipsis">
+      Definition
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#examples" class="md-nav__link">
+    <span class="md-ellipsis">
+      Examples
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#link-between-and-element-and-a-classificaton" class="md-nav__link">
+    <span class="md-ellipsis">
+      Link between and Element and a Classificaton
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#classifications-and-life-cycle-assessment-lca" class="md-nav__link">
+    <span class="md-ellipsis">
+      Classifications and Life Cycle Assessment (LCA)
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -2197,35 +2307,14 @@
 
 
 <h1 id="more-on-classifications">More on Classifications</h1>
+<h2 id="definition">Definition</h2>
 <p>According to the IFC documentation, an <a href="https://ifc43-docs.standards.buildingsmart.org/IFC/RELEASE/IFC4x3/HTML/lexical/IfcClassification.htm">IfcClassification</a> is used for the arrangement of objects into a class or category according to a common purpose or their possession of common characteristics. A classification in the sense of IfcClassification is taxonomy, or taxonomic scheme, arranged in a hierarchical structure. A category of objects relates to other categories in a generalization-specialization relationship. Therefore the classification items in an classification are organized in a tree structure.</p>
-<p>The IfcClassification identifies the <strong>classification system</strong> or source to which a classification reference refers to. Each classification reference may reference an instance of IfcClassification. A classification system declared may be either formally published, or it may be a locally defined method of classifying information.</p>
+<p>The IfcClassification identifies the <strong>classification system</strong> or <strong>source to which a classification reference refers to</strong>. Each classification reference may reference an instance of IfcClassification. A classification system declared may be either <strong>formally published</strong>, or it may be a locally defined method of classifying information.</p>
+<h2 id="examples">Examples</h2>
 <p>Examples of classifications are provided in <a href="https://github.com/Moult/IfcClassification">https://github.com/Moult/IfcClassification</a></p>
-<p>The link between the IfcBuildingElement (Wall, Slab, Column, Beam, Door, Window, Covering, ...) and a Classification is made via the <strong>IfcRelAssociatesClassification</strong> relationship where the relatedObjects are the concerned IfcBuildingElement and the relatingClassification is expanded on the relationship itself and not as a distinct elements with a GlobalId (GUID).</p>
-<p>Classifications play a central role in <strong>Life Cycle Assessment</strong>.</p>
-<p>A <strong>Google AI Overview</strong> for 'ifcclassification and life cycle assessment' gives the following summary</p>
-<div style="color:grey">
-IFC (Industry Foundation Classes) classification is used in Life Cycle Assessment (LCA) to facilitate the extraction and analysis of building material data from BIM models, enabling a more accurate and efficient assessment of a building's environmental impact. By classifying building elements within IFC files, LCA software can leverage these classifications to match materials with their respective environmental profiles, making it easier to calculate the embodied carbon and other environmental impacts of a building throughout its life cycle.
-
-How IFC Classification Supports LCA:
-<br>
-1. Data Extraction and Organization:
-IFC files, which contain detailed building information, can be used to extract data about building components, including materials, quantities, and characteristics. 
-<br>
-1. Material Matching:
-IFC classifications, when linked to environmental databases, allow LCA tools to automatically match building elements with their corresponding environmental data (e.g., embodied carbon, water consumption, energy use). 
-<br>
-1. Automated Calculations:
-The integration of IFC data and environmental databases enables automated calculations of environmental impacts, saving time and effort compared to manual calculations. 
-<br>
-1. Improved Accuracy:
-Using detailed, classified data from IFC models can lead to more accurate LCA results, as it allows for a more precise assessment of material quantities and characteristics. 
-<br>
-1. Early Design Stage Integration:
-IFC-based LCA allows for the early integration of sustainability considerations into the design process, enabling designers to make informed decisions about material selection and design choices.
-
-</div>
-
-<p>Hereunder an example from ARK_NordicLCA_Housing_Concrete_BuildingPermit_Revit.ifc where the ifc has been converted to ifcJSON.</p>
+<h2 id="link-between-and-element-and-a-classificaton">Link between and Element and a Classificaton</h2>
+<p>The link between the IfcBuildingElement (Wall, Slab, Column, Beam, Door, Window, Covering, ...) and a Classification is made via the <strong>IfcRelAssociatesClassification</strong> relationship where the relatedObjects are the concerned IfcBuildingElements and the relatingClassification is expanded on the relationship itself and not as a distinct element with a GlobalId (GUID).</p>
+<p>Hereunder an example from ARK_NordicLCA_Housing_Concrete_BuildingPermit_Revit.ifc where the ifc has been converted to ifcJSON for clarity.</p>
 <div class="highlight"><pre><span></span><code><span class="p">{</span>
 <span class="w">      </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;IfcRelAssociatesClassification&quot;</span><span class="p">,</span>
 <span class="w">      </span><span class="nt">&quot;globalId&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;d4175431-f8e4-b3c3-b5cb-471634e42713&quot;</span><span class="p">,</span>
@@ -2258,6 +2347,30 @@ IFC-based LCA allows for the early integration of sustainability considerations 
 <span class="w">      </span><span class="p">}</span>
 <span class="w">    </span><span class="p">},</span>
 </code></pre></div>
+<h2 id="classifications-and-life-cycle-assessment-lca">Classifications and Life Cycle Assessment (LCA)</h2>
+<p>Classifications play a central role in <strong>Life Cycle Assessment</strong>.</p>
+<p>A <strong>Google AI Overview</strong> for 'ifcclassification and life cycle assessment' gives the following summary</p>
+<div style="color:grey">
+IFC (Industry Foundation Classes) classification is used in Life Cycle Assessment (LCA) to facilitate the extraction and analysis of building material data from BIM models, enabling a more accurate and efficient assessment of a building's environmental impact. By classifying building elements within IFC files, LCA software can leverage these classifications to match materials with their respective environmental profiles, making it easier to calculate the embodied carbon and other environmental impacts of a building throughout its life cycle.
+
+How IFC Classification Supports LCA:
+<br>
+1. Data Extraction and Organization:
+IFC files, which contain detailed building information, can be used to extract data about building components, including materials, quantities, and characteristics. 
+<br>
+1. Material Matching:
+IFC classifications, when linked to environmental databases, allow LCA tools to automatically match building elements with their corresponding environmental data (e.g., embodied carbon, water consumption, energy use). 
+<br>
+1. Automated Calculations:
+The integration of IFC data and environmental databases enables automated calculations of environmental impacts, saving time and effort compared to manual calculations. 
+<br>
+1. Improved Accuracy:
+Using detailed, classified data from IFC models can lead to more accurate LCA results, as it allows for a more precise assessment of material quantities and characteristics. 
+<br>
+1. Early Design Stage Integration:
+IFC-based LCA allows for the early integration of sustainability considerations into the design process, enabling designers to make informed decisions about material selection and design choices.
+
+</div>
 
 
 
