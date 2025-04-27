@@ -1435,6 +1435,15 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#extraction-of-a-spatialzone-contained-in-a-storey-or-crossing-multiple-storeys" class="md-nav__link">
+    <span class="md-ellipsis">
+      Extraction of a SpatialZone contained in a Storey or crossing multiple Storeys
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#extraction-of-an-apartment-from-the-database" class="md-nav__link">
     <span class="md-ellipsis">
       Extraction of an Apartment from the Database
@@ -2292,6 +2301,15 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#extraction-of-a-spatialzone-contained-in-a-storey-or-crossing-multiple-storeys" class="md-nav__link">
+    <span class="md-ellipsis">
+      Extraction of a SpatialZone contained in a Storey or crossing multiple Storeys
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#extraction-of-an-apartment-from-the-database" class="md-nav__link">
     <span class="md-ellipsis">
       Extraction of an Apartment from the Database
@@ -2391,9 +2409,30 @@
 </div>
 <p>The extraction of a SpatialZone will collect all walls, slabs, ... doors and windows that are part of the Space Boundary of a Space contained in the SpatialZone. The relationships are also collected. An IfcJson element with type='IfcRelSpaceBoundary' conveys the data for the connection geometry and the details of the <strong>IfcConnectionSurfaceGeometry</strong>. However, whole walls or slabs are  shown and the connection surface is not made visually apparent in the viewers.</p>
 </details>
-<h2 id="extraction-of-an-apartment-from-the-database">Extraction of an Apartment from the Database</h2>
+<h2 id="extraction-of-a-spatialzone-contained-in-a-storey-or-crossing-multiple-storeys">Extraction of a SpatialZone contained in a Storey or crossing multiple Storeys</h2>
 <p>We can extract an IfcSpatialZone in the same way that we extracted an IfcStorey in <a href="../extract-spatial-unit-storey/#extraction-of-a-storey-from-the-database">Extraction of a Storey from the Database</a>.</p>
-<p>This works seamlessly. However IFC Schependomlaan has a insconsistent IfcSpaceBoundary values:</p>
+<p>However, there are distinctive features.</p>
+<p>A storey is:</p>
+<ul>
+<li>a child of the building, via aggregation (IfcRelAggregates)</li>
+<li>the parent of all its member spaces, via aggregation (IfcRelAggregates) and</li>
+<li>the parent of all its contained elements, via containement (IfcRelContainedInSpatialStructure)</li>
+</ul>
+<p>A spatialzone is:</p>
+<ul>
+<li>a child of a storey, via aggregation (IfcRelAggregates), when the spatialzone is entirely contained in the storey</li>
+<li>a child of the building, via aggregation (IfcRelAggregates), when the spatialzone is not contained in a single storey. E.g. the spatialzone is a Duplex or the commons</li>
+<li>a parent of all its member spaces via referencing (IfcRelReferencedInSpatialStructure)</li>
+<li>a sibling of all its member spaces when considered with respect to the storey it belongs to</li>
+<li>a sibling of all the storeys that are parents of its member spaces when it is a child of the building</li>
+</ul>
+<p>In both case it is therefore not sufficient to look at the simple hierarchy of the spatialzone.</p>
+<p>The extraction process must also account for the parents of the spatialzone member spaces.</p>
+<h2 id="extraction-of-an-apartment-from-the-database">Extraction of an Apartment from the Database</h2>
+<details class="note">
+<summary>Screen captures are from previous version(s) of the software and need be upated</summary>
+</details>
+<p>The extraction works seamlessly. However IFC Schependomlaan has a insconsistent IfcSpaceBoundary values:</p>
 <ul>
 <li>for apartments 1 to 3 and 7 to 8, the spaces have Doors but no Windows in their boundary</li>
 <li>for apartments 4 and 5, the spaces have Windows but no Doors in their boundary</li>
