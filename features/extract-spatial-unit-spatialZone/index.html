@@ -2429,21 +2429,16 @@
 <p>In both case it is therefore not sufficient to look at the simple hierarchy of the spatialzone.</p>
 <p>The extraction process must also account for the parents of the spatialzone member spaces.</p>
 <h2 id="extraction-of-an-apartment-from-the-database">Extraction of an Apartment from the Database</h2>
-<details class="note">
-<summary>Screen captures are from previous version(s) of the software and need be upated</summary>
-</details>
 <p>The extraction works seamlessly. However IFC Schependomlaan has a insconsistent IfcSpaceBoundary values:</p>
 <ul>
 <li>for apartments 1 to 3 and 7 to 8, the spaces have Doors but no Windows in their boundary</li>
 <li>for apartments 4 and 5, the spaces have Windows but no Doors in their boundary</li>
 </ul>
 <h3 id="extraction-of-appartment-003-of-the-ground-floor-of-ifc-schependomlaan">Extraction of Appartment 0.03 of the Ground Floor of IFC Schependomlaan</h3>
-<p>Hereunder, we have the result of the extraction including to top slab that are part of the Boundary of Spaces in that apartment.</p>
-<p><a class="glightbox" href="../../assets/images/IFC_Schependomlaan_groundfloor_Apartment0-03_with_top_slabs.bimcollab.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="BIMCollab display of IFC Schependomlaan ground floor Apartment 0.03 with top slabs" src="../../assets/images/IFC_Schependomlaan_groundfloor_Apartment0-03_with_top_slabs.bimcollab.png" /></a></p>
-<p>Hereunder, we have hidden the top slab and see the layout of Apartment 0.03 with the missing windows.
-Because we have started the extraction from the IfcSpatialZone as the container, we don't have the <strong>IfcRelContainedInSpatialStructure</strong> relationship between the <strong>IfcBuildingStorey</strong> and the contained <strong>IfcWall</strong>, <strong>IfcSlab</strong>, <strong>IfcDoor</strong>, <strong>IfcWindow</strong>, ...
-These relationships could be added, but that is not yet done here.</p>
-<p><a class="glightbox" href="../../assets/images/IFC_Schependomlaan_groundfloor_Apartment0-03_without_top_slabs.bimcollab.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="BIMCollab display of IFC Schependomlaan ground floor Aparment 0.03 without top slabs" src="../../assets/images/IFC_Schependomlaan_groundfloor_Apartment0-03_without_top_slabs.bimcollab.png" /></a></p>
+<p>Hereunder, we have the result of the extraction including the top slabs that are part of the Boundary of Spaces in that apartment.</p>
+<p><a class="glightbox" href="../../assets/images/IFC_Schependomlaan_groundfloor_Apartment0-03_with_top_slabs.solibri.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Solibri display of IFC Schependomlaan ground floor Apartment 0.03 with top slabs" src="../../assets/images/IFC_Schependomlaan_groundfloor_Apartment0-03_with_top_slabs.solibri.png" /></a></p>
+<p>Hereunder, we have hidden the top slabs and we cansee the layout of Apartment 0.03 with the missing windows.</p>
+<p><a class="glightbox" href="../../assets/images/IFC_Schependomlaan_groundfloor_Apartment0-03_without_top_slabs.solibri.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Solibri display of IFC Schependomlaan ground floor Aparment 0.03 without top slabs" src="../../assets/images/IFC_Schependomlaan_groundfloor_Apartment0-03_without_top_slabs.solibri.png" /></a></p>
 <h3 id="extraction-of-appartment-001-of-the-ground-floor-of-ifc-schependomlaan">Extraction of Appartment 0.01 of the Ground Floor of IFC Schependomlaan</h3>
 <p><a class="glightbox" href="../../assets/images/IFC_Schependomlaan_groundfloor_Apartment0-01_with_two_toilets.solibri.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Solibri display of IFC Schependomlaan ground floor Apartment 0.01" src="../../assets/images/IFC_Schependomlaan_groundfloor_Apartment0-01_with_two_toilets.solibri.png" /></a></p>
 <p>One of the notable strength of extractions is that anomalies show up clearly. Here we have two toilet spaces in the first apartment. In reality, one of them belongs to the second apartment.</p>
