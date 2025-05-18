@@ -2211,16 +2211,18 @@
 <p>The page has a basic layout.</p>
 <p>It lets:</p>
 <p>(1) Enter the id of a bundle (e.g. 132) and activate the <code>Get SpatialZones</code> button</p>
-<p>(2) This triggers the call of <code>/common/bundle/132/bundle-unit-list/?unit_type=IfcSpatialZone</code> which comes with the list of SpatialZones for the bundle.</p>
+<p>(2) This triggers the call of <code>/common/bundle/132/bundle-unit-list/?unit_type=IfcProject,IfcSpatialZone</code> which comes with the list of the SpatialZones for the bundle and with the initial IFC file associated with the IfcProject. The name of the Project in the IFC is '0001' and we have not changed it. </p>
 <p><a class="glightbox" href="../../assets/images/viewer-02.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Viewer Page" src="../../assets/images/viewer-02.png" /></a></p>
-<p>The user can select the apartment <code>Duplex-A</code>and activate the <code>Get IFC</code> button.</p>
+<p>(3) The user can select the apartment <code>Duplex-A</code>and activate the <code>Get IFC</code> button.</p>
 <p><a class="glightbox" href="../../assets/images/viewer-03.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Viewer Page" src="../../assets/images/viewer-03.png" /></a></p>
 <p>(4) This triggers the call of  <code>common/bundle/132/unit/53d4ba7a-5f23-412a-96db-0735b79bcfe8</code> which comes back with the detail of the IfcSpatialZone for the apartment Duplex-A, with the path of the IFC file in the <code>unitjson</code> field. This is passed to the viewer so that the viewer can get and and display the IFC file</p>
 <p><a class="glightbox" href="../../assets/images/viewer-04.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Viewer Page" src="../../assets/images/viewer-04.png" /></a></p>
-<p>Then, the user can select an object (here a wall) and gets the details of the object in the right panel.</p>
+<p>(5) Then, the user can select an object (here a wall) and gets the details of the object in the right panel.</p>
 <p><a class="glightbox" href="../../assets/images/viewer-05.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Viewer Page" src="../../assets/images/viewer-05.png" /></a></p>
+<p>(6) The user can also select the project (named '0001')and display the original IFC</p>
+<p><a class="glightbox" href="../../assets/images/viewer-06.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Viewer Page" src="../../assets/images/viewer-06.png" /></a></p>
 <details class="note">
-<summary>This version of the Viewer can display the IFC file of the extract of the SpatialZone but does not handle the <strong>IfcRelReferencedInSpatialStructure</strong> relationship. This is also the case with the other viewers: the relation of the <strong>IfcSpaces</strong> and the <strong>IfcSpatialZone</strong> is not exposed. But that could be developed.</summary>
+<summary>This version of the Viewer can display the IFC file of the extract of the SpatialZone but does not handle the <strong>IfcRelReferencedInSpatialStructure</strong> relationship. This is also the case with the other viewers: the relation of the <strong>IfcSpaces</strong> and the <strong>IfcSpatialZone</strong> is not exposed. But that could be developed. <br><br> Note: this version of the viewer does not display all IFCs properly.</summary>
 </details>
 
 

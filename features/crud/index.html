@@ -2678,7 +2678,11 @@
 <p>Parameters:</p>
 <ul>
 <li>bundle_id: the id of the bundle</li>
-<li>unit_type: the type of the unit (can be null)</li>
+<li>unit_type: (can be null)<ul>
+<li>the type of the unit: e.g. IfcSpatialZone</li>
+<li>can also be a list of types: e.g. IfcProject,IfcSpatialZone</li>
+</ul>
+</li>
 </ul>
 <p>Result example: with Duplex_A_20110907_optimized.ifc after the creation of the SpatialZones</p>
 <div class="highlight"><pre><span></span><code><span class="p">{</span>
