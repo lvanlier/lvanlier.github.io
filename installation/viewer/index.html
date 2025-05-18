@@ -2293,6 +2293,75 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#build-a-container" class="md-nav__link">
+    <span class="md-ellipsis">
+      Build a container
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Build a container">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#create-a-dockerfile" class="md-nav__link">
+    <span class="md-ellipsis">
+      Create a Dockerfile
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#build-the-container-with-docker" class="md-nav__link">
+    <span class="md-ellipsis">
+      Build the container with docker
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tag-the-image" class="md-nav__link">
+    <span class="md-ellipsis">
+      Tag the image
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#create-a-repo-on-docker-hub" class="md-nav__link">
+    <span class="md-ellipsis">
+      Create a repo on Docker Hub
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#push-the-image-to-the-repo" class="md-nav__link">
+    <span class="md-ellipsis">
+      Push the image to the repo
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#run-with-the-image-from-docker-hub" class="md-nav__link">
+    <span class="md-ellipsis">
+      Run with the image from Docker Hub
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -2576,6 +2645,75 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#build-a-container" class="md-nav__link">
+    <span class="md-ellipsis">
+      Build a container
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Build a container">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#create-a-dockerfile" class="md-nav__link">
+    <span class="md-ellipsis">
+      Create a Dockerfile
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#build-the-container-with-docker" class="md-nav__link">
+    <span class="md-ellipsis">
+      Build the container with docker
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tag-the-image" class="md-nav__link">
+    <span class="md-ellipsis">
+      Tag the image
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#create-a-repo-on-docker-hub" class="md-nav__link">
+    <span class="md-ellipsis">
+      Create a repo on Docker Hub
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#push-the-image-to-the-repo" class="md-nav__link">
+    <span class="md-ellipsis">
+      Push the image to the repo
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#run-with-the-image-from-docker-hub" class="md-nav__link">
+    <span class="md-ellipsis">
+      Run with the image from Docker Hub
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -2786,6 +2924,30 @@ For all storeys the hider works as a 'hider' while for <strong>first_floor</stro
 <p>To start in dev: <code>npm run dev</code></p>
 <p>To build: <code>npm run build</code> gives errors (from the ThatOpen Code)
 and '<code>npm run build --force</code> gives the same result as <code>npm run build</code></p>
+<h2 id="build-a-container">Build a container</h2>
+<h3 id="create-a-dockerfile">Create a Dockerfile</h3>
+<div class="highlight"><pre><span></span><code>FROM node:23-alpine
+WORKDIR /app
+COPY package.json package-lock.json ./
+RUN npm install
+COPY . .
+EXPOSE 5173/tcp
+CMD [&quot;npm&quot;, &quot;run&quot;, &quot;dev&quot;]
+</code></pre></div>
+<h3 id="build-the-container-with-docker">Build the container with docker</h3>
+<div class="highlight"><pre><span></span><code>docker build -t thatopen-v2-1-0 .
+</code></pre></div>
+<h3 id="tag-the-image">Tag the image</h3>
+<div class="highlight"><pre><span></span><code>docker tag thatopen-v2-1-0 lvanlier/thatopen-v2-1-0
+</code></pre></div>
+<h3 id="create-a-repo-on-docker-hub">Create a repo on Docker Hub</h3>
+<p>login to Docker Hub, create the repo with name thatopen-v2-1-0</p>
+<h3 id="push-the-image-to-the-repo">Push the image to the repo</h3>
+<div class="highlight"><pre><span></span><code>docker push lvanlier/thatopen-v2-1-0
+</code></pre></div>
+<h2 id="run-with-the-image-from-docker-hub">Run with the image from Docker Hub</h2>
+<div class="highlight"><pre><span></span><code>docker run -d --network host lvanlier/thatopen-v2-1-0
+</code></pre></div>
 
 
 
