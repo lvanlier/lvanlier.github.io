@@ -1609,6 +1609,33 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#detail-of-an-object" class="md-nav__link">
+    <span class="md-ellipsis">
+      Detail of an object
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#update-of-an-object" class="md-nav__link">
+    <span class="md-ellipsis">
+      Update of an object
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#assign-the-representation-of-a-space-to-a-spatialzone" class="md-nav__link">
+    <span class="md-ellipsis">
+      Assign the representation of a space to a spatialzone
+    </span>
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -2409,6 +2436,33 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#detail-of-an-object" class="md-nav__link">
+    <span class="md-ellipsis">
+      Detail of an object
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#update-of-an-object" class="md-nav__link">
+    <span class="md-ellipsis">
+      Update of an object
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#assign-the-representation-of-a-space-to-a-spatialzone" class="md-nav__link">
+    <span class="md-ellipsis">
+      Assign the representation of a space to a spatialzone
+    </span>
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -2438,7 +2492,7 @@
 <h2 id="queries">Queries</h2>
 <h3 id="list-of-bundles">List of bundles</h3>
 <p>A bundle represents a master set of data initiated by the import of an IFC file</p>
-<div class="highlight"><pre><span></span><code>/common/bundle-list
+<div class="highlight"><pre><span></span><code>GET /common/bundle-list
 </code></pre></div>
 <p>Parameters:</p>
 <ul>
@@ -2447,7 +2501,7 @@
 <li>limit: max number of rows returned, default = 100 </li>
 </ul>
 <h3 id="details-of-a-bundle">Details of a Bundle</h3>
-<div class="highlight"><pre><span></span><code>/common/bundle/{bundle_id}
+<div class="highlight"><pre><span></span><code>GET /common/bundle/{bundle_id}
 </code></pre></div>
 <p>Parameters:</p>
 <ul>
@@ -2482,7 +2536,7 @@
 </code></pre></div>
 <h3 id="bundle-journal">Bundle Journal</h3>
 <p>The BundleJournal records the tasks that are performed on a bundle and provides for each one the corresponding xxx_Instruction and xxx_Result. When several instructions are executed, such as in the exemple below, the xxx_Instruction and xxx_Result are not specifically listed in the order of execution.</p>
-<div class="highlight"><pre><span></span><code>/common/bundle-journal/{bundle_id}/
+<div class="highlight"><pre><span></span><code>GET /common/bundle-journal/{bundle_id}/
 </code></pre></div>
 <p>Parameters:</p>
 <ul>
@@ -2533,7 +2587,7 @@
 <span class="p">}</span>
 </code></pre></div>
 <h3 id="list-of-spatialunits">List of SpatialUnits</h3>
-<div class="highlight"><pre><span></span><code>/common/spatial-unit-list/
+<div class="highlight"><pre><span></span><code>GET /common/spatial-unit-list/
 </code></pre></div>
 <p>Parameters:</p>
 <ul>
@@ -2613,7 +2667,7 @@
 <span class="p">}</span>
 </code></pre></div>
 <h3 id="details-of-a-spatial-unit">Details of a Spatial Unit</h3>
-<div class="highlight"><pre><span></span><code>/common/spatial-unit/{spatial_unit_id}
+<div class="highlight"><pre><span></span><code>GET /common/spatial-unit/{spatial_unit_id}
 </code></pre></div>
 <p>Parameters:</p>
 <ul>
@@ -2640,7 +2694,7 @@
 <p>A Spatial Unit can be related to a Bundle (master data set of an IFC file of the construction projet) or to several bundles when more that one IFC file is imported while giving the same Spatial Unit Reference.</p>
 <p>Initially, the bundle unit which is associated to the Spatial Unit is the 'Project' (root of the IFC file).</p>
 <p>Thereafter, a link can be created between a Spatial Unit, such as an Apartment, an Office, a Parking, ... and the corresponding bundle unit with the IFC data of the Apartment, Office, Parking, ...</p>
-<div class="highlight"><pre><span></span><code>/common/spatial-unit/{spatial_unit_id}/root-bundle-unit-list
+<div class="highlight"><pre><span></span><code>GET /common/spatial-unit/{spatial_unit_id}/root-bundle-unit-list
 </code></pre></div>
 <p>Parameters:</p>
 <ul>
@@ -2673,7 +2727,7 @@
 <li>a SpatialZone (or a Group or Zone as a proxy of a SpatialZone)</li>
 <li>a Space</li>
 </ul>
-<div class="highlight"><pre><span></span><code>/common/bundle/{bundle_id}/bundle-unit-list
+<div class="highlight"><pre><span></span><code>GET /common/bundle/{bundle_id}/bundle-unit-list
 </code></pre></div>
 <p>Parameters:</p>
 <ul>
@@ -2741,7 +2795,7 @@
 <h3 id="detail-of-a-bundle-unit">Detail of a Bundle Unit</h3>
 <p>The Bundle Unit has a json field that records the output of the operations made on the bundle unit.
 In the example that follows, an extraction of the data of the bundle unit for the IfcSpatialZone 'Duplex-A' has been done and the files produced (ifcJON and IFC) have been recorded in the unitjson.</p>
-<div class="highlight"><pre><span></span><code>/common/bundle/{bundle_id}/unit/{unit_id}/
+<div class="highlight"><pre><span></span><code>GET /common/bundle/{bundle_id}/unit/{unit_id}/
 </code></pre></div>
 <p>Parameters:</p>
 <ul>
@@ -2780,7 +2834,7 @@ In the example that follows, an extraction of the data of the bundle unit for th
 <li>those that are associated directly to the object (Pset_xxx) and named <strong>propertyset</strong></li>
 <li>those that are associated to the type of an object and then associated to object via the type of the object and named hereunder <strong>properties</strong></li>
 </ul>
-<div class="highlight"><pre><span></span><code>/common/bundle/{bundle_id}/spatialzone/{sz_id}/properties
+<div class="highlight"><pre><span></span><code>GET /common/bundle/{bundle_id}/spatialzone/{sz_id}/properties
 </code></pre></div>
 <p>Parameters:</p>
 <ul>
@@ -2867,6 +2921,37 @@ In the example that follows, an extraction of the data of the bundle unit for th
 <span class="w">    </span><span class="p">}</span>
 <span class="w">  </span><span class="p">]</span>
 <span class="p">}</span>
+</code></pre></div>
+<h3 id="detail-of-an-object">Detail of an object</h3>
+<p>This provides the details of an object. This provides data for the <strong>representation_ids</strong> and the <strong>objectPlacement</strong></p>
+<div class="highlight"><pre><span></span><code>GET /common/bundle/{bundle_id}/object/{object_id}
+</code></pre></div>
+<p>Parameters:</p>
+<ul>
+<li>bundle_id: the id of the bundle</li>
+<li>object_id: the uuid of the object</li>
+</ul>
+<h3 id="update-of-an-object">Update of an object</h3>
+<p>This provide the capability to change the details of an object. As such, objects that come from the master IFC file should not be updated. But, this provide a convenient capability to <strong>update objects created within the platform</strong>, such as e.g. the <strong>SpatialZones</strong>.</p>
+<div class="highlight"><pre><span></span><code><span class="n">PATCH</span>  <span class="o">/</span><span class="n">common</span><span class="o">/</span><span class="n">bundle</span><span class="o">/</span><span class="p">{</span><span class="n">bundle_id</span><span class="p">}</span><span class="o">/</span><span class="nb">object</span><span class="o">/</span><span class="p">{</span><span class="n">object_id</span><span class="p">}</span>
+
+<span class="k">with</span>  <span class="n">Body</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">UpdateObject</span>
+
+<span class="k">class</span> <span class="nc">UpdateObject</span><span class="p">(</span><span class="n">BaseModel</span><span class="p">):</span> <span class="c1"># model for the request</span>
+    <span class="n">name</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="n">representation_ids</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="n">elementjson</span><span class="p">:</span> <span class="nb">dict</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>
+</code></pre></div>
+<h3 id="assign-the-representation-of-a-space-to-a-spatialzone">Assign the representation of a space to a spatialzone</h3>
+<p>This can be use when the master IFC file has spaces to represent spatial units such as is the case for the <strong>ARK_NordicLCA_Housing_Concrete_BuildingPermit_Revit.ifc</strong> building.</p>
+<div class="highlight"><pre><span></span><code><span class="n">POST</span> <span class="o">/</span><span class="n">common</span><span class="o">/</span><span class="n">assign</span><span class="o">-</span><span class="n">space</span><span class="o">-</span><span class="n">representation</span><span class="o">-</span><span class="n">to</span><span class="o">-</span><span class="n">spatialzone</span>
+
+<span class="k">with</span> <span class="n">Body</span><span class="o">=</span><span class="n">AssignmentOfSpaceRepresentationToSpatialZone</span>
+
+<span class="k">class</span> <span class="nc">AssignmentOfSpaceRepresentationToSpatialZone</span><span class="p">(</span><span class="n">BaseModel</span><span class="p">):</span>
+    <span class="n">bundle_id</span><span class="p">:</span> <span class="nb">str</span>
+    <span class="n">spatialZoneId</span><span class="p">:</span> <span class="nb">str</span>
+    <span class="n">spaceId</span><span class="p">:</span> <span class="nb">str</span>
 </code></pre></div>
 
 
