@@ -2673,10 +2673,9 @@
     elementHistory {
         uuid    id PK
         int     bundleId
-        string  elementType
         uuid    elementId
+        string  elementType
         json    elementJson
-        int     version
     }
 </code></pre>
 </div>
@@ -2788,7 +2787,8 @@ This is more convenient for SQL based queries.</p>
 <p>This is not activated and tested at this stage. It is more a placeholder to remember to address this topic more in depth</p>
 <h2 id="elements-history">Elements History</h2>
 <p>The idea is that each time an element is modified, the before update version is saved in this history.</p>
-<p>This is not activated and tested at this stage. It is more a placeholder to remember to address this topic more in depth</p>
+<p>This is rarely used as in most cases we do not update IFC elements.
+However, as we create IfcSpatialZone elements, we can also update them with a PATCH. In that case, the before image of the modified IfcSpatialZone gets written in the Element History.</p>
 <h2 id="bundle-unit-properties">Bundle Unit Properties</h2>
 <p>Contains a flat structure of all units and their construction or distribution objects with all their propertysets or associated object type properties.
 This could be a in a file instead of a table and helps provide a fast response to a query on all properties that are relevant for the elements of a spatial zone associated to a spatial unit.</p>

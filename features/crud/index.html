@@ -2932,7 +2932,7 @@ In the example that follows, an extraction of the data of the bundle unit for th
 <li>object_id: the uuid of the object</li>
 </ul>
 <h3 id="update-of-an-object">Update of an object</h3>
-<p>This provide the capability to change the details of an object. As such, objects that come from the master IFC file should not be updated. But, this provide a convenient capability to <strong>update objects created within the platform</strong>, such as e.g. the <strong>SpatialZones</strong>.</p>
+<p>This provide the capability to change the details of an object. As such, objects that come from the master IFC file should not be updated. But, this provide a convenient capability to <strong>update objects created within the platform</strong>, such as e.g. the <strong>IfcSpatialZones</strong>.</p>
 <div class="highlight"><pre><span></span><code><span class="n">PATCH</span>  <span class="o">/</span><span class="n">common</span><span class="o">/</span><span class="n">bundle</span><span class="o">/</span><span class="p">{</span><span class="n">bundle_id</span><span class="p">}</span><span class="o">/</span><span class="nb">object</span><span class="o">/</span><span class="p">{</span><span class="n">object_id</span><span class="p">}</span>
 
 <span class="k">with</span>  <span class="n">Body</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">UpdateObject</span>
@@ -2942,6 +2942,7 @@ In the example that follows, an extraction of the data of the bundle unit for th
     <span class="n">representation_ids</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>
     <span class="n">elementjson</span><span class="p">:</span> <span class="nb">dict</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>
 </code></pre></div>
+<p>A patch will also insert the before image of the object in the <strong>elementhistory</strong> table.</p>
 <h3 id="assign-the-representation-of-a-space-to-a-spatialzone">Assign the representation of a space to a spatialzone</h3>
 <p>This can be use when the master IFC file has spaces to represent spatial units such as is the case for the <strong>ARK_NordicLCA_Housing_Concrete_BuildingPermit_Revit.ifc</strong> building.</p>
 <div class="highlight"><pre><span></span><code><span class="n">POST</span> <span class="o">/</span><span class="n">common</span><span class="o">/</span><span class="n">assign</span><span class="o">-</span><span class="n">space</span><span class="o">-</span><span class="n">representation</span><span class="o">-</span><span class="n">to</span><span class="o">-</span><span class="n">spatialzone</span>
@@ -2952,6 +2953,118 @@ In the example that follows, an extraction of the data of the bundle unit for th
     <span class="n">bundle_id</span><span class="p">:</span> <span class="nb">str</span>
     <span class="n">spatialZoneId</span><span class="p">:</span> <span class="nb">str</span>
     <span class="n">spaceId</span><span class="p">:</span> <span class="nb">str</span>
+</code></pre></div>
+<p>for:</p>
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;bundle_id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;149&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;spatialZoneId&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;af12ccb7-edef-48c3-97c9-3cc14d977859&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;spaceId&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2d39cdcf-21f9-44c8-b3e9-78c2dd008966&quot;</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>we get an updated SpatialZone with <strong>representation_ids</strong> and an <strong>objectPlacement</strong> borrowed from the corresponding space.</p>
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;spatialZone&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;representation_ids&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">      </span><span class="s2">&quot;32883524-541a-42ef-bfb9-c9de861b7736&quot;</span>
+<span class="w">    </span><span class="p">],</span>
+<span class="w">    </span><span class="nt">&quot;object_id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;af12ccb7-edef-48c3-97c9-3cc14d977859&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;elementjson&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;IfcSpatialZone&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;globalId&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;af12ccb7-edef-48c3-97c9-3cc14d977859&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Apartment 02.HSTO.AS2&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;longName&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Apartment 02.HSTO.AS2&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;objectType&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Private Parts - Apartment&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;representation&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;IfcProductDefinitionShape&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;representations&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">          </span><span class="p">{</span>
+<span class="w">            </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;IfcShapeRepresentation&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;ref&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;32883524-541a-42ef-bfb9-c9de861b7736&quot;</span>
+<span class="w">          </span><span class="p">}</span>
+<span class="w">        </span><span class="p">]</span>
+<span class="w">      </span><span class="p">},</span>
+<span class="w">      </span><span class="nt">&quot;objectPlacement&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;IfcLocalPlacement&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;placementRelTo&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">          </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;IfcLocalPlacement&quot;</span><span class="p">,</span>
+<span class="w">          </span><span class="nt">&quot;placementRelTo&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;IfcLocalPlacement&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;placementRelTo&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">              </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;IfcLocalPlacement&quot;</span><span class="p">,</span>
+<span class="w">              </span><span class="nt">&quot;relativePlacement&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;IfcAxis2Placement3D&quot;</span><span class="p">,</span>
+<span class="w">                </span><span class="nt">&quot;location&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                  </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;IfcCartesianPoint&quot;</span><span class="p">,</span>
+<span class="w">                  </span><span class="nt">&quot;coordinates&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">                    </span><span class="mi">0</span><span class="p">,</span>
+<span class="w">                    </span><span class="mi">0</span><span class="p">,</span>
+<span class="w">                    </span><span class="mi">0</span>
+<span class="w">                  </span><span class="p">]</span>
+<span class="w">                </span><span class="p">},</span>
+<span class="w">                </span><span class="nt">&quot;axis&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                  </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;IfcDirection&quot;</span><span class="p">,</span>
+<span class="w">                  </span><span class="nt">&quot;directionRatios&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">                    </span><span class="mi">0</span><span class="p">,</span>
+<span class="w">                    </span><span class="mi">0</span><span class="p">,</span>
+<span class="w">                    </span><span class="mi">1</span>
+<span class="w">                  </span><span class="p">]</span>
+<span class="w">                </span><span class="p">},</span>
+<span class="w">                </span><span class="nt">&quot;refDirection&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                  </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;IfcDirection&quot;</span><span class="p">,</span>
+<span class="w">                  </span><span class="nt">&quot;directionRatios&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">                    </span><span class="mf">0.49042092447644936</span><span class="p">,</span>
+<span class="w">                    </span><span class="mf">-0.8714856951411564</span><span class="p">,</span>
+<span class="w">                    </span><span class="mi">0</span>
+<span class="w">                  </span><span class="p">]</span>
+<span class="w">                </span><span class="p">}</span>
+<span class="w">              </span><span class="p">}</span>
+<span class="w">            </span><span class="p">},</span>
+<span class="w">            </span><span class="nt">&quot;relativePlacement&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">              </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;IfcAxis2Placement3D&quot;</span><span class="p">,</span>
+<span class="w">              </span><span class="nt">&quot;location&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;IfcCartesianPoint&quot;</span><span class="p">,</span>
+<span class="w">                </span><span class="nt">&quot;coordinates&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">                  </span><span class="mi">0</span><span class="p">,</span>
+<span class="w">                  </span><span class="mi">0</span><span class="p">,</span>
+<span class="w">                  </span><span class="mi">0</span>
+<span class="w">                </span><span class="p">]</span>
+<span class="w">              </span><span class="p">}</span>
+<span class="w">            </span><span class="p">}</span>
+<span class="w">          </span><span class="p">},</span>
+<span class="w">          </span><span class="nt">&quot;relativePlacement&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;IfcAxis2Placement3D&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;location&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">              </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;IfcCartesianPoint&quot;</span><span class="p">,</span>
+<span class="w">              </span><span class="nt">&quot;coordinates&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">                </span><span class="mi">0</span><span class="p">,</span>
+<span class="w">                </span><span class="mi">0</span><span class="p">,</span>
+<span class="w">                </span><span class="mi">54930</span>
+<span class="w">              </span><span class="p">]</span>
+<span class="w">            </span><span class="p">}</span>
+<span class="w">          </span><span class="p">}</span>
+<span class="w">        </span><span class="p">},</span>
+<span class="w">        </span><span class="nt">&quot;relativePlacement&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">          </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;IfcAxis2Placement3D&quot;</span><span class="p">,</span>
+<span class="w">          </span><span class="nt">&quot;location&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;IfcCartesianPoint&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;coordinates&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">              </span><span class="mi">0</span><span class="p">,</span>
+<span class="w">              </span><span class="mi">0</span><span class="p">,</span>
+<span class="w">              </span><span class="mi">0</span>
+<span class="w">            </span><span class="p">]</span>
+<span class="w">          </span><span class="p">}</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">      </span><span class="p">}</span>
+<span class="w">    </span><span class="p">},</span>
+<span class="w">    </span><span class="nt">&quot;created_at&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2025-05-27T22:01:54.221362&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;updated_by&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Apartment 02.HSTO.AS2&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;bundle_id&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">149</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;IfcSpatialZone&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;created_by&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;updated_at&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2025-05-30T18:04:41.771571&quot;</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
 </code></pre></div>
 
 
