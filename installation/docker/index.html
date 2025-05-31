@@ -2143,6 +2143,15 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#the-http-server-for-the-bim-files" class="md-nav__link">
+    <span class="md-ellipsis">
+      The http-server for the BIM files
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -2234,6 +2243,15 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#the-http-server-for-the-bim-files" class="md-nav__link">
+    <span class="md-ellipsis">
+      The http-server for the BIM files
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -2259,6 +2277,15 @@
 <div class="highlight"><pre><span></span><code>docker run -d --network host lvanlier/thatopen-v2-1-0
 </code></pre></div>
 <p>The viewer will be available on port 5173</p>
+<h2 id="the-http-server-for-the-bim-files">The http-server for the BIM files</h2>
+<p>The imagte is available on on Docker Hub in the repo <code>lvanlier/http-server</code></p>
+<p>To run:</p>
+<div class="highlight"><pre><span></span><code>docker run -dp 8002:8080 -v [your local place for X_BIM_FILES]:/bim lvanlier/http-server
+
+in my case I have
+
+docker run -dp 8002:8080 -v /Users/lucvanlier/X_BIM_FILES:/bim lvanlier/http-server
+</code></pre></div>
 
 
 
