@@ -1556,6 +1556,15 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#bundle-journal-by-proctoken" class="md-nav__link">
+    <span class="md-ellipsis">
+      Bundle Journal by proctoken
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#list-of-spatialunits" class="md-nav__link">
     <span class="md-ellipsis">
       List of SpatialUnits
@@ -2383,6 +2392,15 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#bundle-journal-by-proctoken" class="md-nav__link">
+    <span class="md-ellipsis">
+      Bundle Journal by proctoken
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#list-of-spatialunits" class="md-nav__link">
     <span class="md-ellipsis">
       List of SpatialUnits
@@ -2579,6 +2597,7 @@
 <span class="w">          </span><span class="p">}</span>
 <span class="w">        </span><span class="p">}</span>
 <span class="w">      </span><span class="p">},</span>
+<span class="w">      </span><span class="nt">&quot;proctoken&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;1c57e2fb-2d94-4f95-9b7c-f73838d00e81&quot;</span><span class="p">,</span>
 <span class="w">      </span><span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;643bd25d-d37e-4188-82ed-1bed95c8c5a7&quot;</span><span class="p">,</span>
 <span class="w">      </span><span class="nt">&quot;created_by&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span>
 <span class="w">      </span><span class="nt">&quot;updated_at&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span>
@@ -2586,6 +2605,16 @@
 <span class="w">  </span><span class="p">]</span>
 <span class="p">}</span>
 </code></pre></div>
+<h3 id="bundle-journal-by-proctoken">Bundle Journal by proctoken</h3>
+<p>When a long processing request is submitted, a proctoken is responded that will also will be joined to the complete response when available. The response is provided on the websocket channel but can also be obtained by a rest query with the provided proctoken.</p>
+<div class="highlight"><pre><span></span><code>GET /common/bundle-journal-by-token/{proctoken}
+</code></pre></div>
+<p>Parameters:</p>
+<ul>
+<li>proctoken: the proctoken provided in the response to the request</li>
+</ul>
+<p>Result example:</p>
+<p>Same as above</p>
 <h3 id="list-of-spatialunits">List of SpatialUnits</h3>
 <div class="highlight"><pre><span></span><code>GET /common/spatial-unit-list/
 </code></pre></div>

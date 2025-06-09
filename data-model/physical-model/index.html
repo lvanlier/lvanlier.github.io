@@ -2630,6 +2630,7 @@
     bundleJournal {
         uuid    id PK
         int     bundleId FK
+        uuid    proctoken
         json    operationJson  
     }
     bundleJournal }|--|| bundle : entry</code></pre>
