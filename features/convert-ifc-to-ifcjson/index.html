@@ -728,6 +728,8 @@
       
         
       
+        
+      
     
     
       
@@ -938,11 +940,32 @@
   
   
     <li class="md-nav__item">
-      <a href="../../data-model/ifc-types/" class="md-nav__link">
+      <a href="../../data-model/object-types/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    IFC Types
+    Object Types
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../data-model/styles/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Styles
   </span>
   
 
@@ -2316,6 +2339,7 @@
 <span class="c1">#</span>
 <span class="k">class</span> <span class="nc">ConvertIfcToIfcJson_Instruction</span><span class="p">(</span><span class="n">BaseModel</span><span class="p">):</span>
     <span class="n">sourceFileURL</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="s2">&quot;http://localhost:8002/IFC_SOURCE_FILES/Duplex_A_20110907_optimized.ifc&quot;</span>
+    <span class="n">mode</span><span class="p">:</span> <span class="n">Literal</span> <span class="p">[</span><span class="s1">&#39;NO_INVERSE&#39;</span><span class="p">,</span> <span class="s1">&#39;INVERSE&#39;</span><span class="p">,</span> <span class="s1">&#39;STYLED&#39;</span><span class="p">]</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="s1">&#39;STYLED&#39;</span>
 
 <span class="k">class</span> <span class="nc">ConvertIfcToIfcJson_Result</span><span class="p">(</span><span class="n">BaseModel</span><span class="p">):</span>
     <span class="n">rootObjectId</span><span class="p">:</span> <span class="nb">str</span>
@@ -2325,7 +2349,12 @@
     <span class="n">runtime</span><span class="p">:</span> <span class="nb">float</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="mf">0.0</span> <span class="c1"># in seconds</span>
 </code></pre></div>
 <h2 id="create-the-ifcjson-with-ifc2json">Create the ifcJSON with <a href="../references/#ifcjson">IFC2JSON</a></h2>
-<p>Read file and create ifcjson model with NO_INVERSE=True.</p>
+<p>There are 3 modes:</p>
+<ul>
+<li>NO_INVERSE: does not add inverse relationships (does not keep the styles)</li>
+<li>INVERSE: adds inverse relationships (does not keep the styles)</li>
+<li>STYLED: same as NO_INVERSE but keeps the styles defined in the IFC; this ensures rendition fidelity but has a processing cost that is not always useful.</li>
+</ul>
 <p>The result provides information on the rootObject which expectedly is an IfcProject.</p>
 <h3 id="issues-non-blocking-but-will-need-a-follow-up">Issues (non blocking; but will need a follow-up)</h3>
 <div class="admonition note">

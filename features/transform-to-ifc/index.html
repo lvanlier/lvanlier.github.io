@@ -728,6 +728,8 @@
       
         
       
+        
+      
     
     
       
@@ -938,11 +940,32 @@
   
   
     <li class="md-nav__item">
-      <a href="../../data-model/ifc-types/" class="md-nav__link">
+      <a href="../../data-model/object-types/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    IFC Types
+    Object Types
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../data-model/styles/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Styles
   </span>
   
 
@@ -1369,13 +1392,13 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#issues-will-need-a-follow-up" class="md-nav__link">
+  <a href="#issues" class="md-nav__link">
     <span class="md-ellipsis">
-      Issues (will need a follow-up)
+      Issues
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Issues (will need a follow-up)">
+    <nav class="md-nav" aria-label="Issues">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -2328,13 +2351,13 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#issues-will-need-a-follow-up" class="md-nav__link">
+  <a href="#issues" class="md-nav__link">
     <span class="md-ellipsis">
-      Issues (will need a follow-up)
+      Issues
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Issues (will need a follow-up)">
+    <nav class="md-nav" aria-label="Issues">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -2431,33 +2454,30 @@
 </code></pre></div>
 <h2 id="create-the-ifc-with-json2ifc">Create the IFC with <a href="../references/#ifcjson">JSON2IFC</a></h2>
 <p>The conversion is carried on in Celery with JSON2IFC module</p>
-<h2 id="issues-will-need-a-follow-up">Issues (will need a follow-up)</h2>
+<h2 id="issues">Issues</h2>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>The model(s) loose some features. For the most Viewers (OpenIfcViewer, That Open, BIMcollab Zoom), the models have apparently lost the style (color) of the walls and slabs and windows and transparency is lost. We can't see through the windows glass anymore. However, with Solibri Anywhere, the problem is not apparent.</p>
-</div>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>There are other 'unknown issues' with LARGE_MODEL_20210219Architecture.ifc. After an hour it was still busy. The issue is probably linked to the issue we had with NO_INVERSE = False in IFC2JSON.</p>
+<p>There is an  'unknown issues' with LARGE_MODEL_20210219Architecture.ifc. After an hour it was still busy. The issue is probably linked to the issue we had with NO_INVERSE = False in IFC2JSON.</p>
 </div>
 <h3 id="view-with-bimcollab-of-duplex_a_20110907_optimizedifc-after-filtering">View with BIMcollab of Duplex_A_20110907_optimized.ifc after filtering</h3>
-<p>The problem with the color and transparecy is manifest. <strong>It may be that the loss happens early at the IFC2JSON transformation. Anyhow needs to be investigated.</strong></p>
-<p>TODO: Apparently, there is also an issue with the <strong>openings (under Unregistered items)</strong>.</p>
 <p><a class="glightbox" href="../../assets/images/Duplex_A_20110907_optimized-after-roundtrip.bimcollab.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Bimcollab display of Duplex_A_20110907_optimized.ifc after filtering" src="../../assets/images/Duplex_A_20110907_optimized-after-roundtrip.bimcollab.png" /></a></p>
+<p>We can see that the furnitures have been removed by the filtering.</p>
 <p><a class="glightbox" href="../../assets/images/Duplex_A_20110907_optimized-level-1-after-roundtrip.bimcollab.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Bimcollab display of Level 1 of Duplex_A_20110907_optimized.ifc after filtering" src="../../assets/images/Duplex_A_20110907_optimized-level-1-after-roundtrip.bimcollab.png" /></a></p>
-<p>On Level 1, we can see that the furnitures have been removed by he filtering.</p>
 <p>We can also observe an anomaly in the display of Duplex_A_20110907_optimized.ifc with walls above the first level being displayed as belonging to the first level. Actually, the are erroneously defined as part of Level 1 i the original file!</p>
 <h3 id="view-with-solibri-of-duplex_a_20110907_optimizedifc-after-filtering">View with Solibri of Duplex_A_20110907_optimized.ifc after filtering</h3>
 <p><a class="glightbox" href="../../assets/images/Duplex_A_20110907_optimized-after-roundtrip.solibri.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Solibri display of Duplex_A_20110907_optimized.ifc after filtering" src="../../assets/images/Duplex_A_20110907_optimized-after-roundtrip.solibri.png" /></a></p>
 <h3 id="view-with-bimcollab-of-ifc_schependomlaanifc-after-the-filtering">View with BIMcollab of IFC_Schependomlaan.ifc after the filtering</h3>
-<p>We observe the same issues as for the Duplex: colors and transparency have been lost.</p>
 <p>The filtering removed the following elements types:</p>
 <ul>
 <li>Distribution Element(s)</li>
 <li>Other(s) [IfcBuildingElementProxy] for the mailboxes and other items</li>
 <li>Pipe Segment [IfcPipeSegment]</li>
 </ul>
-<p><a class="glightbox" href="../../assets/images/IFC_Schependolaan-after-roundtrip.bimcollab.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Bimcollab display of IFC_Schependomlaan.ifc after filtering" src="../../assets/images/IFC_Schependolaan-after-roundtrip.bimcollab.png" /></a></p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The adaptation to the code of IFC2JON4 (IfcJSON) do not yet bring the expeted result and Style is not apparent.</p>
+</div>
+<p><a class="glightbox" href="../../assets/images/IFC_Schependolaan-after-roundtrip.bimcollab.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Bimcollab d isplay of IFC_Schependomlaan.ifc after filtering" src="../../assets/images/IFC_Schependolaan-after-roundtrip.bimcollab.png" /></a></p>
 <h3 id="view-with-solibri-anywhere-of-ifc_schependomlaanifc-after-the-filtering">View with Solibri Anywhere of IFC_Schependomlaan.ifc after the filtering</h3>
 <p><a class="glightbox" href="../../assets/images/IFC_Schependolaan-after-roundtrip.solibri.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Solibri display of IFC_Schependomlaan.ifc after filtering" src="../../assets/images/IFC_Schependolaan-after-roundtrip.solibri.png" /></a></p>
 <p>Additionally, the spaces are all listed with Solibri and not with some of the other viewers (OpenIFCViewer, That Open, BIMCollab Zoom).</p>
