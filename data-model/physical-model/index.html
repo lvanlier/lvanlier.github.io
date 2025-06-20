@@ -2568,6 +2568,7 @@
         string  description
         json    unitGuide "'User Guide' for the spatialUnit"
     }
+
     bundle {
         int     id PK
         int     parentId
@@ -2656,7 +2657,8 @@
         uuid    proctoken
         json    operationJson  
     }
-    bundleJournal }|--|| bundle : entry</code></pre>
+    bundleJournal }|--|| bundle : entry
+</code></pre>
 <div style="width:85%">
 
 <pre class="mermaid"><code>erDiagram
@@ -2705,17 +2707,25 @@
 </div>
 
 <div class="admonition note">
+<p class="admonition-title">There are 2 parts in the physical model: the D4SU model and the technical model based on ifcJSON</p>
+<p>There are two parts in the data model. One part contains the information on the spatial units, their corresponding bundle of ifc file(s), the history of the processing and the data of the corresponding spatial zones and of their properties. Those data are collected by processing the technical model based on IfcJSON, but this is a design choice and they could also be collected by processing the IFC files directly.</p>
+<div class="admonition note">
+<p class="admonition-title">The D4SU data model</p>
+<p>The D4SU model contains the information for the Spatial Units and their data. The tables are: spatialUnit, bundle, bundleJournal, bundleUnit, spatialUnitBundleUnit, bundleJournalbundleUnitPropertyset. </p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">The technical model based on ifcJSON</p>
+<p>The model does not allocate IFC entities to DB tables but allocates ifcJSON entities to DB tables: object, representation, relationship, propertyset an add a table relatedmembership. The ifcJSON entities already aggregate a number of IFC entities. For instance, some ifcJSON relationships contain the data pertaining to one side of the relationship.</p>
+</div>
+</div>
+<div class="admonition note">
 <p class="admonition-title">spatial_ref_sys table</p>
 <p>In PostgreSQL, the table model also contains a table 'spatial_ref_sys' that is created by the PostGIS extension.</p>
 </div>
-<div class="admonition note">
-<p class="admonition-title">the physical model is based on ifcJSON</p>
-<p>The model hereunder does not allocate IFC entities to DB tables but allocates ifcJSON entities to DB tables. The ifcJSON entities already aggregate a number of IFC entities. For instance, some ifcJSON relationships contain the data pertaining to one side of the relationship.</p>
-</div>
-<p>The physical model is articulated around simple principles:</p>
+<p>The physical technical model is articulated around simple principles:</p>
 <ul>
 <li>The entities are those provided by the ifc2json transformation</li>
-<li>The the ifc2json transformation is assumed to be lossless with respect to  information that matters for Spatial Units; - if not, the transformation must be enhanced</li>
+<li>The the ifc2json transformation is assumed to be lossless with respect to information that matters for Spatial Units; - if not, the transformation must be enhanced</li>
 <li>Items from the ifc2json are distributed in 4 blocks:<ul>
 <li>object - applies to all items that are not in one of the 3 other groups</li>
 <li>representation</li>

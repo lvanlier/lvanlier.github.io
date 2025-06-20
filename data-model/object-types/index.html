@@ -2387,7 +2387,7 @@
 </tbody>
 </table>
 <p>The relationship between these object and their correponding object type is embodied in the <strong>IfcRelDefinesByType</strong> relationship where the <strong>RelatingType</strong> is the Object Type and the <strong>RelatedObjects</strong> are the objects with that type.</p>
-<p>To make things a little bit more complex, the RelatingType can also be an <strong>Object Style</strong> for some objects</p>
+<p>To make things a little bit more complex, the RelatingType can also be an <strong>Object Style</strong> for some objects. This applies to IFC2X3 files and has been deprecated in IFC4.</p>
 <table>
 <thead>
 <tr>
@@ -2398,16 +2398,17 @@
 <tbody>
 <tr>
 <td style="text-align: left;">IfcDoor</td>
-<td style="text-align: left;">IfcDoorStyle</td>
+<td style="text-align: left;">IfcDoorStyle (deprecated in IFC4; IfcDoorType used instead)</td>
 </tr>
 <tr>
 <td style="text-align: left;">IfcWindow</td>
-<td style="text-align: left;">IfcWindowStyle</td>
+<td style="text-align: left;">IfcWindowStyle (deprecated in IFC4; IfcDoorType used instead)</td>
 </tr>
 </tbody>
 </table>
+<p>There are still a lot of IFC2X3 files</p>
 <h2 id="the-following-figure-illustrates-the-relationship-for-property-sets">The following figure illustrates the relationship for property sets</h2>
-<p><a class="glightbox" href="../../assets/images/ifcreldefinesbytype_fig-1.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../../assets/images/ifcreldefinesbytype_fig-1.png" /></a></p>
+<p><a class="glightbox" href="../../assets/images/ifcreldefinesbytype_fig-1.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="IfcRelDefinesbyType" src="../../assets/images/ifcreldefinesbytype_fig-1.png" /></a></p>
 <p>This means that an object (e.g. an IfcWindow) will have properties from all the propertySets:</p>
 <ul>
 <li>associated with the object via an <strong>IfcRefDefinesByProperties</strong> relationship where the propertySet reference is the <strong>RelatingPropertyDefinition</strong>  and the object reference is part of the <strong>RelatedObjects</strong> list.</li>
@@ -2415,11 +2416,11 @@
 <li>associated with the <strong>objectStyle</strong> (i.e. IfcWindowStyle) in the same as with an objectType</li>
 </ul>
 <h2 id="the-following-figure-illustrates-the-relationship-for-material">The following figure illustrates the relationship for material</h2>
-<p><a class="glightbox" href="../../assets/images/IfcWallStandardCase_MaterialUsage-01.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../../assets/images/IfcWallStandardCase_MaterialUsage-01.png" /></a></p>
+<p><a class="glightbox" href="../../assets/images/IfcWallStandardCase_MaterialUsage-01.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="IfcWallStandardCase_MaterialUsage" src="../../assets/images/IfcWallStandardCase_MaterialUsage-01.png" /></a></p>
 <h2 id="the-following-two-figures-illustrates-the-relationship-for-representations">The following two figures illustrates the relationship for representations</h2>
 <p>The product representations are defined as representation maps (at the level of the supertype IfcTypeProduct (Wall, Slab, ...)), which gets assigned by an element occurrence instance through the IfcShapeRepresentation.Item being an IfcMappedItem.</p>
-<p><a class="glightbox" href="../../assets/images/IfcTypeProduct_RepresentationMap-1.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../../assets/images/IfcTypeProduct_RepresentationMap-1.png" /></a></p>
-<p><a class="glightbox" href="../../assets/images/IfcTypeProduct_RepresentationMap-2.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../../assets/images/IfcTypeProduct_RepresentationMap-2.png" /></a></p>
+<p><a class="glightbox" href="../../assets/images/IfcTypeProduct_RepresentationMap-1.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="IfcWallStandardCase_MaterialUsage 1" src="../../assets/images/IfcTypeProduct_RepresentationMap-1.png" /></a></p>
+<p><a class="glightbox" href="../../assets/images/IfcTypeProduct_RepresentationMap-2.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="IfcWallStandardCase_MaterialUsage 2" src="../../assets/images/IfcTypeProduct_RepresentationMap-2.png" /></a></p>
 
 
 

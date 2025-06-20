@@ -973,6 +973,17 @@
         
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Styles
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="./" class="md-nav__link md-nav__link--active">
         
   
@@ -982,6 +993,43 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#impact-on-ifcjson" class="md-nav__link">
+    <span class="md-ellipsis">
+      Impact on IfcJSON
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#example-of-link-between-a-door-and-a-style" class="md-nav__link">
+    <span class="md-ellipsis">
+      Example of link between a Door and a Style
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -2203,6 +2251,32 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#impact-on-ifcjson" class="md-nav__link">
+    <span class="md-ellipsis">
+      Impact on IfcJSON
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#example-of-link-between-a-door-and-a-style" class="md-nav__link">
+    <span class="md-ellipsis">
+      Example of link between a Door and a Style
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -2244,8 +2318,44 @@ Hence, it is not used as such and instead a 'non abstract' item will be used.</p
 <li>"IfcMappedItem"</li>
 <li>"IfcPolygonalFaceSet"</li>
 </ul>
-<p>Styles are not critical for most <strong>Administrative Procedures</strong> which will mainly use <strong>PropertySets</strong>.</p>
+<h2 id="impact-on-ifcjson">Impact on IfcJSON</h2>
 <p>They are not handled by the <a href="../../architecture/references/#ifcjson">IfcJSON framework</a> and we have adapted the code to account for styling.</p>
+<p>Styles are not critical for most <strong>Administrative Procedures</strong> which will mainly use <strong>PropertySets</strong>.
+However, we are used to a nice rendition and it is a convenient addition.</p>
+<h2 id="example-of-link-between-a-door-and-a-style">Example of link between a Door and a Style</h2>
+<p>This example is extracted from an IFC2X3 files and contains a <strong>IfcDoorStyle</strong>. In IFC4, it would be an <strong>IfcDoorType</strong>, but the relationships would be the same. 
+This example is provided to understand the role of the <strong>IfcRelDefinesByType</strong> and <strong>IfcStyledItems</strong> in assigning a color to the door.</p>
+<pre class="mermaid"><code>erDiagram
+    item_93 ["#93 IfcDoor"]
+    item_199 ["#199 IfcRelDefinesByType"]
+    item_196 ["#196 IfcDoorStyle"]
+    item_69 ["#69 IfcRepresentationMap"]
+    item_68 ["#68 IfcShapeRepresentation"]
+    item_60 ["#60 IfcExtrudedAreaSolid"]
+    item_182 ["#182 IfcStyledItem"]
+    item_181 ["#181 IfcPresentationStyleAssignment"]
+    item_180 ["#180 IfcSurfaceStyle"]
+    item_179 ["#179 IfcSurfaceStyleRendering"]
+    item_178 ["#178 IfcColourRgb"]
+    item_92 ["#92 IfcProductDefinitionShape"]
+    item_72 ["#72 IfcShapeRepresentation"]
+    item_71 ["#71 IfcMappedItem"]
+    item_93 ||--|| item_92 : ""
+    item_92 ||--|| item_72 : ""
+    item_72 ||--|| item_71 : ""
+    item_71 ||--|| item_69  : ""
+    item_199 ||--|{ item_93 : ""
+    item_199 ||--|| item_196 : ""
+    item_196  ||--|| item_69 : ""
+    item_69 ||--|| item_68 : ""
+    item_68 ||--|| item_60 : ""
+    item_182 ||--|| item_60 : ""
+    item_182 ||--|{ item_181 : ""
+    item_181 ||--|| item_180 : ""
+    item_180 ||--|| item_179 : ""
+    item_179 ||--|| item_178 : "" 
+    style item_182 fill:teal
+    style item_199 fill:teal</code></pre>
 
 
 
