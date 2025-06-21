@@ -1449,48 +1449,6 @@
   
 </li>
         
-          <li class="md-nav__item">
-  <a href="#remarks-and-to-do" class="md-nav__link">
-    <span class="md-ellipsis">
-      Remarks and to do
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Remarks and to do">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#that-open-display-without-selecting-level-1-the-spaces-are-visible" class="md-nav__link">
-    <span class="md-ellipsis">
-      That Open display without selecting Level 1. The spaces are visible
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#that-open-display-without-selecting-level-1-toggling-the-dipslay-of-the-space-a105" class="md-nav__link">
-    <span class="md-ellipsis">
-      That Open display without selecting Level 1. Toggling the dipslay of the space A105
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#that-open-display-without-selecting-level-1-getting-into-a105-to-see-the-stairs" class="md-nav__link">
-    <span class="md-ellipsis">
-      That Open display without selecting Level 1. Getting into A105 to see the Stairs
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-        
       </ul>
     </nav>
   
@@ -2402,48 +2360,6 @@
   
 </li>
         
-          <li class="md-nav__item">
-  <a href="#remarks-and-to-do" class="md-nav__link">
-    <span class="md-ellipsis">
-      Remarks and to do
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Remarks and to do">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#that-open-display-without-selecting-level-1-the-spaces-are-visible" class="md-nav__link">
-    <span class="md-ellipsis">
-      That Open display without selecting Level 1. The spaces are visible
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#that-open-display-without-selecting-level-1-toggling-the-dipslay-of-the-space-a105" class="md-nav__link">
-    <span class="md-ellipsis">
-      That Open display without selecting Level 1. Toggling the dipslay of the space A105
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#that-open-display-without-selecting-level-1-getting-into-a105-to-see-the-stairs" class="md-nav__link">
-    <span class="md-ellipsis">
-      That Open display without selecting Level 1. Getting into A105 to see the Stairs
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-        
       </ul>
     </nav>
   
@@ -2539,28 +2455,20 @@
 </ul>
 </li>
 <li>Now that we have 'all' elements, we need to look at the elements that are referenced in one the element that we have but are NOT in the elements that we have. These referenced elements can be objects, representations or propertysets (referenced by an object type). We need to get all these elements and add them to the list of elements. This is a recursive process as a referenced element can also reference other elements that are not in the list of elements</li>
-<li>We need to prune the related list of relationships to ensure we do not include related elements that are not in the spatial unit. This applies to IfcRelDefinesByProperties, IfcRelDefinesByType, IfcRelAssociatesMaterial</li>
+<li>We can process the IfcStyledItems if any. They can reference presentation elements deep in the representation structure of be referenced by materials.</li>
+<li>We need to prune the related list of relationships to ensure we do not include related elements that are not in the spatial unit. This applies to IfcRelDefinesByProperties, IfcRelDefinesByType, IfcRelAssociatesMaterial.</li>
 <li>Now that we have all that is needed for a model, we build an ifcJSON</li>
 <li>And convert it to an IFC(Step file).</li>
 </ol>
 <h3 id="view-with-bimcollab-of-extracted-level-1-of-duplex_a_20110907_optimized">View with BIMcollab of extracted Level 1 of Duplex_A_20110907_optimized</h3>
-<p><a class="glightbox" href="../../assets/images/Duplex_A_20110907_optimized-extracted-level1.bimcollab.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="OpenIFCViewer display of extracted Level 1 of Duplex_A_20110907_optimized.ifc" src="../../assets/images/Duplex_A_20110907_optimized-extracted-level1.bimcollab.png" /></a></p>
+<p><a class="glightbox" href="../../assets/images/Duplex_A_20110907_optimized-extracted-level1.bimcollab.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="BimCollab display of extracted Level 1 of Duplex_A_20110907_optimized.ifc" src="../../assets/images/Duplex_A_20110907_optimized-extracted-level1.bimcollab.png" /></a></p>
 <p>We have the elements that we had in IfcPatch (above), but now we also have the stairs.</p>
 <p>Additionally, with the misconfigured walls in the source IFC we also gained the doors of those walls under 'Unreferenced items' .</p>
 <h3 id="view-with-openifcviewer-of-extracted-level-1-of-duplex_a_20110907_optimized">View with OpenIFCViewer of extracted Level 1 of Duplex_A_20110907_optimized</h3>
 <p><a class="glightbox" href="../../assets/images/Duplex_A_20110907_optimized-extracted-level1.ifc-openifcviewer.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="OpenIFCViewer display of extracted Level 1 of Duplex_A_20110907_optimized.ifc" src="../../assets/images/Duplex_A_20110907_optimized-extracted-level1.ifc-openifcviewer.png" /></a></p>
 <p>Compared with BIMcollab, we don't see 'Unregistered items', hence, the erroneously registered walls don't get their doors.</p>
 <h3 id="view-with-that-open-of-extracted-level-1-of-duplex_a_20110907_optimized">View with That Open of extracted Level 1 of Duplex_A_20110907_optimized</h3>
-<p>The screen capture hereunder has been obtained by selecting the Level 1 storey. In that case we miss the display of the stairs.</p>
 <p><a class="glightbox" href="../../assets/images/Duplex_A_20110907_optimized-extracted-level1.thatopen.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="That Open display of extracted Level 1 of Duplex_A_20110907_optimized.ifc" src="../../assets/images/Duplex_A_20110907_optimized-extracted-level1.thatopen.png" /></a></p>
-<h3 id="remarks-and-to-do">Remarks and to do</h3>
-<p>We can notice the difference in rendering. That Open does not show the stairs in the view of Level 1 although the stairs are present in the IFC(STEP file). That Open displays the spaces representation as such. With the opacity, it's not possible to see through. But eventually, a stair can be viewed by entering into the space that contain it (with a tricky and uneasy navigation).</p>
-<h4 id="that-open-display-without-selecting-level-1-the-spaces-are-visible">That Open display without selecting Level 1. The spaces are visible</h4>
-<p><a class="glightbox" href="../../assets/images/Duplex_A_20110907_optimized-extracted-level1-spaces.thatopen.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="That Open display of a stair in extracted Level 1 of Duplex_A_20110907_optimized.ifc" src="../../assets/images/Duplex_A_20110907_optimized-extracted-level1-spaces.thatopen.png" /></a></p>
-<h4 id="that-open-display-without-selecting-level-1-toggling-the-dipslay-of-the-space-a105">That Open display without selecting Level 1. Toggling the dipslay of the space <strong>A105</strong></h4>
-<p><a class="glightbox" href="../../assets/images/Duplex_A_20110907_optimized-extracted-level1-spaces-toggle-visibility.thatopen.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="That Open display of a stair in extracted Level 1 of Duplex_A_20110907_optimized.ifc" src="../../assets/images/Duplex_A_20110907_optimized-extracted-level1-spaces-toggle-visibility.thatopen.png" /></a></p>
-<h4 id="that-open-display-without-selecting-level-1-getting-into-a105-to-see-the-stairs">That Open display without selecting Level 1. Getting into A105 to see the <strong>Stairs</strong></h4>
-<p><a class="glightbox" href="../../assets/images/Duplex_A_20110907_optimized-extracted-level1-stair.thatopen.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="That Open display of a stair in extracted Level 1 of Duplex_A_20110907_optimized.ifc" src="../../assets/images/Duplex_A_20110907_optimized-extracted-level1-stair.thatopen.png" /></a></p>
 
 
 
