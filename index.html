@@ -1888,10 +1888,6 @@
       
         
       
-        
-      
-        
-      
     
     
       
@@ -1954,12 +1950,64 @@
   
   
   
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_6_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_6_2" id="__nav_6_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Archived
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_6_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6_2">
+            <span class="md-nav__icon md-icon"></span>
+            Archived
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
     <li class="md-nav__item">
-      <a href="ifc5/hello-wall/" class="md-nav__link">
+      <a href="ifc5/archived-pre-alpha/ifc5-pre-alpha/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    The Hello Wall example
+    Intro
   </span>
   
 
@@ -1976,7 +2024,28 @@
   
   
     <li class="md-nav__item">
-      <a href="ifc5/spatial-units/" class="md-nav__link">
+      <a href="ifc5/archived-pre-alpha/hello-wall/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Hello Wall
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="ifc5/archived-pre-alpha/spatial-units/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1997,7 +2066,7 @@
   
   
     <li class="md-nav__item">
-      <a href="ifc5/references/" class="md-nav__link">
+      <a href="ifc5/archived-pre-alpha/references/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2006,6 +2075,14 @@
   
 
       </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
     </li>
   
 
@@ -2236,6 +2313,11 @@ Keywords: Building Information Modeling (BIM) / Industry Foundation Classes (IFC
 <p><strong>Digital Transformation</strong> of <strong>administrative processess</strong> calls for new ways of managing data for Spatial Units, starting with the data that originate from <strong>Architecture, Engineering and Construction (AEC)</strong> Industry which uses the <strong>Industry Foundation Classes (IFC)</strong> as the <strong>Dtaa Exchange Format</strong>.  </p>
 <p>The <strong>d4SU platform</strong> provides a technical home for processing the IFC files to extract information that is relevant to administrative processes in the domains of Digital Building Permit (DBP), Energy Performance of Buildings (EPB), Life Cycle Assessment (LCA), Digital Building Logbook (DBL), ...</p>
 <p>The platform lets import IFC files, validate them against requirements defined in IDS and process their data (objects, relationships, properties and geometries). It leverages OpenBIM tools such as IfcOpenShell and provides APIs for business applications to easily consume this technical data. The data is made available in a PostgreSQL database and in JSON, IFC and CSV files depending on the needs.</p>
+<p>Hereunder, as an illustration, two Building Units are extracted from the reference IFC file <a href="https://github.com/buildingsmart-community/ifcJSON/blob/main/Samples/IFC_2x3/Duplex_A_20110907_optimized.ifc">Duplex_A_20110907_optimized.ifc</a>.</p>
+<p><a class="glightbox" href="./assets/schemas/duplex.svg" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src='./assets/schemas/duplex.svg'></a></p>
+<p>Each duplex apartment file embarks all its elements and properties, materials and geometry representations. They are also readily available in the PostgreSQL database.</p>
+<p>As another illustration, hereunder the extraction of the envelope of a building (= all elements with the property isExternal = True). Again, all properties, materials and  geometry representations are embarked in the envelope file and are available in the PostgreSQL database.</p>
+<p><a class="glightbox" href="./assets/schemas/envelope.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src='./assets/schemas/envelope.png'></a></p>
 
 
 
